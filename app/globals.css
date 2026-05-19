@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
+    --primary: 349 85% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 40% 95%;
+    --secondary-foreground: 240 10% 25%;
+    --muted: 30 20% 96%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 43 80% 60%;
+    --accent-foreground: 240 10% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 20% 92%;
+    --input: 30 20% 92%;
+    --ring: 349 85% 53%;
+    --radius: 0.75rem;
+    --chart-1: 349 85% 53%;
+    --chart-2: 43 80% 60%;
+    --chart-3: 160 60% 45%;
+    --chart-4: 220 70% 55%;
+    --chart-5: 280 65% 60%;
+  }
+
+  .dark {
+    --background: 240 10% 8%;
+    --foreground: 0 0% 95%;
+    --card: 240 10% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 10% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 349 75% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 16%;
+    --secondary-foreground: 0 0% 85%;
+    --muted: 240 5% 16%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 43 70% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 5% 18%;
+    --input: 240 5% 18%;
+    --ring: 349 75% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90
+           inline-flex items-center justify-center rounded-full
+           px-6 py-3 text-sm font-semibold transition-all duration-200
+           shadow-premium hover:shadow-premium-lg hover:-translate-y-0.5
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-foreground border border-border hover:bg-muted
+           inline-flex items-center justify-center rounded-full
+           px-6 py-3 text-sm font-semibold transition-all duration-200
+           shadow-card hover:shadow-card-hover hover:-translate-y-0.5
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+
+  .card-premium {
+    @apply bg-white rounded-2xl border border-border/50 shadow-card
+           hover:shadow-card-hover transition-all duration-300;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .badge-premium {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1
+           bg-primary/10 text-primary text-xs font-semibold;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-rose-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-amber-500 to-yellow-400 bg-clip-text text-transparent;
+  }
+
+  .input-premium {
+    @apply flex h-11 w-full rounded-xl border border-input bg-background
+           px-4 py-2 text-sm ring-offset-background
+           placeholder:text-muted-foreground/60
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+           disabled:cursor-not-allowed disabled:opacity-50
+           transition-shadow duration-200;
+  }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-card;
+  }
+
+  .shimmer {
+    @apply relative overflow-hidden before:absolute before:inset-0
+           before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent
+           before:animate-shimmer before:bg-[length:200%_100%];
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar for dashboard */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 2px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}

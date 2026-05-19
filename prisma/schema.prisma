@@ -1,0 +1,508 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================
+// AUTH & USERS
+// ============================================================
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  phone         String?
+  role          UserRole  @default(CLIENT)
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts        Account[]
+  sessions        Session[]
+  appointments    Appointment[]
+  medicalRecord   MedicalRecord?
+  payments        Payment[]
+  notifications   Notification[]
+  reviews         Review[]
+  blogPosts       BlogPost[]
+  employee        Employee?
+  skinPhotos      SkinPhoto[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+enum UserRole {
+  ADMIN
+  EMPLOYEE
+  CLIENT
+}
+
+// ============================================================
+// EMPLOYEES
+// ============================================================
+
+model Employee {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  bio          String?  @db.Text
+  specialties  String[]
+  schedule     Json?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  appointments Appointment[]
+  timeBlocks   TimeBlock[]
+
+  @@map("employees")
+}
+
+model TimeBlock {
+  id         String   @id @default(cuid())
+  employeeId String
+  startTime  DateTime
+  endTime    DateTime
+  reason     String?
+  createdAt  DateTime @default(now())
+
+  employee Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  @@map("time_blocks")
+}
+
+// ============================================================
+// SERVICES
+// ============================================================
+
+model Service {
+  id          String        @id @default(cuid())
+  name        String
+  slug        String        @unique
+  description String?       @db.Text
+  duration    Int
+  price       Float
+  currency    String        @default("MXN")
+  category    ServiceCategory
+  imageUrl    String?
+  isActive    Boolean       @default(true)
+  isPackage   Boolean       @default(false)
+  sessionsIncluded Int?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  appointments   Appointment[]
+  packageItems   PackageItem[]
+  packageOf      PackageItem[] @relation("PackageServices")
+
+  @@map("services")
+}
+
+model PackageItem {
+  id        String  @id @default(cuid())
+  packageId String
+  serviceId String
+  quantity  Int     @default(1)
+
+  package Service @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  service Service @relation("PackageServices", fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@map("package_items")
+}
+
+enum ServiceCategory {
+  FACIAL
+  LEGS
+  ARMPITS
+  BIKINI
+  FULL_BODY
+  MENS
+  PACKAGE
+  OTHER
+}
+
+// ============================================================
+// APPOINTMENTS
+// ============================================================
+
+model Appointment {
+  id          String            @id @default(cuid())
+  userId      String
+  employeeId  String?
+  serviceId   String
+  startTime   DateTime
+  endTime     DateTime
+  status      AppointmentStatus @default(PENDING)
+  notes       String?           @db.Text
+  internalNotes String?         @db.Text
+  reminderSent Boolean          @default(false)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  employee Employee? @relation(fields: [employeeId], references: [id], onDelete: SetNull)
+  service  Service   @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  payment  Payment?
+
+  @@map("appointments")
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+  RESCHEDULED
+}
+
+// ============================================================
+// PAYMENTS
+// ============================================================
+
+model Payment {
+  id            String        @id @default(cuid())
+  userId        String
+  appointmentId String?       @unique
+  amount        Float
+  currency      String        @default("MXN")
+  status        PaymentStatus @default(PENDING)
+  method        PaymentMethod @default(CARD)
+  stripeId      String?       @unique
+  stripeIntent  String?
+  receiptUrl    String?
+  metadata      Json?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  appointment Appointment? @relation(fields: [appointmentId], references: [id], onDelete: SetNull)
+
+  @@map("payments")
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  REFUNDED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  CARD
+  CASH
+  TRANSFER
+  OTHER
+}
+
+// ============================================================
+// MEDICAL RECORDS
+// ============================================================
+
+model MedicalRecord {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  birthDate     DateTime?
+  skinType      SkinType?
+  allergies     String[]
+  conditions    String[]
+  medications   String[]
+  lastSession   DateTime?
+  totalSessions Int       @default(0)
+  notes         String?   @db.Text
+  aiAnalysis    Json?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  user       User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skinPhotos SkinPhoto[]
+  treatments TreatmentLog[]
+
+  @@map("medical_records")
+}
+
+model SkinPhoto {
+  id              String      @id @default(cuid())
+  userId          String
+  medicalRecordId String?
+  url             String
+  publicId        String
+  category        PhotoCategory @default(GENERAL)
+  zone            String?
+  sessionNumber   Int?
+  notes           String?
+  aiTags          String[]
+  aiAnalysis      Json?
+  takenAt         DateTime    @default(now())
+  createdAt       DateTime    @default(now())
+
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  medicalRecord MedicalRecord? @relation(fields: [medicalRecordId], references: [id], onDelete: SetNull)
+
+  @@map("skin_photos")
+}
+
+model TreatmentLog {
+  id              String   @id @default(cuid())
+  medicalRecordId String
+  sessionNumber   Int
+  zone            String
+  parameters      Json?
+  observations    String?  @db.Text
+  performedAt     DateTime
+  createdAt       DateTime @default(now())
+
+  medicalRecord MedicalRecord @relation(fields: [medicalRecordId], references: [id], onDelete: Cascade)
+
+  @@map("treatment_logs")
+}
+
+enum SkinType {
+  TYPE_I
+  TYPE_II
+  TYPE_III
+  TYPE_IV
+  TYPE_V
+  TYPE_VI
+}
+
+enum PhotoCategory {
+  BEFORE
+  AFTER
+  PROGRESS
+  SKIN_CONCERN
+  GENERAL
+}
+
+// ============================================================
+// BLOG
+// ============================================================
+
+model BlogPost {
+  id          String       @id @default(cuid())
+  title       String
+  slug        String       @unique
+  excerpt     String?      @db.Text
+  content     String       @db.Text
+  coverImage  String?
+  authorId    String
+  categoryId  String?
+  tags        String[]
+  status      PostStatus   @default(DRAFT)
+  seoTitle    String?
+  seoDesc     String?
+  seoKeywords String[]
+  schema      Json?
+  readTime    Int?
+  views       Int          @default(0)
+  publishedAt DateTime?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  author   User          @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  category BlogCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  faqs     BlogFaq[]
+
+  @@map("blog_posts")
+}
+
+model BlogCategory {
+  id          String     @id @default(cuid())
+  name        String
+  slug        String     @unique
+  description String?
+  posts       BlogPost[]
+
+  @@map("blog_categories")
+}
+
+model BlogFaq {
+  id         String   @id @default(cuid())
+  postId     String
+  question   String
+  answer     String   @db.Text
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  post BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@map("blog_faqs")
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+// ============================================================
+// REVIEWS
+// ============================================================
+
+model Review {
+  id          String   @id @default(cuid())
+  userId      String
+  rating      Int
+  comment     String?  @db.Text
+  isPublished Boolean  @default(false)
+  isVerified  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("reviews")
+}
+
+// ============================================================
+// NOTIFICATIONS
+// ============================================================
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  type      NotificationType
+  title     String
+  message   String
+  isRead    Boolean          @default(false)
+  metadata  Json?
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
+
+enum NotificationType {
+  APPOINTMENT_CONFIRMED
+  APPOINTMENT_REMINDER
+  APPOINTMENT_CANCELLED
+  PAYMENT_CONFIRMED
+  GENERAL
+}
+
+// ============================================================
+// PROMOTIONS
+// ============================================================
+
+model Promotion {
+  id          String      @id @default(cuid())
+  code        String      @unique
+  description String?
+  type        PromoType
+  value       Float
+  minAmount   Float?
+  maxUses     Int?
+  usedCount   Int         @default(0)
+  isActive    Boolean     @default(true)
+  expiresAt   DateTime?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("promotions")
+}
+
+enum PromoType {
+  PERCENTAGE
+  FIXED_AMOUNT
+  FREE_SESSION
+}
+
+// ============================================================
+// AI INTEGRATION PREP
+// ============================================================
+
+model AiConversation {
+  id        String        @id @default(cuid())
+  userId    String?
+  sessionId String        @unique
+  messages  AiMessage[]
+  context   Json?
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@map("ai_conversations")
+}
+
+model AiMessage {
+  id             String         @id @default(cuid())
+  conversationId String
+  role           AiMessageRole
+  content        String         @db.Text
+  metadata       Json?
+  createdAt      DateTime       @default(now())
+
+  conversation AiConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@map("ai_messages")
+}
+
+enum AiMessageRole {
+  USER
+  ASSISTANT
+  SYSTEM
+}
+
+model AiSkinAnalysis {
+  id           String   @id @default(cuid())
+  userId       String
+  photoId      String?
+  skinType     String?
+  concerns     String[]
+  recommendations String[]
+  confidence   Float?
+  rawResponse  Json?
+  createdAt    DateTime @default(now())
+
+  @@map("ai_skin_analyses")
+}
