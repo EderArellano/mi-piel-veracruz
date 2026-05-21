@@ -99,7 +99,7 @@ export function TestimonialsSection() {
               </div>
 
               <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">
-                "{t.text}"
+                &ldquo;{t.text}&rdquo;
               </p>
 
               <div className="flex items-center gap-3 pt-5 border-t border-border/50">

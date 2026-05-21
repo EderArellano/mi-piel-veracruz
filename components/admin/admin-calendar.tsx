@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, Calendar, List, Grid3X3 } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { APPOINTMENT_STATUSES, formatTime } from "@/lib/utils";
-import type { Appointment, Service, User, Employee } from "@prisma/client";
+import type { Appointment, Service, Employee } from "@prisma/client";
 
 type AppointmentFull = Appointment & {
   service: Service;
@@ -68,7 +68,8 @@ export function AdminCalendar({ appointments }: AdminCalendarProps) {
               onClick={() =>
                 setCurrentDate((d) => {
                   const n = new Date(d);
-                  view === "week" ? n.setDate(d.getDate() - 7) : n.setDate(d.getDate() - 1);
+                  if (view === "week") n.setDate(d.getDate() - 7);
+                  else n.setDate(d.getDate() - 1);
                   return n;
                 })
               }
@@ -84,7 +85,8 @@ export function AdminCalendar({ appointments }: AdminCalendarProps) {
               onClick={() =>
                 setCurrentDate((d) => {
                   const n = new Date(d);
-                  view === "week" ? n.setDate(d.getDate() + 7) : n.setDate(d.getDate() + 1);
+                  if (view === "week") n.setDate(d.getDate() + 7);
+                  else n.setDate(d.getDate() + 1);
                   return n;
                 })
               }

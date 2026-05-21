@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { formatDate } from "@/lib/utils";
-import { BookOpen, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -81,11 +82,12 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Cover image */}
         {post.coverImage && (
-          <div className="aspect-video rounded-3xl overflow-hidden mb-10 bg-muted">
-            <img
+          <div className="aspect-video rounded-3xl overflow-hidden mb-10 bg-muted relative">
+            <Image
               src={post.coverImage}
               alt={post.title}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
         )}

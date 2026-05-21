@@ -6,7 +6,7 @@ import { signOut } from "next-auth/react";
 import {
   LayoutDashboard, Calendar, Clock, FileText, CreditCard, User,
   Settings, LogOut, Sparkles, Users, BarChart3, BookOpen, Tag,
-  Camera, MessageSquare,
+  MessageSquare,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";

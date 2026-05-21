@@ -23,8 +23,8 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
 
           <div>
             <blockquote className="text-2xl font-medium text-white leading-relaxed mb-4">
-              "La depilación láser en Mi Piel Veracruz cambió mi vida. Resultados increíbles desde
-              la primera sesión."
+              &ldquo;La depilación láser en Mi Piel Veracruz cambió mi vida. Resultados increíbles desde
+              la primera sesión.&rdquo;
             </blockquote>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center">

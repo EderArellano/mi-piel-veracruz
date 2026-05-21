@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Camera, Upload, Loader2, Bot, Plus } from "lucide-react";
+import { Camera, Upload, Loader2, Bot } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -25,7 +25,7 @@ const PHOTO_CATEGORIES = [
   { value: "GENERAL", label: "General", color: "bg-gray-100 text-gray-700" },
 ];
 
-export function MedicalRecordView({ record, photos, userId }: MedicalRecordViewProps) {
+export function MedicalRecordView({ record, photos, userId: _userId }: MedicalRecordViewProps) {
   const [isUploading, setIsUploading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("GENERAL");
   const [activeFilter, setActiveFilter] = useState<string | null>(null);

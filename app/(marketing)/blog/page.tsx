@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { formatDate } from "@/lib/utils";
 import { BookOpen, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Blog de Depilación Láser en Veracruz | Mi Piel Veracruz",
@@ -72,10 +73,11 @@ export default async function BlogPage() {
                   {/* Cover image placeholder */}
                   <div className="aspect-video bg-gradient-to-br from-rose-50 to-pink-50 relative overflow-hidden">
                     {post.coverImage ? (
-                      <img
+                      <Image
                         src={post.coverImage}
                         alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     ) : (
                       <div className="flex items-center justify-center h-full">

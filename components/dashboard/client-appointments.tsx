@@ -3,12 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowRight, XCircle, RefreshCw } from "lucide-react";
+import { Calendar, Clock, XCircle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
 import { formatDate, formatTime, APPOINTMENT_STATUSES, formatCurrency } from "@/lib/utils";
-import type { Appointment, Service, Employee, User, Payment } from "@prisma/client";
+import type { Appointment, Service, Employee, Payment } from "@prisma/client";
 
 type AppointmentFull = Appointment & {
   service: Service;

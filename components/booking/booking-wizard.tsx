@@ -10,7 +10,7 @@ import { ServiceStep } from "./service-step";
 import { DateTimeStep } from "./datetime-step";
 import { ConfirmStep } from "./confirm-step";
 import { toast } from "@/hooks/use-toast";
-import type { Service, Employee, User } from "@prisma/client";
+import type { Service, Employee } from "@prisma/client";
 
 type EmployeeWithUser = Employee & { user: { name: string | null; image: string | null } };
 

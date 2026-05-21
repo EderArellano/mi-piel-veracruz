@@ -5,7 +5,7 @@ import { format, addDays, isSameDay, startOfDay } from "date-fns";
 import { es } from "date-fns/locale";
 import { ChevronLeft, ChevronRight, Clock, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import type { Service, Employee, User } from "@prisma/client";
+import type { Service, Employee } from "@prisma/client";
 
 type EmployeeWithUser = Employee & { user: { name: string | null; image: string | null } };
 

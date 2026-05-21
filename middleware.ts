@@ -1,6 +1,9 @@
-import { auth } from "@/auth";
+import NextAuth from "next-auth";
+import { authConfig } from "./auth.config";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+
+const { auth } = NextAuth(authConfig);
 
 const PUBLIC_ROUTES = ["/", "/servicios", "/blog", "/contacto", "/login", "/register", "/forgot-password"];
 const AUTH_ROUTES = ["/login", "/register", "/forgot-password"];

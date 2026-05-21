@@ -22,7 +22,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 
   const { startTime: startTimeStr, ...rest } = parsed.data;
 
-  let updateData: Record<string, unknown> = { ...rest };
+  const updateData: Record<string, unknown> = { ...rest };
 
   if (startTimeStr) {
     const service = await prisma.service.findUnique({ where: { id: appointment.serviceId } });
