@@ -1,6 +1,8 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
 import { AdminClientsTable } from "@/components/admin/clients-table";
 
 export const metadata = { title: "Clientes | Admin Mi Piel Veracruz" };

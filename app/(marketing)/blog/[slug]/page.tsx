@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 import { prisma } from "@/lib/prisma";
 import { formatDate } from "@/lib/utils";
 import { Clock } from "lucide-react";

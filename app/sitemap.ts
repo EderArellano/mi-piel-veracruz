@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://mipielveracruz.com";
 
@@ -20,28 +22,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/agendar`, lastModified: new Date(), priority: 0.95, changeFrequency: "always" as const },
   ];
 
-  const posts = await prisma.blogPost.findMany({
-    where: { status: "PUBLISHED" },
-    select: { slug: true, updatedAt: true },
-  });
+  try {
+    const [posts, services] = await Promise.all([
+      prisma.blogPost.findMany({
+        where: { status: "PUBLISHED" },
+        select: { slug: true, updatedAt: true },
+      }),
+      prisma.service.findMany({
+        where: { isActive: true },
+        select: { slug: true, updatedAt: true },
+      }),
+    ]);
 
-  const blogUrls = posts.map((p) => ({
-    url: `${baseUrl}/blog/${p.slug}`,
-    lastModified: p.updatedAt,
-    priority: 0.7,
-    changeFrequency: "monthly" as const,
-  }));
+    const blogUrls = posts.map((p: { slug: string; updatedAt: Date }) => ({
+      url: `${baseUrl}/blog/${p.slug}`,
+      lastModified: p.updatedAt,
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
+    }));
 
-  const services = await prisma.service.findMany({
-    where: { isActive: true },
-    select: { slug: true, updatedAt: true },
-  });
+    const serviceUrls = services.map((s: { slug: string; updatedAt: Date }) => ({
+      url: `${baseUrl}/servicios/${s.slug}`,
+      lastModified: s.updatedAt,
+      priority: 0.85,
+    }));
 
-  const serviceUrls = services.map((s) => ({
-    url: `${baseUrl}/servicios/${s.slug}`,
-    lastModified: s.updatedAt,
-    priority: 0.85,
-  }));
-
-  return [...staticPages, ...blogUrls, ...serviceUrls];
+    return [...staticPages, ...blogUrls, ...serviceUrls];
+  } catch {
+    return staticPages;
+  }
 }

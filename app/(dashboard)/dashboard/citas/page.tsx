@@ -1,6 +1,8 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
 import { ClientAppointments } from "@/components/dashboard/client-appointments";
 
 export const metadata = { title: "Mis Citas | Mi Piel Veracruz" };

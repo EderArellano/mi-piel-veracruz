@@ -1,6 +1,8 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
 import { MedicalRecordView } from "@/components/dashboard/medical-record";
 
 export const metadata = { title: "Mi Expediente" };

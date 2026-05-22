@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+
+export const dynamic = "force-dynamic";
 import { prisma } from "@/lib/prisma";
 import { formatDate } from "@/lib/utils";
 import { BookOpen, ArrowRight } from "lucide-react";
