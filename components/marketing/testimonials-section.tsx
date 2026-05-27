@@ -56,7 +56,7 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="py-24 bg-gradient-brand" id="testimonios">
+    <section className="py-24 bg-brand-hex" id="testimonios">
       <div className="section-container">
         <div className="text-center mb-16">
           <div className="badge-premium mb-4">✦ Testimonios</div>

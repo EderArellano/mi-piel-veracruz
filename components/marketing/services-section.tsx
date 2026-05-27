@@ -8,73 +8,63 @@ import { Badge } from "@/components/ui/badge";
 
 const services = [
   {
-    id: "facial",
-    title: "Depilación Facial",
-    description: "Labio, mentón, patillas, cejas y más. Resultados suaves y precisos.",
-    price: "Desde $499",
+    id: "depilacion",
+    title: "Depilación Láser",
+    description: "Láser diodo grado médico para una piel suave, clara y libre de vello. Resultados permanentes desde la primera sesión para todo tipo de piel.",
+    price: "Desde $500",
     sessions: "6–8 sesiones",
-    href: "/servicios/facial",
+    href: "/precios",
     icon: "✨",
-    popular: false,
+    popular: true,
+    badge: "⭐ Más popular",
     gradient: "from-sky-50 to-primary/5",
     iconBg: "bg-primary/10",
   },
   {
-    id: "piernas",
-    title: "Depilación Piernas",
-    description: "Piernas completas, medias piernas o muslos. Piel suave y sin esfuerzo.",
-    price: "Desde $899",
-    sessions: "6–8 sesiones",
-    href: "/servicios/piernas",
-    icon: "🦵",
-    popular: false,
-    gradient: "from-teal-50 to-sky-50",
-    iconBg: "bg-teal-100",
-  },
-  {
-    id: "axilas",
-    title: "Depilación Axilas",
-    description: "El área más popular. Rápido, efectivo y sin manchas oscuras.",
-    price: "Desde $399",
-    sessions: "6–8 sesiones",
-    href: "/servicios/axilas",
-    icon: "💎",
-    popular: true,
-    gradient: "from-violet-50 to-purple-50",
-    iconBg: "bg-violet-100",
-  },
-  {
-    id: "bikini",
-    title: "Depilación Bikini",
-    description: "Línea de bikini, bikini completo o brasileño. Discreta y efectiva.",
-    price: "Desde $599",
-    sessions: "6–10 sesiones",
-    href: "/servicios/bikini",
-    icon: "🌸",
+    id: "hidrofacial",
+    title: "Hidrofacial",
+    description: "Revitalizamos tu rostro hidratando y rejuveneciendo. Limpieza profunda, exfoliación y nutrición en un solo tratamiento sin tiempo de recuperación.",
+    price: "Desde $800",
+    sessions: "Sesión única",
+    href: "/agendar",
+    icon: "💧",
     popular: false,
     gradient: "from-cyan-50 to-sky-50",
     iconBg: "bg-cyan-100",
   },
   {
-    id: "cuerpo-completo",
-    title: "Cuerpo Completo",
-    description: "Paquete integral para máximo resultado. ¡El más solicitado!",
-    price: "Desde $2,499",
-    sessions: "6–10 sesiones",
-    href: "/servicios/cuerpo-completo",
-    icon: "⭐",
-    popular: true,
+    id: "celluma",
+    title: "Celluma LED",
+    description: "Fototerapia grado médico que mejora la salud y aspecto de tu piel. Estimula el colágeno, reduce imperfecciones y retrasa el envejecimiento.",
+    price: "Desde $600",
+    sessions: "Por sesión",
+    href: "/agendar",
+    icon: "💡",
+    popular: false,
+    gradient: "from-teal-50 to-sky-50",
+    iconBg: "bg-teal-100",
+  },
+  {
+    id: "skin-analyzer",
+    title: "Skin Analyzer",
+    description: "Analizamos tu piel con tecnología de vanguardia para brindarte un tratamiento 100% personalizado. Sin costo, sin compromiso.",
+    price: "GRATIS",
+    sessions: "Primera consulta",
+    href: "/agendar",
+    icon: "🔬",
+    popular: false,
+    badge: "✓ Gratis",
     gradient: "from-emerald-50 to-teal-50",
     iconBg: "bg-emerald-100",
   },
   {
-    id: "hombres",
-    title: "Depilación Hombres",
-    description: "Espalda, pecho, hombros, barba y más. Para hombres modernos.",
-    price: "Desde $699",
-    sessions: "6–8 sesiones",
-    href: "/servicios/hombres",
-    icon: "🧔",
+    id: "skin-care",
+    title: "Skin Care",
+    description: "Productos personalizados recomendados por nuestros especialistas para mantener tu piel radiante y saludable entre sesiones.",
+    price: "Consultar",
+    sessions: "Uso diario",
+    href: "/agendar",
+    icon: "🌿",
     popular: false,
     gradient: "from-blue-50 to-sky-50",
     iconBg: "bg-blue-100",
@@ -93,18 +83,18 @@ const itemVariants = {
 
 export function ServicesSection() {
   return (
-    <section className="py-24 bg-white" id="servicios">
+    <section className="py-24 bg-white bg-hexpattern" id="servicios">
       <div className="section-container">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="badge-premium mb-4">✦ Nuestros Servicios</div>
+          <div className="badge-premium mb-4">✦ Conoce nuestros servicios</div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
-            Depilación láser para{" "}
-            <span className="text-gradient font-display italic">cada zona</span>
+            Todo lo que tu piel{" "}
+            <span className="text-gradient font-display italic">necesita</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tecnología láser Alexandrita y Diodo de última generación. Resultados permanentes,
-            seguros y efectivos desde la primera sesión.
+            Desde depilación láser grado médico hasta hidrofacial y fototerapia Celluma.
+            Tratamientos especializados con tecnología de vanguardia.
           </p>
         </div>
 
@@ -123,10 +113,10 @@ export function ServicesSection() {
                   className={`relative h-full rounded-3xl bg-gradient-to-br ${service.gradient} border border-border/40 p-7
                   hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 cursor-pointer`}
                 >
-                  {service.popular && (
+                  {"badge" in service && service.badge && (
                     <div className="absolute -top-3 left-6">
                       <Badge variant="premium" className="text-xs">
-                        ⭐ Más popular
+                        {service.badge}
                       </Badge>
                     </div>
                   )}

@@ -19,7 +19,7 @@ const info = [
   {
     icon: Phone,
     title: "Teléfono / WhatsApp",
-    lines: ["+52 229 000 0000"],
+    lines: ["+52 229 933 00 14"],
   },
   {
     icon: Mail,
@@ -75,7 +75,7 @@ export default function ContactoPage() {
                 La forma más rápida de comunicarte. Respondemos en minutos.
               </p>
               <a
-                href="https://wa.me/522290000000?text=Hola,%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20la%20depilaci%C3%B3n%20l%C3%A1ser"
+                href="https://wa.me/522299330014?text=Hola,%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20la%20depilaci%C3%B3n%20l%C3%A1ser"
                 target="_blank"
                 rel="noopener noreferrer"
               >

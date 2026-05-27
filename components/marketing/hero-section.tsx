@@ -12,9 +12,9 @@ const stats = [
 ];
 
 const features = [
-  "Tecnología láser Diodo — la más segura del mercado",
-  "Resultados permanentes desde la primera sesión",
-  "Apta para todo tipo de piel, todo el año",
+  "Depilación láser Diodo grado médico — resultados permanentes",
+  "Hidrofacial, Celluma LED y tratamientos faciales especializados",
+  "Análisis de piel personalizado — siempre gratis",
 ];
 
 const trustBadges = [
@@ -25,7 +25,7 @@ const trustBadges = [
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-brand pt-12 pb-20 md:pt-20 md:pb-28">
+    <section className="relative overflow-hidden bg-brand-hex pt-12 pb-20 md:pt-20 md:pb-28">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/6 blur-3xl" />
@@ -62,8 +62,8 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
             >
-              Di adiós al vello{" "}
-              <span className="text-gradient font-display italic">para siempre</span>
+              Descubre el secreto de una{" "}
+              <span className="text-gradient font-display italic">piel radiante</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -73,8 +73,8 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              En MiPiel combinamos tecnología láser de vanguardia con atención médica personalizada.
-              Resultados reales, seguros y permanentes — sin dolor, sin tiempo de inactividad.
+              En MiPiel ofrecemos depilación láser, hidrofacial, fototerapia Celluma y análisis
+              de piel personalizado. Tecnología grado médico — resultados reales y seguros.
             </motion.p>
 
             {/* Feature list */}

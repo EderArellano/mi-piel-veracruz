@@ -81,10 +81,10 @@ export function MapSection() {
               <div>
                 <h3 className="font-bold text-foreground mb-1">Teléfono</h3>
                 <a
-                  href="tel:+522290000000"
+                  href="tel:+522299330014"
                   className="text-primary hover:underline text-sm font-medium"
                 >
-                  +52 229 000 0000
+                  +52 229 933 00 14
                 </a>
               </div>
             </div>

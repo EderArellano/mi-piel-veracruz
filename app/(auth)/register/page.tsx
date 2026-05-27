@@ -121,7 +121,7 @@ export default function RegisterPage() {
 
         <div className="space-y-1.5">
           <Label htmlFor="phone">Teléfono (opcional)</Label>
-          <Input id="phone" type="tel" placeholder="+52 229 000 0000" {...register("phone")} />
+          <Input id="phone" type="tel" placeholder="+52 229 933 00 14" {...register("phone")} />
         </div>
 
         <div className="space-y-1.5">

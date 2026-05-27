@@ -61,7 +61,7 @@ export default async function AgendarPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href="https://wa.me/522290000000?text=Hola,%20quiero%20agendar%20una%20consulta%20de%20depilaci%C3%B3n%20l%C3%A1ser"
+                  href="https://wa.me/522299330014?text=Hola,%20quiero%20agendar%20una%20consulta%20de%20depilaci%C3%B3n%20l%C3%A1ser"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-medium transition-colors"
@@ -70,7 +70,7 @@ export default async function AgendarPage() {
                   WhatsApp
                 </a>
                 <a
-                  href="tel:+522290000000"
+                  href="tel:+522299330014"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-border hover:bg-muted transition-colors font-medium text-foreground"
                 >
                   <Phone className="w-4 h-4" />
