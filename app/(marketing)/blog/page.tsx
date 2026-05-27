@@ -73,7 +73,7 @@ export default async function BlogPage() {
               <Link key={post.id} href={`/blog/${post.slug}`} className="group">
                 <div className="card-premium overflow-hidden hover:-translate-y-1 transition-transform duration-300 h-full flex flex-col">
                   {/* Cover image placeholder */}
-                  <div className="aspect-video bg-gradient-to-br from-rose-50 to-pink-50 relative overflow-hidden">
+                  <div className="aspect-video bg-gradient-to-br from-sky-50 to-primary/8 relative overflow-hidden">
                     {post.coverImage ? (
                       <Image
                         src={post.coverImage}

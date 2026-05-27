@@ -103,7 +103,7 @@ export function TestimonialsSection() {
               </p>
 
               <div className="flex items-center gap-3 pt-5 border-t border-border/50">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center">
                   <span className="text-xs font-bold text-white">
                     {t.name.charAt(0)}
                   </span>

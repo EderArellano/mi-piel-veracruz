@@ -54,12 +54,12 @@ export function ClientDashboard({ user, upcomingAppointments, medicalRecord }: C
 
         <Link href="/dashboard/expediente">
           <div className="card-premium p-6 hover:-translate-y-1 transition-transform duration-300 cursor-pointer group">
-            <div className="w-10 h-10 rounded-2xl bg-amber-50 flex items-center justify-center mb-4">
-              <Camera className="w-5 h-5 text-amber-500" />
+            <div className="w-10 h-10 rounded-2xl bg-sky-50 flex items-center justify-center mb-4">
+              <Camera className="w-5 h-5 text-sky-600" />
             </div>
             <h3 className="font-semibold text-foreground mb-1">Mi expediente</h3>
             <p className="text-xs text-muted-foreground">Fotos y seguimiento</p>
-            <ChevronRight className="w-4 h-4 text-muted-foreground mt-3 group-hover:text-amber-500 transition-colors" />
+            <ChevronRight className="w-4 h-4 text-muted-foreground mt-3 group-hover:text-sky-600 transition-colors" />
           </div>
         </Link>
 
@@ -184,7 +184,7 @@ export function ClientDashboard({ user, upcomingAppointments, medicalRecord }: C
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="rounded-2xl bg-gradient-to-r from-primary/5 to-rose-50 border border-primary/10 p-6"
+        className="rounded-2xl bg-gradient-to-r from-primary/5 to-sky-50 border border-primary/10 p-6"
       >
         <div className="flex items-start gap-3">
           <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">

@@ -93,7 +93,7 @@ export default function ServiciosPage() {
             <div key={service.slug} className="card-premium p-6 flex flex-col">
               <div className="flex items-start justify-between mb-4">
                 <h2 className="text-xl font-bold text-foreground">{service.name}</h2>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center flex-shrink-0">
                   <Zap className="w-4 h-4 text-white" />
                 </div>
               </div>

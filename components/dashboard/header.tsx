@@ -47,7 +47,7 @@ export function DashboardHeader({ user }: HeaderProps) {
             <div className="text-sm font-medium text-foreground leading-none">{user.name}</div>
             <div className="text-xs text-muted-foreground mt-0.5">{user.email}</div>
           </div>
-          <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center shrink-0">
+          <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center shrink-0">
             {user.image ? (
               <Image src={user.image} alt={user.name || ""} width={36} height={36} className="object-cover" />
             ) : (

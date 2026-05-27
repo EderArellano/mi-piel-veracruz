@@ -45,7 +45,7 @@ export function DashboardSidebar({ role }: SidebarProps) {
     <aside className="hidden lg:flex w-64 flex-col bg-white border-r border-border/50 shrink-0">
       {/* Logo */}
       <div className="flex items-center gap-2.5 px-6 h-16 border-b border-border/50">
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center shrink-0">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center shrink-0">
           <Sparkles className="w-4 h-4 text-white" />
         </div>
         <div className="leading-none">
@@ -81,7 +81,7 @@ export function DashboardSidebar({ role }: SidebarProps) {
 
         {/* AI Chat — future */}
         <div className="mt-6 pt-4 border-t border-border/50">
-          <div className="px-3 py-2 rounded-xl bg-gradient-to-r from-primary/5 to-rose-50 border border-primary/10">
+          <div className="px-3 py-2 rounded-xl bg-gradient-to-r from-primary/5 to-sky-50 border border-primary/10">
             <div className="flex items-center gap-2 mb-1">
               <MessageSquare className="w-3.5 h-3.5 text-primary" />
               <span className="text-xs font-semibold text-primary">Asistente IA</span>

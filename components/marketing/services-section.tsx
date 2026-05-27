@@ -16,8 +16,8 @@ const services = [
     href: "/servicios/facial",
     icon: "✨",
     popular: false,
-    gradient: "from-rose-50 to-pink-50",
-    iconBg: "bg-rose-100",
+    gradient: "from-sky-50 to-primary/5",
+    iconBg: "bg-primary/10",
   },
   {
     id: "piernas",
@@ -28,8 +28,8 @@ const services = [
     href: "/servicios/piernas",
     icon: "🦵",
     popular: false,
-    gradient: "from-amber-50 to-yellow-50",
-    iconBg: "bg-amber-100",
+    gradient: "from-teal-50 to-sky-50",
+    iconBg: "bg-teal-100",
   },
   {
     id: "axilas",
@@ -52,8 +52,8 @@ const services = [
     href: "/servicios/bikini",
     icon: "🌸",
     popular: false,
-    gradient: "from-pink-50 to-rose-50",
-    iconBg: "bg-pink-100",
+    gradient: "from-cyan-50 to-sky-50",
+    iconBg: "bg-cyan-100",
   },
   {
     id: "cuerpo-completo",

@@ -75,11 +75,11 @@ export function ConfirmStep({ bookingData, onNotesChange, isLoggedIn }: ConfirmS
       </div>
 
       {/* Recommendations */}
-      <div className="rounded-2xl bg-amber-50 border border-amber-100 p-4">
+      <div className="rounded-2xl bg-sky-50 border border-sky-100 p-4">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+          <AlertCircle className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
           <div>
-            <h4 className="text-sm font-semibold text-amber-900 mb-2">Preparación para tu cita</h4>
+            <h4 className="text-sm font-semibold text-sky-900 mb-2">Preparación para tu cita</h4>
             <ul className="space-y-1">
               {[
                 "Rasurate 24–48h antes de la cita",

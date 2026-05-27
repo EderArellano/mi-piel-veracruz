@@ -100,7 +100,7 @@ export default function NosotrosPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {values.map((v) => (
               <div key={v.title} className="card-premium p-6 flex gap-4">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center flex-shrink-0">
                   <v.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>

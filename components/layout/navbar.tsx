@@ -42,7 +42,7 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center shadow-premium group-hover:shadow-premium-lg transition-shadow">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center shadow-premium group-hover:shadow-premium-lg transition-shadow">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <div className="leading-none">

@@ -63,7 +63,7 @@ export default async function BlogPostPage({ params }: Props) {
           )}
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center">
+              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center">
                 <span className="text-xs font-bold text-white">
                   {(post.author.name || "A")[0]}
                 </span>

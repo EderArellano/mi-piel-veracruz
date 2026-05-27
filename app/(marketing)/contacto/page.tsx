@@ -54,7 +54,7 @@ export default function ContactoPage() {
           <div className="space-y-4">
             {info.map((item) => (
               <div key={item.title} className="card-premium p-6 flex gap-4">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -88,7 +88,7 @@ export default function ContactoPage() {
 
           {/* CTA card */}
           <div className="card-premium p-8 md:p-10 text-center">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center mx-auto mb-6">
               <MapPin className="w-8 h-8 text-white" />
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-3">Agenda en línea</h2>
@@ -112,7 +112,7 @@ export default function ContactoPage() {
                   href="https://instagram.com/mipielveracruz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-sm font-bold hover:opacity-90 transition-opacity"
+                  className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-violet-500 flex items-center justify-center text-white text-sm font-bold hover:opacity-90 transition-opacity"
                 >
                   IG
                 </a>

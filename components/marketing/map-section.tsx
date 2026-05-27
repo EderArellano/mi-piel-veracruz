@@ -40,7 +40,7 @@ export function MapSection() {
           <div className="flex flex-col justify-center space-y-8">
             {/* Address */}
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-rose-50 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-primary/8 flex items-center justify-center shrink-0">
                 <MapPin className="w-6 h-6 text-primary" />
               </div>
               <div>
@@ -55,8 +55,8 @@ export function MapSection() {
 
             {/* Hours */}
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center shrink-0">
-                <Clock className="w-6 h-6 text-amber-500" />
+              <div className="w-12 h-12 rounded-2xl bg-sky-50 flex items-center justify-center shrink-0">
+                <Clock className="w-6 h-6 text-sky-600" />
               </div>
               <div>
                 <h3 className="font-bold text-foreground mb-3">Horario de atención</h3>

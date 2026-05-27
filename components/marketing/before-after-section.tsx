@@ -37,7 +37,7 @@ export function BeforeAfterSection() {
               className="rounded-3xl overflow-hidden border border-border/50 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
             >
               {/* Before/After image placeholder */}
-              <div className="aspect-[3/4] bg-gradient-to-br from-rose-50 to-pink-50 relative">
+              <div className="aspect-[3/4] bg-gradient-to-br from-sky-50 to-primary/8 relative">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center space-y-2">
                     <div className="w-12 h-12 rounded-full bg-white shadow-sm mx-auto flex items-center justify-center">

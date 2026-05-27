@@ -8,11 +8,11 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-foreground">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-rose-400/10 blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-sky-400/10 blur-3xl" />
         </div>
         <div className="relative flex flex-col justify-between p-12 w-full">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
             <div className="leading-none">
@@ -27,7 +27,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
               la primera sesión.&rdquo;
             </blockquote>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center">
                 <span className="text-sm font-bold text-white">V</span>
               </div>
               <div>
@@ -59,7 +59,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           {/* Mobile logo */}
           <div className="flex justify-center mb-8 lg:hidden">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-rose-400 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div className="leading-none">
