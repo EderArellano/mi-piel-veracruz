@@ -2,19 +2,19 @@ import Link from "next/link";
 import { Sparkles, MapPin, Phone, Mail, Instagram, Facebook, Clock } from "lucide-react";
 
 const services = [
-  { href: "/servicios/facial", label: "Depilación Facial" },
-  { href: "/servicios/piernas", label: "Depilación Piernas" },
-  { href: "/servicios/axilas", label: "Depilación Axilas" },
-  { href: "/servicios/bikini", label: "Depilación Bikini" },
-  { href: "/servicios/cuerpo-completo", label: "Cuerpo Completo" },
-  { href: "/servicios/hombres", label: "Depilación Hombres" },
+  { href: "/servicios", label: "Depilación Láser" },
+  { href: "/servicios", label: "Hidrofacial" },
+  { href: "/servicios", label: "Celluma LED" },
+  { href: "/servicios", label: "Skin Analyzer" },
+  { href: "/servicios", label: "Skin Care" },
+  { href: "/precios", label: "Ver precios" },
 ];
 
 const blogLinks = [
   { href: "/blog/cuanto-cuesta-depilacion-laser-veracruz", label: "¿Cuánto cuesta?" },
-  { href: "/blog/cuantas-sesiones-necesito", label: "¿Cuántas sesiones?" },
-  { href: "/blog/beneficios-depilacion-laser", label: "Beneficios del láser" },
-  { href: "/blog/depilacion-laser-duele", label: "¿Duele la depilación láser?" },
+  { href: "/blog/que-es-hidrofacial", label: "¿Qué es el Hidrofacial?" },
+  { href: "/blog", label: "Beneficios del láser" },
+  { href: "/blog", label: "¿Duele la depilación láser?" },
 ];
 
 export function Footer() {
