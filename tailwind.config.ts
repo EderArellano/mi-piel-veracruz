@@ -93,7 +93,7 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
-        display: ["var(--font-playfair)", "Georgia", "serif"],
+        display: ["var(--font-jakarta)", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -125,6 +125,18 @@ const config: Config = {
           "0%": { transform: "translateY(20px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(37,150,190,0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(37,150,190,0.6), 0 0 80px rgba(37,150,190,0.2)" },
+        },
+        scan: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(400%)" },
+        },
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -133,6 +145,9 @@ const config: Config = {
         float: "float 6s ease-in-out infinite",
         glow: "glow 2s ease-in-out infinite",
         "slide-up": "slide-up 0.5s ease-out",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        scan: "scan 3s linear infinite",
+        "fade-in-up": "fade-in-up 0.5s ease-out both",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -150,6 +165,8 @@ const config: Config = {
         "card-hover":
           "0 4px 20px rgba(0,0,0,0.06), 0 12px 40px rgba(0,0,0,0.06)",
         glow: "0 0 40px rgba(37, 150, 190, 0.20)",
+        "glow-intense": "0 0 60px rgba(37, 150, 190, 0.40), 0 0 120px rgba(37, 150, 190, 0.15)",
+        "inner-glow": "inset 0 1px 0 rgba(255,255,255,0.1), inset 0 -1px 0 rgba(0,0,0,0.1)",
       },
     },
   },

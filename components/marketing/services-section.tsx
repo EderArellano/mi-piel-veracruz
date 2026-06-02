@@ -88,9 +88,9 @@ export function ServicesSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="badge-premium mb-4">✦ Conoce nuestros servicios</div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4">
             Todo lo que tu piel{" "}
-            <span className="text-gradient font-display italic">necesita</span>
+            <span className="text-gradient">necesita</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Desde depilación láser grado médico hasta hidrofacial y fototerapia Celluma.
@@ -127,18 +127,18 @@ export function ServicesSection() {
                     {service.icon}
                   </div>
 
-                  <h3 className="text-lg font-bold text-foreground mb-2">{service.title}</h3>
+                  <h3 className="font-display text-lg font-bold text-foreground mb-2">{service.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                     {service.description}
                   </p>
 
                   <div className="flex items-end justify-between">
                     <div>
-                      <div className="text-xl font-bold text-foreground">{service.price}</div>
+                      <div className="font-display text-xl font-extrabold text-foreground">{service.price}</div>
                       <div className="text-xs text-muted-foreground">{service.sessions}</div>
                     </div>
-                    <div className="w-9 h-9 rounded-full bg-white shadow-sm flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-200">
-                      <ArrowRight className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-full bg-white shadow-sm flex items-center justify-center group-hover:bg-primary group-hover:text-white group-hover:shadow-glow transition-all duration-200">
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                     </div>
                   </div>
                 </div>

@@ -99,7 +99,7 @@
     @apply bg-gradient-to-r from-primary to-sky-400 text-white
            inline-flex items-center justify-center gap-2 rounded-full
            px-6 py-3 text-sm font-semibold transition-all duration-200
-           shadow-premium hover:shadow-premium-lg hover:-translate-y-0.5;
+           shadow-premium hover:shadow-glow hover:-translate-y-0.5;
   }
 
   .btn-secondary {
@@ -147,7 +147,15 @@
   }
 
   .glass {
-    @apply bg-white/80 backdrop-blur-md border border-white/30 shadow-card;
+    @apply bg-white/85 backdrop-blur-xl border border-white/40 shadow-card;
+  }
+
+  .glass-dark {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .font-display {
+    font-family: var(--font-jakarta), system-ui, sans-serif;
   }
 
   .shimmer {
