@@ -9,73 +9,69 @@ import { ArrowRight } from "lucide-react";
 const services = [
   {
     id: "depilacion",
-    emoji: "✦",
     title: "Depilación Láser",
     tag: "Más popular",
-    tagColor: "bg-primary/15 text-primary border-primary/20",
-    price: "Desde $500 MXN",
-    sessions: "6–8 sesiones",
-    desc: "Láser diodo grado médico para todo tipo de piel. Elimina vello permanentemente, reduce manchas y mejora la textura de la piel desde la primera sesión.",
+    price: "Desde $500",
+    unit: "MXN / sesión",
+    sessions: "6–8 sesiones · resultados permanentes",
+    desc: "Láser diodo grado médico para todo tipo de piel. Elimina vello permanentemente, reduce manchas y mejora la textura desde la primera sesión.",
     href: "/precios",
-    accent: "from-sky-950/80 to-brand-950/80",
-    border: "border-primary/15 hover:border-primary/35",
-    glow: "rgba(37,150,190,0.15)",
+    accent: "#2596be",
   },
   {
     id: "hidrofacial",
-    emoji: "◈",
     title: "Hidrofacial",
-    tag: "Resultados en 1 sesión",
-    tagColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
-    price: "Desde $800 MXN",
-    sessions: "Efecto inmediato",
-    desc: "Limpieza profunda, exfoliación, extracción e hidratación en 60 minutos. Sin tiempo de recuperación. Tu piel sale radiante del consultorio.",
+    tag: "Resultados inmediatos",
+    price: "Desde $800",
+    unit: "MXN / sesión",
+    sessions: "Efecto visible en 1 sesión",
+    desc: "Limpieza profunda, exfoliación, extracción e hidratación en 60 minutos. Sin tiempo de recuperación. Piel radiante al salir.",
     href: "/agendar",
-    accent: "from-cyan-950/80 to-sky-950/80",
-    border: "border-cyan-500/15 hover:border-cyan-500/30",
-    glow: "rgba(6,182,212,0.12)",
+    accent: "#0891b2",
   },
   {
     id: "celluma",
-    emoji: "◉",
     title: "Celluma LED",
     tag: "Fototerapia médica",
-    tagColor: "bg-violet-500/10 text-violet-400 border-violet-500/20",
-    price: "Desde $600 MXN",
-    sessions: "Por sesión",
-    desc: "Luz LED de espectro médico que estimula el colágeno, reduce acné e inflamación y revierte el daño solar acumulado en la piel veracruzana.",
+    price: "Desde $600",
+    unit: "MXN / sesión",
+    sessions: "Ideal combinado",
+    desc: "Luz LED de espectro médico que estimula colágeno, reduce acné e inflamación y revierte el daño solar acumulado en piel veracruzana.",
     href: "/agendar",
-    accent: "from-violet-950/80 to-sky-950/80",
-    border: "border-violet-500/15 hover:border-violet-500/30",
-    glow: "rgba(139,92,246,0.12)",
+    accent: "#7c3aed",
   },
   {
     id: "skin-analyzer",
-    emoji: "⬡",
     title: "Skin Analyzer",
     tag: "Gratis · Sin compromiso",
-    tagColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     price: "GRATIS",
-    sessions: "Primera consulta",
-    desc: "Análisis clínico completo de tu piel con tecnología de imágenes avanzada. Detectamos problemas invisibles al ojo y diseñamos tu plan personalizado.",
+    unit: "primera consulta",
+    sessions: "Análisis clínico completo",
+    desc: "Tecnología de imágenes clínicas que detecta problemas invisibles al ojo. Tu plan de tratamiento 100% personalizado.",
     href: "/agendar",
-    accent: "from-emerald-950/80 to-sky-950/80",
-    border: "border-emerald-500/15 hover:border-emerald-500/30",
-    glow: "rgba(16,185,129,0.12)",
+    accent: "#059669",
   },
   {
     id: "skin-care",
-    emoji: "◇",
-    title: "Skin Care",
+    title: "Skin Care Médico",
     tag: "Mantenimiento",
-    tagColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
     price: "Consultar",
-    sessions: "Uso diario",
-    desc: "Productos de grado médico recomendados por nuestros especialistas para mantener tu piel radiante entre sesiones en el clima de Veracruz.",
+    unit: "según plan",
+    sessions: "Cosméticos grado médico",
+    desc: "Rutina personalizada con productos formulados para el clima tropical de Veracruz. Mantiene resultados entre sesiones.",
     href: "/agendar",
-    accent: "from-amber-950/80 to-sky-950/80",
-    border: "border-amber-500/15 hover:border-amber-500/30",
-    glow: "rgba(245,158,11,0.12)",
+    accent: "#9b7b5b",
+  },
+  {
+    id: "paquete",
+    title: "Paquete Popular",
+    tag: "Ahorra 20%",
+    price: "$2,100",
+    unit: "MXN · 6 sesiones",
+    sessions: "Axilas + Bikini + Media pierna",
+    desc: "El combo favorito de nuestras pacientes. Tres zonas, seis sesiones. Resultados visibles desde la primera semana. Sin letra chica.",
+    href: "/precios",
+    accent: "#c9a96e",
   },
 ];
 
@@ -86,43 +82,21 @@ export function ServicesSection() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // Header
       gsap.from(".svc-header", {
         y: 50,
         opacity: 0,
         duration: 0.8,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".svc-header",
-          start: "top 85%",
-        },
+        scrollTrigger: { trigger: ".svc-header", start: "top 85%" },
       });
 
-      // Cards — stagger from bottom
       gsap.from(".svc-card", {
-        y: 70,
+        y: 60,
         opacity: 0,
-        stagger: 0.12,
-        duration: 0.75,
+        stagger: 0.1,
+        duration: 0.7,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".svc-grid",
-          start: "top 80%",
-        },
-      });
-
-      // Parallax depth on each card background
-      gsap.utils.toArray<HTMLElement>(".svc-bg").forEach((bg) => {
-        gsap.to(bg, {
-          yPercent: -12,
-          ease: "none",
-          scrollTrigger: {
-            trigger: bg.closest(".svc-card") as Element,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1,
-          },
-        });
+        scrollTrigger: { trigger: ".svc-grid", start: "top 80%" },
       });
     }, sectionRef);
 
@@ -130,9 +104,24 @@ export function ServicesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="servicios" className="py-28 md:py-36 bg-white bg-hexpattern overflow-hidden">
-      <div className="section-container">
+    <section ref={sectionRef} id="servicios" className="relative py-28 md:py-36 bg-brand-hex overflow-hidden">
+      {/* MiPiel logo watermark */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
+        <svg
+          className="w-full max-w-[540px] h-auto opacity-[0.045]"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
+            fill="#2596be"
+          />
+          <path d="M20 3v4M22 5h-4M4 17v2M5 18H3" stroke="#2596be" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+      </div>
 
+      <div className="section-container relative z-10">
         {/* Header */}
         <div className="svc-header text-center mb-16">
           <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
@@ -140,11 +129,11 @@ export function ServicesSection() {
             Tratamientos disponibles
             <span className="w-10 h-px bg-primary/40" />
           </div>
-          <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight text-foreground mb-4">
+          <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-4">
             Todo lo que tu piel{" "}
             <span className="text-gradient">necesita</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
             Tecnología grado médico diseñada para la piel mexicana en el clima tropical de Veracruz.
           </p>
         </div>
@@ -153,43 +142,45 @@ export function ServicesSection() {
         <div className="svc-grid grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s) => (
             <Link key={s.id} href={s.href} className="svc-card group block">
-              <div
-                className={`relative h-full rounded-3xl bg-[#0a0f1e] border ${s.border} p-7 overflow-hidden transition-all duration-400 hover:-translate-y-1.5 hover:shadow-2xl`}
-              >
-                {/* Glowing bg gradient (parallax target) */}
-                <div
-                  className={`svc-bg absolute inset-0 bg-gradient-to-br ${s.accent} pointer-events-none`}
-                />
+              <div className="relative h-full rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1.5 overflow-hidden">
+                {/* Accent top bar */}
+                <div className="h-0.5 w-full" style={{ background: s.accent }} />
 
-                {/* Hover glow */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"
-                  style={{ boxShadow: `inset 0 0 60px ${s.glow}` }}
-                />
-
-                <div className="relative z-10">
+                <div className="p-7">
                   {/* Tag */}
-                  <div className={`inline-flex items-center text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border mb-5 ${s.tagColor}`}>
+                  <span
+                    className="inline-flex items-center text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full mb-5"
+                    style={{
+                      color: s.accent,
+                      background: `${s.accent}14`,
+                      border: `1px solid ${s.accent}30`,
+                    }}
+                  >
                     {s.tag}
-                  </div>
-
-                  {/* Icon */}
-                  <div className="text-2xl text-primary/60 mb-4 font-mono">{s.emoji}</div>
+                  </span>
 
                   {/* Title */}
-                  <h3 className="font-display text-xl font-bold text-white mb-3">{s.title}</h3>
+                  <h3 className="font-display text-xl font-bold text-gray-900 mb-3">{s.title}</h3>
 
                   {/* Description */}
-                  <p className="text-white/45 text-sm leading-relaxed mb-6">{s.desc}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6">{s.desc}</p>
 
                   {/* Footer */}
-                  <div className="flex items-end justify-between mt-auto pt-4 border-t border-white/6">
+                  <div className="flex items-end justify-between pt-5 border-t border-gray-100">
                     <div>
-                      <div className="font-display text-xl font-extrabold text-white">{s.price}</div>
-                      <div className="text-white/35 text-xs mt-0.5">{s.sessions}</div>
+                      <div className="font-display text-xl font-extrabold" style={{ color: s.accent }}>
+                        {s.price}
+                      </div>
+                      <div className="text-gray-400 text-xs mt-0.5">{s.sessions}</div>
                     </div>
-                    <div className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-200">
-                      <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-200" />
+                    <div
+                      className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 group-hover:scale-110"
+                      style={{ borderColor: `${s.accent}40`, background: `${s.accent}10` }}
+                    >
+                      <ArrowRight
+                        className="w-4 h-4 transition-all duration-200 group-hover:translate-x-0.5"
+                        style={{ color: s.accent }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -202,13 +193,13 @@ export function ServicesSection() {
         <div className="mt-14 text-center">
           <Link
             href="/agendar"
-            className="inline-flex items-center gap-2.5 bg-foreground text-white font-bold text-base px-8 py-4 rounded-2xl transition-all duration-200 hover:bg-foreground/90 hover:-translate-y-0.5 hover:shadow-xl"
+            className="group inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold text-base px-8 py-4 rounded-2xl transition-all duration-200 shadow-glow hover:shadow-glow-intense hover:-translate-y-0.5"
           >
-            Agendar mi primera sesión — Gratis
-            <ArrowRight className="w-5 h-5" />
+            Agendar mi primera sesión — Es gratis
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <p className="text-muted-foreground text-sm mt-3">
-            Primera consulta con Skin Analyzer sin costo · Cancela cuando quieras
+          <p className="text-gray-400 text-sm mt-3">
+            Primera consulta con Skin Analyzer sin costo · Sin compromiso
           </p>
         </div>
       </div>

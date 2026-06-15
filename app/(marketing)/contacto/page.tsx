@@ -16,7 +16,7 @@ const info = [
   },
   {
     icon: Phone,
-    color: "#10b981",
+    color: "#059669",
     title: "Teléfono / WhatsApp",
     lines: ["+52 229 933 00 14"],
     href: "tel:+522299330014",
@@ -30,7 +30,7 @@ const info = [
   },
   {
     icon: Clock,
-    color: "#a78bfa",
+    color: "#7c3aed",
     title: "Horario de atención",
     lines: ["Lun–Vie: 9:00 – 20:00 h", "Sábado: 9:00 – 15:00 h"],
     sub: "Domingos cerrado",
@@ -69,7 +69,7 @@ export default function ContactoPage() {
   return (
     <div ref={pageRef} className="bg-[#0c1826] min-h-screen">
 
-      {/* Hero */}
+      {/* Hero — dark */}
       <div className="relative py-28 md:py-36 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
@@ -111,36 +111,38 @@ export default function ContactoPage() {
         </div>
       </div>
 
-      {/* Info cards */}
-      <div className="con-grid section-container pb-28 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {info.map((item, i) => {
-          const Icon = item.icon;
-          const Wrapper = item.href ? "a" : "div";
-          return (
-            <Wrapper
-              key={i}
-              {...(item.href ? { href: item.href } : {})}
-              className="con-card rounded-2xl p-6 bg-[#112539]/60 border border-white/6 hover:border-white/12 hover:bg-[#112539] transition-all duration-300"
-            >
-              <div
-                className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5"
-                style={{ background: `${item.color}18`, border: `1px solid ${item.color}30` }}
+      {/* Info cards — clinical light */}
+      <div className="bg-brand-hex">
+        <div className="con-grid section-container py-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {info.map((item, i) => {
+            const Icon = item.icon;
+            const Wrapper = item.href ? "a" : "div";
+            return (
+              <Wrapper
+                key={i}
+                {...(item.href ? { href: item.href } : {})}
+                className="con-card rounded-2xl p-6 bg-white border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300"
               >
-                <Icon className="w-5 h-5" style={{ color: item.color }} />
-              </div>
-              <div className="text-white/35 text-xs uppercase tracking-widest mb-2">{item.title}</div>
-              {item.lines.map((line) => (
-                <div key={line} className="text-white font-semibold text-sm">{line}</div>
-              ))}
-              {item.sub && (
-                <div className="text-white/35 text-xs mt-1">{item.sub}</div>
-              )}
-            </Wrapper>
-          );
-        })}
+                <div
+                  className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5"
+                  style={{ background: `${item.color}14`, border: `1px solid ${item.color}30` }}
+                >
+                  <Icon className="w-5 h-5" style={{ color: item.color }} />
+                </div>
+                <div className="text-gray-400 text-xs uppercase tracking-widest mb-2">{item.title}</div>
+                {item.lines.map((line) => (
+                  <div key={line} className="text-gray-900 font-semibold text-sm">{line}</div>
+                ))}
+                {item.sub && (
+                  <div className="text-gray-400 text-xs mt-1">{item.sub}</div>
+                )}
+              </Wrapper>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Map placeholder + quick CTA */}
+      {/* Bottom CTA — dark */}
       <div className="bg-[#0f1f30] py-20">
         <div className="section-container text-center">
           <p className="text-white/35 text-xs uppercase tracking-widest mb-4">¿Tienes dudas?</p>

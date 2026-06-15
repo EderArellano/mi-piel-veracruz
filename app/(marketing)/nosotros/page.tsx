@@ -16,7 +16,7 @@ const stats = [
 const values = [
   {
     icon: Heart,
-    color: "#ec4899",
+    color: "#e11d48",
     title: "Cuidado personalizado",
     description: "Cada tratamiento es diseñado para tu tipo de piel, tu tono y tus metas específicas. No existe una solución igual para dos personas.",
   },
@@ -34,19 +34,19 @@ const values = [
   },
   {
     icon: Users,
-    color: "#10b981",
+    color: "#059669",
     title: "Especialistas certificadas",
     description: "Nuestro equipo tiene certificaciones en láser médico, dermocosmética y estética clínica. Formación continua con los mejores estándares.",
   },
   {
     icon: FlaskConical,
-    color: "#06b6d4",
+    color: "#0891b2",
     title: "Tecnología de vanguardia",
     description: "Láser Diodo grado médico, Celluma LED y tecnología de análisis de piel que usan las mejores clínicas del mundo.",
   },
   {
     icon: Zap,
-    color: "#a78bfa",
+    color: "#9b7b5b",
     title: "Atención inmediata",
     description: "Agenda en línea, confirmación en 24 horas y atención puntual. Respetamos tu tiempo tanto como tú respetas el nuestro.",
   },
@@ -59,7 +59,6 @@ export default function NosotrosPage() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // Hero entrance
       gsap.from(".nos-hero > *", {
         y: 40,
         opacity: 0,
@@ -69,7 +68,6 @@ export default function NosotrosPage() {
         delay: 0.1,
       });
 
-      // Stats
       gsap.from(".nos-stat", {
         y: 50,
         opacity: 0,
@@ -79,7 +77,6 @@ export default function NosotrosPage() {
         scrollTrigger: { trigger: ".nos-stats", start: "top 80%" },
       });
 
-      // Values
       gsap.from(".nos-value", {
         y: 40,
         opacity: 0,
@@ -89,7 +86,6 @@ export default function NosotrosPage() {
         scrollTrigger: { trigger: ".nos-values", start: "top 80%" },
       });
 
-      // Mission
       gsap.from(".nos-mission", {
         x: -50,
         opacity: 0,
@@ -105,7 +101,7 @@ export default function NosotrosPage() {
   return (
     <div ref={pageRef} className="bg-[#0c1826] min-h-screen">
 
-      {/* Hero */}
+      {/* Hero — dark */}
       <div className="relative py-28 md:py-36 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
@@ -130,22 +126,22 @@ export default function NosotrosPage() {
         </div>
       </div>
 
-      {/* Stats */}
-      <div className="nos-stats py-16 bg-[#0f1f30]">
+      {/* Stats — clinical light */}
+      <div className="nos-stats py-16 bg-brand-hex">
         <div className="section-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s, i) => (
               <div key={i} className="nos-stat text-center">
                 <div className="font-display text-4xl md:text-5xl font-extrabold text-primary mb-1">{s.value}</div>
-                <div className="text-white font-semibold text-sm mb-0.5">{s.label}</div>
-                <div className="text-white/35 text-xs">{s.sub}</div>
+                <div className="text-gray-800 font-semibold text-sm mb-0.5">{s.label}</div>
+                <div className="text-gray-400 text-xs">{s.sub}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Mission */}
+      {/* Mission — dark */}
       <div className="py-24 section-container">
         <div className="nos-mission grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -190,11 +186,11 @@ export default function NosotrosPage() {
         </div>
       </div>
 
-      {/* Values */}
-      <div className="py-24 bg-[#0f1f30]">
+      {/* Values — warm light */}
+      <div className="py-24 bg-hexpattern-warm">
         <div className="section-container">
           <div className="text-center mb-14">
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-white mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
               Lo que nos hace{" "}
               <span className="text-gradient">diferentes</span>
             </h2>
@@ -205,16 +201,16 @@ export default function NosotrosPage() {
               return (
                 <div
                   key={i}
-                  className="nos-value rounded-2xl p-6 bg-[#112539]/60 border border-white/6 hover:border-white/12 hover:bg-[#112539] transition-all duration-300"
+                  className="nos-value rounded-2xl p-6 bg-white border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300"
                 >
                   <div
                     className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5"
-                    style={{ background: `${v.color}18`, border: `1px solid ${v.color}30` }}
+                    style={{ background: `${v.color}14`, border: `1px solid ${v.color}30` }}
                   >
                     <Icon className="w-5 h-5" style={{ color: v.color }} />
                   </div>
-                  <h3 className="font-display font-bold text-white mb-2">{v.title}</h3>
-                  <p className="text-white/45 text-sm leading-relaxed">{v.description}</p>
+                  <h3 className="font-display font-bold text-gray-900 mb-2">{v.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{v.description}</p>
                 </div>
               );
             })}
@@ -222,7 +218,7 @@ export default function NosotrosPage() {
         </div>
       </div>
 
-      {/* CTA */}
+      {/* CTA — dark */}
       <div className="py-24 text-center section-container">
         <h2 className="font-display text-3xl md:text-5xl font-extrabold text-white mb-4">
           ¿Lista para conocernos?

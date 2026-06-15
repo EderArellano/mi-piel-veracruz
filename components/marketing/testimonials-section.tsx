@@ -24,7 +24,7 @@ const testimonials = [
     service: "Bikini brasileño + Axilas",
     sessions: 4,
     initial: "D",
-    color: "#06b6d4",
+    color: "#0891b2",
   },
   {
     name: "Sofía L.",
@@ -34,7 +34,7 @@ const testimonials = [
     service: "Cuerpo completo",
     sessions: 5,
     initial: "S",
-    color: "#10b981",
+    color: "#059669",
   },
   {
     name: "Andrea K.",
@@ -54,7 +54,7 @@ const testimonials = [
     service: "Espalda y pecho",
     sessions: 7,
     initial: "C",
-    color: "#8b5cf6",
+    color: "#7c3aed",
   },
   {
     name: "Mariana P.",
@@ -64,7 +64,7 @@ const testimonials = [
     service: "Axilas + Bikini",
     sessions: 3,
     initial: "M",
-    color: "#ec4899",
+    color: "#9b7b5b",
   },
 ];
 
@@ -97,30 +97,30 @@ export function TestimonialsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="testimonios" className="py-28 md:py-36 bg-[#0f1f30] overflow-hidden">
+    <section ref={sectionRef} id="testimonios" className="py-28 md:py-36 bg-brand-hex overflow-hidden">
       <div className="section-container">
         {/* Header */}
         <div className="test-header text-center mb-16">
           <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
-            <span className="w-10 h-px bg-primary/60" />
+            <span className="w-10 h-px bg-primary/40" />
             Testimonios reales
-            <span className="w-10 h-px bg-primary/60" />
+            <span className="w-10 h-px bg-primary/40" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
             Lo que dicen nuestras{" "}
             <span className="text-gradient">pacientes</span>
           </h2>
-          <p className="text-white/45 text-lg max-w-xl mx-auto mb-5">
+          <p className="text-gray-500 text-lg max-w-xl mx-auto mb-5">
             Más de 5,000 personas en Veracruz ya confían en MiPiel.
           </p>
-          <div className="inline-flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-full px-5 py-2.5">
+          <div className="inline-flex items-center gap-2.5 bg-white border border-gray-200 shadow-sm rounded-full px-5 py-2.5">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
               ))}
             </div>
-            <span className="text-white font-bold text-sm">4.9</span>
-            <span className="text-white/40 text-sm">/ 5.0 · 847 reseñas verificadas</span>
+            <span className="text-gray-900 font-bold text-sm">4.9</span>
+            <span className="text-gray-400 text-sm">/ 5.0 · 847 reseñas verificadas</span>
           </div>
         </div>
 
@@ -129,7 +129,7 @@ export function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="test-card relative rounded-2xl p-6 bg-[#112539]/70 border border-white/6 hover:border-white/12 hover:bg-[#112539] transition-all duration-300 flex flex-col"
+              className="test-card relative rounded-2xl p-6 bg-white border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300 flex flex-col"
             >
               {/* Top */}
               <div className="flex items-center justify-between mb-4">
@@ -138,25 +138,25 @@ export function TestimonialsSection() {
                     <Star key={j} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <Quote className="w-5 h-5 text-white/15" />
+                <Quote className="w-5 h-5 text-gray-200" />
               </div>
 
               {/* Text */}
-              <p className="text-white/55 text-sm leading-relaxed flex-1 mb-5">
+              <p className="text-gray-600 text-sm leading-relaxed flex-1 mb-5">
                 &ldquo;{t.text}&rdquo;
               </p>
 
               {/* Footer */}
-              <div className="flex items-center gap-3 pt-4 border-t border-white/6">
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
                 <div
                   className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 text-white text-xs font-bold"
-                  style={{ background: `${t.color}25`, border: `1px solid ${t.color}40` }}
+                  style={{ background: `${t.color}20`, border: `1px solid ${t.color}40`, color: t.color }}
                 >
                   {t.initial}
                 </div>
                 <div className="min-w-0">
-                  <div className="text-sm font-semibold text-white">{t.name}</div>
-                  <div className="text-xs text-white/35 truncate">
+                  <div className="text-sm font-semibold text-gray-900">{t.name}</div>
+                  <div className="text-xs text-gray-400 truncate">
                     {t.location} · {t.service} · {t.sessions} ses.
                   </div>
                 </div>

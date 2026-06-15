@@ -78,19 +78,19 @@ export function FaqSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="preguntas-frecuentes" className="py-28 md:py-36 bg-[#0c1826]">
+    <section ref={sectionRef} id="preguntas-frecuentes" className="py-28 md:py-36 bg-hexpattern-warm">
       <div className="section-container">
         <div className="faq-header text-center mb-16">
           <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
-            <span className="w-10 h-px bg-primary/60" />
+            <span className="w-10 h-px bg-primary/40" />
             Preguntas frecuentes
-            <span className="w-10 h-px bg-primary/60" />
+            <span className="w-10 h-px bg-primary/40" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
             Todo lo que necesitas{" "}
             <span className="text-gradient">saber</span>
           </h2>
-          <p className="text-white/45 text-lg max-w-xl mx-auto">
+          <p className="text-gray-500 text-lg max-w-xl mx-auto">
             Resolvemos tus dudas sobre depilación láser y tratamientos faciales en Veracruz.
           </p>
         </div>
@@ -99,20 +99,20 @@ export function FaqSection() {
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="faq-item rounded-2xl bg-[#112539]/60 border border-white/6 hover:border-white/10 transition-colors duration-200 overflow-hidden"
+              className="faq-item rounded-2xl bg-white border border-gray-200 hover:border-gray-300 transition-colors duration-200 overflow-hidden shadow-sm"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-5 text-left group"
               >
-                <span className="font-semibold text-white/80 group-hover:text-white text-sm leading-snug pr-4 transition-colors">
+                <span className="font-semibold text-gray-700 group-hover:text-gray-900 text-sm leading-snug pr-4 transition-colors">
                   {faq.question}
                 </span>
-                <span className="shrink-0 w-7 h-7 rounded-full bg-white/6 group-hover:bg-primary/15 border border-white/8 flex items-center justify-center transition-colors duration-200">
+                <span className="shrink-0 w-7 h-7 rounded-full bg-gray-100 group-hover:bg-primary/10 border border-gray-200 flex items-center justify-center transition-colors duration-200">
                   {openIndex === i ? (
                     <Minus className="w-3.5 h-3.5 text-primary" />
                   ) : (
-                    <Plus className="w-3.5 h-3.5 text-white/50 group-hover:text-primary transition-colors" />
+                    <Plus className="w-3.5 h-3.5 text-gray-400 group-hover:text-primary transition-colors" />
                   )}
                 </span>
               </button>
@@ -122,8 +122,8 @@ export function FaqSection() {
                 style={{ maxHeight: openIndex === i ? "400px" : "0" }}
               >
                 <div className="px-5 pb-5">
-                  <div className="w-full h-px bg-white/6 mb-4" />
-                  <p className="text-white/50 text-sm leading-relaxed">{faq.answer}</p>
+                  <div className="w-full h-px bg-gray-100 mb-4" />
+                  <p className="text-gray-500 text-sm leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             </div>
