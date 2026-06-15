@@ -137,7 +137,7 @@ export function ProblemsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#0a0f1e] py-28 md:py-36 overflow-hidden">
+    <section ref={sectionRef} className="bg-[#0f1f30] py-28 md:py-36 overflow-hidden">
       <div className="section-container">
 
         {/* Header */}

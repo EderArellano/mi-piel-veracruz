@@ -1,109 +1,135 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
     question: "¿Cuánto cuesta la depilación láser en Veracruz?",
     answer:
-      "Los precios varían según la zona a tratar. En Mi Piel Veracruz los precios comienzan desde $399 para axilas, $499 para facial, $599 para bikini, $899 para piernas y $2,499 para cuerpo completo. Ofrecemos planes de pago y paquetes con descuento. La primera consulta es gratuita.",
+      "Los precios comienzan desde $500 MXN por sesión. Axilas $600, Facial $500, Bikini $800–$1,000, Pierna completa $1,200, Cuerpo completo $4,500. La primera consulta con Skin Analyzer es completamente gratis. Ofrecemos planes de pago y paquetes con descuento.",
   },
   {
     question: "¿Cuántas sesiones de depilación láser necesito?",
     answer:
-      "El número de sesiones varía según la zona, tipo de piel y color del vello. En promedio se requieren entre 6 y 10 sesiones espaciadas cada 4–8 semanas. Durante tu consulta inicial, nuestra especialista evaluará tu caso y te dará un plan personalizado.",
+      "En promedio entre 6 y 8 sesiones espaciadas cada 4–8 semanas. Durante tu consulta inicial, nuestra especialista evaluará tu tipo de piel y vello para darte un plan exacto y personalizado. La mayoría logran resultados permanentes del 85–95%.",
   },
   {
     question: "¿Duele la depilación láser?",
     answer:
-      "La sensación es mínima. La mayoría de nuestros clientes describen la sensación como un leve chasquido o calor tolerable. Nuestra tecnología cuenta con sistema de enfriamiento integrado que hace el tratamiento mucho más cómodo. Las zonas más sensibles pueden requerir crema anestésica.",
+      "La sensación es mínima. La mayoría de nuestras pacientes lo describen como un leve chasquido tolerable. Nuestra tecnología Diodo cuenta con sistema de enfriamiento integrado que hace el tratamiento mucho más cómodo, especialmente en zonas sensibles.",
   },
   {
-    question: "¿La depilación láser es segura para todo tipo de piel?",
+    question: "¿La depilación láser es segura para pieles morenas?",
     answer:
-      "Sí. Contamos con tecnología láser Alexandrita y Diodo que se adapta a todos los fototipos de piel, incluyendo pieles morenas y sensibles. Realizamos una prueba de parche previa para garantizar la seguridad del tratamiento en tu tipo de piel específico.",
+      "Sí. Contamos con tecnología láser Diodo especialmente efectiva para pieles morenas (fototipos III–VI comunes en Veracruz). Realizamos una prueba de parche previa y ajustamos todos los parámetros para garantizar seguridad y resultados óptimos.",
   },
   {
-    question: "¿Cuáles son los cuidados después de la depilación láser?",
+    question: "¿Qué cuidados necesito después del tratamiento?",
     answer:
-      "Los cuidados post-tratamiento son simples: evitar el sol directo por 48–72 horas, no usar desodorante en axilas por 24 horas, aplicar gel de aloe vera si hay sensación de calor, no exfoliar la zona por 48 horas y evitar piscinas o vapor por 24 horas. Te entregamos una guía completa de cuidados.",
+      "Son muy simples: evitar sol directo por 48–72 horas, aplicar gel de aloe vera si hay sensación de calor, no exfoliar la zona por 48 horas y evitar albercas o vapor por 24 horas. Te entregamos una guía completa de cuidados en cada sesión.",
   },
   {
-    question: "¿Cuándo veré resultados de la depilación láser?",
+    question: "¿Cuándo veo los primeros resultados?",
     answer:
-      "Los primeros resultados son visibles después de la primera sesión. El vello comienza a caer entre 1–3 semanas después del tratamiento. Con cada sesión sucesiva, la reducción del vello es mayor. Después del ciclo completo de sesiones, la mayoría de los clientes logran una reducción permanente del 85–95%.",
+      "Los primeros resultados son visibles después de la primera sesión. El vello comienza a caer entre 1–3 semanas. Con cada sesión la reducción es mayor. Después del ciclo completo la mayoría logra reducción permanente del 85–95%.",
   },
   {
-    question: "¿Puedo hacerme láser si tengo piel sensible o acné?",
+    question: "¿El Hidrofacial y Celluma LED son aptos para toda edad?",
     answer:
-      "Sí, la depilación láser es apta para pieles sensibles. De hecho, muchos clientes con acné reportan mejoría en su piel tras el tratamiento. Evaluamos cada caso individualmente y ajustamos los parámetros del láser según las necesidades específicas de tu piel.",
+      "Sí, desde los 18 años. El Hidrofacial es ideal para poros tapados, manchas y piel sin brillo — muy común por la humedad de Veracruz. Celluma LED estimula colágeno y reduce acné. Ambos son no invasivos y sin tiempo de recuperación.",
   },
   {
-    question: "¿Cuánto tiempo dura cada sesión de depilación láser?",
+    question: "¿Cuánto dura cada sesión?",
     answer:
-      "La duración varía según la zona. Axilas: 10–15 minutos. Facial: 15–20 minutos. Bikini: 20–30 minutos. Piernas completas: 45–60 minutos. Cuerpo completo: 90–120 minutos. Podrás reanudar tus actividades normales inmediatamente después.",
+      "Varía por zona: Axilas 10–15 min, Facial 15–20 min, Bikini 20–30 min, Piernas completas 45–60 min, Cuerpo completo 90–120 min. Puedes reanudar tus actividades normales inmediatamente después de cada sesión.",
   },
 ];
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      gsap.from(".faq-header", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".faq-header", start: "top 85%" },
+      });
+
+      gsap.from(".faq-item", {
+        y: 30,
+        opacity: 0,
+        stagger: 0.07,
+        duration: 0.6,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".faq-list", start: "top 80%" },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="py-24 bg-muted/30" id="preguntas-frecuentes">
+    <section ref={sectionRef} id="preguntas-frecuentes" className="py-28 md:py-36 bg-[#0c1826]">
       <div className="section-container">
-        <div className="text-center mb-16">
-          <div className="badge-premium mb-4">✦ Preguntas frecuentes</div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+        <div className="faq-header text-center mb-16">
+          <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
+            <span className="w-10 h-px bg-primary/60" />
+            Preguntas frecuentes
+            <span className="w-10 h-px bg-primary/60" />
+          </div>
+          <h2 className="font-display text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
             Todo lo que necesitas{" "}
-            <span className="text-gradient font-display italic">saber</span>
+            <span className="text-gradient">saber</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Resolvemos tus dudas sobre la depilación láser en Veracruz. Si tienes más preguntas,
-            contáctanos.
+          <p className="text-white/45 text-lg max-w-xl mx-auto">
+            Resolvemos tus dudas sobre depilación láser y tratamientos faciales en Veracruz.
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-3">
+        <div className="faq-list max-w-3xl mx-auto space-y-2.5">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="card-premium overflow-hidden"
+              className="faq-item rounded-2xl bg-[#112539]/60 border border-white/6 hover:border-white/10 transition-colors duration-200 overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-muted/30 transition-colors"
+                className="w-full flex items-center justify-between p-5 text-left group"
               >
-                <span className="font-semibold text-foreground pr-4">{faq.question}</span>
-                <span className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                <span className="font-semibold text-white/80 group-hover:text-white text-sm leading-snug pr-4 transition-colors">
+                  {faq.question}
+                </span>
+                <span className="shrink-0 w-7 h-7 rounded-full bg-white/6 group-hover:bg-primary/15 border border-white/8 flex items-center justify-center transition-colors duration-200">
                   {openIndex === i ? (
-                    <Minus className="w-4 h-4 text-primary" />
+                    <Minus className="w-3.5 h-3.5 text-primary" />
                   ) : (
-                    <Plus className="w-4 h-4 text-primary" />
+                    <Plus className="w-3.5 h-3.5 text-white/50 group-hover:text-primary transition-colors" />
                   )}
                 </span>
               </button>
 
-              <AnimatePresence>
-                {openIndex === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="px-6 pb-6">
-                      <p className="text-muted-foreground leading-relaxed text-sm">{faq.answer}</p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div
+                className="overflow-hidden transition-all duration-300 ease-in-out"
+                style={{ maxHeight: openIndex === i ? "400px" : "0" }}
+              >
+                <div className="px-5 pb-5">
+                  <div className="w-full h-px bg-white/6 mb-4" />
+                  <p className="text-white/50 text-sm leading-relaxed">{faq.answer}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Schema FAQ markup */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -113,10 +139,7 @@ export function FaqSection() {
               mainEntity: faqs.map((faq) => ({
                 "@type": "Question",
                 name: faq.question,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: faq.answer,
-                },
+                acceptedAnswer: { "@type": "Answer", text: faq.answer },
               })),
             }),
           }}

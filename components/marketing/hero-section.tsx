@@ -109,7 +109,7 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen bg-[#070b14] flex items-center overflow-hidden"
+      className="relative min-h-screen bg-[#0c1826] flex items-center overflow-x-hidden"
     >
       {/* ── Parallax blob layer 1 ────────────────────────────────────── */}
       <div ref={blob1Ref} className="absolute inset-0 -top-1/4 pointer-events-none">
@@ -148,17 +148,17 @@ export function HeroSection() {
           </div>
 
           {/* Headline */}
-          <h1 className="font-display font-black leading-[0.92] tracking-tighter mb-8 overflow-hidden">
-            <span className="hero-line block text-white text-[clamp(3rem,8vw,6.5rem)]">
+          <h1 className="font-display font-black leading-[0.92] tracking-tighter mb-8">
+            <span className="hero-line block text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
               Deja de
             </span>
-            <span className="hero-line block text-white text-[clamp(3rem,8vw,6.5rem)]">
+            <span className="hero-line block text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
               rasurar.
             </span>
-            <span className="hero-line block text-[clamp(3rem,8vw,6.5rem)] text-gradient">
+            <span className="hero-line block text-gradient text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
               Empieza
             </span>
-            <span className="hero-line block text-[clamp(3rem,8vw,6.5rem)] text-gradient">
+            <span className="hero-line block text-gradient text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
               a vivir.
             </span>
           </h1>

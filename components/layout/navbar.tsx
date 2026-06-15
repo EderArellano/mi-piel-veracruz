@@ -3,10 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useSession } from "next-auth/react";
 import { Menu, X, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -24,7 +23,7 @@ export function Navbar() {
   const { data: session } = useSession();
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20);
+    const handler = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
@@ -34,38 +33,34 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-border/50 shadow-sm"
-          : "bg-transparent"
+          ? "bg-[#0c1826]/97 backdrop-blur-xl border-b border-white/8 shadow-lg shadow-black/30"
+          : "bg-[#0c1826]/90 backdrop-blur-md"
       )}
     >
       <div className="section-container">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center shadow-premium group-hover:shadow-premium-lg transition-shadow">
+          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center shadow-glow group-hover:shadow-glow-intense transition-shadow duration-200">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <div className="leading-none">
-              <span className="text-[15px] font-bold text-foreground tracking-tight block">
-                Mi Piel
-              </span>
-              <span className="text-[11px] text-muted-foreground tracking-widest uppercase block">
-                Veracruz
-              </span>
+              <span className="text-[15px] font-bold text-white tracking-tight block">Mi Piel</span>
+              <span className="text-[11px] text-white/45 tracking-widest uppercase block">Veracruz</span>
             </div>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm font-medium transition-colors",
+                  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
                   pathname === link.href
-                    ? "text-primary bg-primary/8"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "text-primary bg-primary/10"
+                    : "text-white/60 hover:text-white hover:bg-white/6"
                 )}
               >
                 {link.label}
@@ -74,27 +69,36 @@ export function Navbar() {
           </nav>
 
           {/* Actions */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3 shrink-0">
             {session ? (
-              <Button asChild size="sm">
-                <Link href="/dashboard">Mi cuenta</Link>
-              </Button>
+              <Link
+                href="/dashboard"
+                className="text-white/70 hover:text-white text-sm font-medium transition-colors"
+              >
+                Mi cuenta
+              </Link>
             ) : (
               <>
-                <Button variant="ghost" size="sm" asChild>
-                  <Link href="/login">Iniciar sesión</Link>
-                </Button>
-                <Button size="sm" asChild>
-                  <Link href="/agendar">Agendar cita</Link>
-                </Button>
+                <Link
+                  href="/login"
+                  className="text-white/60 hover:text-white text-sm font-medium transition-colors px-3 py-2"
+                >
+                  Iniciar sesión
+                </Link>
+                <Link
+                  href="/agendar"
+                  className="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-glow hover:shadow-glow-intense hover:-translate-y-0.5"
+                >
+                  Agendar cita
+                </Link>
               </>
             )}
           </div>
 
-          {/* Mobile menu toggle */}
+          {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-xl hover:bg-muted transition-colors"
+            className="md:hidden p-2 rounded-xl text-white/60 hover:text-white hover:bg-white/8 transition-colors"
             aria-label="Menú"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -110,7 +114,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-border/50 bg-white"
+            className="md:hidden border-t border-white/8 bg-[#0c1826]"
           >
             <div className="section-container py-4 space-y-1">
               {navLinks.map((link) => (
@@ -121,8 +125,8 @@ export function Navbar() {
                   className={cn(
                     "block px-4 py-3 rounded-xl text-sm font-medium transition-colors",
                     pathname === link.href
-                      ? "text-primary bg-primary/8"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      ? "text-primary bg-primary/10"
+                      : "text-white/60 hover:text-white hover:bg-white/6"
                   )}
                 >
                   {link.label}
@@ -130,23 +134,29 @@ export function Navbar() {
               ))}
               <div className="pt-3 pb-1 flex flex-col gap-2">
                 {session ? (
-                  <Button asChild className="w-full">
-                    <Link href="/dashboard" onClick={() => setIsOpen(false)}>
-                      Mi cuenta
-                    </Link>
-                  </Button>
+                  <Link
+                    href="/dashboard"
+                    onClick={() => setIsOpen(false)}
+                    className="block w-full text-center bg-primary text-white font-bold py-3 rounded-xl"
+                  >
+                    Mi cuenta
+                  </Link>
                 ) : (
                   <>
-                    <Button variant="outline" asChild className="w-full">
-                      <Link href="/login" onClick={() => setIsOpen(false)}>
-                        Iniciar sesión
-                      </Link>
-                    </Button>
-                    <Button asChild className="w-full">
-                      <Link href="/agendar" onClick={() => setIsOpen(false)}>
-                        Agendar cita
-                      </Link>
-                    </Button>
+                    <Link
+                      href="/login"
+                      onClick={() => setIsOpen(false)}
+                      className="block w-full text-center text-white/70 hover:text-white border border-white/15 py-3 rounded-xl text-sm font-medium transition-colors"
+                    >
+                      Iniciar sesión
+                    </Link>
+                    <Link
+                      href="/agendar"
+                      onClick={() => setIsOpen(false)}
+                      className="block w-full text-center bg-primary text-white font-bold py-3 rounded-xl"
+                    >
+                      Agendar cita
+                    </Link>
                   </>
                 )}
               </div>

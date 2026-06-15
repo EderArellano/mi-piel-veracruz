@@ -1,132 +1,164 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Clock, ArrowRight, MessageSquare } from "lucide-react";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Contacto | Mi Piel Veracruz",
-  description:
-    "Contáctanos en Mi Piel Veracruz. Estamos en Boca del Río, Veracruz. Llámanos, escríbenos por WhatsApp o agenda tu cita en línea.",
-  alternates: { canonical: "https://mipielveracruz.com/contacto" },
-};
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
+import { MapPin, Phone, Mail, Clock, ArrowRight, MessageCircle } from "lucide-react";
 
 const info = [
   {
     icon: MapPin,
+    color: "#2596be",
     title: "Ubicación",
     lines: ["Boca del Río, Veracruz, México"],
+    sub: "Zona metropolitana de Veracruz",
   },
   {
     icon: Phone,
+    color: "#10b981",
     title: "Teléfono / WhatsApp",
     lines: ["+52 229 933 00 14"],
+    href: "tel:+522299330014",
   },
   {
     icon: Mail,
+    color: "#c9a96e",
     title: "Correo electrónico",
     lines: ["contacto@mipielveracruz.com"],
+    href: "mailto:contacto@mipielveracruz.com",
   },
   {
     icon: Clock,
+    color: "#a78bfa",
     title: "Horario de atención",
-    lines: ["Lunes a Viernes: 9:00 – 20:00", "Sábados: 9:00 – 15:00", "Domingos: Cerrado"],
+    lines: ["Lun–Vie: 9:00 – 20:00 h", "Sábado: 9:00 – 15:00 h"],
+    sub: "Domingos cerrado",
   },
 ];
 
 export default function ContactoPage() {
+  const pageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      gsap.from(".con-hero > *", {
+        y: 40,
+        opacity: 0,
+        stagger: 0.12,
+        duration: 0.9,
+        ease: "power3.out",
+        delay: 0.1,
+      });
+
+      gsap.from(".con-card", {
+        y: 40,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.7,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".con-grid", start: "top 80%" },
+      });
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="py-20">
-      <div className="section-container">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="badge-premium mb-4">✦ Contacto</div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
-            Estamos para{" "}
-            <span className="text-gradient font-display italic">ayudarte</span>
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            ¿Tienes dudas? Contáctanos por WhatsApp, correo o agenda tu consulta gratis en línea.
-          </p>
+    <div ref={pageRef} className="bg-[#0c1826] min-h-screen">
+
+      {/* Hero */}
+      <div className="relative py-28 md:py-36 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          {/* Contact info */}
-          <div className="space-y-4">
-            {info.map((item) => (
-              <div key={item.title} className="card-premium p-6 flex gap-4">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <div className="font-semibold text-foreground mb-1">{item.title}</div>
-                  {item.lines.map((line) => (
-                    <div key={line} className="text-sm text-muted-foreground">{line}</div>
-                  ))}
-                </div>
-              </div>
-            ))}
-
-            <div className="card-premium p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <MessageSquare className="w-5 h-5 text-emerald-500" />
-                <span className="font-semibold text-foreground">WhatsApp directo</span>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                La forma más rápida de comunicarte. Respondemos en minutos.
-              </p>
+        <div className="section-container relative z-10">
+          <div className="con-hero max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6">
+              <span className="w-8 h-px bg-primary/60" />
+              Estamos aquí para ti
+              <span className="w-8 h-px bg-primary/60" />
+            </div>
+            <h1 className="font-display text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+              Hablemos de{" "}
+              <span className="text-gradient">tu piel</span>
+            </h1>
+            <p className="text-white/55 text-lg leading-relaxed mb-10">
+              La primera consulta es gratis. Escríbenos, llámanos o agenda directamente en línea.
+              Respondemos en menos de 24 horas.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/agendar"
+                className="group inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-2xl transition-all duration-200 shadow-glow hover:shadow-glow-intense hover:-translate-y-0.5"
+              >
+                Agendar cita — Es gratis
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
               <a
-                href="https://wa.me/522299330014?text=Hola,%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20la%20depilaci%C3%B3n%20l%C3%A1ser"
+                href="https://wa.me/522299330014"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 border border-white/15 text-white/75 hover:text-white hover:border-white/30 hover:bg-white/5 font-semibold px-8 py-4 rounded-2xl transition-all duration-200"
               >
-                <Button className="w-full rounded-full bg-emerald-500 hover:bg-emerald-600 text-white">
-                  Escribir por WhatsApp <ArrowRight className="w-4 h-4" />
-                </Button>
+                <MessageCircle className="w-5 h-5 text-emerald-400" />
+                WhatsApp
               </a>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* CTA card */}
-          <div className="card-premium p-8 md:p-10 text-center">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center mx-auto mb-6">
-              <MapPin className="w-8 h-8 text-white" />
-            </div>
-            <h2 className="text-2xl font-bold text-foreground mb-3">Agenda en línea</h2>
-            <p className="text-muted-foreground mb-8">
-              Reserva tu consulta gratis en menos de 2 minutos. Sin filas, sin esperas.
-              Elige el día y horario que más te convenga.
-            </p>
-            <Link href="/agendar">
-              <Button size="lg" className="btn-gradient rounded-full w-full mb-4">
-                Agendar consulta gratis <ArrowRight className="w-4 h-4" />
-              </Button>
-            </Link>
-            <p className="text-xs text-muted-foreground">
-              Sin compromiso. Cancela o reagenda cuando quieras.
-            </p>
-
-            <div className="mt-10 pt-8 border-t border-border/50">
-              <h3 className="font-semibold text-foreground mb-4">Síguenos</h3>
-              <div className="flex justify-center gap-3">
-                <a
-                  href="https://instagram.com/mipielveracruz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-violet-500 flex items-center justify-center text-white text-sm font-bold hover:opacity-90 transition-opacity"
-                >
-                  IG
-                </a>
-                <a
-                  href="https://facebook.com/mipielveracruz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold hover:opacity-90 transition-opacity"
-                >
-                  FB
-                </a>
+      {/* Info cards */}
+      <div className="con-grid section-container pb-28 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {info.map((item, i) => {
+          const Icon = item.icon;
+          const Wrapper = item.href ? "a" : "div";
+          return (
+            <Wrapper
+              key={i}
+              {...(item.href ? { href: item.href } : {})}
+              className="con-card rounded-2xl p-6 bg-[#112539]/60 border border-white/6 hover:border-white/12 hover:bg-[#112539] transition-all duration-300"
+            >
+              <div
+                className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5"
+                style={{ background: `${item.color}18`, border: `1px solid ${item.color}30` }}
+              >
+                <Icon className="w-5 h-5" style={{ color: item.color }} />
               </div>
-            </div>
-          </div>
+              <div className="text-white/35 text-xs uppercase tracking-widest mb-2">{item.title}</div>
+              {item.lines.map((line) => (
+                <div key={line} className="text-white font-semibold text-sm">{line}</div>
+              ))}
+              {item.sub && (
+                <div className="text-white/35 text-xs mt-1">{item.sub}</div>
+              )}
+            </Wrapper>
+          );
+        })}
+      </div>
+
+      {/* Map placeholder + quick CTA */}
+      <div className="bg-[#0f1f30] py-20">
+        <div className="section-container text-center">
+          <p className="text-white/35 text-xs uppercase tracking-widest mb-4">¿Tienes dudas?</p>
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-white mb-4">
+            La primera consulta{" "}
+            <span className="text-gradient">siempre es gratis</span>
+          </h2>
+          <p className="text-white/45 max-w-xl mx-auto mb-8 text-base leading-relaxed">
+            Agenda tu Skin Analyzer sin costo. Analizamos tu piel, diseñamos tu plan y te decimos
+            exactamente qué tratamiento necesitas — sin compromiso.
+          </p>
+          <a
+            href="tel:+522299330014"
+            className="inline-flex items-center gap-2.5 text-white border border-white/15 hover:border-primary/40 hover:bg-primary/10 font-semibold px-8 py-4 rounded-2xl transition-all duration-200"
+          >
+            <Phone className="w-4 h-4 text-primary" />
+            229 933 00 14
+          </a>
         </div>
       </div>
     </div>
