@@ -57,20 +57,20 @@ export function FaqSection() {
 
     const ctx = gsap.context(() => {
       gsap.from(".faq-header", {
-        y: 50,
+        y: 20,
         opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
+        duration: 0.5,
+        ease: "power2.out",
         scrollTrigger: { trigger: ".faq-header", start: "top 85%" },
       });
 
       gsap.from(".faq-item", {
-        y: 30,
+        y: 14,
         opacity: 0,
-        stagger: 0.07,
-        duration: 0.6,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".faq-list", start: "top 80%" },
+        stagger: 0.05,
+        duration: 0.4,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".faq-list", start: "top 82%" },
       });
     }, sectionRef);
 
@@ -78,9 +78,9 @@ export function FaqSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="preguntas-frecuentes" className="py-28 md:py-36 bg-hexpattern-warm">
+    <section ref={sectionRef} id="preguntas-frecuentes" className="py-14 md:py-20 bg-hexpattern-warm">
       <div className="section-container">
-        <div className="faq-header text-center mb-16">
+        <div className="faq-header text-center mb-8 md:mb-10">
           <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
             <span className="w-10 h-px bg-primary/40" />
             Preguntas frecuentes

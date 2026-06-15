@@ -49,28 +49,28 @@ export function HowItWorksSection() {
 
     const ctx = gsap.context(() => {
       gsap.from(".hiw-header", {
-        y: 50,
+        y: 20,
         opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
+        duration: 0.5,
+        ease: "power2.out",
         scrollTrigger: { trigger: ".hiw-header", start: "top 85%" },
       });
 
       gsap.from(".hiw-left", {
-        x: -50,
+        x: -22,
         opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".hiw-left", start: "top 80%" },
+        duration: 0.55,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".hiw-left", start: "top 82%" },
       });
 
       gsap.from(".hiw-step", {
-        x: 60,
+        x: 22,
         opacity: 0,
-        stagger: 0.15,
-        duration: 0.75,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".hiw-steps", start: "top 80%" },
+        stagger: 0.09,
+        duration: 0.5,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".hiw-steps", start: "top 82%" },
       });
 
       gsap.from(".hiw-connector", {
@@ -86,9 +86,9 @@ export function HowItWorksSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="como-funciona" className="py-28 md:py-36 bg-hexpattern-warm overflow-hidden">
+    <section ref={sectionRef} id="como-funciona" className="py-14 md:py-20 bg-hexpattern-warm overflow-hidden">
       <div className="section-container">
-        <div className="hiw-header text-center mb-16">
+        <div className="hiw-header text-center mb-8 md:mb-10">
           <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
             <span className="w-10 h-px bg-primary/40" />
             Proceso

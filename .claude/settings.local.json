@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm show *)"
+      "Bash(npm show *)",
+      "WebFetch(domain:www.instagram.com)",
+      "Bash(npx tsc *)"
     ]
   }
 }

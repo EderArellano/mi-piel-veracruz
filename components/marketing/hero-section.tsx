@@ -58,46 +58,46 @@ export function HeroSection() {
       });
 
       gsap.from(".hero-badge", {
-        scale: 0.85,
+        scale: 0.92,
         opacity: 0,
-        duration: 0.6,
-        ease: "back.out(1.7)",
+        duration: 0.5,
+        ease: "back.out(1.4)",
       });
 
       gsap.from(".hero-line", {
-        y: 90,
+        y: 40,
         opacity: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power4.out",
-        delay: 0.15,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: "power2.out",
+        delay: 0.1,
       });
 
       gsap.from(".hero-sub", {
-        y: 30,
+        y: 16,
         opacity: 0,
-        duration: 0.8,
-        delay: 0.6,
-        ease: "power3.out",
+        duration: 0.55,
+        delay: 0.45,
+        ease: "power2.out",
       });
 
       gsap.from(".hero-actions", {
-        y: 20,
+        y: 12,
         opacity: 0,
-        duration: 0.7,
-        delay: 0.85,
-        ease: "power3.out",
+        duration: 0.5,
+        delay: 0.6,
+        ease: "power2.out",
       });
 
       gsap.to(".hero-content", {
-        y: -60,
+        y: -30,
         opacity: 0,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "60% top",
+          start: "65% top",
           end: "bottom top",
-          scrub: 1,
+          scrub: 1.5,
         },
       });
     }, sectionRef);
@@ -130,10 +130,10 @@ export function HeroSection() {
       />
 
       {/* Hero content */}
-      <div className="hero-content relative z-10 section-container py-32 lg:py-40 w-full">
+      <div className="hero-content relative z-10 section-container py-24 lg:py-32 w-full">
         <div className="max-w-5xl">
           {/* Badge */}
-          <div className="hero-badge inline-flex items-center gap-2.5 mb-10 px-4 py-2 rounded-full border border-gray-200 bg-white shadow-sm">
+          <div className="hero-badge inline-flex items-center gap-2.5 mb-6 px-4 py-2 rounded-full border border-gray-200 bg-white shadow-sm">
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
@@ -145,7 +145,7 @@ export function HeroSection() {
           </div>
 
           {/* Headline */}
-          <h1 className="font-display font-black leading-[0.92] tracking-tighter mb-8">
+          <h1 className="font-display font-black leading-[0.92] tracking-tighter mb-6">
             <span className="hero-line block text-gray-900 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
               Deja de
             </span>
@@ -161,13 +161,13 @@ export function HeroSection() {
           </h1>
 
           {/* Subhead */}
-          <p className="hero-sub text-gray-500 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
+          <p className="hero-sub text-gray-500 text-lg md:text-xl leading-relaxed max-w-2xl mb-8">
             Depilación láser grado médico, hidrofacial y análisis personalizado en Boca del Río,
             Veracruz. Sin vello. Sin manchas. Sin perder tiempo.
           </p>
 
           {/* CTAs */}
-          <div className="hero-actions flex flex-col sm:flex-row gap-4 mb-14">
+          <div className="hero-actions flex flex-col sm:flex-row gap-4 mb-8">
             <Link
               href="/agendar"
               className="group inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold text-base px-8 py-4 rounded-2xl transition-all duration-200 shadow-glow hover:shadow-glow-intense hover:-translate-y-0.5"

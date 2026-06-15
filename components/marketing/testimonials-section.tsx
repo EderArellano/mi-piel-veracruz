@@ -76,20 +76,20 @@ export function TestimonialsSection() {
 
     const ctx = gsap.context(() => {
       gsap.from(".test-header", {
-        y: 50,
+        y: 20,
         opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
+        duration: 0.5,
+        ease: "power2.out",
         scrollTrigger: { trigger: ".test-header", start: "top 85%" },
       });
 
       gsap.from(".test-card", {
-        y: 60,
+        y: 22,
         opacity: 0,
-        stagger: 0.1,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".test-grid", start: "top 80%" },
+        stagger: 0.07,
+        duration: 0.45,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".test-grid", start: "top 82%" },
       });
     }, sectionRef);
 
@@ -97,10 +97,10 @@ export function TestimonialsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="testimonios" className="py-28 md:py-36 bg-brand-hex overflow-hidden">
+    <section ref={sectionRef} id="testimonios" className="py-14 md:py-20 bg-brand-hex overflow-hidden">
       <div className="section-container">
         {/* Header */}
-        <div className="test-header text-center mb-16">
+        <div className="test-header text-center mb-8 md:mb-10">
           <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
             <span className="w-10 h-px bg-primary/40" />
             Testimonios reales

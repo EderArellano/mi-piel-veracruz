@@ -21,9 +21,9 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <StatsSection />
       <ProblemsSection />
       <ServicesSection />
-      <StatsSection />
       <HowItWorksSection />
       <TestimonialsSection />
       <FaqSection />

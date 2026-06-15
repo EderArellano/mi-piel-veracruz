@@ -40,14 +40,14 @@ export function StatsSection() {
     const ctx = gsap.context(() => {
       // Stagger reveal items
       gsap.from(".stat-item", {
-        y: 50,
+        y: 20,
         opacity: 0,
-        stagger: 0.12,
-        duration: 0.8,
-        ease: "power3.out",
+        stagger: 0.08,
+        duration: 0.5,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: "top 80%",
         },
       });
 
@@ -78,7 +78,7 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative bg-primary overflow-hidden py-20 md:py-28">
+    <section ref={sectionRef} className="relative bg-primary overflow-hidden py-12 md:py-16">
       {/* Background texture */}
       <div
         className="absolute inset-0 opacity-[0.07]"

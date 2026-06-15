@@ -25,11 +25,11 @@ export function CtaSection() {
       });
 
       gsap.from(".cta-content > *", {
-        y: 40,
+        y: 18,
         opacity: 0,
-        stagger: 0.12,
-        duration: 0.8,
-        ease: "power3.out",
+        stagger: 0.07,
+        duration: 0.5,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 75%",
@@ -51,7 +51,7 @@ export function CtaSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-hexpattern-warm py-32 md:py-44 overflow-hidden"
+      className="relative bg-hexpattern-warm py-16 md:py-24 overflow-hidden"
     >
       {/* Soft glow blobs */}
       <div className="cta-blob absolute inset-0 pointer-events-none">
@@ -75,13 +75,13 @@ export function CtaSection() {
           </h2>
 
           {/* Sub */}
-          <p className="text-gray-500 text-xl leading-relaxed mb-12 max-w-xl mx-auto">
+          <p className="text-gray-500 text-xl leading-relaxed mb-8 max-w-xl mx-auto">
             Únete a más de 5,000 pacientes en Veracruz que ya disfrutan de una piel
             libre, radiante y sin preocupaciones.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <div className="relative inline-flex">
               <div className="cta-btn-glow absolute inset-0 rounded-2xl bg-primary" />
               <Link

@@ -79,21 +79,21 @@ export function ProblemsSection() {
 
     const ctx = gsap.context(() => {
       gsap.from(".prb-header", {
-        y: 60,
+        y: 22,
         opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
+        duration: 0.5,
+        ease: "power2.out",
         scrollTrigger: { trigger: ".prb-header", start: "top 85%" },
       });
 
       gsap.utils.toArray<HTMLElement>(".prb-card").forEach((card, i) => {
         gsap.from(card, {
           opacity: 0,
-          x: i % 2 === 0 ? -60 : 60,
-          y: 20,
-          duration: 0.75,
-          ease: "power3.out",
-          scrollTrigger: { trigger: card, start: "top 87%", toggleActions: "play none none none" },
+          x: i % 2 === 0 ? -24 : 24,
+          y: 10,
+          duration: 0.5,
+          ease: "power2.out",
+          scrollTrigger: { trigger: card, start: "top 88%", toggleActions: "play none none none" },
         });
       });
 
@@ -123,11 +123,11 @@ export function ProblemsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-brand-hex py-28 md:py-36 overflow-hidden">
+    <section ref={sectionRef} className="bg-brand-hex py-14 md:py-20 overflow-hidden">
       <div className="section-container">
 
         {/* Header */}
-        <div className="prb-header text-center mb-20">
+        <div className="prb-header text-center mb-10">
           <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
             <span className="w-10 h-px bg-primary/40" />
             Por qué existimos
@@ -193,7 +193,7 @@ export function ProblemsSection() {
         </div>
 
         {/* Bridge */}
-        <div className="prb-bridge mt-24 text-center">
+        <div className="prb-bridge mt-12 text-center">
           <p className="text-gray-400 text-xs uppercase tracking-[0.25em] mb-4">La solución existe en Veracruz</p>
           <p className="font-display text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
             Todo esto tiene nombre:{" "}

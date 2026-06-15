@@ -83,20 +83,20 @@ export function ServicesSection() {
 
     const ctx = gsap.context(() => {
       gsap.from(".svc-header", {
-        y: 50,
+        y: 20,
         opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
+        duration: 0.5,
+        ease: "power2.out",
         scrollTrigger: { trigger: ".svc-header", start: "top 85%" },
       });
 
       gsap.from(".svc-card", {
-        y: 60,
+        y: 24,
         opacity: 0,
-        stagger: 0.1,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".svc-grid", start: "top 80%" },
+        stagger: 0.07,
+        duration: 0.45,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".svc-grid", start: "top 82%" },
       });
     }, sectionRef);
 
@@ -104,7 +104,7 @@ export function ServicesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="servicios" className="relative py-28 md:py-36 bg-brand-hex overflow-hidden">
+    <section ref={sectionRef} id="servicios" className="relative py-14 md:py-20 bg-brand-hex overflow-hidden">
       {/* MiPiel logo watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
         <svg
@@ -123,7 +123,7 @@ export function ServicesSection() {
 
       <div className="section-container relative z-10">
         {/* Header */}
-        <div className="svc-header text-center mb-16">
+        <div className="svc-header text-center mb-8 md:mb-10">
           <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
             <span className="w-10 h-px bg-primary/40" />
             Tratamientos disponibles
@@ -190,7 +190,7 @@ export function ServicesSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-14 text-center">
+        <div className="mt-8 text-center">
           <Link
             href="/agendar"
             className="group inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold text-base px-8 py-4 rounded-2xl transition-all duration-200 shadow-glow hover:shadow-glow-intense hover:-translate-y-0.5"
