@@ -81,9 +81,10 @@ export function StatsSection() {
     <section ref={sectionRef} className="relative bg-primary overflow-hidden py-20 md:py-28">
       {/* Background texture */}
       <div
-        className="absolute inset-0 opacity-[0.06]"
+        className="absolute inset-0 opacity-[0.07]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34zm28-33l-28 17v34l28-17V33z' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M60 16 L98 38 L98 82 L60 104 L22 82 L22 38 Z' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3Cpath d='M60 82 C60 82 35 67 35 50 C35 39 43 32 52 36 C55.5 37.5 58 41 60 45 C62 41 64.5 37.5 68 36 C77 32 85 39 85 50 C85 67 60 82 60 82 Z' fill='none' stroke='%23ffffff' stroke-width='1.8'/%3E%3C/svg%3E")`,
+          backgroundSize: "120px 120px",
         }}
       />
 

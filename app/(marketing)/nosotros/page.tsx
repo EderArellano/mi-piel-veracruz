@@ -99,25 +99,26 @@ export default function NosotrosPage() {
   }, []);
 
   return (
-    <div ref={pageRef} className="bg-[#0c1826] min-h-screen">
+    <div ref={pageRef} className="min-h-screen">
 
-      {/* Hero — dark */}
-      <div className="relative py-28 md:py-36 overflow-hidden">
+      {/* Hero — light */}
+      <div className="relative py-28 md:py-36 overflow-hidden bg-hexpattern-warm">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-primary/6 blur-[120px]" />
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#c9a96e]/5 blur-[100px]" />
         </div>
         <div className="section-container relative z-10">
           <div className="nos-hero max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6">
-              <span className="w-8 h-px bg-primary/60" />
+              <span className="w-8 h-px bg-primary/40" />
               Nuestra historia
-              <span className="w-8 h-px bg-primary/60" />
+              <span className="w-8 h-px bg-primary/40" />
             </div>
-            <h1 className="font-display text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+            <h1 className="font-display text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
               La clínica que{" "}
               <span className="text-gradient">Veracruz necesitaba</span>
             </h1>
-            <p className="text-white/55 text-lg md:text-xl leading-relaxed">
+            <p className="text-gray-500 text-lg md:text-xl leading-relaxed">
               Hace 8 años fundamos MiPiel Centro Dermocosmético en Boca del Río con una convicción:
               las mujeres veracruzanas merecen acceso a tecnología dermocosmética de clase mundial,
               adaptada a su piel, su clima y su vida.
@@ -141,47 +142,49 @@ export default function NosotrosPage() {
         </div>
       </div>
 
-      {/* Mission — dark */}
-      <div className="py-24 section-container">
-        <div className="nos-mission grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
-              <span className="w-8 h-px bg-primary/60" />
-              Nuestra misión
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-white leading-tight mb-5">
-              Devolverte la confianza en tu propia piel
-            </h2>
-            <p className="text-white/50 leading-relaxed mb-4">
-              Veracruz tiene un clima único: calor, humedad alta y UV índice de 10 casi todo el año.
-              Eso significa que la piel veracruzana enfrenta retos que las clínicas genéricas no entienden.
-            </p>
-            <p className="text-white/50 leading-relaxed mb-8">
-              En MiPiel diseñamos cada tratamiento considerando el fototipo III–V predominante en
-              nuestra región, el impacto del sol tropical y el estilo de vida de la mujer veracruzana.
-              No somos una franquicia. Somos una clínica local que conoce a sus pacientes.
-            </p>
-            <Link
-              href="/agendar"
-              className="group inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-glow hover:shadow-glow-intense hover:-translate-y-0.5"
-            >
-              Conoce nuestro equipo — Primera consulta gratis
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-          <div className="rounded-3xl bg-[#112539] border border-white/8 p-8 space-y-4">
-            {[
-              { label: "Tecnología", value: "Láser Diodo grado médico + Celluma LED + Skin Analyzer" },
-              { label: "Especialidad", value: "Depilación láser, hidrofacial y cuidado de piel tropical" },
-              { label: "Ubicación", value: "Boca del Río, Veracruz — Zona metropolitana" },
-              { label: "Horario", value: "Lun–Vie 9–20 h · Sáb 9–15 h" },
-              { label: "Primera consulta", value: "Gratis, sin compromiso, con análisis de piel incluido" },
-            ].map((item) => (
-              <div key={item.label} className="flex gap-4 py-3 border-b border-white/5 last:border-0">
-                <div className="text-white/30 text-xs uppercase tracking-widest w-28 shrink-0 pt-0.5">{item.label}</div>
-                <div className="text-white/70 text-sm leading-relaxed">{item.value}</div>
+      {/* Mission — light warm */}
+      <div className="py-24 bg-hexpattern-warm">
+        <div className="section-container">
+          <div className="nos-mission grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
+                <span className="w-8 h-px bg-primary/40" />
+                Nuestra misión
               </div>
-            ))}
+              <h2 className="font-display text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
+                Devolverte la confianza en tu propia piel
+              </h2>
+              <p className="text-gray-500 leading-relaxed mb-4">
+                Veracruz tiene un clima único: calor, humedad alta y UV índice de 10 casi todo el año.
+                Eso significa que la piel veracruzana enfrenta retos que las clínicas genéricas no entienden.
+              </p>
+              <p className="text-gray-500 leading-relaxed mb-8">
+                En MiPiel diseñamos cada tratamiento considerando el fototipo III–V predominante en
+                nuestra región, el impacto del sol tropical y el estilo de vida de la mujer veracruzana.
+                No somos una franquicia. Somos una clínica local que conoce a sus pacientes.
+              </p>
+              <Link
+                href="/agendar"
+                className="group inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-glow hover:shadow-glow-intense hover:-translate-y-0.5"
+              >
+                Conoce nuestro equipo — Primera consulta gratis
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+            <div className="rounded-3xl bg-white border border-gray-100 shadow-md p-8 space-y-4">
+              {[
+                { label: "Tecnología", value: "Láser Diodo grado médico + Celluma LED + Skin Analyzer" },
+                { label: "Especialidad", value: "Depilación láser, hidrofacial y cuidado de piel tropical" },
+                { label: "Ubicación", value: "Boca del Río, Veracruz — Zona metropolitana" },
+                { label: "Horario", value: "Lun–Vie 9–20 h · Sáb 9–15 h" },
+                { label: "Primera consulta", value: "Gratis, sin compromiso, con análisis de piel incluido" },
+              ].map((item) => (
+                <div key={item.label} className="flex gap-4 py-3 border-b border-gray-100 last:border-0">
+                  <div className="text-gray-400 text-xs uppercase tracking-widest w-28 shrink-0 pt-0.5">{item.label}</div>
+                  <div className="text-gray-700 text-sm leading-relaxed">{item.value}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -218,12 +221,12 @@ export default function NosotrosPage() {
         </div>
       </div>
 
-      {/* CTA — dark */}
+      {/* CTA — light */}
       <div className="py-24 text-center section-container">
-        <h2 className="font-display text-3xl md:text-5xl font-extrabold text-white mb-4">
+        <h2 className="font-display text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
           ¿Lista para conocernos?
         </h2>
-        <p className="text-white/45 text-lg mb-8">Primera consulta con Skin Analyzer — sin costo, sin compromiso.</p>
+        <p className="text-gray-500 text-lg mb-8">Primera consulta con Skin Analyzer — sin costo, sin compromiso.</p>
         <Link
           href="/agendar"
           className="inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold text-base px-10 py-4 rounded-2xl transition-all duration-200 shadow-glow hover:shadow-glow-intense hover:-translate-y-0.5"

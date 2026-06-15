@@ -67,25 +67,26 @@ export default function ContactoPage() {
   }, []);
 
   return (
-    <div ref={pageRef} className="bg-[#0c1826] min-h-screen">
+    <div ref={pageRef} className="min-h-screen">
 
-      {/* Hero — dark */}
-      <div className="relative py-28 md:py-36 overflow-hidden">
+      {/* Hero — light */}
+      <div className="relative py-28 md:py-36 overflow-hidden bg-hexpattern-warm">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] rounded-full bg-primary/6 blur-[120px]" />
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#c9a96e]/5 blur-[100px]" />
         </div>
         <div className="section-container relative z-10">
           <div className="con-hero max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6">
-              <span className="w-8 h-px bg-primary/60" />
+              <span className="w-8 h-px bg-primary/40" />
               Estamos aquí para ti
-              <span className="w-8 h-px bg-primary/60" />
+              <span className="w-8 h-px bg-primary/40" />
             </div>
-            <h1 className="font-display text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+            <h1 className="font-display text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
               Hablemos de{" "}
               <span className="text-gradient">tu piel</span>
             </h1>
-            <p className="text-white/55 text-lg leading-relaxed mb-10">
+            <p className="text-gray-500 text-lg leading-relaxed mb-10">
               La primera consulta es gratis. Escríbenos, llámanos o agenda directamente en línea.
               Respondemos en menos de 24 horas.
             </p>
@@ -101,9 +102,9 @@ export default function ContactoPage() {
                 href="https://wa.me/522299330014"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 border border-white/15 text-white/75 hover:text-white hover:border-white/30 hover:bg-white/5 font-semibold px-8 py-4 rounded-2xl transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2.5 border border-gray-300 text-gray-600 hover:text-gray-900 hover:border-gray-400 hover:bg-white font-semibold px-8 py-4 rounded-2xl transition-all duration-200"
               >
-                <MessageCircle className="w-5 h-5 text-emerald-400" />
+                <MessageCircle className="w-5 h-5 text-emerald-500" />
                 WhatsApp
               </a>
             </div>
@@ -142,23 +143,23 @@ export default function ContactoPage() {
         </div>
       </div>
 
-      {/* Bottom CTA — dark */}
-      <div className="bg-[#0f1f30] py-20">
+      {/* Bottom CTA — light */}
+      <div className="bg-brand-hex py-20">
         <div className="section-container text-center">
-          <p className="text-white/35 text-xs uppercase tracking-widest mb-4">¿Tienes dudas?</p>
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-white mb-4">
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">¿Tienes dudas?</p>
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
             La primera consulta{" "}
             <span className="text-gradient">siempre es gratis</span>
           </h2>
-          <p className="text-white/45 max-w-xl mx-auto mb-8 text-base leading-relaxed">
+          <p className="text-gray-500 max-w-xl mx-auto mb-8 text-base leading-relaxed">
             Agenda tu Skin Analyzer sin costo. Analizamos tu piel, diseñamos tu plan y te decimos
             exactamente qué tratamiento necesitas — sin compromiso.
           </p>
           <a
             href="tel:+522299330014"
-            className="inline-flex items-center gap-2.5 text-white border border-white/15 hover:border-primary/40 hover:bg-primary/10 font-semibold px-8 py-4 rounded-2xl transition-all duration-200"
+            className="inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-200 shadow-glow"
           >
-            <Phone className="w-4 h-4 text-primary" />
+            <Phone className="w-4 h-4" />
             229 933 00 14
           </a>
         </div>
