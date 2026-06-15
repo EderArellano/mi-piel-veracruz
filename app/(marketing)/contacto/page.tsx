@@ -49,8 +49,8 @@ const contactInfo = [
     icon: MapPin,
     color: "#7c3aed",
     label: "Ubicación",
-    value: "Boca del Río, Veracruz",
-    sub: "Zona metropolitana",
+    value: "Av. R. Flores Magón & Alacio Pérez",
+    sub: "Ignacio Zaragoza, 91700 Veracruz, Ver.",
   },
   {
     icon: Clock,
@@ -231,7 +231,7 @@ export default function ContactoPage() {
                   <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <span className="text-gray-500 text-xs">4.9 / 5 · 847 reseñas verificadas en Google</span>
+              <span className="text-gray-500 text-xs">4.9 / 5 · 49 reseñas en Google</span>
             </div>
           </form>
 
@@ -285,28 +285,34 @@ export default function ContactoPage() {
         </div>
       </div>
 
-      {/* Map placeholder */}
+      {/* Google Maps */}
       <div className="section-container pb-12 md:pb-16">
-        <div className="rounded-3xl overflow-hidden bg-brand-hex border border-gray-100 h-52 flex items-center justify-center relative">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-64 h-64 rounded-full bg-primary/5 blur-[60px]" />
-          </div>
-          <div className="relative text-center">
-            <div className="w-12 h-12 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center mx-auto mb-3">
-              <MapPin className="w-5 h-5 text-primary" />
-            </div>
-            <p className="text-gray-800 font-bold text-sm">Boca del Río, Veracruz</p>
-            <p className="text-gray-500 text-xs mb-3">Zona metropolitana de Veracruz</p>
-            <a
-              href="https://maps.google.com/?q=Boca+del+Rio+Veracruz+Mexico"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-primary text-xs font-bold bg-white border border-primary/20 rounded-full px-4 py-1.5 hover:bg-primary hover:text-white transition-all duration-200"
-            >
-              Ver en Google Maps
-              <ArrowRight className="w-3 h-3" />
-            </a>
-          </div>
+        <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-sm" style={{ height: "360px" }}>
+          <iframe
+            title="MiPiel Centro Dermocosmético — Boca del Río, Veracruz"
+            src="https://maps.google.com/maps?q=Boca+del+Rio,+Veracruz,+Mexico&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style={{ border: 0, display: "block" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+        <div className="flex items-center justify-between mt-3 px-1 flex-wrap gap-2">
+          <p className="text-gray-400 text-xs flex items-center gap-1.5">
+            <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+            Boca del Río, Veracruz, México — Zona metropolitana
+          </p>
+          <a
+            href="https://maps.google.com/?q=Boca+del+Rio,+Veracruz,+Mexico"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-primary text-xs font-bold hover:underline"
+          >
+            Abrir en Google Maps
+            <ArrowRight className="w-3 h-3" />
+          </a>
         </div>
       </div>
     </div>

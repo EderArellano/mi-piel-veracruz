@@ -30,7 +30,9 @@ const securityHeaders = [
       "img-src 'self' data: blob: https://res.cloudinary.com https://lh3.googleusercontent.com https://avatars.githubusercontent.com",
       // Conexiones solo al propio dominio (API routes + NextAuth)
       "connect-src 'self'",
-      // Sin frames externos
+      // Solo Google Maps puede ser embebido en iframe
+      "frame-src https://www.google.com https://maps.google.com",
+      // Este sitio no puede ser embebido en ningún otro frame
       "frame-ancestors 'none'",
       // Sin objetos embebidos (Flash, etc.)
       "object-src 'none'",

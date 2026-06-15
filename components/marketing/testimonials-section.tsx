@@ -120,7 +120,7 @@ export function TestimonialsSection() {
               ))}
             </div>
             <span className="text-gray-900 font-bold text-sm">4.9</span>
-            <span className="text-gray-400 text-sm">/ 5.0 · 847 reseñas verificadas</span>
+            <span className="text-gray-400 text-sm">/ 5.0 · 49 reseñas en Google</span>
           </div>
         </div>
 
