@@ -1,35 +1,62 @@
-# Dependencies
+# ── Dependencies ────────────────────────────────────────────────────────────
 node_modules/
 .pnp
 .pnp.js
 
-# Next.js
+# ── Next.js ─────────────────────────────────────────────────────────────────
 .next/
 out/
 build/
 
-# Environment variables — NUNCA subir esto a GitHub
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# ── Environment variables — NUNCA subir a GitHub ─────────────────────────────
+# Captura CUALQUIER variante: .env, .env.local, .env.production, etc.
+.env*
+!.env.example
 
-# Prisma
+# ── Claves, certificados y secretos ──────────────────────────────────────────
+*.key
+*.pem
+*.cert
+*.crt
+*.p12
+*.pfx
+*.jks
+secrets/
+.secrets
+
+# ── Prisma ───────────────────────────────────────────────────────────────────
 prisma/migrations/
 
-# Logs
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# OS
+# ── TypeScript build cache ────────────────────────────────────────────────────
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# ── OS ───────────────────────────────────────────────────────────────────────
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 Thumbs.db
+desktop.ini
 
-# IDE
+# ── IDE ──────────────────────────────────────────────────────────────────────
 .vscode/
 .idea/
+*.swp
+*.swo
+*.orig
 
-# Vercel
+# ── Vercel ───────────────────────────────────────────────────────────────────
 .vercel
+
+# ── Uploads locales / assets generados ──────────────────────────────────────
+public/uploads/
