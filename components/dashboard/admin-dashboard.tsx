@@ -15,36 +15,18 @@ interface AdminDashboardProps {
     monthlyRevenue: number;
     pendingAppointments: number;
   };
+  revenueByMonth: { month: string; revenue: number }[];
+  topServices: { name: string; count: number }[];
 }
 
-const mockRevenueData = [
-  { month: "Ene", revenue: 45000 },
-  { month: "Feb", revenue: 52000 },
-  { month: "Mar", revenue: 48000 },
-  { month: "Abr", revenue: 61000 },
-  { month: "May", revenue: 55000 },
-  { month: "Jun", revenue: 67000 },
-  { month: "Jul", revenue: 72000 },
-];
-
-const mockServiceData = [
-  { name: "Axilas", count: 142 },
-  { name: "Piernas", count: 98 },
-  { name: "Bikini", count: 87 },
-  { name: "Facial", count: 76 },
-  { name: "Cuerpo", count: 54 },
-];
-
-export function AdminDashboard({ stats }: AdminDashboardProps) {
+export function AdminDashboard({ stats, revenueByMonth, topServices }: AdminDashboardProps) {
   const statCards = [
     {
       title: "Clientes totales",
-      value: stats.totalClients.toLocaleString(),
+      value: stats.totalClients.toLocaleString("es-MX"),
       icon: Users,
       color: "text-blue-500",
       bg: "bg-blue-50",
-      change: "+12% vs. mes anterior",
-      up: true,
     },
     {
       title: "Citas hoy",
@@ -52,8 +34,6 @@ export function AdminDashboard({ stats }: AdminDashboardProps) {
       icon: Calendar,
       color: "text-primary",
       bg: "bg-primary/8",
-      change: "3 confirmadas, 2 pendientes",
-      up: true,
     },
     {
       title: "Ingresos del mes",
@@ -61,8 +41,6 @@ export function AdminDashboard({ stats }: AdminDashboardProps) {
       icon: DollarSign,
       color: "text-emerald-500",
       bg: "bg-emerald-50",
-      change: "+8.5% vs. mes anterior",
-      up: true,
     },
     {
       title: "Citas pendientes",
@@ -70,20 +48,16 @@ export function AdminDashboard({ stats }: AdminDashboardProps) {
       icon: Clock,
       color: "text-sky-600",
       bg: "bg-sky-50",
-      change: "Requieren confirmación",
-      up: false,
     },
   ];
 
   return (
     <div className="space-y-8">
-      {/* Header */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <h1 className="text-2xl font-bold text-foreground">Dashboard Admin</h1>
         <p className="text-muted-foreground mt-1">Resumen de Mi Piel Veracruz</p>
       </motion.div>
 
-      {/* Stat cards */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -96,20 +70,15 @@ export function AdminDashboard({ stats }: AdminDashboardProps) {
               <div className={`w-10 h-10 rounded-2xl ${s.bg} flex items-center justify-center`}>
                 <s.icon className={`w-5 h-5 ${s.color}`} />
               </div>
-              <ArrowUpRight className={`w-4 h-4 ${s.up ? "text-emerald-500" : "text-amber-500"}`} />
+              <ArrowUpRight className="w-4 h-4 text-emerald-500" />
             </div>
             <div className="text-2xl font-bold text-foreground mb-1">{s.value}</div>
-            <div className="text-sm text-muted-foreground mb-2">{s.title}</div>
-            <div className={`text-xs font-medium ${s.up ? "text-emerald-600" : "text-amber-600"}`}>
-              {s.change}
-            </div>
+            <div className="text-sm text-muted-foreground">{s.title}</div>
           </div>
         ))}
       </motion.div>
 
-      {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Revenue chart */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -120,32 +89,42 @@ export function AdminDashboard({ stats }: AdminDashboardProps) {
             <TrendingUp className="w-4 h-4 text-primary" />
             <h2 className="font-bold text-foreground">Ingresos mensuales</h2>
           </div>
-          <div className="h-56">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={mockRevenueData}>
-                <defs>
-                  <linearGradient id="revenueGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.15} />
-                    <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                <XAxis dataKey="month" tick={{ fontSize: 12 }} tickLine={false} axisLine={false} />
-                <YAxis tick={{ fontSize: 12 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v / 1000}k`} />
-                <Tooltip formatter={(v) => [formatCurrency(Number(v)), "Ingresos"]} />
-                <Area
-                  type="monotone"
-                  dataKey="revenue"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth={2}
-                  fill="url(#revenueGrad)"
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
+          {revenueByMonth.length === 0 || revenueByMonth.every((m) => m.revenue === 0) ? (
+            <div className="h-56 flex items-center justify-center text-sm text-muted-foreground">
+              Sin pagos registrados aún
+            </div>
+          ) : (
+            <div className="h-56">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={revenueByMonth}>
+                  <defs>
+                    <linearGradient id="revenueGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.15} />
+                      <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="month" tick={{ fontSize: 12 }} tickLine={false} axisLine={false} />
+                  <YAxis
+                    tick={{ fontSize: 12 }}
+                    tickLine={false}
+                    axisLine={false}
+                    tickFormatter={(v) => `$${v >= 1000 ? `${v / 1000}k` : v}`}
+                  />
+                  <Tooltip formatter={(v) => [formatCurrency(Number(v)), "Ingresos"]} />
+                  <Area
+                    type="monotone"
+                    dataKey="revenue"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth={2}
+                    fill="url(#revenueGrad)"
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          )}
         </motion.div>
 
-        {/* Services chart */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -153,17 +132,30 @@ export function AdminDashboard({ stats }: AdminDashboardProps) {
           className="card-premium p-6"
         >
           <h2 className="font-bold text-foreground mb-6">Servicios más solicitados</h2>
-          <div className="h-56">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={mockServiceData} layout="vertical">
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" horizontal={false} />
-                <XAxis type="number" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-                <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={50} />
-                <Tooltip />
-                <Bar dataKey="count" fill="hsl(var(--primary))" radius={[0, 6, 6, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+          {topServices.length === 0 ? (
+            <div className="h-56 flex items-center justify-center text-sm text-muted-foreground">
+              Sin citas completadas aún
+            </div>
+          ) : (
+            <div className="h-56">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={topServices} layout="vertical">
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" horizontal={false} />
+                  <XAxis type="number" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
+                  <YAxis
+                    type="category"
+                    dataKey="name"
+                    tick={{ fontSize: 11 }}
+                    tickLine={false}
+                    axisLine={false}
+                    width={60}
+                  />
+                  <Tooltip />
+                  <Bar dataKey="count" fill="hsl(var(--primary))" radius={[0, 6, 6, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          )}
         </motion.div>
       </div>
     </div>

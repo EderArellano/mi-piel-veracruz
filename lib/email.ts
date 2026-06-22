@@ -20,22 +20,22 @@ function emailLayout(content: string) {
     <!DOCTYPE html>
     <html lang="es">
     <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-    <body style="margin:0;padding:0;background:#fdf4f3;">
+    <body style="margin:0;padding:0;background:#f0f7fb;">
       <div style="${brandStyles}">
-        <div style="background:linear-gradient(135deg,#f43f5e,#fb7185);padding:32px 40px;text-align:center;">
+        <div style="background:linear-gradient(135deg,#2596be,#1a7a9e);padding:32px 40px;text-align:center;">
           <h1 style="color:white;margin:0;font-size:24px;font-weight:700;letter-spacing:-0.5px;">
             Mi Piel Veracruz
           </h1>
           <p style="color:rgba(255,255,255,0.85);margin:4px 0 0;font-size:13px;">
-            Clínica de Depilación Láser Premium
+            Centro Dermocosmético
           </p>
         </div>
         <div style="padding:40px;background:#ffffff;">
           ${content}
         </div>
-        <div style="padding:24px 40px;background:#fdf4f3;text-align:center;border-top:1px solid #fecdd3;">
+        <div style="padding:24px 40px;background:#f0f7fb;text-align:center;border-top:1px solid #bde3f0;">
           <p style="margin:0;font-size:12px;color:#9ca3af;">
-            Mi Piel Veracruz · Boca del Río, Veracruz, México
+            Mi Piel Veracruz · Av. R. Flores Magón &amp; Alacio Pérez, Veracruz, Ver.
           </p>
           <p style="margin:4px 0 0;font-size:12px;color:#9ca3af;">
             © ${new Date().getFullYear()} Mi Piel Veracruz. Todos los derechos reservados.
@@ -68,7 +68,7 @@ export async function sendAppointmentConfirmation(
       </table>
     </div>
     <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard/citas"
-       style="display:inline-block;background:linear-gradient(135deg,#f43f5e,#fb7185);color:white;
+       style="display:inline-block;background:linear-gradient(135deg,#2596be,#1a7a9e);color:white;
               padding:14px 32px;border-radius:100px;text-decoration:none;font-weight:600;font-size:14px;">
       Ver mi cita
     </a>
@@ -115,10 +115,10 @@ export async function sendAppointmentReminder(
 
 export async function sendPasswordReset(to: string, name: string, resetUrl: string) {
   const html = emailLayout(`
-    <h2 style="color:#be123c;font-size:20px;margin:0 0 8px;">Restablecer contraseña</h2>
+    <h2 style="color:#1a7a9e;font-size:20px;margin:0 0 8px;">Restablecer contraseña</h2>
     <p style="color:#374151;margin:0 0 24px;">Hola ${name}, recibimos una solicitud para restablecer tu contraseña.</p>
     <a href="${resetUrl}"
-       style="display:inline-block;background:linear-gradient(135deg,#f43f5e,#fb7185);color:white;
+       style="display:inline-block;background:linear-gradient(135deg,#2596be,#1a7a9e);color:white;
               padding:14px 32px;border-radius:100px;text-decoration:none;font-weight:600;font-size:14px;">
       Restablecer contraseña
     </a>

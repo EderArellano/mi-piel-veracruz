@@ -21,6 +21,7 @@ export default async function AdminAgendaPage() {
       employee: { include: { user: { select: { name: true } } } },
     },
     orderBy: { startTime: "asc" },
+    take: 500,
   });
 
   return <AdminCalendar appointments={appointments} />;

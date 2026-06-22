@@ -1,49 +1,23 @@
+export const dynamic = "force-dynamic";
+
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-
-export const dynamic = "force-dynamic";
 import { redirect } from "next/navigation";
 import { ClientDashboard } from "@/components/dashboard/client-dashboard";
 import { AdminDashboard } from "@/components/dashboard/admin-dashboard";
+import { getAdminStats, getRevenueByMonth, getTopServices } from "@/lib/queries/admin";
 
 export default async function DashboardPage() {
   const session = await auth();
   if (!session) redirect("/login");
 
   if (session.user.role === "ADMIN") {
-    const [totalClients, todayAppointments, monthlyRevenue, pendingAppointments] =
-      await Promise.all([
-        prisma.user.count({ where: { role: "CLIENT" } }),
-        prisma.appointment.count({
-          where: {
-            startTime: {
-              gte: new Date(new Date().setHours(0, 0, 0, 0)),
-              lt: new Date(new Date().setHours(23, 59, 59, 999)),
-            },
-          },
-        }),
-        prisma.payment.aggregate({
-          where: {
-            status: "COMPLETED",
-            createdAt: {
-              gte: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
-            },
-          },
-          _sum: { amount: true },
-        }),
-        prisma.appointment.count({ where: { status: "PENDING" } }),
-      ]);
-
-    return (
-      <AdminDashboard
-        stats={{
-          totalClients,
-          todayAppointments,
-          monthlyRevenue: monthlyRevenue._sum.amount || 0,
-          pendingAppointments,
-        }}
-      />
-    );
+    const [stats, revenueByMonth, topServices] = await Promise.all([
+      getAdminStats(),
+      getRevenueByMonth(7),
+      getTopServices(5),
+    ]);
+    return <AdminDashboard stats={stats} revenueByMonth={revenueByMonth} topServices={topServices} />;
   }
 
   const [upcomingAppointments, medicalRecord] = await Promise.all([
@@ -57,9 +31,7 @@ export default async function DashboardPage() {
       orderBy: { startTime: "asc" },
       take: 3,
     }),
-    prisma.medicalRecord.findUnique({
-      where: { userId: session.user.id },
-    }),
+    prisma.medicalRecord.findUnique({ where: { userId: session.user.id } }),
   ]);
 
   return (

@@ -147,7 +147,7 @@ export function ProblemsSection() {
           <div className="prb-line hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
 
           <div className="grid md:grid-cols-2 gap-4 lg:gap-5">
-            {problems.map((p, i) => (
+            {problems.map((p) => (
               <div
                 key={p.number}
                 className="prb-card group relative rounded-2xl p-6 border border-gray-100 bg-white hover:border-gray-200 hover:shadow-md transition-all duration-300 overflow-hidden"

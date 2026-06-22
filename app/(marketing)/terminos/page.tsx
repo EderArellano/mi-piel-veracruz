@@ -16,7 +16,7 @@ export default function TerminosPage() {
         <section>
           <h2 className="text-lg font-semibold mb-2">1. Aceptación de los términos</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Al acceder y utilizar el sitio web de <strong>Mi Piel Centro Dermocosmético</strong> ("la Clínica"),
+            Al acceder y utilizar el sitio web de <strong>Mi Piel Centro Dermocosmético</strong> (&ldquo;la Clínica&rdquo;),
             usted acepta quedar vinculado por estos Términos de Uso. Si no está de acuerdo con alguna parte de
             estos términos, le pedimos que no utilice nuestros servicios en línea.
           </p>

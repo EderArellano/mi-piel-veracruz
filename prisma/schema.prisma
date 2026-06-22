@@ -191,6 +191,11 @@ model Appointment {
   service  Service   @relation(fields: [serviceId], references: [id], onDelete: Cascade)
   payment  Payment?
 
+  @@index([userId])
+  @@index([startTime])
+  @@index([status])
+  @@index([employeeId])
+  @@index([userId, status])
   @@map("appointments")
 }
 
@@ -226,6 +231,8 @@ model Payment {
   user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   appointment Appointment? @relation(fields: [appointmentId], references: [id], onDelete: SetNull)
 
+  @@index([userId, status])
+  @@index([status, createdAt])
   @@map("payments")
 }
 
@@ -289,6 +296,8 @@ model SkinPhoto {
   user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   medicalRecord MedicalRecord? @relation(fields: [medicalRecordId], references: [id], onDelete: SetNull)
 
+  @@index([userId])
+  @@index([medicalRecordId])
   @@map("skin_photos")
 }
 
@@ -353,6 +362,8 @@ model BlogPost {
   category BlogCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
   faqs     BlogFaq[]
 
+  @@index([status, publishedAt])
+  @@index([authorId])
   @@map("blog_posts")
 }
 
@@ -420,6 +431,7 @@ model Notification {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  @@index([userId, isRead])
   @@map("notifications")
 }
 
