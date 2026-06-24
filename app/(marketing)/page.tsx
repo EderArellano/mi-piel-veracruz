@@ -9,11 +9,26 @@ import { FaqSection } from "@/components/marketing/faq-section";
 import { CtaSection } from "@/components/marketing/cta-section";
 
 export const metadata: Metadata = {
-  title: "Depilación Láser Premium en Veracruz y Boca del Río | Mi Piel Veracruz",
+  title: "Depilación Láser en Veracruz y Boca del Río | Mi Piel Centro Dermocosmético",
   description:
-    "La mejor clínica de depilación láser en Veracruz y Boca del Río. Tecnología grado médico, resultados permanentes. Skin Analyzer gratis — agenda hoy.",
+    "Clínica #1 de depilación láser en Veracruz y Boca del Río. Láser Diodo grado médico, Hidrofacial, Celluma LED y Skin Analyzer gratis. Más de 5,000 pacientes satisfechas. Agenda hoy.",
+  keywords: [
+    "depilación láser Veracruz",
+    "depilación láser Boca del Río",
+    "clínica dermocosmética Veracruz",
+    "hidrofacial Veracruz",
+    "Celluma LED Veracruz",
+    "skin analyzer Veracruz",
+    "primera consulta gratis depilación láser Veracruz",
+  ],
   alternates: {
     canonical: "https://mipielveracruz.com",
+  },
+  openGraph: {
+    title: "Depilación Láser en Veracruz — Mi Piel Centro Dermocosmético",
+    description: "Más de 5,000 pacientes. Tecnología grado médico. Primera consulta con Skin Analyzer gratis.",
+    url: "https://mipielveracruz.com",
+    type: "website",
   },
 };
 

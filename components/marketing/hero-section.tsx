@@ -147,16 +147,16 @@ export function HeroSection() {
           {/* Headline */}
           <h1 className="font-display font-black leading-[0.92] tracking-tighter mb-6">
             <span className="hero-line block text-gray-900 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
-              Deja de
+              Depilación
             </span>
             <span className="hero-line block text-gray-900 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
-              rasurar.
+              Láser en
             </span>
             <span className="hero-line block text-gradient text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
-              Empieza
+              Veracruz.
             </span>
             <span className="hero-line block text-gradient text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
-              a vivir.
+              Para siempre.
             </span>
           </h1>
 

@@ -4,10 +4,22 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Precios de Depilación Láser | Mi Piel Veracruz",
+  title: "Precio Depilación Láser Veracruz — Tarifas 2025 | Mi Piel",
   description:
-    "Precios transparentes y accesibles para depilación láser en Boca del Río, Veracruz. Paquetes individuales y cuerpo completo. Primera consulta gratis.",
+    "¿Cuánto cuesta la depilación láser en Veracruz? Desde $500 MXN por sesión. Precios transparentes por zona: axilas, bikini, piernas, facial. Primera consulta gratis sin compromiso.",
+  keywords: [
+    "precio depilación láser Veracruz",
+    "cuánto cuesta depilación láser Veracruz",
+    "costo depilación láser axilas Veracruz",
+    "paquete depilación láser Boca del Río precio",
+    "precio sesión láser Veracruz 2025",
+  ],
   alternates: { canonical: "https://mipielveracruz.com/precios" },
+  openGraph: {
+    title: "Precio Depilación Láser Veracruz — Desde $500 MXN | Mi Piel",
+    description: "Precios transparentes por zona. Axilas desde $600, piernas desde $1,200. Primera consulta gratis.",
+    url: "https://mipielveracruz.com/precios",
+  },
 };
 
 const packages = [
@@ -74,16 +86,42 @@ const zones = [
   { name: "Pecho (caballeros)", price: "$1,000" },
 ];
 
+const priceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Precio Depilación Láser Veracruz 2025",
+  url: "https://mipielveracruz.com/precios",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, item: { "@type": "Offer", name: "Depilación Láser Labio Superior Veracruz", price: "500", priceCurrency: "MXN", seller: { "@id": "https://mipielveracruz.com/#clinic" } } },
+    { "@type": "ListItem", position: 2, item: { "@type": "Offer", name: "Depilación Láser Axilas Veracruz", price: "600", priceCurrency: "MXN", seller: { "@id": "https://mipielveracruz.com/#clinic" } } },
+    { "@type": "ListItem", position: 3, item: { "@type": "Offer", name: "Depilación Láser Media Pierna Veracruz", price: "900", priceCurrency: "MXN", seller: { "@id": "https://mipielveracruz.com/#clinic" } } },
+    { "@type": "ListItem", position: 4, item: { "@type": "Offer", name: "Depilación Láser Pierna Completa Veracruz", price: "1200", priceCurrency: "MXN", seller: { "@id": "https://mipielveracruz.com/#clinic" } } },
+    { "@type": "ListItem", position: 5, item: { "@type": "Offer", name: "Depilación Láser Bikini Brasileño Veracruz", price: "1000", priceCurrency: "MXN", seller: { "@id": "https://mipielveracruz.com/#clinic" } } },
+    { "@type": "ListItem", position: 6, item: { "@type": "Offer", name: "Depilación Láser Cuerpo Completo Veracruz", price: "4500", priceCurrency: "MXN", seller: { "@id": "https://mipielveracruz.com/#clinic" } } },
+  ],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: "https://mipielveracruz.com" },
+    { "@type": "ListItem", position: 2, name: "Precio Depilación Láser Veracruz", item: "https://mipielveracruz.com/precios" },
+  ],
+};
+
 export default function PreciosPage() {
   return (
     <div className="py-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(priceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="section-container">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="badge-premium mb-4">✦ Precios</div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
-            Precios{" "}
-            <span className="text-gradient font-display italic">transparentes</span>
+            Precio Depilación Láser{" "}
+            <span className="text-gradient font-display italic">en Veracruz</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Sin letras pequeñas. Sin costos ocultos. Primera consulta siempre gratis.

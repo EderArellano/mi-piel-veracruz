@@ -4,10 +4,24 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, Zap, Star, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Servicios de Depilación Láser | Mi Piel Veracruz",
+  title: "Depilación Láser en Veracruz — Servicios y Zonas | Mi Piel",
   description:
-    "Conoce todos nuestros servicios de depilación láser en Boca del Río, Veracruz. Tratamientos para damas y caballeros con tecnología de punta.",
+    "Depilación láser en Veracruz y Boca del Río: facial, axilas, piernas, bikini y cuerpo completo. Láser Diodo grado médico. Apta para todo tipo de piel. Primera consulta gratis.",
+  keywords: [
+    "depilación láser Veracruz zonas",
+    "depilación láser axilas Veracruz",
+    "depilación láser piernas Veracruz",
+    "depilación láser bikini Veracruz",
+    "depilación láser facial Veracruz",
+    "depilación láser caballeros Veracruz",
+    "depilación láser cuerpo completo Boca del Río",
+  ],
   alternates: { canonical: "https://mipielveracruz.com/servicios" },
+  openGraph: {
+    title: "Depilación Láser en Veracruz — Todas las Zonas | Mi Piel",
+    description: "Facial, axilas, piernas, bikini y cuerpo completo. Láser Diodo grado médico en Veracruz.",
+    url: "https://mipielveracruz.com/servicios",
+  },
 };
 
 const services = [
@@ -70,16 +84,42 @@ const benefits = [
   "Instalaciones clínicas certificadas",
 ];
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Servicios de Depilación Láser en Veracruz",
+  url: "https://mipielveracruz.com/servicios",
+  itemListElement: [
+    { "@type": "Service", position: 1, name: "Depilación Láser Facial Veracruz", provider: { "@id": "https://mipielveracruz.com/#clinic" }, areaServed: "Veracruz, México", offers: { "@type": "Offer", price: "500", priceCurrency: "MXN" } },
+    { "@type": "Service", position: 2, name: "Depilación Láser Axilas Veracruz", provider: { "@id": "https://mipielveracruz.com/#clinic" }, areaServed: "Veracruz, México", offers: { "@type": "Offer", price: "600", priceCurrency: "MXN" } },
+    { "@type": "Service", position: 3, name: "Depilación Láser Piernas Veracruz", provider: { "@id": "https://mipielveracruz.com/#clinic" }, areaServed: "Veracruz, México", offers: { "@type": "Offer", price: "1200", priceCurrency: "MXN" } },
+    { "@type": "Service", position: 4, name: "Depilación Láser Bikini Veracruz", provider: { "@id": "https://mipielveracruz.com/#clinic" }, areaServed: "Veracruz, México", offers: { "@type": "Offer", price: "800", priceCurrency: "MXN" } },
+    { "@type": "Service", position: 5, name: "Depilación Láser Cuerpo Completo Veracruz", provider: { "@id": "https://mipielveracruz.com/#clinic" }, areaServed: "Veracruz, México", offers: { "@type": "Offer", price: "4500", priceCurrency: "MXN" } },
+    { "@type": "Service", position: 6, name: "Depilación Láser Caballeros Veracruz", provider: { "@id": "https://mipielveracruz.com/#clinic" }, areaServed: "Veracruz, México", offers: { "@type": "Offer", price: "800", priceCurrency: "MXN" } },
+  ],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: "https://mipielveracruz.com" },
+    { "@type": "ListItem", position: 2, name: "Servicios de Depilación Láser", item: "https://mipielveracruz.com/servicios" },
+  ],
+};
+
 export default function ServiciosPage() {
   return (
     <div className="py-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="section-container">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="badge-premium mb-4">✦ Nuestros Servicios</div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
-            Depilación láser para{" "}
-            <span className="text-gradient font-display italic">cada zona</span>
+            Depilación Láser en Veracruz —{" "}
+            <span className="text-gradient font-display italic">Cada Zona</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Tratamientos personalizados para damas y caballeros. Tecnología de punta con resultados

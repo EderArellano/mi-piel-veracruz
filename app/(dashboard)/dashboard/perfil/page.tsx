@@ -2,6 +2,7 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { User, Phone, Mail, Shield } from "lucide-react";
+import { ProfileEditForm } from "@/components/dashboard/profile-edit-form";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Mi Perfil | Mi Piel Veracruz" };
@@ -47,6 +48,9 @@ export default async function PerfilPage() {
         </div>
       </div>
 
+      {/* Edit form */}
+      <ProfileEditForm initialName={user.name ?? ""} initialPhone={user.phone ?? null} />
+
       {/* Details */}
       <div className="card-premium divide-y divide-border">
         <div className="p-5 flex items-center gap-4">
@@ -90,11 +94,6 @@ export default async function PerfilPage() {
           </div>
         </div>
       </div>
-
-      <p className="text-xs text-muted-foreground text-center">
-        Para actualizar tus datos contáctanos al{" "}
-        <a href="tel:+522299330014" className="text-primary font-medium">229 933 00 14</a>
-      </p>
     </div>
   );
 }
