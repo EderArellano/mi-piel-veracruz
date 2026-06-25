@@ -85,6 +85,11 @@ export function SkinAnalyzerClient() {
       });
 
       const data = await res.json();
+
+      if (res.status === 503 && data.error === "not_configured") {
+        setError("coming_soon");
+        return;
+      }
       if (!res.ok || data.error) {
         setError(data.error || "Error al procesar el análisis. Intenta de nuevo.");
         return;
@@ -193,10 +198,25 @@ export function SkinAnalyzerClient() {
                     </button>
                   </div>
 
-                  {error && (
+                  {error && error !== "coming_soon" && (
                     <div className="mt-4 flex items-start gap-2 text-red-400 text-sm p-3 rounded-xl bg-red-500/10 border border-red-500/20">
                       <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                       {error}
+                    </div>
+                  )}
+
+                  {error === "coming_soon" && (
+                    <div className="mt-4 p-4 rounded-xl text-center" style={{ background: "rgba(37,150,190,0.08)", border: "1px solid rgba(37,150,190,0.2)" }}>
+                      <p className="text-primary font-semibold text-sm mb-1">Próximamente disponible</p>
+                      <p className="text-white/45 text-xs mb-3">
+                        Mientras tanto, agenda tu análisis presencial — es gratis y más completo.
+                      </p>
+                      <Link
+                        href="/agendar"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-white transition-colors"
+                      >
+                        Agendar consulta gratis <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
                     </div>
                   )}
 

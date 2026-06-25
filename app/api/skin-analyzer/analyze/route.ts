@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-
 const SYSTEM_PROMPT = `Eres la IA de análisis de piel de MiPiel Centro Dermocosmético en Veracruz, México.
 Tu misión es analizar la fotografía de piel de la paciente y proporcionar un reporte clínico personalizado, profesional y motivador.
 
@@ -29,6 +27,12 @@ Para pacientes en Veracruz considera el clima tropical húmedo y sus efectos en 
 Sé honesta pero empática. Usa lenguaje accesible, no técnico en exceso.`;
 
 export async function POST(req: NextRequest) {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return NextResponse.json({ error: "not_configured" }, { status: 503 });
+  }
+
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
   try {
     const body = await req.json();
     const { imageBase64, mediaType = "image/jpeg" } = body as {
