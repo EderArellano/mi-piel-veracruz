@@ -78,31 +78,45 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative bg-primary overflow-hidden py-12 md:py-16">
-      {/* Background texture */}
+    <section ref={sectionRef} className="relative overflow-hidden py-14 md:py-18" style={{ background: "linear-gradient(135deg, #0e1e2e 0%, #1a3a52 50%, #0e1e2e 100%)" }}>
+      {/* Top accent line */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+      {/* Bottom accent line */}
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      {/* Ambient glow */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[600px] h-[300px] rounded-full bg-primary/10 blur-[100px]" />
+      </div>
+      {/* Texture */}
       <div
-        className="absolute inset-0 opacity-[0.07]"
+        className="absolute inset-0 opacity-[0.05]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M60 16 L98 38 L98 82 L60 104 L22 82 L22 38 Z' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3Cpath d='M60 82 C60 82 35 67 35 50 C35 39 43 32 52 36 C55.5 37.5 58 41 60 45 C62 41 64.5 37.5 68 36 C77 32 85 39 85 50 C85 67 60 82 60 82 Z' fill='none' stroke='%23ffffff' stroke-width='1.8'/%3E%3C/svg%3E")`,
-          backgroundSize: "120px 120px",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: "60px 60px",
         }}
       />
 
       <div className="section-container relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
           {stats.map((s, i) => (
-            <div key={i} className="stat-item text-center text-white">
+            <div key={i} className="stat-item text-center">
               <div
                 className="stat-num font-display text-5xl md:text-6xl lg:text-7xl font-black mb-2 tabular-nums"
                 data-target={s.value}
                 data-suffix={s.suffix}
+                style={{
+                  background: "linear-gradient(135deg, #ffffff 0%, #56cfe1 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
               >
                 0{s.suffix}
               </div>
-              <div className="font-semibold text-white/90 text-sm md:text-base mb-1">
+              <div className="font-semibold text-white/85 text-sm md:text-base mb-1">
                 {s.label}
               </div>
-              <div className="text-white/55 text-xs md:text-sm">{s.sub}</div>
+              <div className="text-white/45 text-xs md:text-sm">{s.sub}</div>
             </div>
           ))}
         </div>
