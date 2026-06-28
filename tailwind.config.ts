@@ -91,9 +91,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
-        display: ["var(--font-jakarta)", "system-ui", "sans-serif"],
+        display: ["var(--font-manrope)", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -159,14 +159,13 @@ const config: Config = {
           "linear-gradient(135deg, #2596be 0%, #38bdf8 100%)",
       },
       boxShadow: {
-        premium: "0 4px 40px rgba(37, 150, 190, 0.10)",
-        "premium-lg": "0 8px 60px rgba(37, 150, 190, 0.15)",
-        card: "0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04)",
-        "card-hover":
-          "0 4px 20px rgba(0,0,0,0.06), 0 12px 40px rgba(0,0,0,0.06)",
-        glow: "0 0 40px rgba(37, 150, 190, 0.20)",
-        "glow-intense": "0 0 60px rgba(37, 150, 190, 0.40), 0 0 120px rgba(37, 150, 190, 0.15)",
-        "inner-glow": "inset 0 1px 0 rgba(255,255,255,0.1), inset 0 -1px 0 rgba(0,0,0,0.1)",
+        premium: "0 10px 35px rgba(0,0,0,.05)",
+        "premium-lg": "0 18px 45px rgba(0,0,0,.08)",
+        card: "0 8px 20px rgba(0,0,0,.04)",
+        "card-hover": "0 18px 45px rgba(0,0,0,.08)",
+        glow: "0 0 40px rgba(95,124,113,.20)",
+        "glow-intense": "0 12px 30px rgba(95,124,113,.18)",
+        "inner-light": "inset 0 1px 0 rgba(255,255,255,0.8)",
       },
     },
   },

@@ -4,66 +4,33 @@
 
 @layer base {
   :root {
-    /* === MiPiel brand palette === */
-    /* Azul clínico del logo — limpio, confianza, salud */
-    --background: 0 0% 100%;
-    --foreground: 210 25% 14%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 210 25% 14%;
-
+    --background: 60 10% 98%;        /* #FAFAF8 */
+    --background-secondary: 40 14% 95%; /* #F4F2EE */
+    --foreground: 0 0% 17%;          /* #2B2B2B */
+    --card: 0 0% 100%;               /* #FFFFFF */
+    --card-foreground: 0 0% 17%;
     --popover: 0 0% 100%;
-    --popover-foreground: 210 25% 14%;
-
-    /* Primary: azul del logo */
-    --primary: 193 62% 38%;
+    --popover-foreground: 0 0% 17%;
+    --primary: 158 14% 43%;          /* #5F7C71 */
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 193 30% 95%;
-    --secondary-foreground: 193 40% 20%;
-
-    --muted: 210 20% 97%;
-    --muted-foreground: 215 16% 47%;
-
-    /* Accent: azul más claro (decorativo) */
-    --accent: 193 70% 60%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
+    --secondary: 40 47% 60%;         /* #C8A96A */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 40 14% 95%;
+    --muted-foreground: 0 0% 44%;    /* #6F6F6F */
+    --accent: 40 47% 60%;
+    --accent-foreground: 0 0% 17%;
+    --destructive: 1 65% 57%;        /* #D9534F */
     --destructive-foreground: 0 0% 100%;
+    --border: 36 19% 89%;            /* #E7E3DC */
+    --input: 36 19% 89%;
+    --ring: 158 14% 43%;
+    --radius: 1.375rem;              /* 22px */
 
-    --border: 210 20% 91%;
-    --input: 210 20% 91%;
-    --ring: 193 62% 38%;
-    --radius: 0.75rem;
-
-    --chart-1: 193 62% 38%;
-    --chart-2: 160 60% 42%;
-    --chart-3: 43 80% 55%;
+    --chart-1: 158 14% 43%;
+    --chart-2: 40 47% 60%;
+    --chart-3: 120 37% 49%;
     --chart-4: 220 70% 52%;
     --chart-5: 280 55% 58%;
-  }
-
-  .dark {
-    --background: 215 28% 9%;
-    --foreground: 210 20% 96%;
-    --card: 215 28% 11%;
-    --card-foreground: 210 20% 96%;
-    --popover: 215 28% 11%;
-    --popover-foreground: 210 20% 96%;
-    --primary: 193 65% 52%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 215 20% 18%;
-    --secondary-foreground: 210 20% 85%;
-    --muted: 215 20% 16%;
-    --muted-foreground: 215 15% 58%;
-    --accent: 193 55% 45%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 63% 42%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 215 20% 20%;
-    --input: 215 20% 20%;
-    --ring: 193 65% 52%;
   }
 }
 
@@ -74,6 +41,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
@@ -83,23 +51,21 @@
 
   h1, h2, h3 {
     @apply tracking-tight;
+    font-family: var(--font-manrope), system-ui, sans-serif;
   }
 }
 
 @layer components {
+  .font-display {
+    font-family: var(--font-manrope), system-ui, sans-serif;
+  }
+
   .btn-primary {
     @apply bg-primary text-primary-foreground hover:bg-primary/90
            inline-flex items-center justify-center rounded-full
            px-6 py-3 text-sm font-semibold transition-all duration-200
            shadow-premium hover:shadow-premium-lg hover:-translate-y-0.5
            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
-  }
-
-  .btn-gradient {
-    @apply bg-gradient-to-r from-primary to-sky-400 text-white
-           inline-flex items-center justify-center gap-2 rounded-full
-           px-6 py-3 text-sm font-semibold transition-all duration-200
-           shadow-premium hover:shadow-glow hover:-translate-y-0.5;
   }
 
   .btn-secondary {
@@ -110,9 +76,50 @@
            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
   }
 
+  .btn-mp-primary {
+    background: #5F7C71;
+    color: white;
+    border-radius: 18px;
+    padding: 14px 28px;
+    font-weight: 600;
+    transition: all 220ms ease-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-mp-primary:hover {
+    background: #4D675E;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(95, 124, 113, 0.18);
+  }
+
+  .btn-mp-secondary {
+    background: white;
+    color: #5F7C71;
+    border: 2px solid #5F7C71;
+    border-radius: 18px;
+    padding: 12px 26px;
+    font-weight: 600;
+    transition: all 220ms ease-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-mp-secondary:hover {
+    background: #5F7C71;
+    color: white;
+  }
+
   .card-premium {
-    @apply bg-white rounded-2xl border border-border/50 shadow-card
-           hover:shadow-card-hover transition-all duration-300;
+    background: #FFFFFF;
+    border: 1px solid #E7E3DC;
+    border-radius: 22px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+    transition: transform 250ms ease-out, box-shadow 250ms ease-out;
+  }
+  .card-premium:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
   }
 
   .section-container {
@@ -120,42 +127,52 @@
   }
 
   .badge-premium {
-    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1
-           bg-primary/10 text-primary text-xs font-semibold;
+    background: #F4F2EE;
+    color: #5F7C71;
+    border: 1px solid #E7E3DC;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
   }
 
   .badge-trust {
     @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5
-           bg-white border border-primary/20 shadow-sm text-xs font-semibold text-foreground;
+           bg-white border border-border shadow-sm text-xs font-semibold text-foreground;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-sky-400 bg-clip-text text-transparent;
-  }
-
-  .text-gradient-dark {
-    @apply bg-gradient-to-r from-primary to-cyan-600 bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #5F7C71, #C8A96A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .input-premium {
-    @apply flex h-11 w-full rounded-xl border border-input bg-background
-           px-4 py-2 text-sm ring-offset-background
-           placeholder:text-muted-foreground/60
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
-           disabled:cursor-not-allowed disabled:opacity-50
-           transition-shadow duration-200;
+    height: 58px;
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid #E7E3DC;
+    background: #FAFAF8;
+    padding: 0 16px;
+    font-size: 0.875rem;
+    transition: border-color 200ms, box-shadow 200ms;
+    outline: none;
+  }
+  .input-premium::placeholder {
+    color: #9A9A9A;
+  }
+  .input-premium:focus {
+    border-color: #5F7C71;
+    box-shadow: 0 0 0 4px rgba(95, 124, 113, 0.15);
   }
 
   .glass {
     @apply bg-white/85 backdrop-blur-xl border border-white/40 shadow-card;
-  }
-
-  .glass-dark {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
-  }
-
-  .font-display {
-    font-family: var(--font-jakarta), system-ui, sans-serif;
   }
 
   .shimmer {
@@ -164,10 +181,13 @@
            before:animate-shimmer before:bg-[length:200%_100%];
   }
 
-  /* Trust chip para prueba social */
   .trust-chip {
     @apply inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground
            bg-muted/60 rounded-full px-3 py-1;
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 40px rgba(95, 124, 113, 0.20);
   }
 }
 
@@ -185,22 +205,30 @@
   }
 }
 
-/* MiPiel logo pattern — hexagon + heart mark, café & blue variants */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 600ms ease-out both;
+}
+
+/* MiPiel logo pattern — hexagon + heart mark */
 .bg-hexpattern {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M60 16 L98 38 L98 82 L60 104 L22 82 L22 38 Z' fill='none' stroke='%23c9a96e' stroke-width='2' opacity='0.14'/%3E%3Cpath d='M60 82 C60 82 35 67 35 50 C35 39 43 32 52 36 C55.5 37.5 58 41 60 45 C62 41 64.5 37.5 68 36 C77 32 85 39 85 50 C85 67 60 82 60 82 Z' fill='none' stroke='%23c9a96e' stroke-width='1.8' opacity='0.11'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M60 16 L98 38 L98 82 L60 104 L22 82 L22 38 Z' fill='none' stroke='%235F7C71' stroke-width='2' opacity='0.07'/%3E%3Cpath d='M60 82 C60 82 35 67 35 50 C35 39 43 32 52 36 C55.5 37.5 58 41 60 45 C62 41 64.5 37.5 68 36 C77 32 85 39 85 50 C85 67 60 82 60 82 Z' fill='none' stroke='%235F7C71' stroke-width='1.8' opacity='0.05'/%3E%3C/svg%3E");
   background-size: 120px 120px;
 }
 
-.bg-brand-hex {
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M60 16 L98 38 L98 82 L60 104 L22 82 L22 38 Z' fill='none' stroke='%232596be' stroke-width='2' opacity='0.10'/%3E%3Cpath d='M60 82 C60 82 35 67 35 50 C35 39 43 32 52 36 C55.5 37.5 58 41 60 45 C62 41 64.5 37.5 68 36 C77 32 85 39 85 50 C85 67 60 82 60 82 Z' fill='none' stroke='%232596be' stroke-width='1.8' opacity='0.08'/%3E%3C/svg%3E"),
-    linear-gradient(135deg, #f0f7fb 0%, #e8f4f9 50%, #f5f9fc 100%);
-  background-size: 120px 120px, 100% 100%;
-}
-
 .bg-hexpattern-warm {
-  background-color: #faf7f2;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M60 16 L98 38 L98 82 L60 104 L22 82 L22 38 Z' fill='none' stroke='%23c9a96e' stroke-width='2' opacity='0.14'/%3E%3Cpath d='M60 82 C60 82 35 67 35 50 C35 39 43 32 52 36 C55.5 37.5 58 41 60 45 C62 41 64.5 37.5 68 36 C77 32 85 39 85 50 C85 67 60 82 60 82 Z' fill='none' stroke='%23c9a96e' stroke-width='1.8' opacity='0.11'/%3E%3C/svg%3E");
+  background-color: #F4F2EE;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M60 16 L98 38 L98 82 L60 104 L22 82 L22 38 Z' fill='none' stroke='%23C8A96A' stroke-width='2' opacity='0.10'/%3E%3Cpath d='M60 82 C60 82 35 67 35 50 C35 39 43 32 52 36 C55.5 37.5 58 41 60 45 C62 41 64.5 37.5 68 36 C77 32 85 39 85 50 C85 67 60 82 60 82 Z' fill='none' stroke='%23C8A96A' stroke-width='1.8' opacity='0.08'/%3E%3C/svg%3E");
   background-size: 120px 120px;
 }
 

@@ -42,7 +42,7 @@ export function PackageBuilder() {
   const toggle = (id: string) => {
     setSelected((prev) => {
       const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) { next.delete(id); } else { next.add(id); }
       return next;
     });
   };
@@ -70,18 +70,21 @@ export function PackageBuilder() {
   }, [selectedZones, tier, total]);
 
   return (
-    <section className="py-16 md:py-20" style={{ background: "#0a1520" }}>
+    <section className="py-16 md:py-20" style={{ background: "#FAFAF8" }}>
       <div className="section-container">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.18em] mb-5 px-4 py-2 rounded-full border border-[#c9a96e]/25 bg-[#c9a96e]/8">
+          <div
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] mb-5 px-4 py-2 rounded-full"
+            style={{ color: "#C8A96A", border: "1px solid rgba(200,169,106,.25)", background: "rgba(200,169,106,.08)" }}
+          >
             <Sparkles className="w-3.5 h-3.5" />
             Armador de paquete
           </div>
-          <h2 className="font-display text-3xl md:text-5xl font-black text-white mb-4">
+          <h2 className="font-display text-3xl md:text-5xl font-black mb-4" style={{ color: "#2B2B2B" }}>
             Arma tu paquete personalizado
           </h2>
-          <p className="text-white/55 text-lg max-w-2xl mx-auto">
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: "#6F6F6F" }}>
             Personaliza tu depilación eligiendo las zonas que necesitas y obtén mejores beneficios mientras más agregas. Ideal para adaptar tu experiencia a tu rutina.
           </p>
           {/* Discount ladder */}
@@ -92,8 +95,8 @@ export function PackageBuilder() {
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200"
                 style={
                   selected.size >= t.min && selected.size <= t.max
-                    ? { background: "#c9a96e22", border: "1px solid #c9a96e60", color: "#c9a96e" }
-                    : { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.3)" }
+                    ? { background: "rgba(95,124,113,.1)", border: "1px solid rgba(95,124,113,.35)", color: "#5F7C71" }
+                    : { background: "white", border: "1px solid #E7E3DC", color: "#9A9A9A" }
                 }
               >
                 <Tag className="w-3 h-3" />
@@ -110,7 +113,7 @@ export function PackageBuilder() {
               const catZones = ZONES.filter((z) => z.category === cat);
               return (
                 <div key={cat}>
-                  <div className="text-white/35 text-xs font-bold uppercase tracking-[0.18em] mb-3">{cat}</div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#9A9A9A" }}>{cat}</div>
                   <div className="grid sm:grid-cols-2 gap-2">
                     {catZones.map((zone) => {
                       const isActive = selected.has(zone.id);
@@ -120,17 +123,17 @@ export function PackageBuilder() {
                           onClick={() => toggle(zone.id)}
                           className="flex items-center gap-3 p-4 rounded-2xl text-left transition-all duration-200 hover:scale-[1.01]"
                           style={{
-                            background: isActive ? "rgba(37,150,190,0.12)" : "rgba(255,255,255,0.03)",
-                            border: isActive ? "1.5px solid rgba(37,150,190,0.5)" : "1.5px solid rgba(255,255,255,0.06)",
-                            boxShadow: isActive ? "0 0 20px rgba(37,150,190,0.12)" : "none",
+                            background: isActive ? "rgba(95,124,113,.06)" : "white",
+                            border: isActive ? "1.5px solid rgba(95,124,113,.45)" : "1.5px solid #E7E3DC",
+                            boxShadow: isActive ? "0 4px 16px rgba(95,124,113,.1)" : "0 2px 8px rgba(0,0,0,.03)",
                           }}
                         >
                           {/* Checkbox */}
                           <div
                             className="w-5 h-5 rounded-md flex items-center justify-center shrink-0 transition-all duration-200"
                             style={{
-                              background: isActive ? "#2596be" : "transparent",
-                              border: isActive ? "2px solid #2596be" : "2px solid rgba(255,255,255,0.2)",
+                              background: isActive ? "#5F7C71" : "white",
+                              border: isActive ? "2px solid #5F7C71" : "2px solid #E7E3DC",
                             }}
                           >
                             {isActive && (
@@ -143,16 +146,22 @@ export function PackageBuilder() {
                           <span className="text-lg">{zone.emoji}</span>
 
                           <div className="flex-1 min-w-0">
-                            <div className={`text-sm font-semibold transition-colors ${isActive ? "text-white" : "text-white/60"}`}>
+                            <div
+                              className="text-sm font-semibold transition-colors"
+                              style={{ color: isActive ? "#2B2B2B" : "#6F6F6F" }}
+                            >
                               {zone.label}
                             </div>
                           </div>
 
                           <div className="text-right shrink-0">
-                            <div className={`text-sm font-bold transition-colors ${isActive ? "text-primary" : "text-white/35"}`}>
+                            <div
+                              className="text-sm font-bold transition-colors"
+                              style={{ color: isActive ? "#5F7C71" : "#9A9A9A" }}
+                            >
                               ${zone.price.toLocaleString("es-MX")}
                             </div>
-                            <div className="text-white/25 text-[10px]">/ sesión</div>
+                            <div className="text-[10px]" style={{ color: "#9A9A9A" }}>/ sesión</div>
                           </div>
                         </button>
                       );
@@ -167,22 +176,22 @@ export function PackageBuilder() {
           <div className="lg:col-span-1">
             <div
               className="sticky top-24 rounded-3xl overflow-hidden"
-              style={{ background: "#111a24", border: "1px solid rgba(255,255,255,0.08)" }}
+              style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "22px", boxShadow: "0 10px 35px rgba(0,0,0,.05)" }}
             >
-              <div className="h-1" style={{ background: "linear-gradient(90deg, #2596be, #56cfe1, #c9a96e)" }} />
+              <div className="h-1" style={{ background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
               <div className="p-6">
-                <div className="text-white/50 text-xs font-bold uppercase tracking-widest mb-4">Tu paquete</div>
+                <div className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#2B2B2B" }}>Tu paquete</div>
 
                 {selectedZones.length === 0 ? (
                   <div className="py-6 text-center">
                     <div
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
-                      style={{ background: "rgba(37,150,190,0.08)", border: "1px solid rgba(37,150,190,0.2)" }}
+                      style={{ background: "rgba(95,124,113,.08)", border: "1px solid rgba(95,124,113,.2)" }}
                     >
-                      <Sparkles className="w-4 h-4 text-primary" />
-                      <span className="text-primary text-xs font-bold uppercase tracking-widest">Paquete Personalizado</span>
+                      <Sparkles className="w-4 h-4" style={{ color: "#5F7C71" }} />
+                      <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#5F7C71" }}>Paquete Personalizado</span>
                     </div>
-                    <p className="text-white/30 text-sm">Selecciona las zonas que quieres tratar</p>
+                    <p className="text-sm" style={{ color: "#9A9A9A" }}>Selecciona las zonas que quieres tratar</p>
                   </div>
                 ) : (
                   <>
@@ -190,33 +199,33 @@ export function PackageBuilder() {
                     <div className="space-y-1.5 mb-5 max-h-48 overflow-y-auto pr-1">
                       {selectedZones.map((z) => (
                         <div key={z.id} className="flex items-center justify-between text-sm">
-                          <span className="text-white/65 flex items-center gap-1.5">
+                          <span className="flex items-center gap-1.5" style={{ color: "#2B2B2B" }}>
                             <span>{z.emoji}</span> {z.label}
                           </span>
-                          <span className="text-white/45">${z.price.toLocaleString("es-MX")}</span>
+                          <span style={{ color: "#6F6F6F" }}>${z.price.toLocaleString("es-MX")}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* Subtotal */}
-                    <div className="border-t border-white/8 pt-4 space-y-2 mb-5">
+                    <div className="pt-4 space-y-2 mb-5" style={{ borderTop: "1px solid #E7E3DC" }}>
                       <div className="flex justify-between text-sm">
-                        <span className="text-white/45">Subtotal</span>
-                        <span className="text-white/60">${subtotal.toLocaleString("es-MX")}</span>
+                        <span style={{ color: "#6F6F6F" }}>Subtotal</span>
+                        <span style={{ color: "#6F6F6F" }}>${subtotal.toLocaleString("es-MX")}</span>
                       </div>
                       {discount > 0 && (
                         <div className="flex justify-between text-sm">
-                          <span className="text-[#c9a96e] font-semibold flex items-center gap-1">
+                          <span className="font-semibold flex items-center gap-1" style={{ color: "#C8A96A" }}>
                             <Tag className="w-3 h-3" /> Descuento {tier.pct}%
                           </span>
-                          <span className="text-[#c9a96e] font-semibold">-${discount.toLocaleString("es-MX")}</span>
+                          <span className="font-semibold" style={{ color: "#C8A96A" }}>-${discount.toLocaleString("es-MX")}</span>
                         </div>
                       )}
                       <div className="flex justify-between items-baseline">
-                        <span className="text-white font-bold">Total / sesión</span>
-                        <span className="font-display text-2xl font-black text-white">${total.toLocaleString("es-MX")}</span>
+                        <span className="font-bold" style={{ color: "#2B2B2B" }}>Total / sesión</span>
+                        <span className="font-display text-2xl font-black" style={{ color: "#2B2B2B" }}>${total.toLocaleString("es-MX")}</span>
                       </div>
-                      <div className="text-primary text-xs text-right">
+                      <div className="text-xs text-right" style={{ color: "#5F7C71" }}>
                         o desde <span className="font-bold">${msi}/mes</span> a 12 MSI
                       </div>
                     </div>
@@ -225,7 +234,7 @@ export function PackageBuilder() {
                     {tier.label && (
                       <div
                         className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold mb-5"
-                        style={{ background: "rgba(201,169,110,0.12)", border: "1px solid rgba(201,169,110,0.3)", color: "#c9a96e" }}
+                        style={{ background: "rgba(200,169,106,.1)", border: "1px solid rgba(200,169,106,.3)", color: "#A07840" }}
                       >
                         🎉 {tier.label}
                       </div>
@@ -246,13 +255,24 @@ export function PackageBuilder() {
                   </a>
                   <Link
                     href="/agendar"
-                    className="w-full flex items-center justify-center gap-2 text-white/60 hover:text-white border border-white/10 hover:border-white/25 font-semibold py-3 rounded-2xl text-sm transition-all duration-200"
+                    className="w-full flex items-center justify-center gap-2 font-semibold py-3 rounded-2xl text-sm transition-all duration-200"
+                    style={{ border: "1.5px solid #E7E3DC", color: "#6F6F6F", background: "white" }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.borderColor = "#5F7C71";
+                      el.style.color = "#5F7C71";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.borderColor = "#E7E3DC";
+                      el.style.color = "#6F6F6F";
+                    }}
                   >
                     Agendar consulta gratis
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
-                <p className="text-white/20 text-[10px] text-center mt-3">
+                <p className="text-[10px] text-center mt-3" style={{ color: "#9A9A9A" }}>
                   Sin compromiso · Precios por sesión · Sujetos a evaluación
                 </p>
               </div>

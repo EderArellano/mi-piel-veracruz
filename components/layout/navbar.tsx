@@ -34,20 +34,38 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-[#0c1826]/97 backdrop-blur-xl border-b border-white/8 shadow-lg shadow-black/30"
-          : "bg-[#0c1826]/90 backdrop-blur-md"
+          ? "border-b"
+          : ""
       )}
+      style={
+        scrolled
+          ? {
+              background: "rgba(255,255,255,0.92)",
+              backdropFilter: "blur(18px)",
+              WebkitBackdropFilter: "blur(18px)",
+              borderBottomColor: "#E7E3DC",
+              boxShadow: "0 1px 20px rgba(25,25,25,.06)",
+            }
+          : {
+              background: "rgba(250,250,248,0.7)",
+              backdropFilter: "blur(18px)",
+              WebkitBackdropFilter: "blur(18px)",
+            }
+      }
     >
       <div className="section-container">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center shadow-glow group-hover:shadow-glow-intense transition-shadow duration-200">
+            <div
+              className="w-8 h-8 rounded-full flex items-center justify-center transition-shadow duration-200"
+              style={{ background: "linear-gradient(135deg, #5F7C71, #C8A96A)" }}
+            >
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <div className="leading-none">
-              <span className="text-[15px] font-bold text-white tracking-tight block">Mi Piel</span>
-              <span className="text-[11px] text-white/45 tracking-widest uppercase block">Veracruz</span>
+              <span className="text-[15px] font-bold tracking-tight block" style={{ color: "#2B2B2B" }}>Mi Piel</span>
+              <span className="text-[11px] tracking-widest uppercase block" style={{ color: "#6F6F6F" }}>Veracruz</span>
             </div>
           </Link>
 
@@ -60,13 +78,22 @@ export function Navbar() {
                 className={cn(
                   "relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
                   pathname === link.href
-                    ? "text-primary bg-primary/10"
-                    : "text-white/60 hover:text-white hover:bg-white/6"
+                    ? "font-semibold"
+                    : "hover:bg-black/5"
                 )}
+                style={{
+                  color: pathname === link.href ? "#5F7C71" : "#6F6F6F",
+                }}
               >
                 {link.label}
+                {pathname === link.href && (
+                  <span
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full"
+                    style={{ background: "#5F7C71" }}
+                  />
+                )}
                 {"badge" in link && link.badge && (
-                  <span className="absolute -top-1.5 -right-1 text-[9px] font-black uppercase tracking-wider bg-[#22c55e] text-white px-1.5 py-0.5 rounded-full leading-none">
+                  <span className="absolute -top-1.5 -right-1 text-[9px] font-black uppercase tracking-wider text-white px-1.5 py-0.5 rounded-full leading-none" style={{ background: "#4CAF72" }}>
                     {link.badge}
                   </span>
                 )}
@@ -79,7 +106,10 @@ export function Navbar() {
             {session ? (
               <Link
                 href="/dashboard"
-                className="text-white/70 hover:text-white text-sm font-medium transition-colors"
+                className="text-sm font-medium transition-colors"
+                style={{ color: "#6F6F6F" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#2B2B2B"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#6F6F6F"; }}
               >
                 Mi cuenta
               </Link>
@@ -87,13 +117,31 @@ export function Navbar() {
               <>
                 <Link
                   href="/login"
-                  className="text-white/60 hover:text-white text-sm font-medium transition-colors px-3 py-2"
+                  className="text-sm font-medium transition-colors px-3 py-2"
+                  style={{ color: "#6F6F6F" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#2B2B2B"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#6F6F6F"; }}
                 >
                   Iniciar sesión
                 </Link>
                 <Link
                   href="/agendar"
-                  className="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-glow hover:shadow-glow-intense hover:-translate-y-0.5"
+                  className="text-sm font-bold px-5 py-2.5 transition-all duration-200 hover:-translate-y-0.5"
+                  style={{
+                    background: "#5F7C71",
+                    color: "white",
+                    borderRadius: "18px",
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.background = "#4D675E";
+                    el.style.boxShadow = "0 12px 30px rgba(95,124,113,.18)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.background = "#5F7C71";
+                    el.style.boxShadow = "none";
+                  }}
                 >
                   Agendar cita
                 </Link>
@@ -104,7 +152,8 @@ export function Navbar() {
           {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-xl text-white/60 hover:text-white hover:bg-white/8 transition-colors"
+            className="md:hidden p-2 rounded-xl transition-colors hover:bg-black/5"
+            style={{ color: "#2B2B2B" }}
             aria-label="Menú"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -120,7 +169,8 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-white/8 bg-[#0c1826]"
+            className="md:hidden"
+            style={{ background: "#FFFFFF", borderBottom: "1px solid #E7E3DC" }}
           >
             <div className="section-container py-4 space-y-1">
               {navLinks.map((link) => (
@@ -128,16 +178,15 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={cn(
-                    "flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-colors",
-                    pathname === link.href
-                      ? "text-primary bg-primary/10"
-                      : "text-white/60 hover:text-white hover:bg-white/6"
-                  )}
+                  className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-colors"
+                  style={{
+                    color: pathname === link.href ? "#5F7C71" : "#6F6F6F",
+                    background: pathname === link.href ? "rgba(95,124,113,.08)" : "transparent",
+                  }}
                 >
                   {link.label}
                   {"badge" in link && link.badge && (
-                    <span className="text-[9px] font-black uppercase tracking-wider bg-[#22c55e] text-white px-1.5 py-0.5 rounded-full leading-none">
+                    <span className="text-[9px] font-black uppercase tracking-wider text-white px-1.5 py-0.5 rounded-full leading-none" style={{ background: "#4CAF72" }}>
                       {link.badge}
                     </span>
                   )}
@@ -148,7 +197,8 @@ export function Navbar() {
                   <Link
                     href="/dashboard"
                     onClick={() => setIsOpen(false)}
-                    className="block w-full text-center bg-primary text-white font-bold py-3 rounded-xl"
+                    className="block w-full text-center text-white font-bold py-3 rounded-xl"
+                    style={{ background: "#5F7C71" }}
                   >
                     Mi cuenta
                   </Link>
@@ -157,14 +207,16 @@ export function Navbar() {
                     <Link
                       href="/login"
                       onClick={() => setIsOpen(false)}
-                      className="block w-full text-center text-white/70 hover:text-white border border-white/15 py-3 rounded-xl text-sm font-medium transition-colors"
+                      className="block w-full text-center py-3 rounded-xl text-sm font-medium transition-colors border"
+                      style={{ color: "#6F6F6F", borderColor: "#E7E3DC" }}
                     >
                       Iniciar sesión
                     </Link>
                     <Link
                       href="/agendar"
                       onClick={() => setIsOpen(false)}
-                      className="block w-full text-center bg-primary text-white font-bold py-3 rounded-xl"
+                      className="block w-full text-center text-white font-bold py-3 rounded-xl"
+                      style={{ background: "#5F7C71" }}
                     >
                       Agendar cita
                     </Link>

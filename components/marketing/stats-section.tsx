@@ -78,16 +78,20 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden py-14 md:py-18" style={{ background: "linear-gradient(135deg, #0e1e2e 0%, #1a3a52 50%, #0e1e2e 100%)" }}>
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden py-14 md:py-18"
+      style={{ background: "#5F7C71" }}
+    >
       {/* Top accent line */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,.15), transparent)" }} />
       {/* Bottom accent line */}
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      {/* Ambient glow */}
+      <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,.15), transparent)" }} />
+      {/* Ambient circle blur */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[300px] rounded-full bg-primary/10 blur-[100px]" />
+        <div className="w-[600px] h-[300px] rounded-full blur-[100px]" style={{ background: "rgba(255,255,255,.06)" }} />
       </div>
-      {/* Texture */}
+      {/* Dot texture */}
       <div
         className="absolute inset-0 opacity-[0.05]"
         style={{
@@ -101,22 +105,16 @@ export function StatsSection() {
           {stats.map((s, i) => (
             <div key={i} className="stat-item text-center">
               <div
-                className="stat-num font-display text-5xl md:text-6xl lg:text-7xl font-black mb-2 tabular-nums"
+                className="stat-num font-display text-5xl md:text-6xl lg:text-7xl font-black mb-2 tabular-nums text-white"
                 data-target={s.value}
                 data-suffix={s.suffix}
-                style={{
-                  background: "linear-gradient(135deg, #ffffff 0%, #56cfe1 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
               >
                 0{s.suffix}
               </div>
-              <div className="font-semibold text-white/85 text-sm md:text-base mb-1">
+              <div className="font-semibold text-sm md:text-base mb-1" style={{ color: "rgba(255,255,255,.85)" }}>
                 {s.label}
               </div>
-              <div className="text-white/45 text-xs md:text-sm">{s.sub}</div>
+              <div className="text-xs md:text-sm" style={{ color: "rgba(255,255,255,.55)" }}>{s.sub}</div>
             </div>
           ))}
         </div>

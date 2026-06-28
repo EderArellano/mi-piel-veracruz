@@ -114,26 +114,33 @@ export function SkinAnalyzerClient() {
     : encodeURIComponent("Hola, quiero agendar mi consulta gratuita con el Skin Analyzer presencial. ¿Tienen disponibilidad?");
 
   return (
-    <div style={{ background: "#070d14", minHeight: "100vh" }}>
+    <div style={{ background: "#FAFAF8", minHeight: "100vh" }}>
       {/* Hero */}
       <section className="relative pt-32 pb-12 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-primary/12 blur-[180px] pointer-events-none" />
+        {/* Soft sage radial glow */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
+          style={{ width: "800px", height: "500px", background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(95,124,113,.08) 0%, transparent 70%)" }}
+        />
         <div className="section-container relative z-10 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-[#22c55e] text-xs font-bold uppercase tracking-[0.18em] mb-6 px-3 py-1.5 rounded-full border border-[#22c55e]/25 bg-[#22c55e]/8">
+          <div
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] mb-6 px-3 py-1.5 rounded-full"
+            style={{ color: "#4CAF72", border: "1px solid rgba(76,175,114,.25)", background: "rgba(76,175,114,.1)" }}
+          >
             <CheckCircle2 className="w-3.5 h-3.5" />
             100% Gratuito · Sin registro
           </div>
-          <h1 className="font-display text-4xl md:text-6xl font-black text-white leading-tight tracking-tight mb-4">
+          <h1 className="font-display text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4" style={{ color: "#2B2B2B" }}>
             Skin Analyzer{" "}
-            <span style={{ background: "linear-gradient(125deg, #2596be, #56cfe1)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(125deg, #5F7C71, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               con IA
             </span>
           </h1>
-          <p className="text-white/55 text-xl mb-4">
+          <p className="text-xl mb-4" style={{ color: "#6F6F6F" }}>
             Sube una foto de tu piel y obtén tu análisis personalizado en segundos.
             Manchas, poros, tipo de piel, tratamientos recomendados.
           </p>
-          <div className="flex items-center justify-center gap-2 text-white/35 text-sm">
+          <div className="flex items-center justify-center gap-2 text-sm" style={{ color: "#9A9A9A" }}>
             {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />)}
             <span>4.9 · 49 reseñas · 5,000+ pacientes en Veracruz</span>
           </div>
@@ -146,26 +153,37 @@ export function SkinAnalyzerClient() {
             {/* Upload zone */}
             <div>
               <div
-                className="rounded-3xl overflow-hidden"
-                style={{ background: "#111a24", border: "1px solid rgba(255,255,255,0.07)" }}
+                className="overflow-hidden"
+                style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "22px", boxShadow: "0 10px 35px rgba(0,0,0,.05)" }}
               >
-                <div className="h-1" style={{ background: "linear-gradient(90deg, #2596be, #56cfe1)" }} />
+                <div className="h-1" style={{ background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
                 <div className="p-7">
-                  <h2 className="font-display text-xl font-bold text-white mb-2">Sube tu foto</h2>
-                  <p className="text-white/40 text-sm mb-6">
+                  <h2 className="font-display text-xl font-bold mb-2" style={{ color: "#2B2B2B" }}>Sube tu foto</h2>
+                  <p className="text-sm mb-6" style={{ color: "#6F6F6F" }}>
                     Foto de rostro con buena iluminación, sin filtros. JPG, PNG o WebP. Máx. 10 MB.
                   </p>
 
                   {!preview ? (
                     <div
-                      className="border-2 border-dashed border-white/15 rounded-2xl p-10 text-center cursor-pointer hover:border-primary/40 hover:bg-primary/5 transition-all duration-200"
+                      className="border-2 border-dashed rounded-2xl p-10 text-center cursor-pointer transition-all duration-200"
+                      style={{ borderColor: "#E7E3DC", background: "#FAFAF8" }}
                       onDrop={onDrop}
                       onDragOver={(e) => e.preventDefault()}
                       onClick={() => fileRef.current?.click()}
+                      onMouseEnter={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.borderColor = "#5F7C71";
+                        el.style.background = "rgba(95,124,113,.03)";
+                      }}
+                      onMouseLeave={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.borderColor = "#E7E3DC";
+                        el.style.background = "#FAFAF8";
+                      }}
                     >
-                      <Upload className="w-10 h-10 text-white/25 mx-auto mb-4" />
-                      <p className="text-white/50 text-sm mb-1">Arrastra tu foto aquí</p>
-                      <p className="text-white/30 text-xs">o haz clic para seleccionar</p>
+                      <Upload className="w-10 h-10 mx-auto mb-4" style={{ color: "#9A9A9A" }} />
+                      <p className="text-sm mb-1" style={{ color: "#6F6F6F" }}>Arrastra tu foto aquí</p>
+                      <p className="text-xs" style={{ color: "#9A9A9A" }}>o haz clic para seleccionar</p>
                     </div>
                   ) : (
                     <div className="relative rounded-2xl overflow-hidden mb-4">
@@ -173,9 +191,12 @@ export function SkinAnalyzerClient() {
                       <img src={preview} alt="Preview" className="w-full h-56 object-cover" />
                       <button
                         onClick={reset}
-                        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center transition-colors"
+                        className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-colors"
+                        style={{ background: "rgba(43,43,43,.6)", color: "white" }}
+                        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(43,43,43,.8)"; }}
+                        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(43,43,43,.6)"; }}
                       >
-                        <RotateCcw className="w-4 h-4 text-white" />
+                        <RotateCcw className="w-4 h-4" />
                       </button>
                     </div>
                   )}
@@ -186,13 +207,35 @@ export function SkinAnalyzerClient() {
                   <div className="flex gap-3 mt-4">
                     <button
                       onClick={() => fileRef.current?.click()}
-                      className="flex-1 flex items-center justify-center gap-2 text-white/60 hover:text-white text-sm py-2.5 rounded-xl border border-white/10 hover:border-white/25 transition-all"
+                      className="flex-1 flex items-center justify-center gap-2 text-sm py-2.5 rounded-xl transition-all"
+                      style={{ border: "1px solid #E7E3DC", color: "#6F6F6F", background: "white" }}
+                      onMouseEnter={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.borderColor = "#5F7C71";
+                        el.style.color = "#5F7C71";
+                      }}
+                      onMouseLeave={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.borderColor = "#E7E3DC";
+                        el.style.color = "#6F6F6F";
+                      }}
                     >
                       <Upload className="w-4 h-4" /> Galería
                     </button>
                     <button
                       onClick={() => cameraRef.current?.click()}
-                      className="flex-1 flex items-center justify-center gap-2 text-white/60 hover:text-white text-sm py-2.5 rounded-xl border border-white/10 hover:border-white/25 transition-all"
+                      className="flex-1 flex items-center justify-center gap-2 text-sm py-2.5 rounded-xl transition-all"
+                      style={{ border: "1px solid #E7E3DC", color: "#6F6F6F", background: "white" }}
+                      onMouseEnter={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.borderColor = "#5F7C71";
+                        el.style.color = "#5F7C71";
+                      }}
+                      onMouseLeave={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.borderColor = "#E7E3DC";
+                        el.style.color = "#6F6F6F";
+                      }}
                     >
                       <Camera className="w-4 h-4" /> Cámara
                     </button>
@@ -206,14 +249,18 @@ export function SkinAnalyzerClient() {
                   )}
 
                   {error === "coming_soon" && (
-                    <div className="mt-4 p-4 rounded-xl text-center" style={{ background: "rgba(37,150,190,0.08)", border: "1px solid rgba(37,150,190,0.2)" }}>
-                      <p className="text-primary font-semibold text-sm mb-1">Próximamente disponible</p>
-                      <p className="text-white/45 text-xs mb-3">
+                    <div
+                      className="mt-4 p-4 rounded-xl text-center"
+                      style={{ background: "rgba(95,124,113,.06)", border: "1px solid rgba(95,124,113,.2)" }}
+                    >
+                      <p className="font-semibold text-sm mb-1" style={{ color: "#5F7C71" }}>Próximamente disponible</p>
+                      <p className="text-xs mb-3" style={{ color: "#6F6F6F" }}>
                         Mientras tanto, agenda tu análisis presencial — es gratis y más completo.
                       </p>
                       <Link
                         href="/agendar"
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-white transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold transition-colors"
+                        style={{ color: "#5F7C71" }}
                       >
                         Agendar consulta gratis <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
@@ -223,8 +270,14 @@ export function SkinAnalyzerClient() {
                   <button
                     onClick={analyze}
                     disabled={!image || loading}
-                    className="w-full mt-5 flex items-center justify-center gap-2.5 bg-primary hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-2xl transition-all duration-200 hover:-translate-y-0.5"
-                    style={{ boxShadow: image ? "0 0 30px rgba(37,150,190,0.4)" : "none" }}
+                    className="w-full mt-5 flex items-center justify-center gap-2.5 text-white font-bold py-3.5 transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed"
+                    style={{
+                      background: "#5F7C71",
+                      borderRadius: "18px",
+                      boxShadow: image ? "0 0 30px rgba(95,124,113,.25)" : "none",
+                    }}
+                    onMouseEnter={(e) => { if (image && !loading) (e.currentTarget as HTMLElement).style.background = "#4D675E"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#5F7C71"; }}
                   >
                     {loading ? (
                       <>
@@ -238,7 +291,7 @@ export function SkinAnalyzerClient() {
                       </>
                     )}
                   </button>
-                  <p className="text-white/25 text-xs text-center mt-3">
+                  <p className="text-xs text-center mt-3" style={{ color: "#9A9A9A" }}>
                     Tu foto no se almacena · Análisis 100% privado
                   </p>
                 </div>
@@ -249,9 +302,9 @@ export function SkinAnalyzerClient() {
             <div className="space-y-4">
               <div
                 className="rounded-2xl p-5"
-                style={{ background: "#111a24", border: "1px solid rgba(255,255,255,0.07)" }}
+                style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "16px" }}
               >
-                <h3 className="text-white font-semibold mb-3 text-sm">Para mejores resultados</h3>
+                <h3 className="font-semibold mb-3 text-sm" style={{ color: "#2B2B2B" }}>Para mejores resultados</h3>
                 <ul className="space-y-2">
                   {[
                     "Luz natural o blanca directa al rostro",
@@ -259,8 +312,8 @@ export function SkinAnalyzerClient() {
                     "Foto frontal, enfocada y nítida",
                     "Toma la foto a 30–40 cm de distancia",
                   ].map((tip) => (
-                    <li key={tip} className="flex items-center gap-2.5 text-white/50 text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-primary/70 shrink-0" />
+                    <li key={tip} className="flex items-center gap-2.5 text-sm" style={{ color: "#6F6F6F" }}>
+                      <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "#5F7C71" }} />
                       {tip}
                     </li>
                   ))}
@@ -269,13 +322,13 @@ export function SkinAnalyzerClient() {
 
               <div
                 className="rounded-2xl p-5"
-                style={{ background: "#111a24", border: "1px solid rgba(255,255,255,0.07)" }}
+                style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "16px" }}
               >
-                <h3 className="text-white font-semibold mb-3 text-sm">¿Qué analiza la IA?</h3>
+                <h3 className="font-semibold mb-3 text-sm" style={{ color: "#2B2B2B" }}>¿Qué analiza la IA?</h3>
                 <div className="grid grid-cols-2 gap-2">
                   {["Tipo de piel", "Manchas solares", "Tamaño de poros", "Hidratación", "Signos de edad", "Rojeces", "Vello visible", "Uniformidad de tono"].map((item) => (
-                    <div key={item} className="flex items-center gap-2 text-white/45 text-xs">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0" />
+                    <div key={item} className="flex items-center gap-2 text-xs" style={{ color: "#6F6F6F" }}>
+                      <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgba(95,124,113,.6)" }} />
                       {item}
                     </div>
                   ))}
@@ -284,13 +337,13 @@ export function SkinAnalyzerClient() {
 
               <div
                 className="rounded-2xl p-5"
-                style={{ background: "linear-gradient(135deg, #059669/15, #111a24)", border: "1px solid rgba(5,150,105,0.2)" }}
+                style={{ background: "rgba(95,124,113,.06)", border: "1px solid rgba(95,124,113,.2)" }}
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#22c55e]" />
-                  <span className="text-[#22c55e] font-semibold text-sm">Después del análisis</span>
+                  <CheckCircle2 className="w-4 h-4" style={{ color: "#4CAF72" }} />
+                  <span className="font-semibold text-sm" style={{ color: "#4CAF72" }}>Después del análisis</span>
                 </div>
-                <p className="text-white/50 text-sm">
+                <p className="text-sm" style={{ color: "#6F6F6F" }}>
                   Agenda tu consulta presencial gratis con el Skin Analyzer clínico. Diagnóstico preciso con cámara de imágenes médicas.
                 </p>
               </div>
@@ -301,10 +354,10 @@ export function SkinAnalyzerClient() {
           <div className="space-y-6">
             {/* Header card */}
             <div
-              className="rounded-3xl overflow-hidden"
-              style={{ background: "#111a24", border: "1px solid rgba(255,255,255,0.07)" }}
+              className="overflow-hidden"
+              style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "22px" }}
             >
-              <div className="h-1" style={{ background: "linear-gradient(90deg, #2596be, #56cfe1, #c9a96e)" }} />
+              <div className="h-1" style={{ background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
               <div className="p-7 md:p-10 flex flex-col md:flex-row gap-8 items-start">
                 {/* Score */}
                 <div className="shrink-0 text-center">
@@ -316,21 +369,27 @@ export function SkinAnalyzerClient() {
                       {analysis.puntuacion}
                     </span>
                   </div>
-                  <div className="text-white/50 text-sm">de 10</div>
-                  <div className="text-white/30 text-xs mt-1">Salud general</div>
+                  <div className="text-sm" style={{ color: "#6F6F6F" }}>de 10</div>
+                  <div className="text-xs mt-1" style={{ color: "#9A9A9A" }}>Salud general</div>
                 </div>
 
                 <div className="flex-1">
-                  <h2 className="font-display text-2xl font-black text-white mb-2">Tu análisis de piel</h2>
+                  <h2 className="font-display text-2xl font-black mb-2" style={{ color: "#2B2B2B" }}>Tu análisis de piel</h2>
                   <div className="flex flex-wrap gap-3 mb-4">
-                    <span className="px-3 py-1 rounded-full text-xs font-semibold text-primary bg-primary/15 border border-primary/25">
+                    <span
+                      className="px-3 py-1 rounded-full text-xs font-semibold"
+                      style={{ color: "#5F7C71", background: "rgba(95,124,113,.1)", border: "1px solid rgba(95,124,113,.25)" }}
+                    >
                       Piel {analysis.tipo_piel}
                     </span>
-                    <span className="px-3 py-1 rounded-full text-xs font-semibold text-white/60 bg-white/8 border border-white/12">
+                    <span
+                      className="px-3 py-1 rounded-full text-xs font-semibold"
+                      style={{ color: "#6F6F6F", background: "#F4F2EE", border: "1px solid #E7E3DC" }}
+                    >
                       Tono {analysis.tono}
                     </span>
                   </div>
-                  <p className="text-white/60 leading-relaxed text-sm">{analysis.mensaje_motivador}</p>
+                  <p className="leading-relaxed text-sm" style={{ color: "#6F6F6F" }}>{analysis.mensaje_motivador}</p>
                 </div>
               </div>
             </div>
@@ -339,9 +398,9 @@ export function SkinAnalyzerClient() {
               {/* Hallazgos */}
               <div
                 className="rounded-2xl p-6"
-                style={{ background: "#111a24", border: "1px solid rgba(255,255,255,0.07)" }}
+                style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "16px" }}
               >
-                <h3 className="font-semibold text-white mb-4">Hallazgos detectados</h3>
+                <h3 className="font-semibold mb-4" style={{ color: "#2B2B2B" }}>Hallazgos detectados</h3>
                 <div className="space-y-3">
                   {analysis.hallazgos.map((h) => (
                     <div key={h.area} className="flex items-start gap-3">
@@ -350,8 +409,8 @@ export function SkinAnalyzerClient() {
                         style={{ background: nivelColor[h.nivel] }}
                       />
                       <div>
-                        <div className="text-white/80 text-sm font-medium">{h.area}</div>
-                        <div className="text-white/40 text-xs">{h.descripcion}</div>
+                        <div className="text-sm font-medium" style={{ color: "#2B2B2B" }}>{h.area}</div>
+                        <div className="text-xs" style={{ color: "#6F6F6F" }}>{h.descripcion}</div>
                       </div>
                     </div>
                   ))}
@@ -361,23 +420,31 @@ export function SkinAnalyzerClient() {
               {/* Tratamientos */}
               <div
                 className="rounded-2xl p-6"
-                style={{ background: "#111a24", border: "1px solid rgba(255,255,255,0.07)" }}
+                style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "16px" }}
               >
-                <h3 className="font-semibold text-white mb-4">Tratamientos recomendados</h3>
+                <h3 className="font-semibold mb-4" style={{ color: "#2B2B2B" }}>Tratamientos recomendados</h3>
                 <div className="space-y-3">
                   {analysis.tratamientos_recomendados.map((t) => (
                     <div
                       key={t.tratamiento}
                       className="p-3 rounded-xl"
-                      style={{ background: t.prioridad === "alta" ? "rgba(37,150,190,0.1)" : "rgba(255,255,255,0.04)", border: t.prioridad === "alta" ? "1px solid rgba(37,150,190,0.25)" : "1px solid rgba(255,255,255,0.07)" }}
+                      style={{
+                        background: t.prioridad === "alta" ? "rgba(95,124,113,.05)" : "#FAFAF8",
+                        border: t.prioridad === "alta" ? "1px solid rgba(95,124,113,.15)" : "1px solid #E7E3DC",
+                      }}
                     >
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-white/85 text-sm font-medium">{t.tratamiento}</span>
+                        <span className="text-sm font-medium" style={{ color: "#2B2B2B" }}>{t.tratamiento}</span>
                         {t.prioridad === "alta" && (
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/15 px-2 py-0.5 rounded-full">Prioritario</span>
+                          <span
+                            className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
+                            style={{ color: "#5F7C71", background: "rgba(95,124,113,.1)" }}
+                          >
+                            Prioritario
+                          </span>
                         )}
                       </div>
-                      <p className="text-white/40 text-xs">{t.razon}</p>
+                      <p className="text-xs" style={{ color: "#6F6F6F" }}>{t.razon}</p>
                     </div>
                   ))}
                 </div>
@@ -387,18 +454,23 @@ export function SkinAnalyzerClient() {
             {/* Rutina sugerida */}
             <div
               className="rounded-2xl p-6"
-              style={{ background: "#111a24", border: "1px solid rgba(255,255,255,0.07)" }}
+              style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "16px" }}
             >
-              <h3 className="font-semibold text-white mb-4">Rutina sugerida</h3>
+              <h3 className="font-semibold mb-4" style={{ color: "#2B2B2B" }}>Rutina sugerida</h3>
               <div className="grid sm:grid-cols-3 gap-3">
                 {analysis.rutina_sugerida.map((paso, i) => (
                   <div
                     key={i}
                     className="p-3 rounded-xl text-center"
-                    style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
+                    style={{ background: "#FAFAF8", border: "1px solid #E7E3DC" }}
                   >
-                    <div className="font-display text-2xl font-black text-primary/60 mb-1">{i + 1}</div>
-                    <p className="text-white/60 text-xs">{paso}</p>
+                    <div
+                      className="font-display text-2xl font-black mb-1"
+                      style={{ color: "rgba(95,124,113,.6)" }}
+                    >
+                      {i + 1}
+                    </div>
+                    <p className="text-xs" style={{ color: "#6F6F6F" }}>{paso}</p>
                   </div>
                 ))}
               </div>
@@ -407,19 +479,19 @@ export function SkinAnalyzerClient() {
             {/* CTA */}
             <div
               className="rounded-3xl p-8 text-center"
-              style={{ background: "linear-gradient(135deg, #0e1e2e, #1a3a52, #0e1e2e)", border: "1px solid rgba(37,150,190,0.2)" }}
+              style={{ background: "linear-gradient(135deg, #5F7C71, #4D675E)" }}
             >
               <h3 className="font-display text-2xl font-black text-white mb-2">
                 {analysis.siguiente_paso}
               </h3>
-              <p className="text-white/45 text-sm mb-6 max-w-lg mx-auto">
+              <p className="text-sm mb-6 max-w-lg mx-auto" style={{ color: "rgba(255,255,255,.75)" }}>
                 Este análisis es orientativo. El Skin Analyzer clínico de MiPiel usa cámara de imágenes médicas para un diagnóstico preciso y personalizado. Completamente gratis.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/agendar"
-                  className="inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-2xl transition-all duration-200 hover:-translate-y-0.5"
-                  style={{ boxShadow: "0 0 35px rgba(37,150,190,0.4)" }}
+                  className="inline-flex items-center justify-center gap-2.5 font-bold px-8 py-4 transition-all duration-200 hover:-translate-y-0.5"
+                  style={{ background: "white", color: "#5F7C71", borderRadius: "18px" }}
                 >
                   Agendar Skin Analyzer presencial — Gratis
                   <ArrowRight className="w-5 h-5" />
@@ -428,13 +500,20 @@ export function SkinAnalyzerClient() {
                   href={`https://wa.me/${WA_NUMBER}?text=${waMsg}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 border border-white/15 text-white/65 hover:text-white hover:border-white/35 hover:bg-white/5 font-semibold px-8 py-4 rounded-2xl transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2.5 font-semibold px-8 py-4 transition-all duration-200"
+                  style={{ border: "1.5px solid rgba(255,255,255,.4)", color: "white", background: "rgba(255,255,255,.08)", borderRadius: "18px" }}
                 >
                   <MessageCircle className="w-5 h-5 text-[#22c55e]" />
                   Enviar mi análisis por WhatsApp
                 </a>
               </div>
-              <button onClick={reset} className="mt-4 text-white/30 hover:text-white/60 text-sm transition-colors flex items-center gap-1.5 mx-auto">
+              <button
+                onClick={reset}
+                className="mt-4 text-sm flex items-center gap-1.5 mx-auto transition-colors"
+                style={{ color: "rgba(255,255,255,.5)" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "white"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,.5)"; }}
+              >
                 <RotateCcw className="w-3.5 h-3.5" />
                 Analizar otra foto
               </button>

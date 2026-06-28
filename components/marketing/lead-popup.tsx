@@ -47,24 +47,31 @@ export function LeadPopup() {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 z-[60] backdrop-blur-[4px]"
+        style={{ background: "rgba(43,43,43,.4)" }}
         onClick={dismiss}
       />
 
       {/* Modal */}
       <div className="fixed z-[61] inset-x-4 bottom-6 sm:bottom-auto sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:inset-x-auto sm:w-full sm:max-w-md">
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ background: "#070d14", border: "1px solid rgba(255,255,255,0.08)" }}>
+        <div
+          className="relative rounded-3xl overflow-hidden"
+          style={{ background: "white", border: "1px solid #E7E3DC", boxShadow: "0 30px 80px rgba(0,0,0,.12)" }}
+        >
 
           {/* Close */}
           <button
             onClick={dismiss}
-            className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+            className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-colors"
+            style={{ background: "rgba(43,43,43,.08)", color: "#6F6F6F" }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(43,43,43,.14)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(43,43,43,.08)"; }}
           >
-            <X className="w-4 h-4 text-white" />
+            <X className="w-4 h-4" />
           </button>
 
           {/* Top gradient bar */}
-          <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #2596be, #56cfe1, #c9a96e)" }} />
+          <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
 
           <div className="p-7">
             {/* Stars */}
@@ -72,20 +79,25 @@ export function LeadPopup() {
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
               ))}
-              <span className="text-white/40 text-xs ml-2 mt-0.5">4.9 · 49 reseñas</span>
+              <span className="text-xs ml-2 mt-0.5" style={{ color: "#9A9A9A" }}>4.9 · 49 reseñas</span>
             </div>
 
             {/* Headline */}
-            <h2 className="font-display text-2xl font-black text-white leading-tight mb-1">
+            <h2 className="font-display text-2xl font-black leading-tight mb-1" style={{ color: "#2B2B2B" }}>
               15% de descuento
             </h2>
             <p
               className="font-display text-2xl font-black mb-4"
-              style={{ background: "linear-gradient(125deg, #2596be, #56cfe1)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
+              style={{
+                background: "linear-gradient(125deg, #5F7C71, #C8A96A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
             >
               en tu primera sesión
             </p>
-            <p className="text-white/55 text-sm leading-relaxed mb-6">
+            <p className="text-sm leading-relaxed mb-6" style={{ color: "#6F6F6F" }}>
               Escríbenos por WhatsApp ahora y reserva tu consulta gratuita con Skin Analyzer.
               Oferta válida solo hoy para nuevas pacientes.
             </p>
@@ -96,19 +108,35 @@ export function LeadPopup() {
               placeholder="Tu WhatsApp (229 000 0000)"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full rounded-xl bg-white/8 border border-white/12 text-white placeholder:text-white/30 px-4 py-3 text-sm mb-3 focus:outline-none focus:border-primary/60 focus:bg-white/12 transition-all"
+              className="w-full mb-3 px-4 py-3 text-sm transition-all outline-none"
+              style={{
+                height: "52px",
+                borderRadius: "14px",
+                border: "1px solid #E7E3DC",
+                background: "#FAFAF8",
+                color: "#2B2B2B",
+              }}
+              onFocus={(e) => {
+                e.currentTarget.style.borderColor = "#5F7C71";
+                e.currentTarget.style.boxShadow = "0 0 0 4px rgba(95,124,113,.15)";
+              }}
+              onBlur={(e) => {
+                e.currentTarget.style.borderColor = "#E7E3DC";
+                e.currentTarget.style.boxShadow = "none";
+              }}
             />
 
             {/* CTA */}
             <button
               onClick={handleWA}
-              className="w-full flex items-center justify-center gap-2.5 bg-[#22c55e] hover:bg-[#16a34a] text-white font-bold py-3.5 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 shadow-lg"
+              className="w-full flex items-center justify-center gap-2.5 bg-[#22c55e] hover:bg-[#16a34a] text-white font-bold py-3.5 transition-all duration-200 hover:-translate-y-0.5 shadow-lg"
+              style={{ borderRadius: "18px" }}
             >
               <MessageCircle className="w-5 h-5" />
               Reclamar mi 15% de descuento
             </button>
 
-            <p className="text-white/25 text-xs text-center mt-3">
+            <p className="text-xs text-center mt-3" style={{ color: "#9A9A9A" }}>
               Sin compromiso · Cancelable sin costo · 1 por persona
             </p>
           </div>

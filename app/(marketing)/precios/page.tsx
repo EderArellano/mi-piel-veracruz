@@ -52,7 +52,7 @@ const tiers = [
     price: 2100,
     monthly: 175,
     highlight: true,
-    accent: "#2596be",
+    accent: "#5F7C71",
     desc: "Axilas + Bikini + Media pierna. El combo favorito de nuestras pacientes. Ahorra 20% vs. precio por zona.",
     features: [
       "Axilas + Bikini + Media pierna",
@@ -140,29 +140,36 @@ const faqSchema = {
 
 export default function PreciosPage() {
   return (
-    <div style={{ background: "#070d14", minHeight: "100vh" }}>
+    <div style={{ background: "#FAFAF8", minHeight: "100vh" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(priceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-primary/12 blur-[180px] pointer-events-none" />
+        {/* Soft sage radial glow */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
+          style={{ width: "800px", height: "500px", background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(95,124,113,.08) 0%, transparent 70%)" }}
+        />
         <div className="section-container relative z-10 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.18em] mb-6 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/8">
+          <div
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] mb-6 px-3 py-1.5 rounded-full"
+            style={{ color: "#5F7C71", border: "1px solid rgba(95,124,113,.2)", background: "rgba(95,124,113,.08)" }}
+          >
             <Zap className="w-3.5 h-3.5" />
             Precios 2025
           </div>
-          <h1 className="font-display text-4xl md:text-6xl font-black text-white leading-tight tracking-tight mb-4">
+          <h1 className="font-display text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4" style={{ color: "#2B2B2B" }}>
             Precio Depilación Láser{" "}
-            <span style={{ background: "linear-gradient(125deg, #2596be, #56cfe1)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(125deg, #5F7C71, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               en Veracruz
             </span>
           </h1>
-          <p className="text-white/50 text-xl mb-4">
+          <p className="text-xl mb-4" style={{ color: "#6F6F6F" }}>
             Sin letras pequeñas. Sin costos ocultos. Primera consulta siempre gratis.
           </p>
-          <p className="text-white/35 text-sm mb-10">
+          <p className="text-sm mb-10" style={{ color: "#9A9A9A" }}>
             Financiamiento disponible · 12 meses sin intereses con MercadoPago
           </p>
 
@@ -171,7 +178,7 @@ export default function PreciosPage() {
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
             ))}
-            <span className="text-white/40 text-sm ml-1">4.9 · 49 reseñas verificadas en Google</span>
+            <span className="text-sm ml-1" style={{ color: "#9A9A9A" }}>4.9 · 49 reseñas verificadas en Google</span>
           </div>
         </div>
       </section>
@@ -182,22 +189,26 @@ export default function PreciosPage() {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className="relative rounded-3xl overflow-hidden flex flex-col"
+              className="relative flex flex-col overflow-hidden"
               style={{
-                background: tier.highlight ? `linear-gradient(160deg, #0f2233 0%, #1a3a52 100%)` : "#111a24",
-                border: tier.highlight ? `1.5px solid ${tier.accent}50` : "1px solid rgba(255,255,255,0.07)",
-                boxShadow: tier.highlight ? `0 0 60px ${tier.accent}20` : "none",
+                background: "white",
+                border: tier.highlight ? `2px solid rgba(95,124,113,.4)` : "1px solid #E7E3DC",
+                borderRadius: "22px",
+                boxShadow: tier.highlight ? "0 18px 50px rgba(95,124,113,.12)" : "0 10px 35px rgba(0,0,0,.05)",
               }}
             >
               {tier.highlight && (
                 <div
-                  className="absolute top-0 inset-x-0 text-center text-[10px] font-black uppercase tracking-widest py-2"
-                  style={{ background: tier.accent, color: "#fff" }}
+                  className="absolute top-0 inset-x-0 text-center text-[10px] font-black uppercase tracking-widest py-2 text-white"
+                  style={{ background: "#5F7C71" }}
                 >
                   {tier.tag}
                 </div>
               )}
-              <div className={`h-1 w-full ${tier.highlight ? "mt-7" : ""}`} style={{ background: `linear-gradient(90deg, ${tier.accent}, ${tier.accent}80)` }} />
+              <div
+                className={`h-1 w-full ${tier.highlight ? "mt-7" : ""}`}
+                style={{ background: `linear-gradient(90deg, ${tier.accent}, ${tier.accent}80)` }}
+              />
 
               <div className="p-7 flex flex-col flex-1">
                 {!tier.highlight && (
@@ -210,20 +221,20 @@ export default function PreciosPage() {
                 )}
 
                 <div className="mb-1">
-                  <span className="font-display text-lg font-black text-white/40 mr-2">{tier.name}</span>
+                  <span className="font-display text-lg font-black mr-2" style={{ color: "#9A9A9A" }}>{tier.name}</span>
                 </div>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="font-display text-4xl font-black text-white">${tier.price.toLocaleString("es-MX")}</span>
-                  <span className="text-white/40 text-sm">MXN / sesión</span>
+                  <span className="font-display text-4xl font-black" style={{ color: "#2B2B2B" }}>${tier.price.toLocaleString("es-MX")}</span>
+                  <span className="text-sm" style={{ color: "#9A9A9A" }}>MXN / sesión</span>
                 </div>
-                <p className="text-sm mb-2" style={{ color: tier.accent }}>
+                <p className="text-sm mb-2" style={{ color: "#5F7C71" }}>
                   o desde ${tier.monthly}/mes a 12 MSI
                 </p>
-                <p className="text-white/40 text-sm mb-6">{tier.desc}</p>
+                <p className="text-sm mb-6" style={{ color: "#6F6F6F" }}>{tier.desc}</p>
 
                 <ul className="space-y-3 flex-1 mb-7">
                   {tier.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-white/60">
+                    <li key={f} className="flex items-start gap-2.5 text-sm" style={{ color: "#6F6F6F" }}>
                       <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: tier.accent }} />
                       {f}
                     </li>
@@ -232,11 +243,11 @@ export default function PreciosPage() {
 
                 <Link
                   href={tier.href}
-                  className="w-full flex items-center justify-center gap-2 font-bold py-3.5 rounded-2xl transition-all duration-200 hover:-translate-y-0.5"
+                  className="w-full flex items-center justify-center gap-2 font-bold py-3.5 transition-all duration-200 hover:-translate-y-0.5"
                   style={
                     tier.highlight
-                      ? { background: tier.accent, color: "#fff", boxShadow: `0 0 30px ${tier.accent}40` }
-                      : { background: `${tier.accent}18`, color: tier.accent, border: `1px solid ${tier.accent}35` }
+                      ? { background: "#5F7C71", color: "white", borderRadius: "18px", boxShadow: "0 0 30px rgba(95,124,113,.25)" }
+                      : { background: "transparent", color: tier.accent, border: `1.5px solid ${tier.accent}`, borderRadius: "18px" }
                   }
                 >
                   {tier.cta}
@@ -249,21 +260,21 @@ export default function PreciosPage() {
 
         {/* MSI note */}
         <div className="mt-6 text-center">
-          <p className="text-white/30 text-sm">
+          <p className="text-sm" style={{ color: "#9A9A9A" }}>
             Financiamiento a 12 MSI disponible con MercadoPago · Sin penalización por pago anticipado
           </p>
         </div>
       </section>
 
       {/* Price per zone */}
-      <section className="py-16" style={{ background: "#0a1520" }}>
+      <section className="py-16" style={{ background: "#F4F2EE" }}>
         <div className="section-container">
           <div className="text-center mb-10">
-            <div className="text-primary text-xs font-bold uppercase tracking-[0.18em] mb-3">Tarifario completo</div>
-            <h2 className="font-display text-3xl md:text-4xl font-black text-white mb-3">
+            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#5F7C71" }}>Tarifario completo</div>
+            <h2 className="font-display text-3xl md:text-4xl font-black mb-3" style={{ color: "#2B2B2B" }}>
               Precio por zona
             </h2>
-            <p className="text-white/40 text-sm">
+            <p className="text-sm" style={{ color: "#9A9A9A" }}>
               El precio final se confirma en tu consulta gratuita según tu tipo de piel y densidad de vello.
             </p>
           </div>
@@ -273,18 +284,18 @@ export default function PreciosPage() {
               const msi = Math.ceil(z.price / 12);
               const inner = (
                 <div
-                  className="flex items-center justify-between px-5 py-4 rounded-2xl border transition-all duration-200 group-hover:border-primary/30"
-                  style={{ background: "#111a24", borderColor: "rgba(255,255,255,0.07)" }}
+                  className="flex items-center justify-between px-5 py-4 transition-all duration-200"
+                  style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "16px" }}
                 >
-                  <span className="text-white/70 text-sm group-hover:text-white transition-colors">{z.name}</span>
+                  <span className="text-sm transition-colors" style={{ color: "#2B2B2B" }}>{z.name}</span>
                   <div className="text-right">
-                    <div className="text-primary font-bold text-sm">${z.price}</div>
-                    <div className="text-white/25 text-xs">desde ${msi}/mes</div>
+                    <div className="font-bold text-sm" style={{ color: "#5F7C71" }}>${z.price}</div>
+                    <div className="text-xs" style={{ color: "#9A9A9A" }}>desde ${msi}/mes</div>
                   </div>
                 </div>
               );
               return z.slug ? (
-                <Link key={z.name} href={`/servicios/${z.slug}`} className="group block">
+                <Link key={z.name} href={`/servicios/${z.slug}`} className="group block hover:-translate-y-0.5 transition-transform duration-200">
                   {inner}
                 </Link>
               ) : (
@@ -299,21 +310,21 @@ export default function PreciosPage() {
       <PackageBuilder />
 
       {/* FAQ */}
-      <section className="py-16" style={{ background: "#070d14" }}>
+      <section className="py-16" style={{ background: "#FAFAF8" }}>
         <div className="section-container max-w-3xl">
           <div className="text-center mb-10">
-            <div className="text-primary text-xs font-bold uppercase tracking-[0.18em] mb-3">FAQ</div>
-            <h2 className="font-display text-3xl font-black text-white">Preguntas sobre precios</h2>
+            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#5F7C71" }}>FAQ</div>
+            <h2 className="font-display text-3xl font-black" style={{ color: "#2B2B2B" }}>Preguntas sobre precios</h2>
           </div>
           <div className="space-y-4">
             {faqSchema.mainEntity.map(({ name: q, acceptedAnswer }) => (
               <div
                 key={q}
                 className="rounded-2xl p-6"
-                style={{ background: "#0f1c2a", border: "1px solid rgba(255,255,255,0.07)" }}
+                style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "16px" }}
               >
-                <h3 className="font-semibold text-white mb-3">{q}</h3>
-                <p className="text-white/55 text-sm leading-relaxed">{acceptedAnswer.text}</p>
+                <h3 className="font-semibold mb-3" style={{ color: "#2B2B2B" }}>{q}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#6F6F6F" }}>{acceptedAnswer.text}</p>
               </div>
             ))}
           </div>
@@ -321,19 +332,19 @@ export default function PreciosPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16" style={{ background: "linear-gradient(135deg, #0e1e2e, #1a3a52, #0e1e2e)" }}>
+      <section className="py-16" style={{ background: "linear-gradient(135deg, #5F7C71, #4D675E)" }}>
         <div className="section-container text-center">
           <h2 className="font-display text-3xl md:text-4xl font-black text-white mb-4">
             ¿Dudas sobre qué paquete elegir?
           </h2>
-          <p className="text-white/50 mb-8 max-w-xl mx-auto">
+          <p className="mb-8 max-w-xl mx-auto" style={{ color: "rgba(255,255,255,.75)" }}>
             Tu primera consulta con Skin Analyzer es gratis. Te decimos exactamente qué necesitas y cuánto costará.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/agendar"
-              className="inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold px-9 py-4 rounded-2xl transition-all duration-200 hover:-translate-y-0.5"
-              style={{ boxShadow: "0 0 35px rgba(37,150,190,0.4)" }}
+              className="inline-flex items-center justify-center gap-2.5 font-bold px-9 py-4 transition-all duration-200 hover:-translate-y-0.5"
+              style={{ background: "white", color: "#5F7C71", borderRadius: "18px" }}
             >
               Consulta gratis — Sin compromiso
               <ArrowRight className="w-5 h-5" />
@@ -342,7 +353,8 @@ export default function PreciosPage() {
               href={`https://wa.me/${WA_NUMBER}?text=${WA_MSG}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 border border-white/15 text-white/65 hover:text-white hover:border-white/35 hover:bg-white/5 font-semibold px-8 py-4 rounded-2xl transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2.5 font-semibold px-8 py-4 transition-all duration-200"
+              style={{ border: "1.5px solid rgba(255,255,255,.4)", color: "white", background: "rgba(255,255,255,.08)", borderRadius: "18px" }}
             >
               <MessageCircle className="w-5 h-5 text-[#22c55e]" />
               Preguntar por WhatsApp

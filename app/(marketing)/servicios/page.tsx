@@ -140,29 +140,35 @@ const breadcrumbSchema = {
 
 export default function ServiciosPage() {
   return (
-    <div style={{ background: "#070d14", minHeight: "100vh" }}>
+    <div style={{ background: "#FAFAF8", minHeight: "100vh" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
       <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-primary/12 blur-[180px] pointer-events-none" />
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
+          style={{ width: "900px", height: "500px", background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(95,124,113,.08) 0%, transparent 70%)" }}
+        />
         <div className="section-container relative z-10 text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.18em] mb-6 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/8">
+          <div
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] mb-6 px-3 py-1.5 rounded-full"
+            style={{ color: "#5F7C71", border: "1px solid rgba(95,124,113,.2)", background: "rgba(95,124,113,.08)" }}
+          >
             <Zap className="w-3.5 h-3.5" />
             Láser Diodo Grado Médico · Veracruz
           </div>
 
-          <h1 className="font-display text-4xl md:text-6xl font-black text-white leading-tight tracking-tight mb-5">
+          <h1 className="font-display text-4xl md:text-6xl font-black leading-tight tracking-tight mb-5" style={{ color: "#2B2B2B" }}>
             Depilación Láser en{" "}
-            <span style={{ background: "linear-gradient(125deg, #2596be, #56cfe1)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(125deg, #5F7C71, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Veracruz
             </span>
             <br />
-            <span className="text-white/35 text-3xl md:text-4xl font-bold">para cada zona de tu cuerpo</span>
+            <span className="text-3xl md:text-4xl font-bold" style={{ color: "#6F6F6F" }}>para cada zona de tu cuerpo</span>
           </h1>
 
-          <p className="text-white/55 text-xl mb-8 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 max-w-2xl mx-auto" style={{ color: "#6F6F6F" }}>
             Tecnología FDA-cleared adaptada para piel mexicana. Resultados permanentes desde la primera sesión — sin dolor, sin tiempo de recuperación.
           </p>
 
@@ -170,26 +176,27 @@ export default function ServiciosPage() {
           <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
             <div className="flex items-center gap-2">
               {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />)}
-              <span className="text-white/50 text-sm">4.9 · 49 reseñas</span>
+              <span className="text-sm" style={{ color: "#6F6F6F" }}>4.9 · 49 reseñas</span>
             </div>
-            <div className="w-px h-4 bg-white/15 hidden sm:block" />
-            <span className="text-white/50 text-sm">+5,000 pacientes en Veracruz</span>
-            <div className="w-px h-4 bg-white/15 hidden sm:block" />
-            <span className="text-white/50 text-sm">8 años de experiencia clínica</span>
+            <div className="w-px h-4 hidden sm:block" style={{ background: "#E7E3DC" }} />
+            <span className="text-sm" style={{ color: "#6F6F6F" }}>+5,000 pacientes en Veracruz</span>
+            <div className="w-px h-4 hidden sm:block" style={{ background: "#E7E3DC" }} />
+            <span className="text-sm" style={{ color: "#6F6F6F" }}>8 años de experiencia clínica</span>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/agendar"
-              className="group inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold text-base px-9 py-4 rounded-2xl transition-all duration-200 hover:-translate-y-0.5"
-              style={{ boxShadow: "0 0 40px rgba(37,150,190,0.4)" }}
+              className="group inline-flex items-center justify-center gap-2.5 text-white font-bold text-base px-9 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90"
+              style={{ background: "#5F7C71", borderRadius: "18px", boxShadow: "0 0 40px rgba(95,124,113,.25)" }}
             >
               Consulta gratis con Skin Analyzer
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
               href="#paquete"
-              className="inline-flex items-center justify-center gap-2 border border-white/15 text-white/65 hover:text-white hover:border-white/35 hover:bg-white/5 font-semibold text-base px-8 py-4 rounded-2xl transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 font-semibold text-base px-8 py-4 transition-all duration-200 hover:border-[#5F7C71] hover:text-[#5F7C71]"
+              style={{ border: "1.5px solid #E7E3DC", color: "#6F6F6F", background: "white", borderRadius: "18px" }}
             >
               Armar mi paquete personalizado
             </a>
@@ -198,14 +205,14 @@ export default function ServiciosPage() {
       </section>
 
       {/* Services grid */}
-      <section className="py-16" style={{ background: "#070d14" }}>
+      <section className="py-16" style={{ background: "#FAFAF8" }}>
         <div className="section-container">
           <div className="text-center mb-12">
-            <div className="text-primary text-xs font-bold uppercase tracking-[0.18em] mb-3">Zonas disponibles</div>
-            <h2 className="font-display text-3xl md:text-4xl font-black text-white mb-3">
+            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#5F7C71" }}>Zonas disponibles</div>
+            <h2 className="font-display text-3xl md:text-4xl font-black mb-3" style={{ color: "#2B2B2B" }}>
               Cada zona, un resultado permanente
             </h2>
-            <p className="text-white/40 text-base max-w-xl mx-auto">
+            <p className="text-base max-w-xl mx-auto" style={{ color: "#6F6F6F" }}>
               Haz clic en cualquier zona para ver precios, sesiones y todo lo que necesitas saber.
             </p>
           </div>
@@ -214,16 +221,18 @@ export default function ServiciosPage() {
             {services.map((s) => (
               <Link key={s.slug} href={s.href} className="group block">
                 <div
-                  className="relative h-full rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2"
+                  className="relative h-full overflow-hidden transition-all duration-[250ms] ease-out hover:-translate-y-[6px] hover:shadow-[0_18px_45px_rgba(0,0,0,.08)]"
                   style={{
-                    background: "#111a24",
-                    boxShadow: "0 2px 20px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.05)",
+                    background: "white",
+                    border: "1px solid #E7E3DC",
+                    borderRadius: "22px",
+                    boxShadow: "0 10px 35px rgba(0,0,0,.05)",
                   }}
                 >
                   {/* Hover glow */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                    style={{ background: `radial-gradient(ellipse at 0% 0%, ${s.tagColor}18 0%, transparent 65%)` }}
+                    style={{ background: `radial-gradient(ellipse at 0% 0%, ${s.tagColor}08 0%, transparent 65%)` }}
                   />
                   <div className="h-[2px]" style={{ background: `linear-gradient(90deg, ${s.tagColor}, ${s.tagColor}60)` }} />
 
@@ -238,14 +247,14 @@ export default function ServiciosPage() {
                       <span className="text-2xl">{s.emoji}</span>
                     </div>
 
-                    <h3 className="font-display text-lg font-bold text-white mb-1">{s.name}</h3>
-                    <p className="text-primary text-sm font-semibold mb-3">{s.headline}</p>
-                    <p className="text-white/45 text-sm leading-relaxed mb-6">{s.description}</p>
+                    <h3 className="font-display text-lg font-bold mb-1" style={{ color: "#2B2B2B" }}>{s.name}</h3>
+                    <p className="text-sm font-semibold mb-3" style={{ color: s.tagColor }}>{s.headline}</p>
+                    <p className="text-sm leading-relaxed mb-6" style={{ color: "#6F6F6F" }}>{s.description}</p>
 
-                    <div className="flex items-end justify-between pt-4 border-t border-white/8">
+                    <div className="flex items-end justify-between pt-4" style={{ borderTop: "1px solid #E7E3DC" }}>
                       <div>
                         <div className="font-display text-xl font-extrabold" style={{ color: s.tagColor }}>{s.price}</div>
-                        <div className="text-white/30 text-xs mt-0.5">{s.sessions}</div>
+                        <div className="text-xs mt-0.5" style={{ color: "#9A9A9A" }}>{s.sessions}</div>
                       </div>
                       <div
                         className="w-9 h-9 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200"
@@ -268,14 +277,14 @@ export default function ServiciosPage() {
       </div>
 
       {/* Why us */}
-      <section className="py-16" style={{ background: "#070d14" }}>
+      <section className="py-16" style={{ background: "#F4F2EE" }}>
         <div className="section-container">
           <div className="text-center mb-12">
-            <div className="text-primary text-xs font-bold uppercase tracking-[0.18em] mb-3">¿Por qué MiPiel?</div>
-            <h2 className="font-display text-3xl md:text-4xl font-black text-white mb-3">
+            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#5F7C71" }}>¿Por qué MiPiel?</div>
+            <h2 className="font-display text-3xl md:text-4xl font-black mb-3" style={{ color: "#2B2B2B" }}>
               La clínica que Veracruz eligió
             </h2>
-            <p className="text-white/40 text-base">
+            <p className="text-base" style={{ color: "#6F6F6F" }}>
               8 años de resultados reales en piel mexicana.
             </p>
           </div>
@@ -284,14 +293,17 @@ export default function ServiciosPage() {
             {whyUs.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="p-6 rounded-2xl"
-                style={{ background: "#111a24", border: "1px solid rgba(255,255,255,0.06)" }}
+                className="p-6"
+                style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "22px" }}
               >
-                <div className="w-10 h-10 rounded-xl bg-primary/15 border border-primary/25 flex items-center justify-center mb-4">
-                  <Icon className="w-5 h-5 text-primary" />
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+                  style={{ background: "rgba(95,124,113,.1)", border: "1px solid rgba(95,124,113,.2)" }}
+                >
+                  <Icon className="w-5 h-5" style={{ color: "#5F7C71" }} />
                 </div>
-                <h3 className="font-semibold text-white mb-2">{title}</h3>
-                <p className="text-white/45 text-sm leading-relaxed">{desc}</p>
+                <h3 className="font-semibold mb-2" style={{ color: "#2B2B2B" }}>{title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#6F6F6F" }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -299,23 +311,23 @@ export default function ServiciosPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16" style={{ background: "linear-gradient(135deg, #0e1e2e, #1a3a52, #0e1e2e)" }}>
+      <section className="py-16" style={{ background: "linear-gradient(135deg, #5F7C71, #4D675E)" }}>
         <div className="section-container text-center">
           <h2 className="font-display text-3xl md:text-4xl font-black text-white mb-4">
             ¿Lista para empezar?
           </h2>
-          <p className="text-white/50 mb-8 max-w-xl mx-auto">
+          <p className="mb-8 max-w-xl mx-auto" style={{ color: "rgba(255,255,255,.75)" }}>
             Tu primera consulta con Skin Analyzer es completamente gratis. Sin compromiso, sin pago anticipado.
           </p>
           <Link
             href="/agendar"
-            className="inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold px-10 py-4 rounded-2xl transition-all duration-200 hover:-translate-y-0.5"
-            style={{ boxShadow: "0 0 35px rgba(37,150,190,0.4)" }}
+            className="inline-flex items-center gap-2.5 text-white font-bold px-10 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/20"
+            style={{ background: "rgba(255,255,255,.15)", border: "1.5px solid rgba(255,255,255,.4)", borderRadius: "18px" }}
           >
             Agendar mi consulta gratis — Sin compromiso
             <ArrowRight className="w-5 h-5" />
           </Link>
-          <p className="text-white/30 text-sm mt-4">Primera consulta con Skin Analyzer · Sin pago anticipado · 1 por persona</p>
+          <p className="text-sm mt-4" style={{ color: "rgba(255,255,255,.5)" }}>Primera consulta con Skin Analyzer · Sin pago anticipado · 1 por persona</p>
         </div>
       </section>
     </div>

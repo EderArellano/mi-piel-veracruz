@@ -26,10 +26,16 @@ export function WhatsAppFloat() {
       className="fixed bottom-6 right-5 z-50 flex items-center gap-0 group"
     >
       {/* Pulse ring */}
-      <span className={`absolute inset-0 rounded-full bg-[#22c55e]/35 transition-transform duration-700 ${pulse ? "scale-125 opacity-0" : "scale-100 opacity-100"}`} />
+      <span
+        className={`absolute inset-0 rounded-full transition-transform duration-700 ${pulse ? "scale-125 opacity-0" : "scale-100 opacity-100"}`}
+        style={{ background: "rgba(34,197,94,.25)" }}
+      />
 
       {/* Label pill — appears on hover */}
-      <span className="absolute right-16 bg-[#111a24] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+      <span
+        className="absolute right-16 text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none"
+        style={{ background: "white", color: "#2B2B2B", border: "1px solid #E7E3DC", boxShadow: "0 8px 20px rgba(0,0,0,.08)" }}
+      >
         ¿Tienes dudas? Escríbenos
       </span>
 

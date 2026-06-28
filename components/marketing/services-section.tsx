@@ -104,23 +104,30 @@ export function ServicesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="servicios" className="relative py-16 md:py-24 overflow-hidden" style={{ background: "#f7f9fc" }}>
-      {/* Top border line from stats */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+    <section
+      ref={sectionRef}
+      id="servicios"
+      className="relative py-16 md:py-24 overflow-hidden"
+      style={{ background: "#F4F2EE" }}
+    >
+      {/* Top border line */}
+      <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(to right, transparent, #C8A96A, transparent)" }} />
 
       <div className="section-container relative z-10">
         {/* Header */}
         <div className="svc-header text-center mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-5">
-            <span className="w-10 h-px bg-primary/40" />
+          <div className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] mb-5" style={{ color: "#5F7C71" }}>
+            <span className="w-10 h-px" style={{ background: "rgba(95,124,113,.4)" }} />
             Tratamientos disponibles
-            <span className="w-10 h-px bg-primary/40" />
+            <span className="w-10 h-px" style={{ background: "rgba(95,124,113,.4)" }} />
           </div>
-          <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-4">
+          <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight mb-4" style={{ color: "#2B2B2B" }}>
             Todo lo que tu piel{" "}
-            <span className="text-gradient">necesita</span>
+            <span style={{ background: "linear-gradient(135deg, #5F7C71, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              necesita
+            </span>
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: "#6F6F6F" }}>
             Tecnología grado médico diseñada para la piel mexicana en el clima tropical de Veracruz.
           </p>
         </div>
@@ -130,16 +137,24 @@ export function ServicesSection() {
           {services.map((s) => (
             <Link key={s.id} href={s.href} className="svc-card group block">
               <div
-                className="relative h-full rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2"
+                className="relative h-full overflow-hidden transition-all duration-[250ms] ease-out hover:-translate-y-[6px]"
                 style={{
-                  background: "#111a24",
-                  boxShadow: `0 2px 20px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.05)`,
+                  background: "#FFFFFF",
+                  border: "1px solid #E7E3DC",
+                  borderRadius: "22px",
+                  boxShadow: "0 10px 35px rgba(0,0,0,.05)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.boxShadow = "0 18px 45px rgba(0,0,0,.08)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 35px rgba(0,0,0,.05)";
                 }}
               >
                 {/* Hover glow */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: `radial-gradient(ellipse at 0% 0%, ${s.accent}18 0%, transparent 65%)` }}
+                  style={{ background: `radial-gradient(ellipse at 0% 0%, ${s.accent}08 0%, transparent 65%)` }}
                 />
                 {/* Accent top bar */}
                 <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, ${s.accent}, ${s.accent}60)` }} />
@@ -158,18 +173,18 @@ export function ServicesSection() {
                   </span>
 
                   {/* Title */}
-                  <h3 className="font-display text-xl font-bold text-white mb-3">{s.title}</h3>
+                  <h3 className="font-display text-xl font-bold mb-3" style={{ color: "#2B2B2B" }}>{s.title}</h3>
 
                   {/* Description */}
-                  <p className="text-white/45 text-sm leading-relaxed mb-7">{s.desc}</p>
+                  <p className="text-sm leading-relaxed mb-7" style={{ color: "#6F6F6F" }}>{s.desc}</p>
 
                   {/* Footer */}
-                  <div className="flex items-end justify-between pt-5 border-t border-white/8">
+                  <div className="flex items-end justify-between pt-5" style={{ borderTop: "1px solid #E7E3DC" }}>
                     <div>
                       <div className="font-display text-xl font-extrabold" style={{ color: s.accent }}>
                         {s.price}
                       </div>
-                      <div className="text-white/30 text-xs mt-0.5">{s.sessions}</div>
+                      <div className="text-xs mt-0.5" style={{ color: "#9A9A9A" }}>{s.sessions}</div>
                     </div>
                     <div
                       className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:brightness-110"
@@ -188,13 +203,19 @@ export function ServicesSection() {
         <div className="mt-10 text-center">
           <Link
             href="/agendar"
-            className="group inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold text-base px-9 py-4 rounded-2xl transition-all duration-200 hover:-translate-y-0.5"
-            style={{ boxShadow: "0 0 35px rgba(37,150,190,0.35)" }}
+            className="group inline-flex items-center gap-2.5 text-white font-bold text-base px-9 py-4 transition-all duration-200 hover:-translate-y-0.5"
+            style={{
+              background: "#5F7C71",
+              borderRadius: "18px",
+              boxShadow: "0 0 35px rgba(95,124,113,.25)",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#4D675E"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#5F7C71"; }}
           >
             Agendar mi primera sesión — Es gratis
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <p className="text-gray-400 text-sm mt-3">
+          <p className="text-sm mt-3" style={{ color: "#9A9A9A" }}>
             Primera consulta con Skin Analyzer sin costo · Sin compromiso
           </p>
         </div>

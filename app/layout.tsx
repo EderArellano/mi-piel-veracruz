@@ -1,20 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/toaster";
 
-const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans", display: "swap" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
-const jakarta = Plus_Jakarta_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  variable: "--font-manrope",
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
 });
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const viewport: Viewport = {
-  themeColor: "#2596be",
+  themeColor: "#5F7C71",
   width: "device-width",
   initialScale: 1,
 };
@@ -203,7 +208,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${jakarta.variable} font-sans antialiased`}
+        className={`${manrope.variable} ${inter.variable} font-sans antialiased`}
       >
         <Providers>
           {children}
