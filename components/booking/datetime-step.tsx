@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import {
-  format, addDays, addMonths, isSameDay, startOfDay, startOfMonth,
-  endOfMonth, eachDayOfInterval, getDay, differenceInCalendarDays,
+  format, addDays, addMonths, subMonths, isSameDay, startOfDay,
+  startOfMonth, endOfMonth, eachDayOfInterval, getDay,
 } from "date-fns";
 import { es } from "date-fns/locale";
 import { ChevronLeft, ChevronRight, Clock, Loader2 } from "lucide-react";
@@ -26,71 +26,74 @@ const TIME_SLOTS = [
   "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00",
 ];
 
-const DAY_HEADERS = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+// Sunday-first (Dom Lun Mar Mié Jue Vie Sáb)
+const DAY_HEADERS = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
 const MAX_DAYS_AHEAD = 30;
 
-// Monday-based grid: fills leading nulls until Mon
 function buildMonthGrid(month: Date): (Date | null)[] {
   const days = eachDayOfInterval({ start: startOfMonth(month), end: endOfMonth(month) });
-  const leadingBlanks = (getDay(startOfMonth(month)) + 6) % 7;
-  const grid: (Date | null)[] = Array(leadingBlanks).fill(null);
-  days.forEach((d) => grid.push(d));
-  return grid;
+  // getDay() already returns 0=Sun, so no offset needed for Sunday-first
+  const leadingBlanks = getDay(startOfMonth(month));
+  return [...Array(leadingBlanks).fill(null), ...days];
 }
 
-function MonthGrid({
+function MonthCalendar({
   month,
   today,
   maxDate,
   pickedDate,
-  onDateSelect,
+  onSelect,
 }: {
   month: Date;
   today: Date;
   maxDate: Date;
   pickedDate: Date | null;
-  onDateSelect: (d: Date) => void;
+  onSelect: (d: Date) => void;
 }) {
   const grid = buildMonthGrid(month);
 
   return (
-    <div className="flex-1 min-w-0">
-      <p className="text-center text-sm font-semibold text-[#2B2B2B] capitalize mb-3">
+    <div>
+      {/* Month name */}
+      <p className="text-center text-base font-bold text-[#2B2B2B] capitalize mb-4">
         {format(month, "MMMM yyyy", { locale: es })}
       </p>
 
-      {/* Day headers */}
-      <div className="grid grid-cols-7 mb-1">
+      {/* Headers */}
+      <div className="grid grid-cols-7 mb-2">
         {DAY_HEADERS.map((d) => (
-          <div key={d} className="text-center text-[11px] font-semibold text-[#9CA3AF] py-1">
+          <div key={d} className="text-center text-xs font-semibold text-[#9CA3AF] py-1">
             {d}
           </div>
         ))}
       </div>
 
       {/* Day cells */}
-      <div className="grid grid-cols-7 gap-y-1">
+      <div className="grid grid-cols-7 gap-y-1.5">
         {grid.map((date, idx) => {
-          if (!date) return <div key={`blank-${idx}`} />;
+          if (!date) return <div key={`b-${idx}`} />;
 
-          const isPast = date < today;
-          const isSunday = date.getDay() === 0;
+          const isPast   = date < today;
+          const isSun    = date.getDay() === 0;
           const isTooFar = date > maxDate;
-          const disabled = isPast || isSunday || isTooFar;
+          const disabled = isPast || isSun || isTooFar;
           const isSelected = pickedDate ? isSameDay(date, pickedDate) : false;
-          const isToday = isSameDay(date, new Date());
+          const isToday  = isSameDay(date, new Date());
 
           return (
             <button
               key={date.toISOString()}
-              onClick={() => !disabled && onDateSelect(date)}
+              onClick={() => !disabled && onSelect(date)}
               disabled={disabled}
               className={cn(
-                "mx-auto w-9 h-9 rounded-xl flex items-center justify-center text-sm font-medium transition-all",
-                disabled && "opacity-25 cursor-not-allowed text-[#9CA3AF]",
-                isSelected && "bg-[#5F7C71] text-white shadow-md",
-                !isSelected && !disabled && isToday && "ring-2 ring-[#5F7C71]/40 text-[#5F7C71] font-bold",
-                !isSelected && !disabled && !isToday && "text-[#2B2B2B] hover:bg-[#5F7C71]/10 hover:text-[#5F7C71]"
+                "mx-auto w-full aspect-square max-w-[46px] rounded-2xl flex items-center justify-center text-sm font-semibold transition-all duration-150",
+                disabled
+                  ? "opacity-25 cursor-not-allowed text-[#9CA3AF]"
+                  : isSelected
+                  ? "bg-[#5F7C71] text-white shadow-lg scale-105"
+                  : isToday
+                  ? "ring-2 ring-[#5F7C71] text-[#5F7C71]"
+                  : "text-[#2B2B2B] hover:bg-[#5F7C71]/10 hover:text-[#5F7C71]"
               )}
             >
               {format(date, "d")}
@@ -102,39 +105,40 @@ function MonthGrid({
   );
 }
 
-export function DateTimeStep({ service, employees, selectedDate, selectedEmployee, onSelect }: DateTimeStepProps) {
-  const today = startOfDay(new Date());
+export function DateTimeStep({
+  service,
+  employees,
+  selectedDate,
+  selectedEmployee,
+  onSelect,
+}: DateTimeStepProps) {
+  const today   = startOfDay(new Date());
   const maxDate = addDays(today, MAX_DAYS_AHEAD);
 
-  const [baseMonth, setBaseMonth] = useState(startOfMonth(today));
-  const [pickedDate, setPickedDate] = useState<Date | null>(selectedDate ?? null);
-  const [pickedTime, setPickedTime] = useState<string | null>(
+  const [baseMonth, setBaseMonth]       = useState(startOfMonth(today));
+  const [pickedDate, setPickedDate]     = useState<Date | null>(selectedDate ?? null);
+  const [pickedTime, setPickedTime]     = useState<string | null>(
     selectedDate ? format(selectedDate, "HH:mm") : null
   );
   const [pickedEmployee, setPickedEmployee] = useState<string>(selectedEmployee ?? "");
-  const [busySlots, setBusySlots] = useState<string[]>([]);
+  const [busySlots, setBusySlots]       = useState<string[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(false);
 
-  const secondMonth = addMonths(baseMonth, 1);
+  const nextMonth   = addMonths(baseMonth, 1);
+  const canGoPrev   = baseMonth > startOfMonth(today);
 
-  const canGoPrev = baseMonth > startOfMonth(today);
-
-  const fetchBusySlots = useCallback(
-    async (date: Date) => {
-      setLoadingSlots(true);
-      try {
-        const url =
-          `/api/availability?date=${date.toISOString()}&serviceId=${service.id}` +
-          (pickedEmployee ? `&employeeId=${pickedEmployee}` : "");
-        const res = await fetch(url);
-        const data = await res.json();
-        setBusySlots(data.busySlots ?? []);
-      } finally {
-        setLoadingSlots(false);
-      }
-    },
-    [service.id, pickedEmployee]
-  );
+  const fetchBusySlots = useCallback(async (date: Date) => {
+    setLoadingSlots(true);
+    try {
+      const url =
+        `/api/availability?date=${date.toISOString()}&serviceId=${service.id}` +
+        (pickedEmployee ? `&employeeId=${pickedEmployee}` : "");
+      const data = await (await fetch(url)).json();
+      setBusySlots(data.busySlots ?? []);
+    } finally {
+      setLoadingSlots(false);
+    }
+  }, [service.id, pickedEmployee]);
 
   useEffect(() => {
     if (pickedDate) fetchBusySlots(pickedDate);
@@ -155,10 +159,10 @@ export function DateTimeStep({ service, employees, selectedDate, selectedEmploye
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div>
         <h2 className="text-lg font-bold text-[#2B2B2B]">Elige fecha y hora</h2>
-        <p className="text-sm text-[#6B6B6B] mt-1">
+        <p className="text-sm text-[#6B6B6B] mt-0.5">
           {service.name} · {service.duration} minutos
         </p>
       </div>
@@ -176,7 +180,7 @@ export function DateTimeStep({ service, employees, selectedDate, selectedEmploye
                 "px-4 py-2 rounded-full text-sm font-medium border-2 transition-all",
                 pickedEmployee === ""
                   ? "border-[#5F7C71] bg-[#5F7C71]/8 text-[#5F7C71]"
-                  : "border-[#E7E3DC] text-[#6B6B6B] hover:border-[#5F7C71]/30"
+                  : "border-[#E7E3DC] text-[#6B6B6B] hover:border-[#5F7C71]/40"
               )}
             >
               Cualquier especialista
@@ -189,7 +193,7 @@ export function DateTimeStep({ service, employees, selectedDate, selectedEmploye
                   "px-4 py-2 rounded-full text-sm font-medium border-2 transition-all",
                   pickedEmployee === emp.id
                     ? "border-[#5F7C71] bg-[#5F7C71]/8 text-[#5F7C71]"
-                    : "border-[#E7E3DC] text-[#6B6B6B] hover:border-[#5F7C71]/30"
+                    : "border-[#E7E3DC] text-[#6B6B6B] hover:border-[#5F7C71]/40"
                 )}
               >
                 {emp.user.name}
@@ -199,140 +203,137 @@ export function DateTimeStep({ service, employees, selectedDate, selectedEmploye
         </div>
       )}
 
-      {/* Dual-month calendar */}
-      <div className="bg-white rounded-2xl border border-[#E7E3DC] p-4 shadow-[0_2px_12px_rgba(0,0,0,.05)]">
-        {/* Month navigation */}
-        <div className="flex items-center justify-between mb-4">
+      {/* ── CALENDAR ── */}
+      <div className="bg-white rounded-2xl border border-[#E7E3DC] shadow-[0_2px_16px_rgba(0,0,0,.06)] overflow-hidden">
+
+        {/* Navigation bar */}
+        <div className="flex items-center justify-between px-5 py-3 border-b border-[#E7E3DC] bg-[#FAFAF8]">
           <button
-            onClick={() => setBaseMonth((m) => addMonths(m, -1))}
+            onClick={() => setBaseMonth((m) => subMonths(m, 1))}
             disabled={!canGoPrev}
             className={cn(
-              "p-2 rounded-xl transition-colors",
-              canGoPrev
-                ? "hover:bg-[#F4F2EE] text-[#2B2B2B]"
-                : "opacity-20 cursor-not-allowed text-[#9CA3AF]"
+              "w-8 h-8 rounded-xl flex items-center justify-center transition-colors",
+              canGoPrev ? "hover:bg-[#E7E3DC] text-[#2B2B2B]" : "opacity-20 cursor-not-allowed"
             )}
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
 
-          <div className="flex-1 flex items-center justify-center gap-2 text-xs text-[#9CA3AF] font-medium">
-            <span className="capitalize text-[#5F7C71] font-semibold">
-              {format(baseMonth, "MMMM", { locale: es })}
-            </span>
-            <span>·</span>
-            <span className="capitalize text-[#5F7C71] font-semibold">
-              {format(secondMonth, "MMMM", { locale: es })}
-            </span>
+          <div className="flex items-center gap-3 text-sm font-semibold text-[#5F7C71] capitalize">
+            <span>{format(baseMonth, "MMMM", { locale: es })}</span>
+            <span className="text-[#E7E3DC]">|</span>
+            <span>{format(nextMonth, "MMMM", { locale: es })}</span>
           </div>
 
           <button
             onClick={() => setBaseMonth((m) => addMonths(m, 1))}
-            className="p-2 rounded-xl hover:bg-[#F4F2EE] text-[#2B2B2B] transition-colors"
+            className="w-8 h-8 rounded-xl flex items-center justify-center hover:bg-[#E7E3DC] text-[#2B2B2B] transition-colors"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Two months */}
-        <div className="flex flex-col sm:flex-row gap-6">
-          <MonthGrid
+        {/* Two months stacked */}
+        <div className="px-5 pt-5 pb-4 space-y-7">
+          <MonthCalendar
             month={baseMonth}
             today={today}
             maxDate={maxDate}
             pickedDate={pickedDate}
-            onDateSelect={handleDateSelect}
+            onSelect={handleDateSelect}
           />
-          <div className="hidden sm:block w-px bg-[#E7E3DC] self-stretch" />
-          <MonthGrid
-            month={secondMonth}
+          <div className="border-t border-dashed border-[#E7E3DC]" />
+          <MonthCalendar
+            month={nextMonth}
             today={today}
             maxDate={maxDate}
             pickedDate={pickedDate}
-            onDateSelect={handleDateSelect}
+            onSelect={handleDateSelect}
           />
         </div>
 
-        {/* Legend */}
-        <div className="mt-4 pt-3 border-t border-[#E7E3DC] flex flex-wrap items-center gap-4 text-xs text-[#9CA3AF]">
-          <div className="flex items-center gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-[#5F7C71]" />
+        {/* Calendar legend */}
+        <div className="px-5 py-3 border-t border-[#E7E3DC] bg-[#FAFAF8] flex flex-wrap gap-4 text-xs text-[#9CA3AF]">
+          <span className="flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded-full bg-[#5F7C71] inline-block" />
             Seleccionado
-          </div>
-          <div className="flex items-center gap-1.5">
-            <div className="w-3 h-3 rounded-full ring-2 ring-[#5F7C71]/40" />
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded-full ring-2 ring-[#5F7C71] inline-block" />
             Hoy
-          </div>
-          <div className="flex items-center gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-[#9CA3AF]/25" />
-            No disponible
-          </div>
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded-full bg-[#E7E3DC] opacity-50 inline-block" />
+            No disponible / Dom
+          </span>
         </div>
       </div>
 
-      {/* Time slots */}
+      {/* ── TIME SLOTS ── */}
       {pickedDate && (
-        <div className="bg-white rounded-2xl border border-[#E7E3DC] p-4 shadow-[0_2px_12px_rgba(0,0,0,.05)]">
-          <div className="flex items-center gap-2 mb-4">
+        <div className="bg-white rounded-2xl border border-[#E7E3DC] shadow-[0_2px_16px_rgba(0,0,0,.06)] overflow-hidden">
+          {/* Header */}
+          <div className="px-5 py-3 border-b border-[#E7E3DC] bg-[#FAFAF8] flex items-center gap-2">
             <Clock className="w-4 h-4 text-[#5F7C71]" />
             <span className="text-sm font-semibold text-[#2B2B2B] capitalize">
               {format(pickedDate, "EEEE d 'de' MMMM", { locale: es })}
             </span>
           </div>
 
-          {loadingSlots ? (
-            <div className="flex justify-center py-8">
-              <Loader2 className="w-6 h-6 animate-spin text-[#5F7C71]" />
-            </div>
-          ) : (
-            <>
-              <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
-                {TIME_SLOTS.map((time) => {
-                  const isBusy = busySlots.includes(time);
-                  const isSelected = pickedTime === time;
-
-                  return (
-                    <button
-                      key={time}
-                      onClick={() => handleTimeSelect(time)}
-                      disabled={isBusy}
-                      className={cn(
-                        "py-2.5 px-1 rounded-xl text-sm font-semibold border-2 transition-all",
-                        // Busy — visible coral/red so client clearly sees "taken"
-                        isBusy &&
-                          "cursor-not-allowed border-[#FFCDD2] bg-[#FFF0F0] text-[#E57373] line-through",
-                        // Selected
-                        isSelected &&
-                          "border-[#5F7C71] bg-[#5F7C71] text-white shadow-md",
-                        // Available default
-                        !isBusy &&
-                          !isSelected &&
-                          "border-[#E7E3DC] text-[#2B2B2B] hover:border-[#5F7C71]/50 hover:bg-[#5F7C71]/5 hover:text-[#5F7C71]"
-                      )}
-                    >
-                      {time}
-                    </button>
-                  );
-                })}
+          <div className="px-5 py-4">
+            {loadingSlots ? (
+              <div className="flex justify-center py-8">
+                <Loader2 className="w-6 h-6 animate-spin text-[#5F7C71]" />
               </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-4 sm:grid-cols-5 gap-2.5">
+                  {TIME_SLOTS.map((time) => {
+                    const isBusy     = busySlots.includes(time);
+                    const isSelected = pickedTime === time;
 
-              {/* Legend */}
-              <div className="flex flex-wrap items-center gap-4 mt-4 pt-3 border-t border-[#E7E3DC] text-xs text-[#9CA3AF]">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-3 h-3 rounded border-2 border-[#5F7C71] bg-[#5F7C71]" />
-                  Seleccionado
+                    return (
+                      <button
+                        key={time}
+                        onClick={() => handleTimeSelect(time)}
+                        disabled={isBusy}
+                        className={cn(
+                          "py-3 px-1 rounded-xl text-sm font-semibold border-2 transition-all duration-150",
+                          // ── OCUPADO: rojo claro, bien visible ──
+                          isBusy &&
+                            "cursor-not-allowed border-[#FFCDD2] bg-[#FFF0F0] text-[#EF9A9A] line-through",
+                          // ── SELECCIONADO ──
+                          isSelected &&
+                            "border-[#5F7C71] bg-[#5F7C71] text-white shadow-md scale-105",
+                          // ── DISPONIBLE ──
+                          !isBusy && !isSelected &&
+                            "border-[#E7E3DC] text-[#2B2B2B] hover:border-[#5F7C71]/50 hover:bg-[#5F7C71]/5 hover:text-[#5F7C71]"
+                        )}
+                      >
+                        {time}
+                      </button>
+                    );
+                  })}
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-3 h-3 rounded border-2 border-[#E7E3DC]" />
-                  Disponible
+
+                {/* Time legend */}
+                <div className="flex flex-wrap items-center gap-4 mt-4 pt-3 border-t border-[#E7E3DC] text-xs text-[#9CA3AF]">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 rounded border-2 border-[#5F7C71] bg-[#5F7C71] inline-block" />
+                    Seleccionado
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 rounded border-2 border-[#E7E3DC] inline-block" />
+                    Disponible
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 rounded border-2 border-[#FFCDD2] bg-[#FFF0F0] inline-block" />
+                    <span className="text-[#EF9A9A]">Ocupado</span>
+                  </span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-3 h-3 rounded border-2 border-[#FFCDD2] bg-[#FFF0F0]" />
-                  <span className="text-[#E57373]">Ocupado</span>
-                </div>
-              </div>
-            </>
-          )}
+              </>
+            )}
+          </div>
         </div>
       )}
     </div>
