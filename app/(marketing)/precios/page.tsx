@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2, ArrowRight, Zap, Star, MessageCircle } from "lucide-react";
+import { PackageBuilder } from "@/components/marketing/package-builder";
 
 const WA_NUMBER = "522299330014";
 const WA_MSG = encodeURIComponent("Hola, quiero información sobre precios y paquetes de depilación láser. ¿Pueden orientarme?");
@@ -293,6 +294,9 @@ export default function PreciosPage() {
           </div>
         </div>
       </section>
+
+      {/* Package Builder */}
+      <PackageBuilder />
 
       {/* FAQ */}
       <section className="py-16" style={{ background: "#070d14" }}>
