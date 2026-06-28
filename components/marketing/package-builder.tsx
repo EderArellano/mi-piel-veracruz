@@ -79,7 +79,7 @@ export function PackageBuilder() {
             Armador de paquete
           </div>
           <h2 className="font-display text-3xl md:text-5xl font-black text-white mb-4">
-            🌿 Arma tu paquete
+            Arma tu paquete personalizado
           </h2>
           <p className="text-white/55 text-lg max-w-2xl mx-auto">
             Personaliza tu depilación eligiendo las zonas que necesitas y obtén mejores beneficios mientras más agregas. Ideal para adaptar tu experiencia a tu rutina.
@@ -174,8 +174,14 @@ export function PackageBuilder() {
                 <div className="text-white/50 text-xs font-bold uppercase tracking-widest mb-4">Tu paquete</div>
 
                 {selectedZones.length === 0 ? (
-                  <div className="py-8 text-center">
-                    <div className="text-4xl mb-3">🌿</div>
+                  <div className="py-6 text-center">
+                    <div
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
+                      style={{ background: "rgba(37,150,190,0.08)", border: "1px solid rgba(37,150,190,0.2)" }}
+                    >
+                      <Sparkles className="w-4 h-4 text-primary" />
+                      <span className="text-primary text-xs font-bold uppercase tracking-widest">Paquete Personalizado</span>
+                    </div>
                     <p className="text-white/30 text-sm">Selecciona las zonas que quieres tratar</p>
                   </div>
                 ) : (

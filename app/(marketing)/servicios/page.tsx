@@ -191,7 +191,7 @@ export default function ServiciosPage() {
               href="#paquete"
               className="inline-flex items-center justify-center gap-2 border border-white/15 text-white/65 hover:text-white hover:border-white/35 hover:bg-white/5 font-semibold text-base px-8 py-4 rounded-2xl transition-all duration-200"
             >
-              🌿 Armar mi paquete
+              Armar mi paquete personalizado
             </a>
           </div>
         </div>
