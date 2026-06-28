@@ -7,6 +7,7 @@ import { HowItWorksSection } from "@/components/marketing/how-it-works-section";
 import { TestimonialsSection } from "@/components/marketing/testimonials-section";
 import { FaqSection } from "@/components/marketing/faq-section";
 import { CtaSection } from "@/components/marketing/cta-section";
+import { ProductsSection } from "@/components/marketing/products-section";
 
 export const metadata: Metadata = {
   title: "Depilación Láser en Veracruz y Boca del Río | Mi Piel Centro Dermocosmético",
@@ -39,6 +40,7 @@ export default function HomePage() {
       <StatsSection />
       <ProblemsSection />
       <ServicesSection />
+      <ProductsSection />
       <HowItWorksSection />
       <TestimonialsSection />
       <FaqSection />

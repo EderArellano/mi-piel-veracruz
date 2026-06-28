@@ -6,7 +6,7 @@ import { signOut } from "next-auth/react";
 import {
   LayoutDashboard, Calendar, Clock, FileText, CreditCard, User,
   Settings, LogOut, Sparkles, Users, BarChart3, BookOpen, Tag,
-  MessageSquare,
+  MessageSquare, Package,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -28,6 +28,7 @@ const adminNav = [
   { href: "/admin/empleados", label: "Empleados", icon: Users },
   { href: "/admin/pagos", label: "Pagos", icon: CreditCard },
   { href: "/admin/blog", label: "Blog", icon: BookOpen },
+  { href: "/admin/productos", label: "Productos", icon: Package },
   { href: "/admin/promociones", label: "Promociones", icon: Tag },
   { href: "/admin/configuracion", label: "Configuración", icon: Settings },
 ];
