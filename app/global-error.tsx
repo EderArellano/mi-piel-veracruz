@@ -111,6 +111,7 @@ export default function GlobalError({
           >
             WhatsApp
           </a>
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
           <a
             href="/"
             style={{

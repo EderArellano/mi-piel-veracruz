@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sendAppointmentReminder } from "@/lib/email";
-import { format, addHours, subHours } from "date-fns";
+import { format, addHours } from "date-fns";
 import { es } from "date-fns/locale";
 
 // Called by Vercel Cron: every day at 10am Mexico time (16:00 UTC)

@@ -6,8 +6,6 @@ import { RefreshCw, MessageCircle, ArrowRight, Calendar } from "lucide-react";
 
 const WA_BOOKING =
   "https://wa.me/522299330014?text=Hola%2C%20quiero%20agendar%20una%20cita.%20Tuve%20un%20problema%20con%20el%20sistema%20en%20l%C3%ADnea.";
-const WA_HELP =
-  "https://wa.me/522299330014?text=Hola%2C%20tuve%20un%20error%20al%20intentar%20agendar%20mi%20cita.%20%C2%BFPueden%20ayudarme%3F";
 
 export default function AgendarError({
   error,

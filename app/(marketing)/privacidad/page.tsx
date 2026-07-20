@@ -283,7 +283,7 @@ export default function PrivacidadPage() {
                 <a href="mailto:privacidad@mipielveracruz.com" className="text-[#5F7C71]">
                   privacidad@mipielveracruz.com
                 </a>{" "}
-                con el asunto: <strong>"Solicitud ARCO"</strong>.
+                con el asunto: <strong>&quot;Solicitud ARCO&quot;</strong>.
               </li>
               <li>
                 Incluya: nombre completo, descripción clara del derecho que desea ejercer, y copia

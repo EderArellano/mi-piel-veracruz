@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Gift, Copy, Check, Share2, MessageCircle, Users, Banknote, ChevronRight } from "lucide-react";
+import { Gift, Copy, Check, Share2, MessageCircle, Users, Banknote } from "lucide-react";
 
 interface Props {
   userName: string;
@@ -12,7 +12,7 @@ interface Props {
   totalReward: number;
 }
 
-export function ReferidosClient({ userName, referralCode, referralLink, waLink, referralCount, totalReward }: Props) {
+export function ReferidosClient({ referralCode, referralLink, waLink, referralCount, totalReward }: Props) {
   const [copiedCode, setCopiedCode] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 

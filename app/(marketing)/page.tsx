@@ -214,7 +214,7 @@ const HOW_TO_SCHEMA = {
 
 async function getLiveStats() {
   try {
-    const [completedCount, clientCount] = await Promise.all([
+    const [, clientCount] = await Promise.all([
       prisma.appointment.count({ where: { status: "COMPLETED" } }),
       prisma.user.count({ where: { role: "CLIENT", isActive: true } }),
     ]);
