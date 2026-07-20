@@ -78,7 +78,7 @@ export const metadata: Metadata = {
       "Clínica de depilación láser en Veracruz y Boca del Río. Primera consulta gratis. Tecnología grado médico con resultados permanentes.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://mipielveracruz.com/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Mi Piel Veracruz — Depilación Láser en Veracruz y Boca del Río",
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mi Piel Veracruz | Depilación Láser en Veracruz",
     description: "Clínica de depilación láser en Veracruz. Primera consulta gratis.",
-    images: ["/og-image.jpg"],
+    images: ["https://mipielveracruz.com/opengraph-image"],
   },
   robots: {
     index: true,
@@ -127,8 +127,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   priceRange: "$$",
                   currenciesAccepted: "MXN",
                   paymentAccepted: "Efectivo, Tarjeta de crédito, Tarjeta de débito",
-                  image: "https://mipielveracruz.com/og-image.jpg",
-                  logo: "https://mipielveracruz.com/logo.png",
+                  image: "https://mipielveracruz.com/opengraph-image",
                   hasMap: "https://maps.google.com/?q=Av.+R.+Flores+Magón,+Veracruz,+Ver.",
                   address: {
                     "@type": "PostalAddress",

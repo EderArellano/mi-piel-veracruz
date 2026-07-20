@@ -164,6 +164,15 @@ const zones = {
   },
 };
 
+const relatedLinks = [
+  { slug: "axilas", label: "Axilas", price: 600 },
+  { slug: "bikini-brasileno", label: "Bikini Brasileño", price: 1000 },
+  { slug: "piernas", label: "Piernas", price: 1200 },
+  { slug: "facial", label: "Facial", price: 900 },
+  { slug: "espalda", label: "Espalda", price: 1500 },
+  { slug: "abdomen", label: "Abdomen", price: 700 },
+];
+
 type ZoneKey = keyof typeof zones;
 
 export async function generateStaticParams() {
@@ -408,6 +417,35 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
                 <p className="text-sm leading-relaxed" style={{ color: "#6F6F6F" }}>{a}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related zones */}
+      <section className="py-14" style={{ background: "#F4F2EE", borderTop: "1px solid #E7E3DC" }}>
+        <div className="section-container">
+          <h2 className="font-display text-2xl font-bold text-center mb-2" style={{ color: "#2B2B2B" }}>
+            Más zonas disponibles en Mi Piel Veracruz
+          </h2>
+          <p className="text-sm text-center mb-8" style={{ color: "#9A9A9A" }}>
+            Paquetes combinando varias zonas con hasta 20% de descuento
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {relatedLinks
+              .filter((r) => r.slug !== slug)
+              .map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/servicios/${r.slug}`}
+                  className="group flex flex-col items-center text-center p-4 transition-all duration-200 hover:-translate-y-0.5"
+                  style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "16px" }}
+                >
+                  <span className="text-sm font-semibold mb-1 group-hover:text-[#5F7C71] transition-colors" style={{ color: "#2B2B2B" }}>
+                    {r.label}
+                  </span>
+                  <span className="text-xs" style={{ color: "#5F7C71" }}>desde ${r.price} MXN</span>
+                </Link>
+              ))}
           </div>
         </div>
       </section>

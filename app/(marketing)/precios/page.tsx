@@ -7,7 +7,7 @@ const WA_NUMBER = "522299330014";
 const WA_MSG = encodeURIComponent("Hola, quiero información sobre precios y paquetes de depilación láser. ¿Pueden orientarme?");
 
 export const metadata: Metadata = {
-  title: "Precio Depilación Láser Veracruz — Tarifas 2025 | Mi Piel",
+  title: "Precio Depilación Láser Veracruz — Tarifas 2026 | Mi Piel",
   description:
     "¿Cuánto cuesta la depilación láser en Veracruz? Desde $500 MXN por sesión. Precios transparentes por zona: axilas, bikini, piernas, facial. Paga desde $42/mes a 12 MSI. Primera consulta gratis.",
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "cuánto cuesta depilación láser Veracruz",
     "costo depilación láser axilas Veracruz",
     "paquete depilación láser Boca del Río precio",
-    "precio sesión láser Veracruz 2025",
+    "precio sesión láser Veracruz 2026",
     "depilación láser meses sin intereses Veracruz",
     "financiamiento depilación láser Veracruz",
   ],
@@ -106,7 +106,7 @@ const zones = [
 const priceSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Precio Depilación Láser Veracruz 2025",
+  name: "Precio Depilación Láser Veracruz 2026",
   url: "https://mipielveracruz.com/precios",
   itemListElement: [
     { "@type": "ListItem", position: 1, item: { "@type": "Offer", name: "Depilación Láser Labio Superior Veracruz", price: "500", priceCurrency: "MXN", seller: { "@id": "https://mipielveracruz.com/#clinic" } } },

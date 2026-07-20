@@ -122,13 +122,14 @@ export function ServicesSection() {
             <span className="w-10 h-px" style={{ background: "rgba(95,124,113,.4)" }} />
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight mb-4" style={{ color: "#2B2B2B" }}>
-            Todo lo que tu piel{" "}
+            Servicios de Depilación Láser y Estética en{" "}
             <span style={{ background: "linear-gradient(135deg, #5F7C71, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              necesita
+              Veracruz
             </span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "#6F6F6F" }}>
-            Tecnología grado médico diseñada para la piel mexicana en el clima tropical de Veracruz.
+            Tecnología láser Diodo grado médico, Hidrofacial y Celluma LED diseñados para
+            la piel latina en el clima tropical de Boca del Río, Veracruz.
           </p>
         </div>
 

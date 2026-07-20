@@ -6,7 +6,7 @@ import { signOut } from "next-auth/react";
 import {
   LayoutDashboard, Calendar, Clock, FileText, CreditCard, User,
   Settings, LogOut, Sparkles, Users, BarChart3, BookOpen, Tag,
-  MessageSquare, Package, MessageCircle,
+  MessageSquare, Package, MessageCircle, Gift,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -17,6 +17,7 @@ const clientNav = [
   { href: "/dashboard/historial", label: "Historial", icon: Clock },
   { href: "/dashboard/expediente", label: "Mi Expediente", icon: FileText },
   { href: "/dashboard/pagos", label: "Pagos", icon: CreditCard },
+  { href: "/dashboard/referidos", label: "Referidos", icon: Gift },
   { href: "/dashboard/perfil", label: "Mi Perfil", icon: User },
 ];
 

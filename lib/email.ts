@@ -10,35 +10,43 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const brandStyles = `
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  max-width: 600px; margin: 0 auto; background: #ffffff;
-`;
+const SAGE = "#5F7C71";
+const GOLD = "#C8A96A";
+const CREAM = "#FAFAF8";
 
 function emailLayout(content: string) {
   return `
     <!DOCTYPE html>
     <html lang="es">
     <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-    <body style="margin:0;padding:0;background:#f0f7fb;">
-      <div style="${brandStyles}">
-        <div style="background:linear-gradient(135deg,#2596be,#1a7a9e);padding:32px 40px;text-align:center;">
-          <h1 style="color:white;margin:0;font-size:24px;font-weight:700;letter-spacing:-0.5px;">
+    <body style="margin:0;padding:0;background:#F4F2EE;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+      <div style="max-width:600px;margin:0 auto;background:#ffffff;">
+        <!-- Header -->
+        <div style="height:4px;background:linear-gradient(90deg,${SAGE},${GOLD});"></div>
+        <div style="padding:32px 40px 28px;text-align:center;background:white;border-bottom:1px solid #E7E3DC;">
+          <h1 style="color:${SAGE};margin:0;font-size:22px;font-weight:800;letter-spacing:-0.5px;">
             Mi Piel Veracruz
           </h1>
-          <p style="color:rgba(255,255,255,0.85);margin:4px 0 0;font-size:13px;">
+          <p style="color:#9A9A9A;margin:4px 0 0;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">
             Centro Dermocosmético
           </p>
         </div>
+        <!-- Body -->
         <div style="padding:40px;background:#ffffff;">
           ${content}
         </div>
-        <div style="padding:24px 40px;background:#f0f7fb;text-align:center;border-top:1px solid #bde3f0;">
-          <p style="margin:0;font-size:12px;color:#9ca3af;">
-            Mi Piel Veracruz · Av. R. Flores Magón &amp; Alacio Pérez, Veracruz, Ver.
+        <!-- Footer -->
+        <div style="padding:24px 40px;background:${CREAM};text-align:center;border-top:1px solid #E7E3DC;">
+          <p style="margin:0;font-size:12px;color:#9A9A9A;">
+            Mi Piel Veracruz · Boca del Río, Veracruz, México
           </p>
-          <p style="margin:4px 0 0;font-size:12px;color:#9ca3af;">
-            © ${new Date().getFullYear()} Mi Piel Veracruz. Todos los derechos reservados.
+          <p style="margin:4px 0 0;font-size:12px;color:#9A9A9A;">
+            <a href="tel:+522299330014" style="color:${SAGE};text-decoration:none;">+52 229 933 0014</a>
+            &nbsp;·&nbsp;
+            <a href="https://mipielveracruz.com" style="color:${SAGE};text-decoration:none;">mipielveracruz.com</a>
+          </p>
+          <p style="margin:8px 0 0;font-size:11px;color:#BBBBBB;">
+            © ${new Date().getFullYear()} Mi Piel Centro Dermocosmético. Todos los derechos reservados.
           </p>
         </div>
       </div>
@@ -53,26 +61,25 @@ export async function sendAppointmentConfirmation(
   details: { service: string; date: string; time: string; employee?: string }
 ) {
   const html = emailLayout(`
-    <h2 style="color:#be123c;font-size:20px;margin:0 0 8px;">¡Cita confirmada!</h2>
-    <p style="color:#374151;margin:0 0 24px;">Hola ${name}, tu cita ha sido confirmada exitosamente.</p>
-    <div style="background:#fdf4f3;border-radius:12px;padding:24px;margin:0 0 24px;">
+    <h2 style="color:${SAGE};font-size:20px;font-weight:800;margin:0 0 6px;">¡Cita confirmada! ✓</h2>
+    <p style="color:#4B4B4B;margin:0 0 24px;font-size:15px;">Hola <strong>${name}</strong>, tu cita ha sido confirmada exitosamente.</p>
+    <div style="background:#F4F2EE;border-radius:14px;padding:24px;margin:0 0 24px;border:1px solid #E7E3DC;">
       <table style="width:100%;border-collapse:collapse;">
-        <tr><td style="padding:8px 0;color:#6b7280;font-size:14px;">Servicio</td>
-            <td style="padding:8px 0;color:#111827;font-size:14px;font-weight:600;text-align:right;">${details.service}</td></tr>
-        <tr><td style="padding:8px 0;color:#6b7280;font-size:14px;border-top:1px solid #fecdd3;">Fecha</td>
-            <td style="padding:8px 0;color:#111827;font-size:14px;font-weight:600;text-align:right;border-top:1px solid #fecdd3;">${details.date}</td></tr>
-        <tr><td style="padding:8px 0;color:#6b7280;font-size:14px;border-top:1px solid #fecdd3;">Hora</td>
-            <td style="padding:8px 0;color:#111827;font-size:14px;font-weight:600;text-align:right;border-top:1px solid #fecdd3;">${details.time}</td></tr>
-        ${details.employee ? `<tr><td style="padding:8px 0;color:#6b7280;font-size:14px;border-top:1px solid #fecdd3;">Especialista</td>
-            <td style="padding:8px 0;color:#111827;font-size:14px;font-weight:600;text-align:right;border-top:1px solid #fecdd3;">${details.employee}</td></tr>` : ""}
+        <tr><td style="padding:9px 0;color:#9A9A9A;font-size:13px;">Servicio</td>
+            <td style="padding:9px 0;color:#2B2B2B;font-size:14px;font-weight:700;text-align:right;">${details.service}</td></tr>
+        <tr><td style="padding:9px 0;color:#9A9A9A;font-size:13px;border-top:1px solid #E7E3DC;">Fecha</td>
+            <td style="padding:9px 0;color:#2B2B2B;font-size:14px;font-weight:700;text-align:right;border-top:1px solid #E7E3DC;">${details.date}</td></tr>
+        <tr><td style="padding:9px 0;color:#9A9A9A;font-size:13px;border-top:1px solid #E7E3DC;">Hora</td>
+            <td style="padding:9px 0;color:#2B2B2B;font-size:14px;font-weight:700;text-align:right;border-top:1px solid #E7E3DC;">${details.time}</td></tr>
+        ${details.employee ? `<tr><td style="padding:9px 0;color:#9A9A9A;font-size:13px;border-top:1px solid #E7E3DC;">Especialista</td>
+            <td style="padding:9px 0;color:#2B2B2B;font-size:14px;font-weight:700;text-align:right;border-top:1px solid #E7E3DC;">${details.employee}</td></tr>` : ""}
       </table>
     </div>
     <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard/citas"
-       style="display:inline-block;background:linear-gradient(135deg,#2596be,#1a7a9e);color:white;
-              padding:14px 32px;border-radius:100px;text-decoration:none;font-weight:600;font-size:14px;">
+       style="display:inline-block;background:${SAGE};color:white;padding:14px 32px;border-radius:14px;text-decoration:none;font-weight:700;font-size:14px;">
       Ver mi cita
     </a>
-    <p style="color:#6b7280;font-size:13px;margin:24px 0 0;">
+    <p style="color:#6F6F6F;font-size:13px;margin:24px 0 0;">
       Si necesitas cancelar o reagendar, puedes hacerlo desde tu panel con al menos 24 horas de anticipación.
     </p>
   `);
@@ -91,18 +98,29 @@ export async function sendAppointmentReminder(
   details: { service: string; date: string; time: string }
 ) {
   const html = emailLayout(`
-    <h2 style="color:#be123c;font-size:20px;margin:0 0 8px;">Recordatorio de tu cita</h2>
-    <p style="color:#374151;margin:0 0 24px;">Hola ${name}, te recordamos que tienes una cita mañana.</p>
-    <div style="background:#fdf4f3;border-radius:12px;padding:24px;margin:0 0 24px;">
-      <p style="margin:0;font-size:16px;font-weight:600;color:#111827;">${details.service}</p>
-      <p style="margin:4px 0 0;font-size:14px;color:#6b7280;">${details.date} a las ${details.time}</p>
+    <h2 style="color:${SAGE};font-size:20px;font-weight:800;margin:0 0 6px;">⏰ Recordatorio de tu cita</h2>
+    <p style="color:#4B4B4B;margin:0 0 24px;font-size:15px;">Hola <strong>${name}</strong>, te recordamos que tienes una cita mañana.</p>
+    <div style="background:${SAGE};border-radius:14px;padding:24px;margin:0 0 24px;">
+      <p style="margin:0;font-size:16px;font-weight:700;color:white;">${details.service}</p>
+      <p style="margin:6px 0 0;font-size:15px;color:rgba(255,255,255,.8);">${details.date} · ${details.time}</p>
     </div>
-    <p style="color:#374151;font-size:14px;margin:0 0 8px;"><strong>Recomendaciones:</strong></p>
-    <ul style="color:#6b7280;font-size:14px;margin:0;padding-left:20px;">
-      <li>No apliques cremas ni desodorantes en la zona a tratar</li>
-      <li>Rasurate 24-48h antes de tu cita</li>
+    <p style="color:#2B2B2B;font-size:14px;font-weight:700;margin:0 0 10px;">Recomendaciones para tu sesión:</p>
+    <ul style="color:#6F6F6F;font-size:14px;margin:0;padding-left:20px;line-height:1.8;">
+      <li>No apliques cremas ni desodorantes en la zona a tratar el día de tu cita</li>
+      <li>Aféitate 24–48 horas antes (no uses cera ni crema depilatoria)</li>
       <li>Llega 5 minutos antes de tu cita</li>
+      <li>Evita exponerte al sol intenso 2 semanas antes del tratamiento</li>
     </ul>
+    <div style="margin-top:24px;padding-top:16px;border-top:1px solid #E7E3DC;">
+      <a href="https://wa.me/522299330014?text=Hola%2C+quiero+reagendar+mi+cita"
+         style="display:inline-block;background:#22c55e;color:white;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:700;font-size:13px;margin-right:8px;">
+        Reagendar por WhatsApp
+      </a>
+      <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard/citas"
+         style="display:inline-block;background:#F4F2EE;color:${SAGE};padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:700;font-size:13px;border:1px solid #E7E3DC;">
+        Ver mi cita
+      </a>
+    </div>
   `);
 
   return transporter.sendMail({
@@ -115,15 +133,14 @@ export async function sendAppointmentReminder(
 
 export async function sendPasswordReset(to: string, name: string, resetUrl: string) {
   const html = emailLayout(`
-    <h2 style="color:#1a7a9e;font-size:20px;margin:0 0 8px;">Restablecer contraseña</h2>
-    <p style="color:#374151;margin:0 0 24px;">Hola ${name}, recibimos una solicitud para restablecer tu contraseña.</p>
+    <h2 style="color:${SAGE};font-size:20px;font-weight:800;margin:0 0 6px;">Restablecer contraseña</h2>
+    <p style="color:#4B4B4B;margin:0 0 24px;font-size:15px;">Hola <strong>${name}</strong>, recibimos una solicitud para restablecer tu contraseña.</p>
     <a href="${resetUrl}"
-       style="display:inline-block;background:linear-gradient(135deg,#2596be,#1a7a9e);color:white;
-              padding:14px 32px;border-radius:100px;text-decoration:none;font-weight:600;font-size:14px;">
+       style="display:inline-block;background:${SAGE};color:white;padding:14px 32px;border-radius:14px;text-decoration:none;font-weight:700;font-size:14px;">
       Restablecer contraseña
     </a>
-    <p style="color:#6b7280;font-size:13px;margin:24px 0 0;">
-      Este enlace expira en 1 hora. Si no solicitaste restablecer tu contraseña, ignora este mensaje.
+    <p style="color:#9A9A9A;font-size:13px;margin:24px 0 0;">
+      Este enlace expira en 1 hora. Si no solicitaste restablecer tu contraseña, puedes ignorar este mensaje con seguridad.
     </p>
   `);
 

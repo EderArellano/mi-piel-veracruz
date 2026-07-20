@@ -186,8 +186,9 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <p className="hero-sub text-lg md:text-xl leading-relaxed max-w-2xl mb-10" style={{ color: "#6F6F6F" }}>
-            Láser diodo grado médico, Hidrofacial, Celluma LED y Skin Analyzer personalizado.
-            Sin vello. Sin manchas. Sin perder tiempo — en Boca del Río, Veracruz.
+            Clínica de depilación láser grado médico, Hidrofacial, Celluma LED y Skin Analyzer
+            gratis en Boca del Río, Veracruz. Resultados permanentes para piel morena y todo
+            tipo de piel desde la primera sesión.
           </p>
 
           {/* CTAs */}
