@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { HeroSection } from "@/components/marketing/hero-section";
+import { SocialProofBar } from "@/components/marketing/social-proof-bar";
 import { ProblemsSection } from "@/components/marketing/problems-section";
+import { BeforeAfterSection } from "@/components/marketing/before-after-section";
+import { HowItWorksSection } from "@/components/marketing/how-it-works-section";
 import { ServicesSection } from "@/components/marketing/services-section";
 import { StatsSection } from "@/components/marketing/stats-section";
-import { HowItWorksSection } from "@/components/marketing/how-it-works-section";
-import { BeforeAfterSection } from "@/components/marketing/before-after-section";
 import { TestimonialsSection } from "@/components/marketing/testimonials-section";
 import { FaqSection } from "@/components/marketing/faq-section";
 import { CtaSection } from "@/components/marketing/cta-section";
-import { ProductsSection } from "@/components/marketing/products-section";
-import { LocalSeoSection } from "@/components/marketing/local-seo-section";
 
 const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
@@ -243,15 +242,14 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(HOW_TO_SCHEMA) }}
       />
       <HeroSection />
-      <StatsSection live={liveStats} />
+      <SocialProofBar />
       <ProblemsSection />
-      <ServicesSection />
-      <ProductsSection />
-      <HowItWorksSection />
       <BeforeAfterSection />
+      <HowItWorksSection />
+      <ServicesSection />
+      <StatsSection live={liveStats} />
       <TestimonialsSection />
       <FaqSection />
-      <LocalSeoSection />
       <CtaSection />
     </>
   );

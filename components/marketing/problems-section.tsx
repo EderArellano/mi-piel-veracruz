@@ -7,67 +7,35 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const problems = [
   {
     number: "01",
-    stat: "72 hrs",
-    statSub: "al año rasurandote",
-    title: "Tiempo que nunca recuperas",
-    desc: "3 días completos de tu vida. Cada año. Solo en la rasuradora. El láser diodo te los devuelve — de por vida.",
-    accent: "#ef4444",
-  },
-  {
-    number: "02",
-    stat: "68%",
-    statSub: "de mujeres con manchas post-depilación",
-    title: "Hiperpigmentación que se queda",
-    desc: "Rasuradora + sol tropical de Veracruz = manchas oscuras que tardan meses en irse. El láser elimina sin dañar la piel.",
-    accent: "#f59e0b",
-  },
-  {
-    number: "03",
-    stat: "54%",
-    statSub: "padecen pelos encarnados en axilas/bikini",
-    title: "Foliculitis: el problema oculto",
-    desc: "Granitos, inflamación y piel irritada que la cera y cuchilla provocan. El láser lo elimina definitivamente.",
-    accent: "#db2777",
-  },
-  {
-    number: "04",
-    stat: "$3,200",
-    statSub: "MXN al año en métodos temporales",
-    title: "Dinero que nunca para de salir",
-    desc: "Cuchillas, cera, cremas. Año tras año sin parar. Eso equivale a 5-6 sesiones de láser que duran para siempre.",
-    accent: "#059669",
-  },
-  {
-    number: "05",
-    stat: "UV 10",
-    statSub: "índice solar promedio anual en Veracruz",
-    title: "El sol que envejece tu piel",
-    desc: "El UV índice 10 de Veracruz destruye colágeno antes de los 35. Celluma LED y Skin Analyzer invierten ese daño.",
-    accent: "#f97316",
-  },
-  {
-    number: "06",
-    stat: "80%",
-    statSub: "humedad relativa anual en la ciudad",
-    title: "Poros tapados por el trópico",
-    desc: "La humedad de Veracruz es enemiga de los poros limpios. El Hidrofacial los abre, limpia y cierra en 60 minutos.",
-    accent: "#0891b2",
-  },
-  {
-    number: "07",
-    stat: "2×",
-    statSub: "más rápido el envejecimiento sin protección",
-    title: "Colágeno que pierdes cada día",
-    desc: "Sin fototerapia activa, el sol tropical destruye colágeno antes de los 35. Celluma LED lo estimula de regreso.",
-    accent: "#7c3aed",
-  },
-  {
-    number: "08",
     stat: "7 / 10",
     statSub: "mujeres evitan la playa por el vello",
     title: "La playa que te estás perdiendo",
     desc: "Vivir en Veracruz y no disfrutar el mar por inseguridad no es justo. MiPiel existe para que eso no te limite más.",
     accent: "#2596be",
+  },
+  {
+    number: "02",
+    stat: "$3,200",
+    statSub: "MXN al año en métodos temporales",
+    title: "Dinero que nunca para de salir",
+    desc: "Cuchillas, cera, cremas. Año tras año sin parar. Eso equivale a 5–6 sesiones de láser que duran para siempre.",
+    accent: "#059669",
+  },
+  {
+    number: "03",
+    stat: "68%",
+    statSub: "manchas post-depilación en piel morena",
+    title: "Hiperpigmentación que se queda",
+    desc: "Rasuradora + sol tropical de Veracruz = manchas oscuras que tardan meses en irse. El láser elimina sin dañar la piel.",
+    accent: "#f59e0b",
+  },
+  {
+    number: "04",
+    stat: "54%",
+    statSub: "padecen foliculitis en axilas/bikini",
+    title: "Irritación, granitos y piel dañada",
+    desc: "La inflamación crónica que causa la cera o la cuchilla destruye la piel. El láser corta ese ciclo de raíz.",
+    accent: "#db2777",
   },
 ];
 
@@ -194,13 +162,13 @@ export function ProblemsSection() {
 
         {/* Bridge */}
         <div className="prb-bridge mt-12 text-center">
-          <p className="text-gray-400 text-xs uppercase tracking-[0.25em] mb-4">La solución existe en Veracruz</p>
+          <p className="text-gray-400 text-xs uppercase tracking-[0.25em] mb-4">La solución ya existe en Veracruz</p>
           <p className="font-display text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-            Todo esto tiene nombre:{" "}
-            <span className="text-gradient">MiPiel</span>
+            Una decisión lo cambia todo:{" "}
+            <span className="text-gradient">el láser diodo</span>
           </p>
           <p className="text-gray-500 text-base mt-4 max-w-xl mx-auto">
-            Un centro dermocosmético en Boca del Río diseñado para resolver exactamente estos 8 problemas.
+            Y puedes verlo con tus propios ojos — antes de gastar un solo peso.
           </p>
         </div>
       </div>
