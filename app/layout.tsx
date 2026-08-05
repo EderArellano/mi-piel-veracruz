@@ -108,6 +108,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
+        {/* Geo tags — boost local search in Veracruz */}
+        <meta name="geo.region" content="MX-VER" />
+        <meta name="geo.placename" content="Boca del Río, Veracruz, México" />
+        <meta name="geo.position" content="19.1738;-96.1342" />
+        <meta name="ICBM" content="19.1738, -96.1342" />
+        {/* Google Search Console — reemplaza con tu código de verificación */}
+        {/* <meta name="google-site-verification" content="TU_CODIGO_AQUI" /> */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
