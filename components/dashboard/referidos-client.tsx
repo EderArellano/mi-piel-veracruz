@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Gift, Copy, Check, Share2, MessageCircle, Users, Banknote } from "lucide-react";
@@ -52,7 +52,7 @@ export function ReferidosClient({ referralCode, referralLink, waLink, referralCo
       <div className="text-center">
         <div
           className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
-          style={{ background: "linear-gradient(135deg, #5F7C71, #4a6158)" }}
+          style={{ background: "linear-gradient(135deg, #2596be, #186a87)" }}
         >
           <Gift className="w-7 h-7 text-white" />
         </div>
@@ -68,10 +68,10 @@ export function ReferidosClient({ referralCode, referralLink, waLink, referralCo
       <div className="grid grid-cols-2 gap-4">
         <div
           className="rounded-2xl p-5 text-center"
-          style={{ background: "#F4F7F5", border: "1px solid #E0EAE6" }}
+          style={{ background: "#eef7fb", border: "1px solid #c8e4f0" }}
         >
-          <Users className="w-5 h-5 mx-auto mb-2" style={{ color: "#5F7C71" }} />
-          <p className="text-3xl font-black" style={{ color: "#5F7C71" }}>{referralCount}</p>
+          <Users className="w-5 h-5 mx-auto mb-2" style={{ color: "#2596be" }} />
+          <p className="text-3xl font-black" style={{ color: "#2596be" }}>{referralCount}</p>
           <p className="text-xs mt-1" style={{ color: "#6F6F6F" }}>Referidas</p>
         </div>
         <div
@@ -95,7 +95,7 @@ export function ReferidosClient({ referralCode, referralLink, waLink, referralCo
         <div className="flex items-center gap-3">
           <div
             className="flex-1 text-center py-3 px-4 rounded-xl font-mono text-xl font-black tracking-widest"
-            style={{ background: "#F4F7F5", color: "#5F7C71", border: "1.5px dashed #C4D4CF" }}
+            style={{ background: "#eef7fb", color: "#2596be", border: "1.5px dashed #b3d8e8" }}
           >
             {referralCode}
           </div>
@@ -103,8 +103,8 @@ export function ReferidosClient({ referralCode, referralLink, waLink, referralCo
             onClick={() => copy(referralCode, "code")}
             className="flex items-center gap-2 px-4 py-3 rounded-xl font-medium text-sm transition-all"
             style={{
-              background: copiedCode ? "#5F7C71" : "#EAF0ED",
-              color: copiedCode ? "white" : "#5F7C71",
+              background: copiedCode ? "#2596be" : "#e5f3f8",
+              color: copiedCode ? "white" : "#2596be",
             }}
           >
             {copiedCode ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
@@ -120,7 +120,7 @@ export function ReferidosClient({ referralCode, referralLink, waLink, referralCo
           <button
             onClick={() => copy(referralLink, "link")}
             className="shrink-0 transition-colors"
-            style={{ color: copiedLink ? "#5F7C71" : "#BDBDBD" }}
+            style={{ color: copiedLink ? "#2596be" : "#BDBDBD" }}
           >
             {copiedLink ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
           </button>
@@ -132,7 +132,7 @@ export function ReferidosClient({ referralCode, referralLink, waLink, referralCo
         <button
           onClick={share}
           className="flex items-center justify-center gap-2 py-3.5 rounded-2xl font-semibold text-sm transition-all hover:-translate-y-0.5"
-          style={{ background: "#5F7C71", color: "white", boxShadow: "0 4px 16px rgba(95,124,113,.25)" }}
+          style={{ background: "#2596be", color: "white", boxShadow: "0 4px 16px rgba(37,150,190,.25)" }}
         >
           <Share2 className="w-4 h-4" />
           Compartir enlace
@@ -160,7 +160,7 @@ export function ReferidosClient({ referralCode, referralLink, waLink, referralCo
             <div key={i} className="flex items-start gap-3">
               <div
                 className="w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-xs font-bold mt-0.5"
-                style={{ background: "#5F7C71", color: "white" }}
+                style={{ background: "#2596be", color: "white" }}
               >
                 {i + 1}
               </div>

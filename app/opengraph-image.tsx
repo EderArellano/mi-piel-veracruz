@@ -1,4 +1,4 @@
-import { ImageResponse } from "next/og";
+﻿import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt = "Mi Piel Veracruz — Depilación Láser en Veracruz y Boca del Río";
@@ -32,7 +32,7 @@ export default async function Image() {
             height: 560,
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(95,124,113,0.14) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(37,150,190,0.14) 0%, transparent 70%)",
             display: "flex",
           }}
         />
@@ -56,8 +56,8 @@ export default async function Image() {
           style={{
             display: "flex",
             alignItems: "center",
-            background: "rgba(95,124,113,0.10)",
-            border: "1px solid rgba(95,124,113,0.30)",
+            background: "rgba(37,150,190,0.10)",
+            border: "1px solid rgba(37,150,190,0.30)",
             borderRadius: 100,
             padding: "6px 20px",
             marginBottom: 32,
@@ -67,7 +67,7 @@ export default async function Image() {
             style={{
               fontSize: 14,
               fontWeight: 700,
-              color: "#5F7C71",
+              color: "#2596be",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
             }}
@@ -107,7 +107,7 @@ export default async function Image() {
           style={{
             fontSize: 52,
             fontWeight: 700,
-            color: "#5F7C71",
+            color: "#2596be",
             lineHeight: 1,
             letterSpacing: "-0.02em",
             marginBottom: 36,
@@ -153,7 +153,7 @@ export default async function Image() {
             }}
           />
           <span
-            style={{ fontSize: 16, fontWeight: 700, color: "#5F7C71" }}
+            style={{ fontSize: 16, fontWeight: 700, color: "#2596be" }}
           >
             mipielveracruz.com
           </span>
@@ -167,7 +167,7 @@ export default async function Image() {
             top: 0,
             bottom: 0,
             width: 6,
-            background: "linear-gradient(to bottom, #5F7C71, #C8A96A)",
+            background: "linear-gradient(to bottom, #2596be, #C8A96A)",
             display: "flex",
           }}
         />

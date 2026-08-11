@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2, ArrowRight, Zap, Star, MessageCircle } from "lucide-react";
 import { PackageBuilder } from "@/components/marketing/package-builder";
@@ -52,7 +52,7 @@ const tiers = [
     price: 2100,
     monthly: 175,
     highlight: true,
-    accent: "#5F7C71",
+    accent: "#2596be",
     desc: "Axilas + Bikini + Media pierna. El combo favorito de nuestras pacientes. Ahorra 20% vs. precio por zona.",
     features: [
       "Axilas + Bikini + Media pierna",
@@ -150,19 +150,19 @@ export default function PreciosPage() {
         {/* Soft sage radial glow */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
-          style={{ width: "800px", height: "500px", background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(95,124,113,.08) 0%, transparent 70%)" }}
+          style={{ width: "800px", height: "500px", background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(37,150,190,.08) 0%, transparent 70%)" }}
         />
         <div className="section-container relative z-10 text-center max-w-3xl mx-auto">
           <div
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] mb-6 px-3 py-1.5 rounded-full"
-            style={{ color: "#5F7C71", border: "1px solid rgba(95,124,113,.2)", background: "rgba(95,124,113,.08)" }}
+            style={{ color: "#2596be", border: "1px solid rgba(37,150,190,.2)", background: "rgba(37,150,190,.08)" }}
           >
             <Zap className="w-3.5 h-3.5" />
             Precios 2025
           </div>
           <h1 className="font-display text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4" style={{ color: "#2B2B2B" }}>
             Precio Depilación Láser{" "}
-            <span style={{ background: "linear-gradient(125deg, #5F7C71, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(125deg, #2596be, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               en Veracruz
             </span>
           </h1>
@@ -192,15 +192,15 @@ export default function PreciosPage() {
               className="relative flex flex-col overflow-hidden"
               style={{
                 background: "white",
-                border: tier.highlight ? `2px solid rgba(95,124,113,.4)` : "1px solid #E7E3DC",
+                border: tier.highlight ? `2px solid rgba(37,150,190,.4)` : "1px solid #E7E3DC",
                 borderRadius: "22px",
-                boxShadow: tier.highlight ? "0 18px 50px rgba(95,124,113,.12)" : "0 10px 35px rgba(0,0,0,.05)",
+                boxShadow: tier.highlight ? "0 18px 50px rgba(37,150,190,.12)" : "0 10px 35px rgba(0,0,0,.05)",
               }}
             >
               {tier.highlight && (
                 <div
                   className="absolute top-0 inset-x-0 text-center text-[10px] font-black uppercase tracking-widest py-2 text-white"
-                  style={{ background: "#5F7C71" }}
+                  style={{ background: "#2596be" }}
                 >
                   {tier.tag}
                 </div>
@@ -227,7 +227,7 @@ export default function PreciosPage() {
                   <span className="font-display text-4xl font-black" style={{ color: "#2B2B2B" }}>${tier.price.toLocaleString("es-MX")}</span>
                   <span className="text-sm" style={{ color: "#9A9A9A" }}>MXN / sesión</span>
                 </div>
-                <p className="text-sm mb-2" style={{ color: "#5F7C71" }}>
+                <p className="text-sm mb-2" style={{ color: "#2596be" }}>
                   o desde ${tier.monthly}/mes a 12 MSI
                 </p>
                 <p className="text-sm mb-6" style={{ color: "#6F6F6F" }}>{tier.desc}</p>
@@ -246,7 +246,7 @@ export default function PreciosPage() {
                   className="w-full flex items-center justify-center gap-2 font-bold py-3.5 transition-all duration-200 hover:-translate-y-0.5"
                   style={
                     tier.highlight
-                      ? { background: "#5F7C71", color: "white", borderRadius: "18px", boxShadow: "0 0 30px rgba(95,124,113,.25)" }
+                      ? { background: "#2596be", color: "white", borderRadius: "18px", boxShadow: "0 0 30px rgba(37,150,190,.25)" }
                       : { background: "transparent", color: tier.accent, border: `1.5px solid ${tier.accent}`, borderRadius: "18px" }
                   }
                 >
@@ -270,7 +270,7 @@ export default function PreciosPage() {
       <section className="py-16" style={{ background: "#F4F2EE" }}>
         <div className="section-container">
           <div className="text-center mb-10">
-            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#5F7C71" }}>Tarifario completo</div>
+            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#2596be" }}>Tarifario completo</div>
             <h2 className="font-display text-3xl md:text-4xl font-black mb-3" style={{ color: "#2B2B2B" }}>
               Precio por zona
             </h2>
@@ -289,7 +289,7 @@ export default function PreciosPage() {
                 >
                   <span className="text-sm transition-colors" style={{ color: "#2B2B2B" }}>{z.name}</span>
                   <div className="text-right">
-                    <div className="font-bold text-sm" style={{ color: "#5F7C71" }}>${z.price}</div>
+                    <div className="font-bold text-sm" style={{ color: "#2596be" }}>${z.price}</div>
                     <div className="text-xs" style={{ color: "#9A9A9A" }}>desde ${msi}/mes</div>
                   </div>
                 </div>
@@ -313,7 +313,7 @@ export default function PreciosPage() {
       <section className="py-16" style={{ background: "#FAFAF8" }}>
         <div className="section-container max-w-3xl">
           <div className="text-center mb-10">
-            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#5F7C71" }}>FAQ</div>
+            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#2596be" }}>FAQ</div>
             <h2 className="font-display text-3xl font-black" style={{ color: "#2B2B2B" }}>Preguntas sobre precios</h2>
           </div>
           <div className="space-y-4">
@@ -332,7 +332,7 @@ export default function PreciosPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16" style={{ background: "linear-gradient(135deg, #5F7C71, #4D675E)" }}>
+      <section className="py-16" style={{ background: "linear-gradient(135deg, #2596be, #1e7a9e)" }}>
         <div className="section-container text-center">
           <h2 className="font-display text-3xl md:text-4xl font-black text-white mb-4">
             ¿Dudas sobre qué paquete elegir?
@@ -344,7 +344,7 @@ export default function PreciosPage() {
             <Link
               href="/agendar"
               className="inline-flex items-center justify-center gap-2.5 font-bold px-9 py-4 transition-all duration-200 hover:-translate-y-0.5"
-              style={{ background: "white", color: "#5F7C71", borderRadius: "18px" }}
+              style={{ background: "white", color: "#2596be", borderRadius: "18px" }}
             >
               Consulta gratis — Sin compromiso
               <ArrowRight className="w-5 h-5" />

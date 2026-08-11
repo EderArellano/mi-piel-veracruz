@@ -1,12 +1,13 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSession } from "next-auth/react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { MiPielLogo } from "@/components/ui/mi-piel-logo";
 
 const navLinks = [
   { href: "/servicios", label: "Servicios" },
@@ -56,17 +57,8 @@ export function Navbar() {
       <div className="section-container">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-            <div
-              className="w-8 h-8 rounded-full flex items-center justify-center transition-shadow duration-200"
-              style={{ background: "linear-gradient(135deg, #5F7C71, #C8A96A)" }}
-            >
-              <Sparkles className="w-4 h-4 text-white" />
-            </div>
-            <div className="leading-none">
-              <span className="text-[15px] font-bold tracking-tight block" style={{ color: "#2B2B2B" }}>Mi Piel</span>
-              <span className="text-[11px] tracking-widest uppercase block" style={{ color: "#6F6F6F" }}>Veracruz</span>
-            </div>
+          <Link href="/" className="shrink-0">
+            <MiPielLogo size={34} showText showTagline />
           </Link>
 
           {/* Desktop nav */}
@@ -82,14 +74,14 @@ export function Navbar() {
                     : "hover:bg-black/5"
                 )}
                 style={{
-                  color: pathname === link.href ? "#5F7C71" : "#6F6F6F",
+                  color: pathname === link.href ? "#2596be" : "#6F6F6F",
                 }}
               >
                 {link.label}
                 {pathname === link.href && (
                   <span
                     className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full"
-                    style={{ background: "#5F7C71" }}
+                    style={{ background: "#2596be" }}
                   />
                 )}
                 {"badge" in link && link.badge && (
@@ -128,18 +120,18 @@ export function Navbar() {
                   href="/agendar"
                   className="text-sm font-bold px-5 py-2.5 transition-all duration-200 hover:-translate-y-0.5"
                   style={{
-                    background: "#5F7C71",
+                    background: "#2596be",
                     color: "white",
                     borderRadius: "18px",
                   }}
                   onMouseEnter={(e) => {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.background = "#4D675E";
-                    el.style.boxShadow = "0 12px 30px rgba(95,124,113,.18)";
+                    el.style.background = "#1e7a9e";
+                    el.style.boxShadow = "0 12px 30px rgba(37,150,190,.18)";
                   }}
                   onMouseLeave={(e) => {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.background = "#5F7C71";
+                    el.style.background = "#2596be";
                     el.style.boxShadow = "none";
                   }}
                 >
@@ -180,8 +172,8 @@ export function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-colors"
                   style={{
-                    color: pathname === link.href ? "#5F7C71" : "#6F6F6F",
-                    background: pathname === link.href ? "rgba(95,124,113,.08)" : "transparent",
+                    color: pathname === link.href ? "#2596be" : "#6F6F6F",
+                    background: pathname === link.href ? "rgba(37,150,190,.08)" : "transparent",
                   }}
                 >
                   {link.label}
@@ -198,7 +190,7 @@ export function Navbar() {
                     href="/dashboard"
                     onClick={() => setIsOpen(false)}
                     className="block w-full text-center text-white font-bold py-3 rounded-xl"
-                    style={{ background: "#5F7C71" }}
+                    style={{ background: "#2596be" }}
                   >
                     Mi cuenta
                   </Link>
@@ -216,7 +208,7 @@ export function Navbar() {
                       href="/agendar"
                       onClick={() => setIsOpen(false)}
                       className="block w-full text-center text-white font-bold py-3 rounded-xl"
-                      style={{ background: "#5F7C71" }}
+                      style={{ background: "#2596be" }}
                     >
                       Agendar cita
                     </Link>

@@ -5,11 +5,12 @@ import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 import {
   LayoutDashboard, Calendar, Clock, FileText, CreditCard, User,
-  Settings, LogOut, Sparkles, Users, BarChart3, BookOpen, Tag,
+  Settings, LogOut, Users, BarChart3, BookOpen, Tag,
   MessageSquare, Package, MessageCircle, Gift,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { MiPielLogo } from "@/components/ui/mi-piel-logo";
 
 const clientNav = [
   { href: "/dashboard", label: "Inicio", icon: LayoutDashboard },
@@ -47,16 +48,8 @@ export function DashboardSidebar({ role }: SidebarProps) {
   return (
     <aside className="hidden lg:flex w-64 flex-col bg-white border-r border-border/50 shrink-0">
       {/* Logo */}
-      <div className="flex items-center gap-2.5 px-6 h-16 border-b border-border/50">
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-sky-400 flex items-center justify-center shrink-0">
-          <Sparkles className="w-4 h-4 text-white" />
-        </div>
-        <div className="leading-none">
-          <span className="text-[15px] font-bold text-foreground block">Mi Piel</span>
-          <span className="text-[11px] text-muted-foreground tracking-widest uppercase block">
-            {isAdmin ? "Admin" : "Veracruz"}
-          </span>
-        </div>
+      <div className="flex items-center px-5 h-16 border-b border-border/50">
+        <MiPielLogo size={30} showText showTagline />
       </div>
 
       {/* Nav */}

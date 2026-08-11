@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { MapPin, Clock, Phone, Car, Bus, ArrowRight, MessageCircle, Star } from "lucide-react";
 
@@ -65,7 +65,7 @@ export default function UbicacionPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }} />
 
       {/* Hero */}
-      <section className="pt-32 pb-16" style={{ background: "linear-gradient(135deg, #5F7C71 0%, #4D675E 100%)" }}>
+      <section className="pt-32 pb-16" style={{ background: "linear-gradient(135deg, #2596be 0%, #1e7a9e 100%)" }}>
         <div className="section-container text-center text-white">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-6 px-3 py-1.5 rounded-full" style={{ background: "rgba(255,255,255,.15)" }}>
             <MapPin className="w-3.5 h-3.5" />
@@ -104,8 +104,8 @@ export default function UbicacionPage() {
               {/* Address */}
               <div className="p-6 rounded-2xl" style={{ background: "white", border: "1px solid #E7E3DC" }}>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "#EAF0ED" }}>
-                    <MapPin className="w-5 h-5" style={{ color: "#5F7C71" }} />
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "#e5f3f8" }}>
+                    <MapPin className="w-5 h-5" style={{ color: "#2596be" }} />
                   </div>
                   <div>
                     <p className="font-bold mb-1" style={{ color: "#2B2B2B" }}>Dirección</p>
@@ -118,7 +118,7 @@ export default function UbicacionPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-xs font-semibold mt-3 transition-colors"
-                      style={{ color: "#5F7C71" }}
+                      style={{ color: "#2596be" }}
                     >
                       Abrir en Google Maps
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -130,8 +130,8 @@ export default function UbicacionPage() {
               {/* Hours */}
               <div className="p-6 rounded-2xl" style={{ background: "white", border: "1px solid #E7E3DC" }}>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "#EAF0ED" }}>
-                    <Clock className="w-5 h-5" style={{ color: "#5F7C71" }} />
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "#e5f3f8" }}>
+                    <Clock className="w-5 h-5" style={{ color: "#2596be" }} />
                   </div>
                   <div className="flex-1">
                     <p className="font-bold mb-3" style={{ color: "#2B2B2B" }}>Horarios de atención</p>
@@ -154,12 +154,12 @@ export default function UbicacionPage() {
               {/* Phone */}
               <div className="p-6 rounded-2xl" style={{ background: "white", border: "1px solid #E7E3DC" }}>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "#EAF0ED" }}>
-                    <Phone className="w-5 h-5" style={{ color: "#5F7C71" }} />
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "#e5f3f8" }}>
+                    <Phone className="w-5 h-5" style={{ color: "#2596be" }} />
                   </div>
                   <div>
                     <p className="font-bold mb-1" style={{ color: "#2B2B2B" }}>Contacto</p>
-                    <a href="tel:+522299330014" className="text-sm font-medium block" style={{ color: "#5F7C71" }}>+52 229 933 00 14</a>
+                    <a href="tel:+522299330014" className="text-sm font-medium block" style={{ color: "#2596be" }}>+52 229 933 00 14</a>
                     <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs mt-2" style={{ color: "#22c55e" }}>
                       <MessageCircle className="w-3.5 h-3.5" />
                       WhatsApp directo
@@ -172,7 +172,7 @@ export default function UbicacionPage() {
               <Link
                 href="/agendar"
                 className="flex items-center justify-center gap-2.5 text-white font-bold py-4 rounded-2xl transition-all hover:-translate-y-0.5"
-                style={{ background: "#5F7C71", boxShadow: "0 4px 20px rgba(95,124,113,.3)" }}
+                style={{ background: "#2596be", boxShadow: "0 4px 20px rgba(37,150,190,.3)" }}
               >
                 Agendar consulta gratis — Skin Analyzer
                 <ArrowRight className="w-5 h-5" />
@@ -191,7 +191,7 @@ export default function UbicacionPage() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 rounded-2xl" style={{ background: "white", border: "1px solid #E7E3DC" }}>
               <div className="flex items-center gap-3 mb-4">
-                <Car className="w-5 h-5" style={{ color: "#5F7C71" }} />
+                <Car className="w-5 h-5" style={{ color: "#2596be" }} />
                 <h3 className="font-bold" style={{ color: "#2B2B2B" }}>En automóvil</h3>
               </div>
               <ul className="space-y-2 text-sm" style={{ color: "#6F6F6F" }}>
@@ -203,7 +203,7 @@ export default function UbicacionPage() {
             </div>
             <div className="p-6 rounded-2xl" style={{ background: "white", border: "1px solid #E7E3DC" }}>
               <div className="flex items-center gap-3 mb-4">
-                <Bus className="w-5 h-5" style={{ color: "#5F7C71" }} />
+                <Bus className="w-5 h-5" style={{ color: "#2596be" }} />
                 <h3 className="font-bold" style={{ color: "#2B2B2B" }}>En transporte público</h3>
               </div>
               <ul className="space-y-2 text-sm" style={{ color: "#6F6F6F" }}>
@@ -230,7 +230,7 @@ export default function UbicacionPage() {
               <span
                 key={zone}
                 className="text-sm px-4 py-1.5 rounded-full"
-                style={{ background: "#EAF0ED", color: "#5F7C71", border: "1px solid #C4D4CF" }}
+                style={{ background: "#e5f3f8", color: "#2596be", border: "1px solid #b3d8e8" }}
               >
                 {zone}
               </span>
@@ -240,7 +240,7 @@ export default function UbicacionPage() {
       </section>
 
       {/* Rating strip */}
-      <section className="py-12" style={{ background: "#5F7C71" }}>
+      <section className="py-12" style={{ background: "#2596be" }}>
         <div className="section-container text-center">
           <div className="flex items-center justify-center gap-2 mb-3">
             {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />)}
@@ -254,7 +254,7 @@ export default function UbicacionPage() {
             <Link
               href="/agendar"
               className="inline-flex items-center justify-center gap-2 font-bold px-8 py-3.5 rounded-2xl transition-all hover:-translate-y-0.5"
-              style={{ background: "white", color: "#5F7C71" }}
+              style={{ background: "white", color: "#2596be" }}
             >
               Agendar cita gratis
             </Link>

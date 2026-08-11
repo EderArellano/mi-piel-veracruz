@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Star, Zap, Shield, Clock } from "lucide-react";
 import { PackageBuilder } from "@/components/marketing/package-builder";
@@ -148,12 +148,12 @@ export default function ServiciosPage() {
       <section className="relative pt-32 pb-16 overflow-hidden">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
-          style={{ width: "900px", height: "500px", background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(95,124,113,.08) 0%, transparent 70%)" }}
+          style={{ width: "900px", height: "500px", background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(37,150,190,.08) 0%, transparent 70%)" }}
         />
         <div className="section-container relative z-10 text-center max-w-4xl mx-auto">
           <div
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] mb-6 px-3 py-1.5 rounded-full"
-            style={{ color: "#5F7C71", border: "1px solid rgba(95,124,113,.2)", background: "rgba(95,124,113,.08)" }}
+            style={{ color: "#2596be", border: "1px solid rgba(37,150,190,.2)", background: "rgba(37,150,190,.08)" }}
           >
             <Zap className="w-3.5 h-3.5" />
             Láser Diodo Grado Médico · Veracruz
@@ -161,7 +161,7 @@ export default function ServiciosPage() {
 
           <h1 className="font-display text-4xl md:text-6xl font-black leading-tight tracking-tight mb-5" style={{ color: "#2B2B2B" }}>
             Depilación Láser en{" "}
-            <span style={{ background: "linear-gradient(125deg, #5F7C71, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(125deg, #2596be, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Veracruz
             </span>
             <br />
@@ -188,14 +188,14 @@ export default function ServiciosPage() {
             <Link
               href="/agendar"
               className="group inline-flex items-center justify-center gap-2.5 text-white font-bold text-base px-9 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90"
-              style={{ background: "#5F7C71", borderRadius: "18px", boxShadow: "0 0 40px rgba(95,124,113,.25)" }}
+              style={{ background: "#2596be", borderRadius: "18px", boxShadow: "0 0 40px rgba(37,150,190,.25)" }}
             >
               Consulta gratis con Skin Analyzer
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
               href="#paquete"
-              className="inline-flex items-center justify-center gap-2 font-semibold text-base px-8 py-4 transition-all duration-200 hover:border-[#5F7C71] hover:text-[#5F7C71]"
+              className="inline-flex items-center justify-center gap-2 font-semibold text-base px-8 py-4 transition-all duration-200 hover:border-[#2596be] hover:text-[#2596be]"
               style={{ border: "1.5px solid #E7E3DC", color: "#6F6F6F", background: "white", borderRadius: "18px" }}
             >
               Armar mi paquete personalizado
@@ -208,7 +208,7 @@ export default function ServiciosPage() {
       <section className="py-16" style={{ background: "#FAFAF8" }}>
         <div className="section-container">
           <div className="text-center mb-12">
-            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#5F7C71" }}>Zonas disponibles</div>
+            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#2596be" }}>Zonas disponibles</div>
             <h2 className="font-display text-3xl md:text-4xl font-black mb-3" style={{ color: "#2B2B2B" }}>
               Cada zona, un resultado permanente
             </h2>
@@ -280,7 +280,7 @@ export default function ServiciosPage() {
       <section className="py-16" style={{ background: "#F4F2EE" }}>
         <div className="section-container">
           <div className="text-center mb-12">
-            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#5F7C71" }}>¿Por qué MiPiel?</div>
+            <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: "#2596be" }}>¿Por qué MiPiel?</div>
             <h2 className="font-display text-3xl md:text-4xl font-black mb-3" style={{ color: "#2B2B2B" }}>
               La clínica que Veracruz eligió
             </h2>
@@ -298,9 +298,9 @@ export default function ServiciosPage() {
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                  style={{ background: "rgba(95,124,113,.1)", border: "1px solid rgba(95,124,113,.2)" }}
+                  style={{ background: "rgba(37,150,190,.1)", border: "1px solid rgba(37,150,190,.2)" }}
                 >
-                  <Icon className="w-5 h-5" style={{ color: "#5F7C71" }} />
+                  <Icon className="w-5 h-5" style={{ color: "#2596be" }} />
                 </div>
                 <h3 className="font-semibold mb-2" style={{ color: "#2B2B2B" }}>{title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "#6F6F6F" }}>{desc}</p>
@@ -311,7 +311,7 @@ export default function ServiciosPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16" style={{ background: "linear-gradient(135deg, #5F7C71, #4D675E)" }}>
+      <section className="py-16" style={{ background: "linear-gradient(135deg, #2596be, #1e7a9e)" }}>
         <div className="section-container text-center">
           <h2 className="font-display text-3xl md:text-4xl font-black text-white mb-4">
             ¿Lista para empezar?

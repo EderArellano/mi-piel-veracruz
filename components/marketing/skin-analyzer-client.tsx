@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
@@ -120,7 +120,7 @@ export function SkinAnalyzerClient() {
         {/* Soft sage radial glow */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
-          style={{ width: "800px", height: "500px", background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(95,124,113,.08) 0%, transparent 70%)" }}
+          style={{ width: "800px", height: "500px", background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(37,150,190,.08) 0%, transparent 70%)" }}
         />
         <div className="section-container relative z-10 text-center max-w-3xl mx-auto">
           <div
@@ -132,7 +132,7 @@ export function SkinAnalyzerClient() {
           </div>
           <h1 className="font-display text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4" style={{ color: "#2B2B2B" }}>
             Skin Analyzer{" "}
-            <span style={{ background: "linear-gradient(125deg, #5F7C71, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(125deg, #2596be, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               con IA
             </span>
           </h1>
@@ -156,7 +156,7 @@ export function SkinAnalyzerClient() {
                 className="overflow-hidden"
                 style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "22px", boxShadow: "0 10px 35px rgba(0,0,0,.05)" }}
               >
-                <div className="h-1" style={{ background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
+                <div className="h-1" style={{ background: "linear-gradient(90deg, #2596be, #C8A96A)" }} />
                 <div className="p-7">
                   <h2 className="font-display text-xl font-bold mb-2" style={{ color: "#2B2B2B" }}>Sube tu foto</h2>
                   <p className="text-sm mb-6" style={{ color: "#6F6F6F" }}>
@@ -172,8 +172,8 @@ export function SkinAnalyzerClient() {
                       onClick={() => fileRef.current?.click()}
                       onMouseEnter={(e) => {
                         const el = e.currentTarget as HTMLElement;
-                        el.style.borderColor = "#5F7C71";
-                        el.style.background = "rgba(95,124,113,.03)";
+                        el.style.borderColor = "#2596be";
+                        el.style.background = "rgba(37,150,190,.03)";
                       }}
                       onMouseLeave={(e) => {
                         const el = e.currentTarget as HTMLElement;
@@ -211,8 +211,8 @@ export function SkinAnalyzerClient() {
                       style={{ border: "1px solid #E7E3DC", color: "#6F6F6F", background: "white" }}
                       onMouseEnter={(e) => {
                         const el = e.currentTarget as HTMLElement;
-                        el.style.borderColor = "#5F7C71";
-                        el.style.color = "#5F7C71";
+                        el.style.borderColor = "#2596be";
+                        el.style.color = "#2596be";
                       }}
                       onMouseLeave={(e) => {
                         const el = e.currentTarget as HTMLElement;
@@ -228,8 +228,8 @@ export function SkinAnalyzerClient() {
                       style={{ border: "1px solid #E7E3DC", color: "#6F6F6F", background: "white" }}
                       onMouseEnter={(e) => {
                         const el = e.currentTarget as HTMLElement;
-                        el.style.borderColor = "#5F7C71";
-                        el.style.color = "#5F7C71";
+                        el.style.borderColor = "#2596be";
+                        el.style.color = "#2596be";
                       }}
                       onMouseLeave={(e) => {
                         const el = e.currentTarget as HTMLElement;
@@ -251,16 +251,16 @@ export function SkinAnalyzerClient() {
                   {error === "coming_soon" && (
                     <div
                       className="mt-4 p-4 rounded-xl text-center"
-                      style={{ background: "rgba(95,124,113,.06)", border: "1px solid rgba(95,124,113,.2)" }}
+                      style={{ background: "rgba(37,150,190,.06)", border: "1px solid rgba(37,150,190,.2)" }}
                     >
-                      <p className="font-semibold text-sm mb-1" style={{ color: "#5F7C71" }}>Próximamente disponible</p>
+                      <p className="font-semibold text-sm mb-1" style={{ color: "#2596be" }}>Próximamente disponible</p>
                       <p className="text-xs mb-3" style={{ color: "#6F6F6F" }}>
                         Mientras tanto, agenda tu análisis presencial — es gratis y más completo.
                       </p>
                       <Link
                         href="/agendar"
                         className="inline-flex items-center gap-1.5 text-xs font-bold transition-colors"
-                        style={{ color: "#5F7C71" }}
+                        style={{ color: "#2596be" }}
                       >
                         Agendar consulta gratis <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
@@ -272,12 +272,12 @@ export function SkinAnalyzerClient() {
                     disabled={!image || loading}
                     className="w-full mt-5 flex items-center justify-center gap-2.5 text-white font-bold py-3.5 transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed"
                     style={{
-                      background: "#5F7C71",
+                      background: "#2596be",
                       borderRadius: "18px",
-                      boxShadow: image ? "0 0 30px rgba(95,124,113,.25)" : "none",
+                      boxShadow: image ? "0 0 30px rgba(37,150,190,.25)" : "none",
                     }}
-                    onMouseEnter={(e) => { if (image && !loading) (e.currentTarget as HTMLElement).style.background = "#4D675E"; }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#5F7C71"; }}
+                    onMouseEnter={(e) => { if (image && !loading) (e.currentTarget as HTMLElement).style.background = "#1e7a9e"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#2596be"; }}
                   >
                     {loading ? (
                       <>
@@ -313,7 +313,7 @@ export function SkinAnalyzerClient() {
                     "Toma la foto a 30–40 cm de distancia",
                   ].map((tip) => (
                     <li key={tip} className="flex items-center gap-2.5 text-sm" style={{ color: "#6F6F6F" }}>
-                      <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "#5F7C71" }} />
+                      <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "#2596be" }} />
                       {tip}
                     </li>
                   ))}
@@ -328,7 +328,7 @@ export function SkinAnalyzerClient() {
                 <div className="grid grid-cols-2 gap-2">
                   {["Tipo de piel", "Manchas solares", "Tamaño de poros", "Hidratación", "Signos de edad", "Rojeces", "Vello visible", "Uniformidad de tono"].map((item) => (
                     <div key={item} className="flex items-center gap-2 text-xs" style={{ color: "#6F6F6F" }}>
-                      <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgba(95,124,113,.6)" }} />
+                      <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "rgba(37,150,190,.6)" }} />
                       {item}
                     </div>
                   ))}
@@ -337,7 +337,7 @@ export function SkinAnalyzerClient() {
 
               <div
                 className="rounded-2xl p-5"
-                style={{ background: "rgba(95,124,113,.06)", border: "1px solid rgba(95,124,113,.2)" }}
+                style={{ background: "rgba(37,150,190,.06)", border: "1px solid rgba(37,150,190,.2)" }}
               >
                 <div className="flex items-center gap-2 mb-2">
                   <CheckCircle2 className="w-4 h-4" style={{ color: "#4CAF72" }} />
@@ -357,7 +357,7 @@ export function SkinAnalyzerClient() {
               className="overflow-hidden"
               style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "22px" }}
             >
-              <div className="h-1" style={{ background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
+              <div className="h-1" style={{ background: "linear-gradient(90deg, #2596be, #C8A96A)" }} />
               <div className="p-7 md:p-10 flex flex-col md:flex-row gap-8 items-start">
                 {/* Score */}
                 <div className="shrink-0 text-center">
@@ -378,7 +378,7 @@ export function SkinAnalyzerClient() {
                   <div className="flex flex-wrap gap-3 mb-4">
                     <span
                       className="px-3 py-1 rounded-full text-xs font-semibold"
-                      style={{ color: "#5F7C71", background: "rgba(95,124,113,.1)", border: "1px solid rgba(95,124,113,.25)" }}
+                      style={{ color: "#2596be", background: "rgba(37,150,190,.1)", border: "1px solid rgba(37,150,190,.25)" }}
                     >
                       Piel {analysis.tipo_piel}
                     </span>
@@ -429,8 +429,8 @@ export function SkinAnalyzerClient() {
                       key={t.tratamiento}
                       className="p-3 rounded-xl"
                       style={{
-                        background: t.prioridad === "alta" ? "rgba(95,124,113,.05)" : "#FAFAF8",
-                        border: t.prioridad === "alta" ? "1px solid rgba(95,124,113,.15)" : "1px solid #E7E3DC",
+                        background: t.prioridad === "alta" ? "rgba(37,150,190,.05)" : "#FAFAF8",
+                        border: t.prioridad === "alta" ? "1px solid rgba(37,150,190,.15)" : "1px solid #E7E3DC",
                       }}
                     >
                       <div className="flex items-center gap-2 mb-1">
@@ -438,7 +438,7 @@ export function SkinAnalyzerClient() {
                         {t.prioridad === "alta" && (
                           <span
                             className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
-                            style={{ color: "#5F7C71", background: "rgba(95,124,113,.1)" }}
+                            style={{ color: "#2596be", background: "rgba(37,150,190,.1)" }}
                           >
                             Prioritario
                           </span>
@@ -466,7 +466,7 @@ export function SkinAnalyzerClient() {
                   >
                     <div
                       className="font-display text-2xl font-black mb-1"
-                      style={{ color: "rgba(95,124,113,.6)" }}
+                      style={{ color: "rgba(37,150,190,.6)" }}
                     >
                       {i + 1}
                     </div>
@@ -479,7 +479,7 @@ export function SkinAnalyzerClient() {
             {/* CTA */}
             <div
               className="rounded-3xl p-8 text-center"
-              style={{ background: "linear-gradient(135deg, #5F7C71, #4D675E)" }}
+              style={{ background: "linear-gradient(135deg, #2596be, #1e7a9e)" }}
             >
               <h3 className="font-display text-2xl font-black text-white mb-2">
                 {analysis.siguiente_paso}
@@ -491,7 +491,7 @@ export function SkinAnalyzerClient() {
                 <Link
                   href="/agendar"
                   className="inline-flex items-center justify-center gap-2.5 font-bold px-8 py-4 transition-all duration-200 hover:-translate-y-0.5"
-                  style={{ background: "white", color: "#5F7C71", borderRadius: "18px" }}
+                  style={{ background: "white", color: "#2596be", borderRadius: "18px" }}
                 >
                   Agendar Skin Analyzer presencial — Gratis
                   <ArrowRight className="w-5 h-5" />

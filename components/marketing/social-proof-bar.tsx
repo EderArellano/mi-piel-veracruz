@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 
@@ -67,7 +67,7 @@ export function SocialProofBar() {
     <div
       key={key}
       className="inline-flex items-center gap-3 px-5 shrink-0"
-      style={{ borderRight: "1px solid rgba(95,124,113,.12)" }}
+      style={{ borderRight: "1px solid rgba(37,150,190,.12)" }}
     >
       {item.visual === "stars" ? (
         <div className="flex items-center gap-2">

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Home, Calendar, Tag, Phone, MessageCircle, ArrowRight, Sparkles } from "lucide-react";
 
 const WA = "https://wa.me/522299330014?text=Hola%2C%20vine%20desde%20la%20p%C3%A1gina%20web%20y%20necesito%20ayuda.";
@@ -43,7 +43,7 @@ export default function NotFound() {
             textDecoration: "none",
           }}
         >
-          Mi Piel <span style={{ color: "#5F7C71" }}>Veracruz</span>
+          Mi Piel <span style={{ color: "#2596be" }}>Veracruz</span>
         </Link>
         <Link
           href="/agendar"
@@ -51,7 +51,7 @@ export default function NotFound() {
             display: "inline-flex",
             alignItems: "center",
             gap: "6px",
-            background: "#5F7C71",
+            background: "#2596be",
             color: "white",
             fontWeight: 600,
             fontSize: "13px",
@@ -73,7 +73,7 @@ export default function NotFound() {
           style={{
             fontSize: "clamp(100px, 20vw, 180px)",
             lineHeight: 1,
-            background: "linear-gradient(135deg, rgba(95,124,113,.12) 0%, rgba(200,169,106,.10) 100%)",
+            background: "linear-gradient(135deg, rgba(37,150,190,.12) 0%, rgba(200,169,106,.10) 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -87,9 +87,9 @@ export default function NotFound() {
         <div
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5"
           style={{
-            background: "rgba(95,124,113,.08)",
-            border: "1px solid rgba(95,124,113,.2)",
-            color: "#5F7C71",
+            background: "rgba(37,150,190,.08)",
+            border: "1px solid rgba(37,150,190,.2)",
+            color: "#2596be",
             fontSize: "12px",
             fontWeight: 700,
             letterSpacing: "0.08em",
@@ -118,7 +118,7 @@ export default function NotFound() {
         <p className="text-center max-w-md mb-10" style={{ color: "#6F6F6F", fontSize: "16px", lineHeight: 1.6 }}>
           Quizás el enlace cambió o hay un error en la URL. Pero no te preocupes —
           tu consulta de Skin Analyzer sigue siendo{" "}
-          <span style={{ color: "#5F7C71", fontWeight: 600 }}>completamente gratis</span>.
+          <span style={{ color: "#2596be", fontWeight: 600 }}>completamente gratis</span>.
         </p>
 
         {/* Nav grid */}
@@ -140,17 +140,17 @@ export default function NotFound() {
                   width: 34,
                   height: 34,
                   borderRadius: "10px",
-                  background: "rgba(95,124,113,.08)",
+                  background: "rgba(37,150,190,.08)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   marginBottom: 4,
                 }}
               >
-                <Icon className="w-4 h-4" style={{ color: "#5F7C71" }} />
+                <Icon className="w-4 h-4" style={{ color: "#2596be" }} />
               </div>
               <span
-                className="font-semibold text-sm group-hover:text-[#5F7C71] transition-colors"
+                className="font-semibold text-sm group-hover:text-[#2596be] transition-colors"
                 style={{ color: "#2B2B2B" }}
               >
                 {label}
@@ -197,7 +197,7 @@ export default function NotFound() {
         style={{ borderTop: "1px solid #E7E3DC", color: "#9A9A9A", fontSize: "12px" }}
       >
         Mi Piel Centro Dermocosmético · Boca del Río, Veracruz ·{" "}
-        <a href="tel:+522299330014" style={{ color: "#5F7C71" }}>
+        <a href="tel:+522299330014" style={{ color: "#2596be" }}>
           +52 229 933 0014
         </a>
       </footer>

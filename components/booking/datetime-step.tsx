@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useCallback } from "react";
 import {
@@ -90,10 +90,10 @@ function MonthCalendar({
                 disabled
                   ? "opacity-25 cursor-not-allowed text-[#9CA3AF]"
                   : isSelected
-                  ? "bg-[#5F7C71] text-white shadow-lg scale-105"
+                  ? "bg-[#2596be] text-white shadow-lg scale-105"
                   : isToday
-                  ? "ring-2 ring-[#5F7C71] text-[#5F7C71]"
-                  : "text-[#2B2B2B] hover:bg-[#5F7C71]/10 hover:text-[#5F7C71]"
+                  ? "ring-2 ring-[#2596be] text-[#2596be]"
+                  : "text-[#2B2B2B] hover:bg-[#2596be]/10 hover:text-[#2596be]"
               )}
             >
               {format(date, "d")}
@@ -179,8 +179,8 @@ export function DateTimeStep({
               className={cn(
                 "px-4 py-2 rounded-full text-sm font-medium border-2 transition-all",
                 pickedEmployee === ""
-                  ? "border-[#5F7C71] bg-[#5F7C71]/8 text-[#5F7C71]"
-                  : "border-[#E7E3DC] text-[#6B6B6B] hover:border-[#5F7C71]/40"
+                  ? "border-[#2596be] bg-[#2596be]/8 text-[#2596be]"
+                  : "border-[#E7E3DC] text-[#6B6B6B] hover:border-[#2596be]/40"
               )}
             >
               Cualquier especialista
@@ -192,8 +192,8 @@ export function DateTimeStep({
                 className={cn(
                   "px-4 py-2 rounded-full text-sm font-medium border-2 transition-all",
                   pickedEmployee === emp.id
-                    ? "border-[#5F7C71] bg-[#5F7C71]/8 text-[#5F7C71]"
-                    : "border-[#E7E3DC] text-[#6B6B6B] hover:border-[#5F7C71]/40"
+                    ? "border-[#2596be] bg-[#2596be]/8 text-[#2596be]"
+                    : "border-[#E7E3DC] text-[#6B6B6B] hover:border-[#2596be]/40"
                 )}
               >
                 {emp.user.name}
@@ -219,7 +219,7 @@ export function DateTimeStep({
             <ChevronLeft className="w-4 h-4" />
           </button>
 
-          <div className="flex items-center gap-3 text-sm font-semibold text-[#5F7C71] capitalize">
+          <div className="flex items-center gap-3 text-sm font-semibold text-[#2596be] capitalize">
             <span>{format(baseMonth, "MMMM", { locale: es })}</span>
             <span className="text-[#E7E3DC]">|</span>
             <span>{format(nextMonth, "MMMM", { locale: es })}</span>
@@ -255,11 +255,11 @@ export function DateTimeStep({
         {/* Calendar legend */}
         <div className="px-5 py-3 border-t border-[#E7E3DC] bg-[#FAFAF8] flex flex-wrap gap-4 text-xs text-[#9CA3AF]">
           <span className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-[#5F7C71] inline-block" />
+            <span className="w-3 h-3 rounded-full bg-[#2596be] inline-block" />
             Seleccionado
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full ring-2 ring-[#5F7C71] inline-block" />
+            <span className="w-3 h-3 rounded-full ring-2 ring-[#2596be] inline-block" />
             Hoy
           </span>
           <span className="flex items-center gap-1.5">
@@ -274,7 +274,7 @@ export function DateTimeStep({
         <div className="bg-white rounded-2xl border border-[#E7E3DC] shadow-[0_2px_16px_rgba(0,0,0,.06)] overflow-hidden">
           {/* Header */}
           <div className="px-5 py-3 border-b border-[#E7E3DC] bg-[#FAFAF8] flex items-center gap-2">
-            <Clock className="w-4 h-4 text-[#5F7C71]" />
+            <Clock className="w-4 h-4 text-[#2596be]" />
             <span className="text-sm font-semibold text-[#2B2B2B] capitalize">
               {format(pickedDate, "EEEE d 'de' MMMM", { locale: es })}
             </span>
@@ -283,7 +283,7 @@ export function DateTimeStep({
           <div className="px-5 py-4">
             {loadingSlots ? (
               <div className="flex justify-center py-8">
-                <Loader2 className="w-6 h-6 animate-spin text-[#5F7C71]" />
+                <Loader2 className="w-6 h-6 animate-spin text-[#2596be]" />
               </div>
             ) : (
               <>
@@ -304,10 +304,10 @@ export function DateTimeStep({
                             "cursor-not-allowed border-[#FFCDD2] bg-[#FFF0F0] text-[#EF9A9A] line-through",
                           // ── SELECCIONADO ──
                           isSelected &&
-                            "border-[#5F7C71] bg-[#5F7C71] text-white shadow-md scale-105",
+                            "border-[#2596be] bg-[#2596be] text-white shadow-md scale-105",
                           // ── DISPONIBLE ──
                           !isBusy && !isSelected &&
-                            "border-[#E7E3DC] text-[#2B2B2B] hover:border-[#5F7C71]/50 hover:bg-[#5F7C71]/5 hover:text-[#5F7C71]"
+                            "border-[#E7E3DC] text-[#2B2B2B] hover:border-[#2596be]/50 hover:bg-[#2596be]/5 hover:text-[#2596be]"
                         )}
                       >
                         {time}
@@ -319,7 +319,7 @@ export function DateTimeStep({
                 {/* Time legend */}
                 <div className="flex flex-wrap items-center gap-4 mt-4 pt-3 border-t border-[#E7E3DC] text-xs text-[#9CA3AF]">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-3 h-3 rounded border-2 border-[#5F7C71] bg-[#5F7C71] inline-block" />
+                    <span className="w-3 h-3 rounded border-2 border-[#2596be] bg-[#2596be] inline-block" />
                     Seleccionado
                   </span>
                   <span className="flex items-center gap-1.5">

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2 } from "lucide-react";
 
-const DOT_GRID = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='1' cy='1' r='1' fill='%235F7C71' opacity='0.035'/%3E%3C/svg%3E")`;
+const DOT_GRID = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='1' cy='1' r='1' fill='%232596be' opacity='0.035'/%3E%3C/svg%3E")`;
 const WA = "https://wa.me/522299330014?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20depilaci%C3%B3n%20l%C3%A1ser%20en%20Veracruz.";
 
 const results = [
@@ -52,7 +52,7 @@ export function HeroSection() {
       style={{ background: "#FAFAF8" }}
     >
       {/* Backgrounds */}
-      <div className="hero-glow absolute pointer-events-none" style={{ top: "-15%", right: 0, width: "65%", height: "75%", background: "radial-gradient(ellipse 60% 55% at 75% -5%, rgba(95,124,113,.09) 0%, transparent 60%)" }} />
+      <div className="hero-glow absolute pointer-events-none" style={{ top: "-15%", right: 0, width: "65%", height: "75%", background: "radial-gradient(ellipse 60% 55% at 75% -5%, rgba(37,150,190,.09) 0%, transparent 60%)" }} />
       <div className="absolute pointer-events-none" style={{ bottom: 0, left: 0, width: "55%", height: "55%", background: "radial-gradient(ellipse 50% 40% at -5% 110%, rgba(200,169,106,.07) 0%, transparent 55%)" }} />
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: DOT_GRID, backgroundSize: "40px 40px" }} />
       <div className="absolute bottom-0 inset-x-0 h-40 pointer-events-none" style={{ background: "linear-gradient(to top, #FAFAF8, transparent)" }} />
@@ -78,7 +78,7 @@ export function HeroSection() {
                 4.9 · 49 reseñas Google
               </span>
               <span className="w-px h-3.5 bg-black/10 hidden sm:block" />
-              <span className="text-xs font-bold hidden sm:block" style={{ color: "#5F7C71" }}>+5,000 pacientes</span>
+              <span className="text-xs font-bold hidden sm:block" style={{ color: "#2596be" }}>+5,000 pacientes</span>
             </div>
 
             {/* Headline */}
@@ -87,7 +87,7 @@ export function HeroSection() {
               <span className="hero-line block text-[clamp(3rem,7vw,5.5rem)]" style={{ color: "#2B2B2B" }}>Para siempre.</span>
               <span
                 className="hero-line block text-[clamp(2rem,4.5vw,3.5rem)] font-bold mt-2"
-                style={{ background: "linear-gradient(125deg, #5F7C71 0%, #C8A96A 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
+                style={{ background: "linear-gradient(125deg, #2596be 0%, #C8A96A 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
               >
                 En Veracruz.
               </span>
@@ -102,7 +102,7 @@ export function HeroSection() {
             <div className="hero-checks space-y-2.5 mb-9">
               {checks.map((c) => (
                 <div key={c} className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "#5F7C71" }} />
+                  <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "#2596be" }} />
                   <span className="text-sm font-medium" style={{ color: "#4A4A4A" }}>{c}</span>
                 </div>
               ))}
@@ -113,7 +113,7 @@ export function HeroSection() {
               <Link
                 href="/agendar"
                 className="group relative inline-flex items-center justify-center gap-2.5 text-white font-bold text-base px-8 py-4 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
-                style={{ background: "#5F7C71", borderRadius: "18px", boxShadow: "0 0 40px rgba(95,124,113,.28), 0 4px 20px rgba(95,124,113,.2)" }}
+                style={{ background: "#2596be", borderRadius: "18px", boxShadow: "0 0 40px rgba(37,150,190,.28), 0 4px 20px rgba(37,150,190,.2)" }}
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/8 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 Agenda — Skin Analyzer Gratis
@@ -139,7 +139,7 @@ export function HeroSection() {
               style={{ background: "white", border: "1px solid #E7E3DC", boxShadow: "0 30px 70px rgba(0,0,0,.09)" }}
             >
               {/* Top gradient bar */}
-              <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
+              <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #2596be, #C8A96A)" }} />
 
               {/* Before / After visual */}
               <div className="relative h-52 overflow-hidden">
@@ -156,15 +156,15 @@ export function HeroSection() {
                 </div>
 
                 {/* After */}
-                <div className="absolute inset-0 left-1/2" style={{ background: "linear-gradient(135deg, #EAF0ED 0%, #D6E6DF 100%)" }}>
+                <div className="absolute inset-0 left-1/2" style={{ background: "linear-gradient(135deg, #e5f3f8 0%, #c5e6f3 100%)" }}>
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                    <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#5F7C71" }}>Después</span>
+                    <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#2596be" }}>Después</span>
                     <div className="flex flex-col gap-1.5 items-center opacity-10">
                       {[60, 80, 55, 70, 45].map((w, i) => (
-                        <div key={i} className="rounded-full" style={{ width: w, height: 3, background: "#5F7C71" }} />
+                        <div key={i} className="rounded-full" style={{ width: w, height: 3, background: "#2596be" }} />
                       ))}
                     </div>
-                    <span className="text-2xl font-black" style={{ color: "#5F7C71" }}>✓</span>
+                    <span className="text-2xl font-black" style={{ color: "#2596be" }}>✓</span>
                   </div>
                 </div>
 
@@ -175,7 +175,7 @@ export function HeroSection() {
                   style={{ background: "white", boxShadow: "0 4px 12px rgba(0,0,0,.15)" }}
                 >
                   <svg viewBox="0 0 16 16" width="14" height="14" fill="none">
-                    <path d="M5 8h6M8 5l3 3-3 3" stroke="#5F7C71" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M5 8h6M8 5l3 3-3 3" stroke="#2596be" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
               </div>
@@ -193,7 +193,7 @@ export function HeroSection() {
               {/* Zone tags */}
               <div className="px-5 pb-4 pt-3 flex flex-wrap gap-2" style={{ borderTop: "1px solid #E7E3DC" }}>
                 {["Axilas", "Bikini", "Piernas", "Facial", "Espalda"].map((z) => (
-                  <span key={z} className="text-xs px-3 py-1 rounded-full font-medium" style={{ background: "#EAF0ED", color: "#5F7C71" }}>
+                  <span key={z} className="text-xs px-3 py-1 rounded-full font-medium" style={{ background: "#e5f3f8", color: "#2596be" }}>
                     {z}
                   </span>
                 ))}
@@ -207,7 +207,7 @@ export function HeroSection() {
                 <Link
                   href="/agendar"
                   className="block w-full text-center text-white font-bold text-sm py-3.5 rounded-2xl transition-all hover:opacity-90"
-                  style={{ background: "#5F7C71" }}
+                  style={{ background: "#2596be" }}
                 >
                   Ver precios y zonas →
                 </Link>

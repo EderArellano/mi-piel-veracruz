@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
@@ -19,7 +19,7 @@ const CATEGORIES: { value: ProductCategory; label: string }[] = [
 const catLabel = (c: ProductCategory) => CATEGORIES.find((x) => x.value === c)?.label ?? c;
 
 const catColor: Record<string, string> = {
-  SKINCARE: "#5F7C71",
+  SKINCARE: "#2596be",
   COSMETICOS: "#C8A96A",
   SUPLEMENTOS: "#4F83CC",
   KITS: "#9B7B5B",
@@ -205,7 +205,7 @@ export function ProductManager({ initialProducts }: Props) {
       {toast && (
         <div
           className="fixed top-6 right-6 z-50 flex items-center gap-2.5 px-5 py-3 rounded-2xl shadow-xl text-sm font-medium"
-          style={{ background: toast.ok ? "#5F7C71" : "#D9534F", color: "white" }}
+          style={{ background: toast.ok ? "#2596be" : "#D9534F", color: "white" }}
         >
           {toast.ok ? <CheckCircle2 className="w-4 h-4" /> : <AlertCircle className="w-4 h-4" />}
           {toast.msg}
@@ -221,7 +221,7 @@ export function ProductManager({ initialProducts }: Props) {
         <button
           onClick={openCreate}
           className="flex items-center gap-2 px-5 py-2.5 rounded-[18px] text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
-          style={{ background: "#5F7C71", boxShadow: "0 8px 20px rgba(95,124,113,.2)" }}
+          style={{ background: "#2596be", boxShadow: "0 8px 20px rgba(37,150,190,.2)" }}
         >
           <Plus className="w-4 h-4" />
           Nuevo producto
@@ -237,13 +237,13 @@ export function ProductManager({ initialProducts }: Props) {
             placeholder="Buscar productos..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full h-11 pl-10 pr-4 rounded-2xl border border-border bg-white text-sm focus:outline-none focus:border-[#5F7C71] focus:ring-2 focus:ring-[#5F7C71]/15 transition-all"
+            className="w-full h-11 pl-10 pr-4 rounded-2xl border border-border bg-white text-sm focus:outline-none focus:border-[#2596be] focus:ring-2 focus:ring-[#2596be]/15 transition-all"
           />
         </div>
         <select
           value={filterCat}
           onChange={(e) => setFilterCat(e.target.value as ProductCategory | "")}
-          className="h-11 px-4 rounded-2xl border border-border bg-white text-sm focus:outline-none focus:border-[#5F7C71] transition-all"
+          className="h-11 px-4 rounded-2xl border border-border bg-white text-sm focus:outline-none focus:border-[#2596be] transition-all"
         >
           <option value="">Todas las categorías</option>
           {CATEGORIES.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
@@ -255,7 +255,7 @@ export function ProductManager({ initialProducts }: Props) {
         <div className="card-premium p-16 text-center">
           <Package className="w-10 h-10 text-muted-foreground/40 mx-auto mb-3" />
           <p className="text-muted-foreground">No hay productos que coincidan</p>
-          <button onClick={openCreate} className="mt-4 text-sm font-semibold text-[#5F7C71] hover:underline">Crear el primero</button>
+          <button onClick={openCreate} className="mt-4 text-sm font-semibold text-[#2596be] hover:underline">Crear el primero</button>
         </div>
       ) : (
         <div className="space-y-2">
@@ -304,10 +304,10 @@ export function ProductManager({ initialProducts }: Props) {
                   <Star className={`w-4 h-4 ${p.isFeatured ? "fill-amber-400 text-amber-400" : "text-muted-foreground/40"}`} />
                 </button>
                 <button onClick={() => toggleActive(p)} title={p.isActive ? "Desactivar" : "Activar"} className="w-8 h-8 rounded-xl flex items-center justify-center transition-colors hover:bg-muted">
-                  {p.isActive ? <Eye className="w-4 h-4 text-[#5F7C71]" /> : <EyeOff className="w-4 h-4 text-muted-foreground/40" />}
+                  {p.isActive ? <Eye className="w-4 h-4 text-[#2596be]" /> : <EyeOff className="w-4 h-4 text-muted-foreground/40" />}
                 </button>
                 <button onClick={() => openEdit(p)} className="w-8 h-8 rounded-xl flex items-center justify-center transition-colors hover:bg-primary/8">
-                  <Pencil className="w-4 h-4 text-[#5F7C71]" />
+                  <Pencil className="w-4 h-4 text-[#2596be]" />
                 </button>
                 <button
                   onClick={() => handleDelete(p.id)}
@@ -415,7 +415,7 @@ export function ProductManager({ initialProducts }: Props) {
                   <div
                     onClick={() => handleField("isActive", !form.isActive)}
                     className="w-10 h-6 rounded-full relative transition-colors duration-200"
-                    style={{ background: form.isActive ? "#5F7C71" : "#E7E3DC" }}
+                    style={{ background: form.isActive ? "#2596be" : "#E7E3DC" }}
                   >
                     <div className={`absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-all duration-200 ${form.isActive ? "left-5" : "left-1"}`} />
                   </div>
@@ -443,7 +443,7 @@ export function ProductManager({ initialProducts }: Props) {
                 onClick={handleSave}
                 disabled={saving || !form.name || !form.slug || !form.price}
                 className="flex items-center gap-2 px-6 py-2.5 rounded-[18px] text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ background: "#5F7C71" }}
+                style={{ background: "#2596be" }}
               >
                 {saving && <Loader2 className="w-4 h-4 animate-spin" />}
                 {saving ? "Guardando..." : editing ? "Guardar cambios" : "Crear producto"}
@@ -475,8 +475,8 @@ export function ProductManager({ initialProducts }: Props) {
           appearance: auto;
         }
         .mp-input:focus {
-          border-color: #5F7C71;
-          box-shadow: 0 0 0 4px rgba(95,124,113,.15);
+          border-color: #2596be;
+          box-shadow: 0 0 0 4px rgba(37,150,190,.15);
           background: white;
         }
         .mp-input::placeholder {

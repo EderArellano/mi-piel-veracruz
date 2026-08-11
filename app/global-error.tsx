@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 
@@ -40,8 +40,8 @@ export default function GlobalError({
             width: 72,
             height: 72,
             borderRadius: 20,
-            background: "rgba(95,124,113,.10)",
-            border: "1px solid rgba(95,124,113,.2)",
+            background: "rgba(37,150,190,.10)",
+            border: "1px solid rgba(37,150,190,.2)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -80,7 +80,7 @@ export default function GlobalError({
           <button
             onClick={reset}
             style={{
-              background: "#5F7C71",
+              background: "#2596be",
               color: "white",
               border: "none",
               borderRadius: 14,

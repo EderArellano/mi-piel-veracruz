@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { Shield } from "lucide-react";
 
@@ -32,7 +32,7 @@ export default function PrivacidadPage() {
       {/* ── Hero ── */}
       <section className="pt-28 pb-10 bg-[#FAFAF8] border-b border-[#E7E3DC]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#5F7C71]/10 text-[#5F7C71] text-sm font-medium mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2596be]/10 text-[#2596be] text-sm font-medium mb-5">
             <Shield className="w-3.5 h-3.5" />
             Privacidad
           </div>
@@ -60,14 +60,14 @@ export default function PrivacidadPage() {
                 <a
                   key={s.id}
                   href={`#${s.id}`}
-                  className="block text-xs text-[#6B6B6B] hover:text-[#5F7C71] hover:bg-[#5F7C71]/5 px-2 py-1.5 rounded-lg border-l-2 border-transparent hover:border-[#5F7C71] transition-all"
+                  className="block text-xs text-[#6B6B6B] hover:text-[#2596be] hover:bg-[#2596be]/5 px-2 py-1.5 rounded-lg border-l-2 border-transparent hover:border-[#2596be] transition-all"
                 >
                   {s.label}
                 </a>
               ))}
             </nav>
             <div className="mt-4 pt-4 border-t border-[#E7E3DC]">
-              <Link href="/terminos" className="text-xs text-[#5F7C71] hover:underline block px-2">
+              <Link href="/terminos" className="text-xs text-[#2596be] hover:underline block px-2">
                 Ver Términos y Condiciones →
               </Link>
             </div>
@@ -97,7 +97,7 @@ export default function PrivacidadPage() {
               </div>
               <div className="grid grid-cols-[130px_1fr] gap-1">
                 <span className="font-semibold text-[#2B2B2B]">Correo:</span>
-                <a href="mailto:privacidad@mipielveracruz.com" className="text-[#5F7C71]">
+                <a href="mailto:privacidad@mipielveracruz.com" className="text-[#2596be]">
                   privacidad@mipielveracruz.com
                 </a>
               </div>
@@ -193,7 +193,7 @@ export default function PrivacidadPage() {
               <p className="mb-2">
                 Si usted <strong>no desea</strong> que sus datos sean tratados para las finalidades
                 secundarias, envíe un correo a{" "}
-                <a href="mailto:privacidad@mipielveracruz.com" className="text-[#5F7C71]">
+                <a href="mailto:privacidad@mipielveracruz.com" className="text-[#2596be]">
                   privacidad@mipielveracruz.com
                 </a>{" "}
                 indicando su negativa. La negativa no afectará la prestación del servicio.
@@ -236,7 +236,7 @@ export default function PrivacidadPage() {
                 },
               ].map((t) => (
                 <div key={t.titulo} className="flex gap-3 bg-white border border-[#E7E3DC] rounded-xl p-4">
-                  <div className="w-2 h-2 rounded-full bg-[#5F7C71] mt-1.5 shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-[#2596be] mt-1.5 shrink-0" />
                   <div>
                     <p className="font-semibold text-[#2B2B2B] mb-0.5">{t.titulo}</p>
                     <p>{t.desc}</p>
@@ -266,7 +266,7 @@ export default function PrivacidadPage() {
               ].map((d) => (
                 <div key={d.letra} className="bg-white border border-[#E7E3DC] rounded-2xl p-4">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-9 h-9 rounded-full bg-[#5F7C71] text-white font-bold flex items-center justify-center text-base shrink-0">
+                    <div className="w-9 h-9 rounded-full bg-[#2596be] text-white font-bold flex items-center justify-center text-base shrink-0">
                       {d.letra}
                     </div>
                     <span className="font-semibold text-[#2B2B2B]">{d.nombre}</span>
@@ -280,7 +280,7 @@ export default function PrivacidadPage() {
             <ol className="list-decimal pl-5 space-y-2">
               <li>
                 Envíe su solicitud a{" "}
-                <a href="mailto:privacidad@mipielveracruz.com" className="text-[#5F7C71]">
+                <a href="mailto:privacidad@mipielveracruz.com" className="text-[#2596be]">
                   privacidad@mipielveracruz.com
                 </a>{" "}
                 con el asunto: <strong>&quot;Solicitud ARCO&quot;</strong>.
@@ -302,7 +302,7 @@ export default function PrivacidadPage() {
               Si considera que su solicitud no fue atendida correctamente, puede presentar una queja
               ante el <strong>Instituto Nacional de Transparencia, Acceso a la Información y
               Protección de Datos Personales (INAI)</strong> en{" "}
-              <a href="https://www.inai.org.mx" target="_blank" rel="noopener noreferrer" className="text-[#5F7C71]">
+              <a href="https://www.inai.org.mx" target="_blank" rel="noopener noreferrer" className="text-[#2596be]">
                 www.inai.org.mx
               </a>.
             </p>
@@ -316,7 +316,7 @@ export default function PrivacidadPage() {
             <p className="mb-3">
               En cualquier momento puede revocar el consentimiento otorgado para el tratamiento de
               sus datos personales, enviando su solicitud a{" "}
-              <a href="mailto:privacidad@mipielveracruz.com" className="text-[#5F7C71]">
+              <a href="mailto:privacidad@mipielveracruz.com" className="text-[#2596be]">
                 privacidad@mipielveracruz.com
               </a>.
             </p>
@@ -369,7 +369,7 @@ export default function PrivacidadPage() {
                 { tipo: "Cookies de preferencias", desc: "Recuerdan configuraciones del usuario como tema y filtros de búsqueda.", obligatoria: false },
               ].map((c) => (
                 <div key={c.tipo} className="flex gap-3 bg-white border border-[#E7E3DC] rounded-xl p-3">
-                  <span className={`mt-0.5 text-xs font-bold px-2 py-0.5 rounded-full h-fit shrink-0 ${c.obligatoria ? "bg-[#5F7C71]/10 text-[#5F7C71]" : "bg-[#F4F2EE] text-[#6B6B6B]"}`}>
+                  <span className={`mt-0.5 text-xs font-bold px-2 py-0.5 rounded-full h-fit shrink-0 ${c.obligatoria ? "bg-[#2596be]/10 text-[#2596be]" : "bg-[#F4F2EE] text-[#6B6B6B]"}`}>
                     {c.obligatoria ? "Requerida" : "Opcional"}
                   </span>
                   <div>
@@ -463,7 +463,7 @@ export default function PrivacidadPage() {
             <div className="bg-[#F4F2EE] rounded-2xl p-5 space-y-2 text-sm">
               <div className="grid grid-cols-[130px_1fr] gap-1">
                 <span className="font-semibold text-[#2B2B2B]">Correo:</span>
-                <a href="mailto:privacidad@mipielveracruz.com" className="text-[#5F7C71]">
+                <a href="mailto:privacidad@mipielveracruz.com" className="text-[#2596be]">
                   privacidad@mipielveracruz.com
                 </a>
               </div>

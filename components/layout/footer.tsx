@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { Sparkles, MapPin, Phone, Mail, Instagram, Facebook, Clock } from "lucide-react";
@@ -29,7 +29,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2.5">
               <div
                 className="w-8 h-8 rounded-full flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #5F7C71, #C8A96A)" }}
+                style={{ background: "linear-gradient(135deg, #2596be, #C8A96A)" }}
               >
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
@@ -51,9 +51,9 @@ export function Footer() {
                 style={{ background: "white", border: "1px solid #E7E3DC", color: "#6F6F6F" }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.background = "#5F7C71";
+                  el.style.background = "#2596be";
                   el.style.color = "white";
-                  el.style.borderColor = "#5F7C71";
+                  el.style.borderColor = "#2596be";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLElement;
@@ -73,9 +73,9 @@ export function Footer() {
                 style={{ background: "white", border: "1px solid #E7E3DC", color: "#6F6F6F" }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.background = "#5F7C71";
+                  el.style.background = "#2596be";
                   el.style.color = "white";
-                  el.style.borderColor = "#5F7C71";
+                  el.style.borderColor = "#2596be";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLElement;
@@ -102,7 +102,7 @@ export function Footer() {
                     href={s.href}
                     className="text-sm transition-colors"
                     style={{ color: "#6F6F6F" }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#5F7C71"; }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#2596be"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#6F6F6F"; }}
                   >
                     {s.label}
@@ -124,7 +124,7 @@ export function Footer() {
                     href={b.href}
                     className="text-sm transition-colors"
                     style={{ color: "#6F6F6F" }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#5F7C71"; }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#2596be"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#6F6F6F"; }}
                   >
                     {b.label}
@@ -141,13 +141,13 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "#5F7C71" }} />
+                <MapPin className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "#2596be" }} />
                 <span className="text-sm" style={{ color: "#6F6F6F" }}>
                   Boca del Río, Veracruz, México
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 shrink-0" style={{ color: "#5F7C71" }} />
+                <Phone className="w-4 h-4 shrink-0" style={{ color: "#2596be" }} />
                 <a
                   href="tel:+522299330014"
                   className="text-sm transition-colors"
@@ -159,7 +159,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 shrink-0" style={{ color: "#5F7C71" }} />
+                <Mail className="w-4 h-4 shrink-0" style={{ color: "#2596be" }} />
                 <a
                   href="mailto:contacto@mipielveracruz.com"
                   className="text-sm transition-colors"
@@ -171,7 +171,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Clock className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "#5F7C71" }} />
+                <Clock className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "#2596be" }} />
                 <div className="text-sm" style={{ color: "#6F6F6F" }}>
                   <p>Lun–Vie: 9:00 – 20:00</p>
                   <p>Sáb: 9:00 – 15:00</p>

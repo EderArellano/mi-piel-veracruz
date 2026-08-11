@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -130,7 +130,7 @@ function ReviewCard({ review }: { review: (typeof REVIEWS)[0] }) {
           <button
             onClick={() => setExpanded((v) => !v)}
             className="ml-1 font-semibold"
-            style={{ color: "#5F7C71", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+            style={{ color: "#2596be", background: "none", border: "none", cursor: "pointer", padding: 0 }}
           >
             {expanded ? " Ver menos" : " Ver más"}
           </button>
@@ -141,7 +141,7 @@ function ReviewCard({ review }: { review: (typeof REVIEWS)[0] }) {
       <div className="flex items-center justify-between mt-auto pt-3" style={{ borderTop: "1px solid #F0EDE8" }}>
         <span
           className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full"
-          style={{ background: "rgba(95,124,113,.08)", color: "#5F7C71", border: "1px solid rgba(95,124,113,.15)" }}
+          style={{ background: "rgba(37,150,190,.08)", color: "#2596be", border: "1px solid rgba(37,150,190,.15)" }}
         >
           {review.service}
         </span>
@@ -185,7 +185,7 @@ export function TestimonialsSection() {
           <div>
             <div
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.16em] mb-4"
-              style={{ color: "#5F7C71", background: "rgba(95,124,113,.08)", border: "1px solid rgba(95,124,113,.18)" }}
+              style={{ color: "#2596be", background: "rgba(37,150,190,.08)", border: "1px solid rgba(37,150,190,.18)" }}
             >
               <GoogleG />
               Reseñas verificadas en Google
@@ -215,7 +215,7 @@ export function TestimonialsSection() {
               className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 disabled:opacity-30"
               style={{ background: "white", border: "1px solid #E7E3DC" }}
             >
-              <ArrowLeft className="w-4 h-4" style={{ color: "#5F7C71" }} />
+              <ArrowLeft className="w-4 h-4" style={{ color: "#2596be" }} />
             </button>
             <button
               onClick={() => scroll("right")}
@@ -223,7 +223,7 @@ export function TestimonialsSection() {
               className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 disabled:opacity-30"
               style={{ background: "white", border: "1px solid #E7E3DC" }}
             >
-              <ArrowRight className="w-4 h-4" style={{ color: "#5F7C71" }} />
+              <ArrowRight className="w-4 h-4" style={{ color: "#2596be" }} />
             </button>
           </div>
         </div>
@@ -252,7 +252,7 @@ export function TestimonialsSection() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:-translate-y-0.5"
-              style={{ background: "white", border: "1px solid #E7E3DC", color: "#5F7C71" }}
+              style={{ background: "white", border: "1px solid #E7E3DC", color: "#2596be" }}
             >
               <GoogleG />
               Dejar reseña en Google
@@ -260,7 +260,7 @@ export function TestimonialsSection() {
             <Link
               href="/agendar"
               className="inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-full text-white transition-all duration-200 hover:opacity-90"
-              style={{ background: "#5F7C71" }}
+              style={{ background: "#2596be" }}
             >
               Agendar cita
               <ArrowRight className="w-3.5 h-3.5" />

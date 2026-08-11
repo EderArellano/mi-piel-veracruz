@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Star, MessageCircle, Clock, Shield, Zap } from "lucide-react";
@@ -254,14 +254,14 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
-          style={{ width: "800px", height: "500px", background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(95,124,113,.08) 0%, transparent 70%)" }}
+          style={{ width: "800px", height: "500px", background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(37,150,190,.08) 0%, transparent 70%)" }}
         />
         <div className="section-container relative z-10">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm mb-8" style={{ color: "#9A9A9A" }}>
-            <Link href="/" className="transition-colors hover:text-[#5F7C71]" style={{ color: "#9A9A9A" }}>Inicio</Link>
+            <Link href="/" className="transition-colors hover:text-[#2596be]" style={{ color: "#9A9A9A" }}>Inicio</Link>
             <span>/</span>
-            <Link href="/servicios" className="transition-colors hover:text-[#5F7C71]" style={{ color: "#9A9A9A" }}>Servicios</Link>
+            <Link href="/servicios" className="transition-colors hover:text-[#2596be]" style={{ color: "#9A9A9A" }}>Servicios</Link>
             <span>/</span>
             <span style={{ color: "#6F6F6F" }}>{zone.title}</span>
           </nav>
@@ -270,7 +270,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
             {/* Badge */}
             <div
               className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] mb-6 px-3 py-1.5 rounded-full"
-              style={{ color: "#5F7C71", border: "1px solid rgba(95,124,113,.2)", background: "rgba(95,124,113,.1)" }}
+              style={{ color: "#2596be", border: "1px solid rgba(37,150,190,.2)", background: "rgba(37,150,190,.1)" }}
             >
               <Zap className="w-3.5 h-3.5" />
               Láser Diodo Grado Médico
@@ -307,7 +307,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
               <Link
                 href="/agendar"
                 className="group inline-flex items-center justify-center gap-2.5 text-white font-bold text-base px-8 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90"
-                style={{ background: "#5F7C71", borderRadius: "18px", boxShadow: "0 0 35px rgba(95,124,113,.25)" }}
+                style={{ background: "#2596be", borderRadius: "18px", boxShadow: "0 0 35px rgba(37,150,190,.25)" }}
               >
                 Consulta gratis — Skin Analyzer
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -316,7 +316,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 font-semibold text-base px-7 py-4 transition-all duration-200 hover:border-[#5F7C71] hover:text-[#5F7C71]"
+                className="inline-flex items-center justify-center gap-2 font-semibold text-base px-7 py-4 transition-all duration-200 hover:border-[#2596be] hover:text-[#2596be]"
                 style={{ border: "1.5px solid #E7E3DC", color: "#6F6F6F", background: "white", borderRadius: "18px" }}
               >
                 <MessageCircle className="w-5 h-5 text-[#22c55e]" />
@@ -332,15 +332,15 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="text-xs font-bold uppercase tracking-[0.18em] mb-4" style={{ color: "#5F7C71" }}>Beneficios</div>
+              <div className="text-xs font-bold uppercase tracking-[0.18em] mb-4" style={{ color: "#2596be" }}>Beneficios</div>
               <h2 className="font-display text-3xl md:text-4xl font-black mb-6" style={{ color: "#2B2B2B" }}>
                 Por qué elegir el láser diodo para{" "}
-                <span style={{ color: "#5F7C71" }}>{zone.zone.toLowerCase()}</span>
+                <span style={{ color: "#2596be" }}>{zone.zone.toLowerCase()}</span>
               </h2>
               <ul className="space-y-4">
                 {zone.benefits.map((b) => (
                   <li key={b} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#5F7C71" }} />
+                    <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#2596be" }} />
                     <span className="leading-relaxed" style={{ color: "#6F6F6F" }}>{b}</span>
                   </li>
                 ))}
@@ -352,7 +352,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
               className="overflow-hidden"
               style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "22px", boxShadow: "0 10px 35px rgba(0,0,0,.05)" }}
             >
-              <div className="h-1" style={{ background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
+              <div className="h-1" style={{ background: "linear-gradient(90deg, #2596be, #C8A96A)" }} />
               <div className="p-8">
                 <div className="flex items-center gap-2 mb-6">
                   {[...Array(5)].map((_, i) => (
@@ -366,7 +366,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
                   <span className="text-sm ml-2" style={{ color: "#9A9A9A" }}>MXN / sesión</span>
                 </div>
                 <p className="text-sm mb-2" style={{ color: "#6F6F6F" }}>
-                  o desde <span className="font-semibold" style={{ color: "#5F7C71" }}>${msiPrice}/mes</span> a 12 MSI con MercadoPago
+                  o desde <span className="font-semibold" style={{ color: "#2596be" }}>${msiPrice}/mes</span> a 12 MSI con MercadoPago
                 </p>
                 <div className="text-xs mb-8" style={{ color: "#9A9A9A" }}>{zone.sessions} sesiones · resultados permanentes</div>
 
@@ -377,7 +377,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
                     { icon: CheckCircle2, text: "Primera consulta GRATIS" },
                   ].map(({ icon: Icon, text }) => (
                     <div key={text} className="flex items-center gap-3 text-sm" style={{ color: "#6F6F6F" }}>
-                      <Icon className="w-4 h-4 shrink-0" style={{ color: "#5F7C71" }} />
+                      <Icon className="w-4 h-4 shrink-0" style={{ color: "#2596be" }} />
                       {text}
                     </div>
                   ))}
@@ -386,7 +386,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
                 <Link
                   href="/agendar"
                   className="w-full flex items-center justify-center gap-2 text-white font-bold py-3.5 transition-all duration-200 hover:opacity-90"
-                  style={{ background: "#5F7C71", borderRadius: "18px" }}
+                  style={{ background: "#2596be", borderRadius: "18px" }}
                 >
                   Agenda mi consulta gratis
                   <ArrowRight className="w-4 h-4" />
@@ -401,7 +401,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
       {/* FAQ */}
       <section className="py-16" style={{ background: "#FAFAF8" }}>
         <div className="section-container max-w-3xl">
-          <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3 text-center" style={{ color: "#5F7C71" }}>Preguntas frecuentes</div>
+          <div className="text-xs font-bold uppercase tracking-[0.18em] mb-3 text-center" style={{ color: "#2596be" }}>Preguntas frecuentes</div>
           <h2 className="font-display text-3xl md:text-4xl font-black text-center mb-12" style={{ color: "#2B2B2B" }}>
             Todo lo que necesitas saber
           </h2>
@@ -440,10 +440,10 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
                   className="group flex flex-col items-center text-center p-4 transition-all duration-200 hover:-translate-y-0.5"
                   style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "16px" }}
                 >
-                  <span className="text-sm font-semibold mb-1 group-hover:text-[#5F7C71] transition-colors" style={{ color: "#2B2B2B" }}>
+                  <span className="text-sm font-semibold mb-1 group-hover:text-[#2596be] transition-colors" style={{ color: "#2B2B2B" }}>
                     {r.label}
                   </span>
-                  <span className="text-xs" style={{ color: "#5F7C71" }}>desde ${r.price} MXN</span>
+                  <span className="text-xs" style={{ color: "#2596be" }}>desde ${r.price} MXN</span>
                 </Link>
               ))}
           </div>
@@ -451,7 +451,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16" style={{ background: "linear-gradient(135deg, #5F7C71, #4D675E)" }}>
+      <section className="py-16" style={{ background: "linear-gradient(135deg, #2596be, #1e7a9e)" }}>
         <div className="section-container text-center">
           <h2 className="font-display text-3xl md:text-4xl font-black text-white mb-4">
             ¿Lista para empezar?
@@ -463,7 +463,7 @@ export default async function ZonePage({ params }: { params: Promise<{ slug: str
             <Link
               href="/agendar"
               className="inline-flex items-center justify-center gap-2.5 font-bold px-9 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-95"
-              style={{ background: "white", color: "#5F7C71", borderRadius: "18px" }}
+              style={{ background: "white", color: "#2596be", borderRadius: "18px" }}
             >
               Agendar consulta gratis
               <ArrowRight className="w-5 h-5" />

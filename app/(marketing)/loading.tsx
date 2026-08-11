@@ -1,4 +1,4 @@
-export default function MarketingLoading() {
+﻿export default function MarketingLoading() {
   return (
     <>
       {/* Top progress bar */}
@@ -11,7 +11,7 @@ export default function MarketingLoading() {
           className="h-full animate-pulse"
           style={{
             width: "100%",
-            background: "linear-gradient(90deg, #5F7C71, #C8A96A, #5F7C71)",
+            background: "linear-gradient(90deg, #2596be, #C8A96A, #2596be)",
             backgroundSize: "200% 100%",
             animation: "slide 1.6s ease-in-out infinite",
           }}

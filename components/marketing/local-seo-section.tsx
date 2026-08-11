@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { MapPin, CheckCircle2 } from "lucide-react";
 
 const ZONES = [
@@ -60,7 +60,7 @@ export function LocalSeoSection() {
 
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#5F7C71]/10 text-[#5F7C71] text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2596be]/10 text-[#2596be] text-sm font-medium mb-4">
             <MapPin className="w-3.5 h-3.5" />
             Cobertura local
           </div>
@@ -78,7 +78,7 @@ export function LocalSeoSection() {
           {ZONES.map((z) => (
             <div key={z.city} className="bg-white rounded-2xl border border-[#E7E3DC] p-5 shadow-sm">
               <div className="flex items-center gap-2 mb-2">
-                <MapPin className="w-4 h-4 text-[#5F7C71] shrink-0" />
+                <MapPin className="w-4 h-4 text-[#2596be] shrink-0" />
                 <h3 className="font-semibold text-[#2B2B2B] text-sm">{z.city}</h3>
               </div>
               <p className="text-xs text-[#6B6B6B] leading-relaxed">{z.desc}</p>
@@ -96,9 +96,9 @@ export function LocalSeoSection() {
               <Link
                 key={s.h3}
                 href={s.href}
-                className="group bg-white rounded-2xl border border-[#E7E3DC] p-5 shadow-sm hover:border-[#5F7C71]/40 hover:shadow-md transition-all duration-200"
+                className="group bg-white rounded-2xl border border-[#E7E3DC] p-5 shadow-sm hover:border-[#2596be]/40 hover:shadow-md transition-all duration-200"
               >
-                <h3 className="font-semibold text-[#2B2B2B] text-sm mb-2 group-hover:text-[#5F7C71] transition-colors leading-snug">
+                <h3 className="font-semibold text-[#2B2B2B] text-sm mb-2 group-hover:text-[#2596be] transition-colors leading-snug">
                   {s.h3}
                 </h3>
                 <p className="text-xs text-[#6B6B6B] leading-relaxed">{s.text}</p>
@@ -124,7 +124,7 @@ export function LocalSeoSection() {
               "Financiamiento a 12 MSI — depilación láser definitiva al alcance de todos",
             ].map((item) => (
               <div key={item} className="flex gap-3 items-start">
-                <CheckCircle2 className="w-4 h-4 text-[#5F7C71] mt-0.5 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#2596be] mt-0.5 shrink-0" />
                 <p className="text-sm text-[#4B4B4B]">{item}</p>
               </div>
             ))}
@@ -132,7 +132,7 @@ export function LocalSeoSection() {
           <div className="text-center mt-6">
             <Link
               href="/agendar"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#5F7C71] text-white font-semibold text-sm hover:bg-[#4d6860] transition-colors shadow-md"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#2596be] text-white font-semibold text-sm hover:bg-[#4d6860] transition-colors shadow-md"
             >
               Agenda tu consulta gratis en Boca del Río →
             </Link>

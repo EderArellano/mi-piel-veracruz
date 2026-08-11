@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 import Link from "next/link";
@@ -22,7 +22,7 @@ export default function BlogPostError({
     >
       <div
         className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-5"
-        style={{ background: "rgba(95,124,113,.08)", color: "#5F7C71" }}
+        style={{ background: "rgba(37,150,190,.08)", color: "#2596be" }}
       >
         Error al cargar el artículo
       </div>
@@ -41,14 +41,14 @@ export default function BlogPostError({
         <button
           onClick={reset}
           className="inline-flex items-center gap-2 font-bold px-6 py-3.5 transition-opacity hover:opacity-90"
-          style={{ background: "#5F7C71", color: "white", borderRadius: "14px", border: "none", cursor: "pointer", fontSize: "14px" }}
+          style={{ background: "#2596be", color: "white", borderRadius: "14px", border: "none", cursor: "pointer", fontSize: "14px" }}
         >
           <RefreshCw className="w-4 h-4" />
           Reintentar
         </button>
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 font-semibold px-6 py-3.5 transition-colors hover:border-[#5F7C71] hover:text-[#5F7C71]"
+          className="inline-flex items-center gap-2 font-semibold px-6 py-3.5 transition-colors hover:border-[#2596be] hover:text-[#2596be]"
           style={{ border: "1px solid #E7E3DC", color: "#6F6F6F", borderRadius: "14px", textDecoration: "none", fontSize: "14px" }}
         >
           <ArrowLeft className="w-4 h-4" />

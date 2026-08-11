@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+﻿import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class"],
@@ -163,8 +163,8 @@ const config: Config = {
         "premium-lg": "0 18px 45px rgba(0,0,0,.08)",
         card: "0 8px 20px rgba(0,0,0,.04)",
         "card-hover": "0 18px 45px rgba(0,0,0,.08)",
-        glow: "0 0 40px rgba(95,124,113,.20)",
-        "glow-intense": "0 12px 30px rgba(95,124,113,.18)",
+        glow: "0 0 40px rgba(37,150,190,.20)",
+        "glow-intense": "0 12px 30px rgba(37,150,190,.18)",
         "inner-light": "inset 0 1px 0 rgba(255,255,255,0.8)",
       },
     },

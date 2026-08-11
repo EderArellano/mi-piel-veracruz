@@ -1,8 +1,8 @@
-export default function AgendarLoading() {
+﻿export default function AgendarLoading() {
   return (
     <div style={{ background: "#FAFAF8", minHeight: "100vh" }}>
       {/* Top accent */}
-      <div style={{ height: 3, background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
+      <div style={{ height: 3, background: "linear-gradient(90deg, #2596be, #C8A96A)" }} />
 
       <div className="section-container py-16 max-w-3xl">
         {/* Heading skeleton */}

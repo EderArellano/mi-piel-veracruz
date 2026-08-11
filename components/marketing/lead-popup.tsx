@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
@@ -96,7 +96,7 @@ export function LeadPopup() {
           </button>
 
           {/* Gradient top bar */}
-          <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
+          <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #2596be, #C8A96A)" }} />
 
           <div className="p-7">
             {/* Stars */}
@@ -113,7 +113,7 @@ export function LeadPopup() {
             <p
               className="font-display text-2xl font-black mb-4"
               style={{
-                background: "linear-gradient(125deg, #5F7C71, #C8A96A)",
+                background: "linear-gradient(125deg, #2596be, #C8A96A)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -133,7 +133,7 @@ export function LeadPopup() {
               onChange={(e) => setPhone(e.target.value)}
               className="w-full mb-3 px-4 py-3 text-sm transition-all outline-none"
               style={{ height: "52px", borderRadius: "14px", border: "1px solid #E7E3DC", background: "#FAFAF8", color: "#2B2B2B" }}
-              onFocus={(e) => { e.currentTarget.style.borderColor = "#5F7C71"; e.currentTarget.style.boxShadow = "0 0 0 4px rgba(95,124,113,.12)"; }}
+              onFocus={(e) => { e.currentTarget.style.borderColor = "#2596be"; e.currentTarget.style.boxShadow = "0 0 0 4px rgba(37,150,190,.12)"; }}
               onBlur={(e) => { e.currentTarget.style.borderColor = "#E7E3DC"; e.currentTarget.style.boxShadow = "none"; }}
             />
 

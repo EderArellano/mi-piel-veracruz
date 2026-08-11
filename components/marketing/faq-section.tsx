@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -103,14 +103,14 @@ export function FaqSection() {
     <section ref={sectionRef} id="preguntas-frecuentes" className="py-14 md:py-20 bg-[#FAFAF8]">
       <div className="section-container">
         <div className="faq-header text-center mb-8 md:mb-12">
-          <div className="inline-flex items-center gap-3 text-[#5F7C71] text-xs font-bold uppercase tracking-[0.2em] mb-5">
-            <span className="w-10 h-px bg-[#5F7C71]/40" />
+          <div className="inline-flex items-center gap-3 text-[#2596be] text-xs font-bold uppercase tracking-[0.2em] mb-5">
+            <span className="w-10 h-px bg-[#2596be]/40" />
             Preguntas frecuentes
-            <span className="w-10 h-px bg-[#5F7C71]/40" />
+            <span className="w-10 h-px bg-[#2596be]/40" />
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-extrabold text-[#2B2B2B] leading-tight mb-4">
             Todo lo que necesitas{" "}
-            <span style={{ background: "linear-gradient(135deg,#5F7C71,#C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(135deg,#2596be,#C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               saber
             </span>
           </h2>
@@ -132,13 +132,13 @@ export function FaqSection() {
                 className="w-full flex items-center justify-between p-5 text-left group"
                 aria-expanded={openIndex === i}
               >
-                <span className="font-semibold text-[#2B2B2B] group-hover:text-[#5F7C71] text-sm leading-snug pr-4 transition-colors">
+                <span className="font-semibold text-[#2B2B2B] group-hover:text-[#2596be] text-sm leading-snug pr-4 transition-colors">
                   {faq.question}
                 </span>
-                <span className="shrink-0 w-7 h-7 rounded-full bg-[#F4F2EE] group-hover:bg-[#5F7C71]/10 border border-[#E7E3DC] flex items-center justify-center transition-colors duration-200">
+                <span className="shrink-0 w-7 h-7 rounded-full bg-[#F4F2EE] group-hover:bg-[#2596be]/10 border border-[#E7E3DC] flex items-center justify-center transition-colors duration-200">
                   {openIndex === i
-                    ? <Minus className="w-3.5 h-3.5 text-[#5F7C71]" />
-                    : <Plus className="w-3.5 h-3.5 text-[#9CA3AF] group-hover:text-[#5F7C71] transition-colors" />
+                    ? <Minus className="w-3.5 h-3.5 text-[#2596be]" />
+                    : <Plus className="w-3.5 h-3.5 text-[#9CA3AF] group-hover:text-[#2596be] transition-colors" />
                   }
                 </span>
               </button>

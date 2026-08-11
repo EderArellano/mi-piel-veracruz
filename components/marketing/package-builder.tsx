@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
@@ -95,7 +95,7 @@ export function PackageBuilder() {
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200"
                 style={
                   selected.size >= t.min && selected.size <= t.max
-                    ? { background: "rgba(95,124,113,.1)", border: "1px solid rgba(95,124,113,.35)", color: "#5F7C71" }
+                    ? { background: "rgba(37,150,190,.1)", border: "1px solid rgba(37,150,190,.35)", color: "#2596be" }
                     : { background: "white", border: "1px solid #E7E3DC", color: "#9A9A9A" }
                 }
               >
@@ -123,17 +123,17 @@ export function PackageBuilder() {
                           onClick={() => toggle(zone.id)}
                           className="flex items-center gap-3 p-4 rounded-2xl text-left transition-all duration-200 hover:scale-[1.01]"
                           style={{
-                            background: isActive ? "rgba(95,124,113,.06)" : "white",
-                            border: isActive ? "1.5px solid rgba(95,124,113,.45)" : "1.5px solid #E7E3DC",
-                            boxShadow: isActive ? "0 4px 16px rgba(95,124,113,.1)" : "0 2px 8px rgba(0,0,0,.03)",
+                            background: isActive ? "rgba(37,150,190,.06)" : "white",
+                            border: isActive ? "1.5px solid rgba(37,150,190,.45)" : "1.5px solid #E7E3DC",
+                            boxShadow: isActive ? "0 4px 16px rgba(37,150,190,.1)" : "0 2px 8px rgba(0,0,0,.03)",
                           }}
                         >
                           {/* Checkbox */}
                           <div
                             className="w-5 h-5 rounded-md flex items-center justify-center shrink-0 transition-all duration-200"
                             style={{
-                              background: isActive ? "#5F7C71" : "white",
-                              border: isActive ? "2px solid #5F7C71" : "2px solid #E7E3DC",
+                              background: isActive ? "#2596be" : "white",
+                              border: isActive ? "2px solid #2596be" : "2px solid #E7E3DC",
                             }}
                           >
                             {isActive && (
@@ -157,7 +157,7 @@ export function PackageBuilder() {
                           <div className="text-right shrink-0">
                             <div
                               className="text-sm font-bold transition-colors"
-                              style={{ color: isActive ? "#5F7C71" : "#9A9A9A" }}
+                              style={{ color: isActive ? "#2596be" : "#9A9A9A" }}
                             >
                               ${zone.price.toLocaleString("es-MX")}
                             </div>
@@ -178,7 +178,7 @@ export function PackageBuilder() {
               className="sticky top-24 rounded-3xl overflow-hidden"
               style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "22px", boxShadow: "0 10px 35px rgba(0,0,0,.05)" }}
             >
-              <div className="h-1" style={{ background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
+              <div className="h-1" style={{ background: "linear-gradient(90deg, #2596be, #C8A96A)" }} />
               <div className="p-6">
                 <div className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#2B2B2B" }}>Tu paquete</div>
 
@@ -186,10 +186,10 @@ export function PackageBuilder() {
                   <div className="py-6 text-center">
                     <div
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
-                      style={{ background: "rgba(95,124,113,.08)", border: "1px solid rgba(95,124,113,.2)" }}
+                      style={{ background: "rgba(37,150,190,.08)", border: "1px solid rgba(37,150,190,.2)" }}
                     >
-                      <Sparkles className="w-4 h-4" style={{ color: "#5F7C71" }} />
-                      <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#5F7C71" }}>Paquete Personalizado</span>
+                      <Sparkles className="w-4 h-4" style={{ color: "#2596be" }} />
+                      <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#2596be" }}>Paquete Personalizado</span>
                     </div>
                     <p className="text-sm" style={{ color: "#9A9A9A" }}>Selecciona las zonas que quieres tratar</p>
                   </div>
@@ -225,7 +225,7 @@ export function PackageBuilder() {
                         <span className="font-bold" style={{ color: "#2B2B2B" }}>Total / sesión</span>
                         <span className="font-display text-2xl font-black" style={{ color: "#2B2B2B" }}>${total.toLocaleString("es-MX")}</span>
                       </div>
-                      <div className="text-xs text-right" style={{ color: "#5F7C71" }}>
+                      <div className="text-xs text-right" style={{ color: "#2596be" }}>
                         o desde <span className="font-bold">${msi}/mes</span> a 12 MSI
                       </div>
                     </div>
@@ -259,8 +259,8 @@ export function PackageBuilder() {
                     style={{ border: "1.5px solid #E7E3DC", color: "#6F6F6F", background: "white" }}
                     onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLElement;
-                      el.style.borderColor = "#5F7C71";
-                      el.style.color = "#5F7C71";
+                      el.style.borderColor = "#2596be";
+                      el.style.color = "#2596be";
                     }}
                     onMouseLeave={(e) => {
                       const el = e.currentTarget as HTMLElement;

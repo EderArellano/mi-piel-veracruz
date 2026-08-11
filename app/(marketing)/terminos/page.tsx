@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { FileText } from "lucide-react";
 
@@ -34,7 +34,7 @@ export default function TerminosPage() {
       {/* ── Hero ── */}
       <section className="pt-28 pb-10 bg-[#FAFAF8] border-b border-[#E7E3DC]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#5F7C71]/10 text-[#5F7C71] text-sm font-medium mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2596be]/10 text-[#2596be] text-sm font-medium mb-5">
             <FileText className="w-3.5 h-3.5" />
             Legal
           </div>
@@ -63,14 +63,14 @@ export default function TerminosPage() {
                 <a
                   key={s.id}
                   href={`#${s.id}`}
-                  className="block text-xs text-[#6B6B6B] hover:text-[#5F7C71] hover:bg-[#5F7C71]/5 px-2 py-1.5 rounded-lg border-l-2 border-transparent hover:border-[#5F7C71] transition-all"
+                  className="block text-xs text-[#6B6B6B] hover:text-[#2596be] hover:bg-[#2596be]/5 px-2 py-1.5 rounded-lg border-l-2 border-transparent hover:border-[#2596be] transition-all"
                 >
                   {s.label}
                 </a>
               ))}
             </nav>
             <div className="mt-4 pt-4 border-t border-[#E7E3DC]">
-              <Link href="/privacidad" className="text-xs text-[#5F7C71] hover:underline block px-2">
+              <Link href="/privacidad" className="text-xs text-[#2596be] hover:underline block px-2">
                 Ver Aviso de Privacidad →
               </Link>
             </div>
@@ -453,7 +453,7 @@ export default function TerminosPage() {
             </p>
             <div className="bg-[#F4F2EE] rounded-xl p-4 text-sm space-y-1">
               <p>Tel. PROFECO: <strong>55 5568-8722</strong> (CDMX) / <strong>800 468-8722</strong> (nacional)</p>
-              <p>Portal: <a href="https://www.gob.mx/profeco" target="_blank" rel="noopener noreferrer" className="text-[#5F7C71]">www.gob.mx/profeco</a></p>
+              <p>Portal: <a href="https://www.gob.mx/profeco" target="_blank" rel="noopener noreferrer" className="text-[#2596be]">www.gob.mx/profeco</a></p>
             </div>
           </section>
 
@@ -468,17 +468,17 @@ export default function TerminosPage() {
             <div className="bg-[#F4F2EE] rounded-2xl p-5 space-y-2 text-sm">
               <div className="grid grid-cols-[130px_1fr] gap-1">
                 <span className="font-semibold text-[#2B2B2B]">Correo:</span>
-                <a href="mailto:contacto@mipielveracruz.com" className="text-[#5F7C71]">
+                <a href="mailto:contacto@mipielveracruz.com" className="text-[#2596be]">
                   contacto@mipielveracruz.com
                 </a>
               </div>
               <div className="grid grid-cols-[130px_1fr] gap-1">
                 <span className="font-semibold text-[#2B2B2B]">Teléfono:</span>
-                <a href="tel:+522299330014" className="text-[#5F7C71]">+52 229 933 00 14</a>
+                <a href="tel:+522299330014" className="text-[#2596be]">+52 229 933 00 14</a>
               </div>
               <div className="grid grid-cols-[130px_1fr] gap-1">
                 <span className="font-semibold text-[#2B2B2B]">WhatsApp:</span>
-                <a href="https://wa.me/522299330014" target="_blank" rel="noopener noreferrer" className="text-[#5F7C71]">
+                <a href="https://wa.me/522299330014" target="_blank" rel="noopener noreferrer" className="text-[#2596be]">
                   wa.me/522299330014
                 </a>
               </div>
@@ -502,7 +502,7 @@ export default function TerminosPage() {
               <li>Constitución Política de los Estados Unidos Mexicanos — Arts. 4°, 16</li>
             </ul>
             <p className="mt-2">
-              <Link href="/privacidad" className="text-[#5F7C71] hover:underline">
+              <Link href="/privacidad" className="text-[#2596be] hover:underline">
                 Ver Aviso de Privacidad
               </Link>
             </p>

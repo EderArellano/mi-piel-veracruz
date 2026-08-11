@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Sparkles, ArrowRight, MessageCircle } from "lucide-react";
 
 const QUICK_ZONES = [
@@ -16,14 +16,14 @@ export default function ServicioNotFound() {
     >
       <div
         className="w-16 h-16 flex items-center justify-center mb-6"
-        style={{ background: "rgba(95,124,113,.08)", border: "1px solid rgba(95,124,113,.18)", borderRadius: 20 }}
+        style={{ background: "rgba(37,150,190,.08)", border: "1px solid rgba(37,150,190,.18)", borderRadius: 20 }}
       >
-        <Sparkles className="w-7 h-7" style={{ color: "#5F7C71" }} />
+        <Sparkles className="w-7 h-7" style={{ color: "#2596be" }} />
       </div>
 
       <div
         className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-5"
-        style={{ background: "rgba(95,124,113,.08)", color: "#5F7C71" }}
+        style={{ background: "rgba(37,150,190,.08)", color: "#2596be" }}
       >
         Zona no encontrada
       </div>
@@ -48,12 +48,12 @@ export default function ServicioNotFound() {
             style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: "14px", textDecoration: "none" }}
           >
             <span
-              className="font-semibold text-sm group-hover:text-[#5F7C71] transition-colors"
+              className="font-semibold text-sm group-hover:text-[#2596be] transition-colors"
               style={{ color: "#2B2B2B" }}
             >
               {label}
             </span>
-            <span style={{ color: "#5F7C71", fontSize: "11px", fontWeight: 700 }}>{price} MXN</span>
+            <span style={{ color: "#2596be", fontSize: "11px", fontWeight: 700 }}>{price} MXN</span>
           </Link>
         ))}
       </div>
@@ -62,7 +62,7 @@ export default function ServicioNotFound() {
         <Link
           href="/servicios"
           className="inline-flex items-center gap-2 font-bold px-7 py-3.5 transition-opacity hover:opacity-90"
-          style={{ background: "#5F7C71", color: "white", borderRadius: "14px", textDecoration: "none", fontSize: "14px" }}
+          style={{ background: "#2596be", color: "white", borderRadius: "14px", textDecoration: "none", fontSize: "14px" }}
         >
           Ver todos los servicios
           <ArrowRight className="w-4 h-4" />

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -57,7 +57,7 @@ export function StatsSection({ live }: { live?: Partial<LiveStats> }) {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden py-14 md:py-18" style={{ background: "#5F7C71" }}>
+    <section ref={sectionRef} className="relative overflow-hidden py-14 md:py-18" style={{ background: "#2596be" }}>
       <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,.15), transparent)" }} />
       <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,.15), transparent)" }} />
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

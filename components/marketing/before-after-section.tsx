@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import Link from "next/link";
@@ -102,8 +102,8 @@ function ComparisonSlider({ zone }: { zone: (typeof ZONES)[0] }) {
       {/* AFTER — clipped */}
       <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
         <div className="absolute inset-0" style={{ background: zone.afterBg }} />
-        <span className="absolute top-4 left-4 text-[11px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full" style={{ background: "rgba(95,124,113,.85)", color: "white" }}>Después</span>
-        <span className="absolute bottom-4 left-4 text-xs font-medium px-2.5 py-1 rounded-full" style={{ background: "rgba(95,124,113,.8)", color: "white", backdropFilter: "blur(4px)", maxWidth: "55%" }}>{zone.afterNote}</span>
+        <span className="absolute top-4 left-4 text-[11px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full" style={{ background: "rgba(37,150,190,.85)", color: "white" }}>Después</span>
+        <span className="absolute bottom-4 left-4 text-xs font-medium px-2.5 py-1 rounded-full" style={{ background: "rgba(37,150,190,.8)", color: "white", backdropFilter: "blur(4px)", maxWidth: "55%" }}>{zone.afterNote}</span>
       </div>
 
       {/* Divider */}
@@ -115,7 +115,7 @@ function ComparisonSlider({ zone }: { zone: (typeof ZONES)[0] }) {
         style={{ left: `${pos}%`, width: 44, height: 44, background: "white", boxShadow: "0 4px 20px rgba(0,0,0,.25)", border: "2px solid rgba(255,255,255,.9)" }}
       >
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M7 10H13M7 10L4 7M7 10L4 13M13 10L16 7M13 10L16 13" stroke="#5F7C71" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M7 10H13M7 10L4 7M7 10L4 13M13 10L16 7M13 10L16 13" stroke="#2596be" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
 
@@ -142,7 +142,7 @@ export function BeforeAfterSection() {
         <div className="text-center mb-10">
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.16em] mb-5"
-            style={{ color: "#5F7C71", background: "rgba(95,124,113,.08)", border: "1px solid rgba(95,124,113,.18)" }}
+            style={{ color: "#2596be", background: "rgba(37,150,190,.08)", border: "1px solid rgba(37,150,190,.18)" }}
           >
             <ZoomIn className="w-3.5 h-3.5" />
             Resultados reales · Pacientes de Veracruz
@@ -152,7 +152,7 @@ export function BeforeAfterSection() {
             style={{ color: "#2B2B2B", fontSize: "clamp(1.75rem, 4vw, 2.75rem)" }}
           >
             Antes y después del{" "}
-            <span style={{ background: "linear-gradient(125deg, #5F7C71, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(125deg, #2596be, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Láser Diodo
             </span>
           </h2>
@@ -170,7 +170,7 @@ export function BeforeAfterSection() {
               className="text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200"
               style={
                 i === activeIdx
-                  ? { background: "#5F7C71", color: "white", boxShadow: "0 4px 14px rgba(95,124,113,.3)" }
+                  ? { background: "#2596be", color: "white", boxShadow: "0 4px 14px rgba(37,150,190,.3)" }
                   : { background: "white", color: "#6F6F6F", border: "1px solid #E7E3DC" }
               }
             >
@@ -190,7 +190,7 @@ export function BeforeAfterSection() {
               { label: "Duración tratam.", value: zone.duration },
             ].map(({ label, value }) => (
               <div key={label} className="text-center py-3" style={{ background: "white", border: "1px solid #E7E3DC", borderRadius: 14 }}>
-                <div className="font-display font-black text-lg" style={{ color: "#5F7C71" }}>{value}</div>
+                <div className="font-display font-black text-lg" style={{ color: "#2596be" }}>{value}</div>
                 <div className="text-xs mt-0.5" style={{ color: "#9A9A9A" }}>{label}</div>
               </div>
             ))}
@@ -205,7 +205,7 @@ export function BeforeAfterSection() {
           <Link
             href="/agendar"
             className="group inline-flex items-center gap-2.5 font-bold text-white px-9 py-4 transition-all duration-200 hover:-translate-y-0.5"
-            style={{ background: "#5F7C71", borderRadius: "18px", boxShadow: "0 0 35px rgba(95,124,113,.25)" }}
+            style={{ background: "#2596be", borderRadius: "18px", boxShadow: "0 0 35px rgba(37,150,190,.25)" }}
           >
             Quiero resultados así — Consulta gratis
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

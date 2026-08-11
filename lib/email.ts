@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+﻿import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const SAGE = "#5F7C71";
+const SAGE = "#2596be";
 const GOLD = "#C8A96A";
 const CREAM = "#FAFAF8";
 

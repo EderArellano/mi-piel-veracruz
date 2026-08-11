@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -116,14 +116,14 @@ export function ServicesSection() {
       <div className="section-container relative z-10">
         {/* Header */}
         <div className="svc-header text-center mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] mb-5" style={{ color: "#5F7C71" }}>
-            <span className="w-10 h-px" style={{ background: "rgba(95,124,113,.4)" }} />
+          <div className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] mb-5" style={{ color: "#2596be" }}>
+            <span className="w-10 h-px" style={{ background: "rgba(37,150,190,.4)" }} />
             Tratamientos disponibles
-            <span className="w-10 h-px" style={{ background: "rgba(95,124,113,.4)" }} />
+            <span className="w-10 h-px" style={{ background: "rgba(37,150,190,.4)" }} />
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight mb-4" style={{ color: "#2B2B2B" }}>
             Servicios de Depilación Láser y Estética en{" "}
-            <span style={{ background: "linear-gradient(135deg, #5F7C71, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(135deg, #2596be, #C8A96A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Veracruz
             </span>
           </h2>
@@ -206,12 +206,12 @@ export function ServicesSection() {
             href="/agendar"
             className="group inline-flex items-center gap-2.5 text-white font-bold text-base px-9 py-4 transition-all duration-200 hover:-translate-y-0.5"
             style={{
-              background: "#5F7C71",
+              background: "#2596be",
               borderRadius: "18px",
-              boxShadow: "0 0 35px rgba(95,124,113,.25)",
+              boxShadow: "0 0 35px rgba(37,150,190,.25)",
             }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#4D675E"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#5F7C71"; }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#1e7a9e"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#2596be"; }}
           >
             Agendar mi primera sesión — Es gratis
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

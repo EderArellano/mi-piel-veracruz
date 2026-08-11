@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 import Link from "next/link";
@@ -21,7 +21,7 @@ export default function AgendarError({
   return (
     <div style={{ background: "#FAFAF8", minHeight: "100vh" }}>
       {/* Top accent line */}
-      <div style={{ height: 3, background: "linear-gradient(90deg, #5F7C71, #C8A96A)" }} />
+      <div style={{ height: 3, background: "linear-gradient(90deg, #2596be, #C8A96A)" }} />
 
       <div className="flex flex-col items-center justify-center min-h-[90vh] text-center px-4 py-16">
 
@@ -35,13 +35,13 @@ export default function AgendarError({
             boxShadow: "0 8px 25px rgba(0,0,0,.06)",
           }}
         >
-          <Calendar className="w-9 h-9" style={{ color: "#5F7C71" }} />
+          <Calendar className="w-9 h-9" style={{ color: "#2596be" }} />
         </div>
 
         {/* Headline */}
         <div
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-5"
-          style={{ background: "rgba(95,124,113,.08)", color: "#5F7C71" }}
+          style={{ background: "rgba(37,150,190,.08)", color: "#2596be" }}
         >
           Problema al cargar el calendario
         </div>
@@ -88,7 +88,7 @@ export default function AgendarError({
             style={{
               background: "white",
               border: "1.5px solid #E7E3DC",
-              color: "#5F7C71",
+              color: "#2596be",
               borderRadius: "14px",
               cursor: "pointer",
               fontSize: "14px",
@@ -99,7 +99,7 @@ export default function AgendarError({
           </button>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 font-semibold px-6 py-3 transition-colors hover:text-[#5F7C71]"
+            className="inline-flex items-center gap-2 font-semibold px-6 py-3 transition-colors hover:text-[#2596be]"
             style={{
               border: "1px solid #E7E3DC",
               color: "#6F6F6F",
@@ -126,7 +126,7 @@ export default function AgendarError({
           </p>
           <a
             href="tel:+522299330014"
-            style={{ color: "#5F7C71", fontSize: "18px", fontWeight: 700, textDecoration: "none" }}
+            style={{ color: "#2596be", fontSize: "18px", fontWeight: 700, textDecoration: "none" }}
           >
             +52 229 933 0014
           </a>

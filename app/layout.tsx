@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#5F7C71",
+  themeColor: "#2596be",
   width: "device-width",
   initialScale: 1,
 };

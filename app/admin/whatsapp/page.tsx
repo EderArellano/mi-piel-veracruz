@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+﻿export const dynamic = "force-dynamic";
 
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
@@ -147,11 +147,11 @@ async function ConversationCard({
             >
               <div
                 className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${
-                  isAssistant ? "bg-[#5F7C71]/10" : "bg-[#E7E3DC]"
+                  isAssistant ? "bg-[#2596be]/10" : "bg-[#E7E3DC]"
                 }`}
               >
                 {isAssistant ? (
-                  <Bot className="w-3.5 h-3.5 text-[#5F7C71]" />
+                  <Bot className="w-3.5 h-3.5 text-[#2596be]" />
                 ) : (
                   <User className="w-3.5 h-3.5 text-[#6B6B6B]" />
                 )}
@@ -160,7 +160,7 @@ async function ConversationCard({
                 className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm ${
                   isAssistant
                     ? "bg-white border border-[#E7E3DC] text-[#2B2B2B] rounded-tl-sm"
-                    : "bg-[#5F7C71] text-white rounded-tr-sm"
+                    : "bg-[#2596be] text-white rounded-tr-sm"
                 }`}
               >
                 <p className="whitespace-pre-wrap">{m.content}</p>

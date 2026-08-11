@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { ShoppingBag, Star, ArrowRight } from "lucide-react";
@@ -24,7 +24,7 @@ export async function ProductsSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#5F7C71]/10 text-[#5F7C71] text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2596be]/10 text-[#2596be] text-sm font-medium mb-4">
             <ShoppingBag className="w-3.5 h-3.5" />
             Tienda
           </div>
@@ -59,7 +59,7 @@ export async function ProductsSection() {
                   </div>
                 )}
                 {p.comparePrice && p.comparePrice > p.price && (
-                  <div className="absolute top-3 left-3 bg-[#5F7C71] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                  <div className="absolute top-3 left-3 bg-[#2596be] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
                     -{Math.round(((p.comparePrice - p.price) / p.comparePrice) * 100)}%
                   </div>
                 )}
@@ -67,8 +67,8 @@ export async function ProductsSection() {
 
               {/* Info */}
               <div className="p-5">
-                <p className="text-xs text-[#5F7C71] font-medium uppercase tracking-wider mb-1">{p.brand ?? p.category}</p>
-                <h3 className="font-display font-semibold text-[#2B2B2B] text-base leading-snug mb-2 group-hover:text-[#5F7C71] transition-colors line-clamp-2">
+                <p className="text-xs text-[#2596be] font-medium uppercase tracking-wider mb-1">{p.brand ?? p.category}</p>
+                <h3 className="font-display font-semibold text-[#2B2B2B] text-base leading-snug mb-2 group-hover:text-[#2596be] transition-colors line-clamp-2">
                   {p.name}
                 </h3>
                 {p.shortDesc && (
@@ -96,7 +96,7 @@ export async function ProductsSection() {
         <div className="text-center">
           <Link
             href="/productos"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#5F7C71] text-white font-semibold hover:bg-[#4d6860] transition-colors shadow-[0_4px_14px_rgba(95,124,113,.35)]"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#2596be] text-white font-semibold hover:bg-[#4d6860] transition-colors shadow-[0_4px_14px_rgba(37,150,190,.35)]"
           >
             Ver todos los productos
             <ArrowRight className="w-4 h-4" />

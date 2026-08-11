@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
@@ -61,12 +61,12 @@ export default async function ProductosPage({ searchParams }: Props) {
       {/* Hero */}
       <section className="pt-28 pb-12 bg-[#FAFAF8]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#5F7C71]/10 text-[#5F7C71] text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2596be]/10 text-[#2596be] text-sm font-medium mb-4">
             <ShoppingBag className="w-3.5 h-3.5" />
             Tienda
           </div>
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-[#2B2B2B] mb-4">
-            Productos <span className="text-[#5F7C71]">recomendados</span>
+            Productos <span className="text-[#2596be]">recomendados</span>
           </h1>
           <p className="text-[#6B6B6B] max-w-xl mx-auto text-lg">
             Selección profesional para complementar y mantener los resultados de tus tratamientos.
@@ -81,7 +81,7 @@ export default async function ProductosPage({ searchParams }: Props) {
           <Link
             href="/productos"
             className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-              !category ? "bg-[#5F7C71] text-white" : "bg-[#F4F2EE] text-[#6B6B6B] hover:bg-[#E7E3DC]"
+              !category ? "bg-[#2596be] text-white" : "bg-[#F4F2EE] text-[#6B6B6B] hover:bg-[#E7E3DC]"
             }`}
           >
             Todos
@@ -92,7 +92,7 @@ export default async function ProductosPage({ searchParams }: Props) {
               href={`/productos?categoria=${cat}`}
               className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
                 category === cat
-                  ? "bg-[#5F7C71] text-white"
+                  ? "bg-[#2596be] text-white"
                   : "bg-[#F4F2EE] text-[#6B6B6B] hover:bg-[#E7E3DC]"
               }`}
             >
@@ -136,7 +136,7 @@ export default async function ProductosPage({ searchParams }: Props) {
                       </div>
                     )}
                     {p.comparePrice && p.comparePrice > p.price && (
-                      <div className="absolute top-3 left-3 bg-[#5F7C71] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                      <div className="absolute top-3 left-3 bg-[#2596be] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
                         -{Math.round(((p.comparePrice - p.price) / p.comparePrice) * 100)}%
                       </div>
                     )}
@@ -149,10 +149,10 @@ export default async function ProductosPage({ searchParams }: Props) {
 
                   {/* Info */}
                   <div className="p-4">
-                    <p className="text-xs text-[#5F7C71] font-medium uppercase tracking-wider mb-1">
+                    <p className="text-xs text-[#2596be] font-medium uppercase tracking-wider mb-1">
                       {p.brand ?? CATEGORY_LABELS[p.category]}
                     </p>
-                    <h3 className="font-display font-semibold text-[#2B2B2B] text-sm leading-snug mb-1.5 group-hover:text-[#5F7C71] transition-colors line-clamp-2">
+                    <h3 className="font-display font-semibold text-[#2B2B2B] text-sm leading-snug mb-1.5 group-hover:text-[#2596be] transition-colors line-clamp-2">
                       {p.name}
                     </h3>
                     {p.shortDesc && (
@@ -178,7 +178,7 @@ export default async function ProductosPage({ searchParams }: Props) {
       </section>
 
       {/* CTA banner */}
-      <section className="py-14 bg-gradient-to-r from-[#5F7C71] to-[#4d6860]">
+      <section className="py-14 bg-gradient-to-r from-[#2596be] to-[#4d6860]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-3">
             ¿No sabes qué producto elegir?
@@ -190,7 +190,7 @@ export default async function ProductosPage({ searchParams }: Props) {
             href="https://wa.me/522291234567?text=Hola%2C%20me%20gustar%C3%ADa%20que%20me%20recomienden%20productos%20para%20mi%20piel"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-white text-[#5F7C71] font-semibold hover:bg-[#F4F2EE] transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-white text-[#2596be] font-semibold hover:bg-[#F4F2EE] transition-colors"
           >
             Habla con un especialista
           </a>
