@@ -8,44 +8,76 @@ interface MiPielLogoProps {
 }
 
 export function MiPielLogo({
-  size = 38,
+  size = 40,
   showText = true,
   showTagline = false,
   className = "",
 }: MiPielLogoProps) {
-  const h = Math.round(size * 1.15);
+  const h = Math.round(size * 50 / 44);
 
   return (
-    <div className={`flex items-center gap-2.5 ${className}`}>
-      {/* Hexagon mark */}
+    <div className={`flex items-center gap-3 ${className}`}>
+      {/* Icon mark */}
       <svg width={size} height={h} viewBox="0 0 44 50" fill="none" aria-hidden>
-        {/* Hexagon outline — flat sides top/bottom, points left/right */}
+        {/* Hexagon — pointy top, thick rounded stroke, sky blue */}
         <path
-          d="M22 2 L41.05 12.5 L41.05 37.5 L22 48 L2.95 37.5 L2.95 12.5 Z"
+          d="M22 2.5 L40.5 13 L40.5 37 L22 47.5 L3.5 37 L3.5 13 Z"
           stroke="#2596be"
-          strokeWidth="2.8"
-          fill="none"
+          strokeWidth="3.8"
           strokeLinejoin="round"
+          strokeLinecap="round"
+          fill="none"
         />
-        {/* Water drop / teardrop mark centered inside hex */}
+
+        {/* Heart outline — gray blue, stroke only */}
         <path
-          d="M22 13 C22 13 13.5 21 13.5 28 C13.5 32.7 17.3 36.5 22 36.5 C26.7 36.5 30.5 32.7 30.5 28 C30.5 21 22 13 22 13 Z"
-          fill="#94a3b8"
+          d="M22 37
+             C 11 29.5 5 20.5 9.5 14
+             C 12 9.5 17.5 9.5 22 16
+             C 26.5 9.5 32 9.5 34.5 14
+             C 39 20.5 33 29.5 22 37 Z"
+          stroke="#8BB0C0"
+          strokeWidth="2"
+          strokeLinejoin="round"
+          fill="none"
         />
-        {/* Highlight inside drop */}
-        <ellipse cx="19" cy="24" rx="2.2" ry="3.5" fill="white" opacity="0.45" />
+
+        {/* Water drop — centered inside heart, outline only */}
+        <path
+          d="M22 16
+             C 22 16 15.5 22.5 15.5 28
+             C 15.5 31.6 18.4 34.5 22 34.5
+             C 25.6 34.5 28.5 31.6 28.5 28
+             C 28.5 22.5 22 16 22 16 Z"
+          stroke="#8BB0C0"
+          strokeWidth="2"
+          fill="none"
+        />
       </svg>
 
       {showText && (
-        <div className="leading-none">
-          <div className="font-display text-[1.1rem] tracking-tight">
-            <span style={{ color: "#4B5563", fontWeight: 300 }}>Mi</span>
-            <span style={{ color: "#2596be", fontWeight: 700 }}>Piel</span>
+        <div className="leading-none select-none">
+          {/* Wordmark: Mi (gray) + Piel (blue) */}
+          <div
+            style={{
+              fontSize: Math.round(size * 0.78),
+              lineHeight: 1,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            <span style={{ color: "#8BB0C0", fontWeight: 300, fontFamily: "inherit" }}>Mi</span>
+            <span style={{ color: "#2596be", fontWeight: 700, fontFamily: "inherit" }}>Piel</span>
           </div>
           {showTagline && (
             <div
-              className="text-[0.55rem] uppercase tracking-[0.18em] mt-0.5"
-              style={{ color: "#9CA3AF" }}
+              style={{
+                color: "#9EB3C0",
+                fontSize: Math.round(size * 0.19),
+                letterSpacing: "0.2em",
+                textTransform: "uppercase" as const,
+                marginTop: 3,
+                fontWeight: 400,
+              }}
             >
               Centro Dermocosmético
             </div>

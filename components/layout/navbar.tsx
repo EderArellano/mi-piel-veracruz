@@ -58,7 +58,7 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="shrink-0">
-            <MiPielLogo size={34} showText showTagline />
+            <MiPielLogo size={42} showText showTagline />
           </Link>
 
           {/* Desktop nav */}

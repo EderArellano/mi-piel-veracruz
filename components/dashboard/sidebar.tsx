@@ -49,7 +49,7 @@ export function DashboardSidebar({ role }: SidebarProps) {
     <aside className="hidden lg:flex w-64 flex-col bg-white border-r border-border/50 shrink-0">
       {/* Logo */}
       <div className="flex items-center px-5 h-16 border-b border-border/50">
-        <MiPielLogo size={30} showText showTagline />
+        <MiPielLogo size={36} showText showTagline />
       </div>
 
       {/* Nav */}
