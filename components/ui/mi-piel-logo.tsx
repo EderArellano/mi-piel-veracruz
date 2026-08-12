@@ -14,25 +14,24 @@ export function MiPielLogo({
   className = "",
 }: MiPielLogoProps) {
   /*
-    ViewBox 100×110. Hex center (50, 52), outer radius 44.
-    POINTY-TOP orientation: single vertex at top and bottom.
-    Vertices (R=44, center 50,52):
-      Top         (50, 8)
-      Top-right   (88, 30)
-      Bottom-right(88, 74)
-      Bottom      (50, 96)
-      Bottom-left (12, 74)
-      Top-left    (12, 30)
+    ViewBox 100×100 (square). Flat-top hexagon, center (50,50), R=42.
+    Flat edges at top and bottom; vertices on left and right.
+    Vertices (clockwise from top-right):
+      (71,14) (92,50) (71,86) (29,86) (8,50) (29,14)
+    Width=84, Height=72 — wider than tall, matches the Mi Piel logo.
+
+    Heart: single continuous stroke, self-intersects at (50,42).
+    All control points exactly mirrored around x=50.
+    Drop tip at (50,62), width ≈16 units.
   */
-  const h = Math.round((size * 110) / 100);
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <svg width={size} height={h} viewBox="0 0 100 110" fill="none" aria-hidden>
+      <svg width={size} height={size} viewBox="0 0 100 100" fill="none" aria-hidden>
 
-        {/* Hexagon — pointy-top, thick rounded stroke, sky blue */}
+        {/* Hexagon — flat-top, thick rounded stroke, sky blue */}
         <path
-          d="M50,8 L88,30 L88,74 L50,96 L12,74 L12,30 Z"
+          d="M71,14 L92,50 L71,86 L29,86 L8,50 L29,14 Z"
           stroke="#2596be"
           strokeWidth="5.5"
           strokeLinejoin="round"
@@ -41,22 +40,21 @@ export function MiPielLogo({
         />
 
         {/*
-          Single continuous stroke: heart that self-intersects at (50,44),
-          forming a closed drop shape between the two passes.
-          All control points are exact mirrors around x=50 for uniform lobes.
-          Drop width ≈16 units, tip at (50,64).
+          Heart — single continuous stroke that self-intersects at (50,42),
+          enclosing a drop shape between the two passes through that point.
+          Perfectly symmetric: every CP mirrored around x=50.
         */}
         <path
           d="
-            M50,84
-            C36,76 14,62 19,48
-            C21,37 30,30 42,35
-            C45,37 48,41 50,44
-            C54,47 58,55 50,64
-            C42,55 46,47 50,44
-            C52,41 55,37 58,35
-            C70,30 79,37 81,48
-            C86,62 64,76 50,84 Z
+            M50,82
+            C36,74 14,60 19,46
+            C21,35 30,28 42,33
+            C45,35 48,39 50,42
+            C54,45 58,53 50,62
+            C42,53 46,45 50,42
+            C52,39 55,35 58,33
+            C70,28 79,35 81,46
+            C86,60 64,74 50,82 Z
           "
           stroke="#9BB5C0"
           strokeWidth="2.6"
@@ -69,10 +67,6 @@ export function MiPielLogo({
 
       {showText && (
         <div className="leading-none select-none">
-          {/*
-            Wordmark: same visual weight, color only distinguishes Mi vs Piel.
-            Mi = light gray-blue (300), Piel = brand blue (400, not bold).
-          */}
           <div
             style={{
               fontSize: Math.round(size * 0.78),
