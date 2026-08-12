@@ -14,15 +14,17 @@ export function MiPielLogo({
   className = "",
 }: MiPielLogoProps) {
   /*
-    ViewBox 100×100 (square). Flat-top hexagon, center (50,50), R=42.
-    Flat edges at top and bottom; vertices on left and right.
-    Vertices (clockwise from top-right):
-      (71,14) (92,50) (71,86) (29,86) (8,50) (29,14)
-    Width=84, Height=72 — wider than tall, matches the Mi Piel logo.
+    ViewBox 100×100. Flat-top hexagon, center (50,50), R=42.
+    Vertices: (71,14)(92,50)(71,86)(29,86)(8,50)(29,14)
+    Width=84 > Height=72 — wider than tall, matches the Mi Piel logo.
 
-    Heart: single continuous stroke, self-intersects at (50,42).
+    Heart: single continuous stroke, self-intersects at (50,38).
+    Fills the hex interior to match the original logo proportions:
+      Bottom (50,84) ≈ 2px above hex bottom (y=86)
+      Outer  (15,45) ≈ at the hex left edge
+      Lobes  CP y=20 ≈ near hex top edge (y=14)
     All control points exactly mirrored around x=50.
-    Drop tip at (50,62), width ≈16 units.
+    Drop tip at (50,60).
   */
 
   return (
@@ -40,24 +42,24 @@ export function MiPielLogo({
         />
 
         {/*
-          Heart — single continuous stroke that self-intersects at (50,42),
-          enclosing a drop shape between the two passes through that point.
-          Perfectly symmetric: every CP mirrored around x=50.
+          Heart — single continuous stroke, self-intersects at (50,38),
+          enclosing a drop shape (tip at 50,60). Fills the hex interior
+          like the original logo. All CPs mirrored exactly around x=50.
         */}
         <path
           d="
-            M50,82
-            C36,74 14,60 19,46
-            C21,35 30,28 42,33
-            C45,35 48,39 50,42
-            C54,45 58,53 50,62
-            C42,53 46,45 50,42
-            C52,39 55,35 58,33
-            C70,28 79,35 81,46
-            C86,60 64,74 50,82 Z
+            M50,84
+            C34,76 10,60 15,45
+            C16,32 30,20 40,26
+            C44,28 48,35 50,38
+            C54,41 58,50 50,60
+            C42,50 46,41 50,38
+            C52,35 56,28 60,26
+            C70,20 84,32 85,45
+            C90,60 66,76 50,84 Z
           "
           stroke="#9BB5C0"
-          strokeWidth="2.6"
+          strokeWidth="2.4"
           strokeLinejoin="round"
           strokeLinecap="round"
           fill="none"
